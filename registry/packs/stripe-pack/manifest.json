@@ -1,0 +1,19 @@
+{
+  "id": "stripe-pack",
+  "slug": "stripe-pack",
+  "title": "Stripe Pricing Section",
+  "description": "A polished pricing section inspired by Stripe's design. Features clean typography, subtle animations, and a professional layout.",
+  "tags": ["stripe", "pricing", "clean", "professional", "saas"],
+  "framework": "react",
+  "category": "saas",
+  "screenshots": ["/screenshots/stripe-pack.png"],
+  "files": [],
+  "dependencies": ["react", "vite", "tailwindcss", "framer-motion"],
+  "installCommand": "npm create vite@latest --template react",
+  "sourceUrl": "https://stripe.com/pricing",
+  "githubUrl": "https://github.com/stripe",
+  "license": "MIT",
+  "author": { "name": "Stripe", "url": "https://stripe.com" },
+  "featured": true,
+  "createdAt": "2024-02-15"
+}

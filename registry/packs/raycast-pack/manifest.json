@@ -1,0 +1,19 @@
+{
+  "id": "raycast-pack",
+  "slug": "raycast-pack",
+  "title": "Raycast Landing Page",
+  "description": "A sleek, dark-themed landing page inspired by Raycast. Features glassmorphism, smooth transitions, and a command palette aesthetic.",
+  "tags": ["raycast", "dark", "glassmorphism", "minimal", "productivity"],
+  "framework": "react",
+  "category": "landing",
+  "screenshots": ["/screenshots/raycast-pack.png"],
+  "files": [],
+  "dependencies": ["react", "vite", "tailwindcss", "framer-motion"],
+  "installCommand": "npm create vite@latest --template react",
+  "sourceUrl": "https://raycast.com",
+  "githubUrl": "https://github.com/raycast/extensions",
+  "license": "MIT",
+  "author": { "name": "Raycast", "url": "https://raycast.com" },
+  "featured": true,
+  "createdAt": "2024-02-05"
+}

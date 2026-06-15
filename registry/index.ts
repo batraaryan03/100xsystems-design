@@ -1,54 +1,28 @@
 import type { Pack, Collection } from "@/application/packs/packs.types";
 
+import linearPack from "./packs/linear-pack/manifest.json";
+import raycastPack from "./packs/raycast-pack/manifest.json";
+import stripePack from "./packs/stripe-pack/manifest.json";
+import framerPack from "./packs/framer-pack/manifest.json";
+import vercelPack from "./packs/vercel-pack/manifest.json";
+import aceternityPack from "./packs/aceternity-pack/manifest.json";
+import saasDark from "./packs/saas-dark/manifest.json";
+import agencyMinimal from "./packs/agency-minimal/manifest.json";
+import modernSaas from "./collections/modern-saas.json";
+
 export const packs: Pack[] = [
-  {
-    id: "1",
-    slug: "minimal-saas",
-    title: "Minimal SaaS",
-    description: "A clean, minimal SaaS landing page with modern design",
-    tags: ["minimal", "saas", "landing", "modern"],
-    framework: "nextjs",
-    category: "saas",
-    screenshots: ["/screenshots/minimal-saas.png"],
-    files: [],
-    dependencies: ["next", "react", "tailwindcss"],
-    installCommand: "npx create-next-app@latest --tailwind",
-    sourceUrl: "https://github.com/example/minimal-saas",
-    githubUrl: "https://github.com/example/minimal-saas",
-    license: "MIT",
-    author: { name: "DesignX Team" },
-    featured: true,
-    createdAt: "2024-01-15",
-  },
-  {
-    id: "2",
-    slug: "portfolio-dark",
-    title: "Dark Portfolio",
-    description: "A dark-themed portfolio template for developers",
-    tags: ["dark", "portfolio", "developer", "minimal"],
-    framework: "react",
-    category: "portfolio",
-    screenshots: ["/screenshots/portfolio-dark.png"],
-    files: [],
-    dependencies: ["react", "vite", "tailwindcss"],
-    installCommand: "npm create vite@latest --template react",
-    sourceUrl: "https://github.com/example/portfolio-dark",
-    githubUrl: "https://github.com/example/portfolio-dark",
-    license: "MIT",
-    author: { name: "DesignX Team" },
-    featured: false,
-    createdAt: "2024-02-10",
-  },
+  linearPack as Pack,
+  raycastPack as Pack,
+  stripePack as Pack,
+  framerPack as Pack,
+  vercelPack as Pack,
+  aceternityPack as Pack,
+  saasDark as Pack,
+  agencyMinimal as Pack,
 ];
 
 export const collections: Collection[] = [
-  {
-    id: "1",
-    slug: "modern-landing",
-    title: "Modern Landing Pages",
-    description: "A collection of modern landing page designs",
-    packSlugs: ["minimal-saas"],
-  },
+  modernSaas as Collection,
 ];
 
 export function getPackBySlug(slug: string): Pack | undefined {

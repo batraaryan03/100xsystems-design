@@ -1,0 +1,7 @@
+{
+  "id": "modern-saas",
+  "slug": "modern-saas",
+  "title": "Modern SaaS",
+  "description": "A curated collection of modern SaaS templates and landing pages for building professional software products.",
+  "packSlugs": ["linear-pack", "raycast-pack", "stripe-pack", "aceternity-pack", "saas-dark"]
+}

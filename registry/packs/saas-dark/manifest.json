@@ -1,0 +1,19 @@
+{
+  "id": "saas-dark",
+  "slug": "saas-dark",
+  "title": "Dark SaaS Template",
+  "description": "A complete dark-themed SaaS template with modern design patterns, gradient accents, and professional typography.",
+  "tags": ["dark", "saas", "template", "gradient", "professional"],
+  "framework": "nextjs",
+  "category": "saas",
+  "screenshots": ["/screenshots/saas-dark.png"],
+  "files": [],
+  "dependencies": ["next", "react", "tailwindcss"],
+  "installCommand": "npx create-next-app@latest --tailwind",
+  "sourceUrl": "https://github.com/100xsystems/design",
+  "githubUrl": "https://github.com/100xsystems/design",
+  "license": "MIT",
+  "author": { "name": "100x Systems", "url": "https://github.com/100xsystems" },
+  "featured": false,
+  "createdAt": "2024-03-20"
+}
