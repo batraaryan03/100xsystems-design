@@ -7,7 +7,7 @@ import { SectionRule, PageHeader } from "@/presentation/_components/components.l
 import { CoralDot } from "@/presentation/_components/components.atomic";
 
 export function HomeFeature() {
-  const { packs, featured } = usePacks();
+  const { packs, featured, frameworks } = usePacks();
 
   return (
     <div>
@@ -37,16 +37,16 @@ export function HomeFeature() {
           </div>
           <div style={{ display: "flex", gap: "22px", alignItems: "center" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "9px" }}>
-              <span className="stat-ring coral">8</span>
+              <span className="stat-ring coral">{packs.length}</span>
               <span style={{ fontFamily: "var(--sans)", fontSize: "11px", color: "var(--ink-soft)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
-                <b style={{ display: "block", fontWeight: 700, color: "var(--ink)", fontSize: "12px" }}>8</b>
+                <b style={{ display: "block", fontWeight: 700, color: "var(--ink)", fontSize: "12px" }}>{packs.length}</b>
                 Skills
               </span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "9px" }}>
-              <span className="stat-ring">3</span>
+              <span className="stat-ring">{frameworks.length}</span>
               <span style={{ fontFamily: "var(--sans)", fontSize: "11px", color: "var(--ink-soft)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
-                <b style={{ display: "block", fontWeight: 700, color: "var(--ink)", fontSize: "12px" }}>3</b>
+                <b style={{ display: "block", fontWeight: 700, color: "var(--ink)", fontSize: "12px" }}>{frameworks.length}</b>
                 Frameworks
               </span>
             </div>

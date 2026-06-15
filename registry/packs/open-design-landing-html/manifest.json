@@ -1,0 +1,29 @@
+{
+  "id": "open-design-landing-html",
+  "slug": "open-design-landing-html",
+  "title": "Open Design Landing",
+  "description": "Single-file editorial landing page. All CSS inlined. Drop one file, get a full page with warm paper aesthetic, coral accents, and editorial typography.",
+  "tags": ["editorial", "landing", "single-file", "atelier-zero", "warm", "coral"],
+  "framework": "html",
+  "category": "landing",
+  "screenshots": [],
+  "files": [
+    {
+      "path": "index.html",
+      "content": "",
+      "type": "component"
+    }
+  ],
+  "dependencies": [],
+  "installCommand": "Copy index.html into your project",
+  "sourceUrl": "https://opendesigner.io",
+  "githubUrl": "https://github.com/nexu-io/open-design",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Open Design",
+    "url": "https://opendesigner.io",
+    "github": "nexu-io"
+  },
+  "featured": true,
+  "createdAt": "2026-01-15"
+}

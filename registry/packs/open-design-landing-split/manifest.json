@@ -1,0 +1,34 @@
+{
+  "id": "open-design-landing-split",
+  "slug": "open-design-landing-split",
+  "title": "Open Design Landing (Split)",
+  "description": "Editorial landing page with separated HTML and CSS files. Clean markup with external stylesheet for easy customization.",
+  "tags": ["editorial", "landing", "split", "atelier-zero", "warm", "coral", "css"],
+  "framework": "html",
+  "category": "landing",
+  "screenshots": [],
+  "files": [
+    {
+      "path": "index.html",
+      "content": "",
+      "type": "component"
+    },
+    {
+      "path": "styles.css",
+      "content": "",
+      "type": "style"
+    }
+  ],
+  "dependencies": [],
+  "installCommand": "Copy index.html and styles.css into your project",
+  "sourceUrl": "https://opendesigner.io",
+  "githubUrl": "https://github.com/nexu-io/open-design",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Open Design",
+    "url": "https://opendesigner.io",
+    "github": "nexu-io"
+  },
+  "featured": false,
+  "createdAt": "2026-01-15"
+}

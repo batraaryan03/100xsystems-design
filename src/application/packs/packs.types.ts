@@ -1,4 +1,4 @@
-export type PackFramework = "nextjs" | "react" | "threejs" | "vue";
+export type PackFramework = "html" | "react" | "nextjs" | "vue";
 
 export type PackCategory = "landing" | "saas" | "portfolio" | "dashboard" | "agency" | "3d";
 
@@ -32,6 +32,7 @@ export type Pack = {
   author: PackAuthor;
   featured: boolean;
   createdAt: string;
+  htmlContent?: string;
 };
 
 export type Collection = {

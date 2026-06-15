@@ -1,0 +1,29 @@
+{
+  "id": "open-design-landing-react",
+  "slug": "open-design-landing-react",
+  "title": "Open Design Landing (React)",
+  "description": "React component version of the Open Design landing page. Use in Next.js or any React project with the Atelier Zero design system.",
+  "tags": ["editorial", "landing", "react", "nextjs", "atelier-zero", "warm", "coral"],
+  "framework": "react",
+  "category": "landing",
+  "screenshots": [],
+  "files": [
+    {
+      "path": "OpenDesignLanding.tsx",
+      "content": "",
+      "type": "component"
+    }
+  ],
+  "dependencies": ["next", "react"],
+  "installCommand": "Copy OpenDesignLanding.tsx into your components folder",
+  "sourceUrl": "https://opendesigner.io",
+  "githubUrl": "https://github.com/nexu-io/open-design",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Open Design",
+    "url": "https://opendesigner.io",
+    "github": "nexu-io"
+  },
+  "featured": true,
+  "createdAt": "2026-01-15"
+}

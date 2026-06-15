@@ -12,9 +12,9 @@ export function Topbar() {
             <b>Design Skills</b> · Vol. 01
           </span>
           <span className="mid">
-            <span>Filed under: <span className="coral">Design · Registry</span></span>
+            <span>A <span className="coral">100X Systems</span> product</span>
             <span>·</span>
-            <span>217 droppable skill bundles</span>
+            <span>Open-source website designs</span>
           </span>
           <span className="right">
             <span>v0.1.0 / MIT</span>
@@ -42,6 +42,20 @@ export function Navbar() {
           </nav>
 
           <div className="nav-side">
+            <a
+              href="https://100xsystems.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "var(--sans)",
+                fontSize: "12px",
+                color: "var(--ink-faint)",
+                textDecoration: "none",
+                letterSpacing: "0.04em",
+              }}
+            >
+              100X Systems
+            </a>
             <a
               href="https://github.com/100xsystems/design-skills"
               target="_blank"
@@ -115,6 +129,12 @@ export function Footer() {
               A curated registry of open-source website designs. Install them as code.
               Own them locally. Let AI consume from your codebase.
             </p>
+            <p style={{ marginTop: "12px", fontSize: "12px", color: "var(--ink-faint)" }}>
+              A sub-brand of{" "}
+              <a href="https://100xsystems.dev" target="_blank" rel="noopener noreferrer" style={{ color: "var(--coral)", textDecoration: "none" }}>
+                100X Systems
+              </a>
+            </p>
           </div>
           <div className="foot-col">
             <h5>Registry</h5>
@@ -122,31 +142,28 @@ export function Footer() {
               <li><Link href="/packs">All Skills</Link></li>
               <li><Link href="/collections">Collections</Link></li>
               <li><Link href="/packs?category=landing">Landing Pages</Link></li>
-              <li><Link href="/packs?category=saas">SaaS</Link></li>
             </ul>
           </div>
           <div className="foot-col">
             <h5>Frameworks</h5>
             <ul>
-              <li><Link href="/packs?framework=nextjs">Next.js</Link></li>
+              <li><Link href="/packs?framework=html">HTML</Link></li>
               <li><Link href="/packs?framework=react">React</Link></li>
-              <li><Link href="/packs?framework=threejs">Three.js</Link></li>
-              <li><Link href="/packs?framework=vue">Vue</Link></li>
+              <li><Link href="/packs?framework=nextjs">Next.js</Link></li>
             </ul>
           </div>
           <div className="foot-col">
             <h5>Connect</h5>
             <ul>
               <li><a href="https://github.com/100xsystems/design-skills" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://github.com/100xsystems/design-skills/issues" target="_blank" rel="noopener noreferrer">Issues</a></li>
+              <li><a href="https://100xsystems.dev" target="_blank" rel="noopener noreferrer">100X Systems</a></li>
               <li><Link href="/about">About</Link></li>
             </ul>
           </div>
           <div className="foot-col">
-            <h5>Docs</h5>
+            <h5>Admin</h5>
             <ul>
-              <li><Link href="/about">Quickstart</Link></li>
-              <li><Link href="/about">Architecture</Link></li>
+              <li><Link href="/admin">Dashboard</Link></li>
               <li><Link href="/about">Contributing</Link></li>
             </ul>
           </div>
@@ -157,7 +174,7 @@ export function Footer() {
             <b>Design Skills</b> · MIT · 2026 / Vol. 01
           </span>
           <span className="right">
-            <span>Open Source</span>
+            <span>A 100X Systems product</span>
           </span>
         </div>
         <div className="foot-mega">

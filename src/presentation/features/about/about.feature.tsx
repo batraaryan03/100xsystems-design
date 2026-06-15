@@ -58,13 +58,25 @@ export function AboutFeature() {
                 </div>
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: "20px", marginTop: "56px", color: "var(--ink-faint)", fontFamily: "var(--sans)", fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" }}>
-                <span style={{ width: "30px", height: "30px", borderRadius: "50%", border: "1px solid var(--ink)", display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "14px", color: "var(--ink)" }}>
-                  DS
-                </span>
-                <span>
-                  Built by <span style={{ color: "var(--ink)" }}>100xsystems</span>
-                </span>
+              <div style={{ borderTop: "1px solid var(--line)", paddingTop: "32px", marginTop: "40px" }}>
+                <h3 style={{ fontFamily: "var(--sans)", fontSize: "14px", fontWeight: 600, color: "var(--ink-mute)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "16px" }}>
+                  A 100X Systems Product
+                </h3>
+                <p style={{ fontFamily: "var(--body)", fontSize: "14px", color: "var(--ink-mute)", lineHeight: 1.6, maxWidth: "42ch" }}>
+                  Design Skills is a sub-brand of{" "}
+                  <a href="https://100xsystems.dev" target="_blank" rel="noopener noreferrer" style={{ color: "var(--coral)", textDecoration: "none" }}>
+                    100X Systems
+                  </a>
+                  , building tools for modern software engineering.
+                </p>
+                <div style={{ display: "flex", alignItems: "center", gap: "20px", marginTop: "24px", color: "var(--ink-faint)", fontFamily: "var(--sans)", fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" }}>
+                  <span style={{ width: "30px", height: "30px", borderRadius: "50%", border: "1px solid var(--ink)", display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "14px", color: "var(--ink)" }}>
+                    100X
+                  </span>
+                  <span>
+                    Built by <span style={{ color: "var(--ink)" }}>100X Systems</span>
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -77,13 +89,27 @@ export function AboutFeature() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontFamily: "var(--serif)",
-                fontStyle: "italic",
-                fontSize: "120px",
-                color: "var(--ink-faint)",
-                opacity: 0.3,
+                flexDirection: "column",
+                gap: "16px",
               }}>
-                DS
+                <span style={{
+                  fontFamily: "var(--serif)",
+                  fontStyle: "italic",
+                  fontSize: "80px",
+                  color: "var(--ink-faint)",
+                  opacity: 0.3,
+                }}>
+                  DS
+                </span>
+                <span style={{
+                  fontFamily: "var(--sans)",
+                  fontSize: "12px",
+                  color: "var(--ink-faint)",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                }}>
+                  A 100X Systems Product
+                </span>
               </div>
             </div>
           </div>
