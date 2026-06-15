@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { RegistryService } from "@/infrastructure/registry/registry.service";
-import type { Pack, PackCategory, PackFramework } from "./packs.types";
+import type { Pack, PackCategory, PackFramework, Collection } from "./packs.types";
 
 export function usePacks(): {
   packs: Pack[];
@@ -40,4 +40,18 @@ export function usePacksByFramework(framework: PackFramework): Pack[] {
     () => RegistryService.getPacksByFramework(framework),
     [framework]
   );
+}
+
+export type CollectionWithPacks = Collection & { packs: Pack[] };
+
+export function useCollections(): { collections: CollectionWithPacks[] } {
+  const collections = useMemo(() => {
+    const all = RegistryService.getAllCollections();
+    return all.map((collection) => ({
+      ...collection,
+      packs: RegistryService.getPacksForCollection(collection.slug),
+    }));
+  }, []);
+
+  return { collections };
 }
