@@ -16,7 +16,7 @@
         }
       ],
       "dependencies": [],
-      "installCommand": "cp index.html into your project",
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/open-design-landing-html",
       "license": "Apache-2.0",
       "author": {
         "name": "Open Design"
@@ -45,7 +45,7 @@
         }
       ],
       "dependencies": [],
-      "installCommand": "cp index.html styles.css into your project",
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/open-design-landing-split",
       "license": "Apache-2.0",
       "author": {
         "name": "Open Design"
@@ -70,7 +70,7 @@
         }
       ],
       "dependencies": ["next", "react"],
-      "installCommand": "cp OpenDesignLanding.tsx into your components folder",
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/open-design-landing-react",
       "license": "Apache-2.0",
       "author": {
         "name": "Open Design"
@@ -95,7 +95,7 @@
         }
       ],
       "dependencies": [],
-      "installCommand": "Copy index.html into your project",
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/modern-saas-landing",
       "license": "MIT",
       "author": {
         "name": "100X Systems"
@@ -119,7 +119,7 @@
         }
       ],
       "dependencies": [],
-      "installCommand": "Copy index.html into your project",
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/portfolio-minimal",
       "license": "MIT",
       "author": {
         "name": "100X Systems"
@@ -143,7 +143,7 @@
         }
       ],
       "dependencies": [],
-      "installCommand": "Copy index.html into your project",
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/agency-studio",
       "license": "MIT",
       "author": {
         "name": "100X Systems"
