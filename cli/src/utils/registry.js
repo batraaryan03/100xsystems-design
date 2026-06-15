@@ -1,7 +1,15 @@
-const REGISTRY_BASE = "https://raw.githubusercontent.com/100xsystems/design-skills/main/public/registry";
+const path = require("path");
+const fs = require("fs");
+
+const REGISTRY_BASE = process.env.DESIGN_SKILLS_REGISTRY || "https://raw.githubusercontent.com/100xsystems/design-skills/main/public/registry";
 
 async function fetchRegistry() {
-  const res = await fetch(`${REGISTRY_BASE}/data.json`);
+  // Support local file path (for development)
+  if (REGISTRY_BASE.startsWith("/")) {
+    const content = fs.readFileSync(REGISTRY_BASE, "utf-8");
+    return JSON.parse(content);
+  }
+  const res = await fetch(REGISTRY_BASE);
   if (!res.ok) throw new Error(`Failed to fetch registry: ${res.status}`);
   return res.json();
 }
@@ -18,6 +26,11 @@ async function getAllPacks() {
 
 async function fetchPackFile(slug, filePath) {
   const url = `${REGISTRY_BASE}/packs/${slug}/${filePath}`;
+  // Support local file path (for development)
+  if (REGISTRY_BASE.startsWith("/")) {
+    const localPath = path.join(path.dirname(REGISTRY_BASE), "packs", slug, filePath);
+    return fs.readFileSync(localPath, "utf-8");
+  }
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Failed to fetch ${filePath}: ${res.status}`);
   return res.text();

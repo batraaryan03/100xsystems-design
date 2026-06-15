@@ -14,7 +14,7 @@ program
   .option("-d, --dir <dir>", "Target directory (default: current directory)")
   .option("-o, --overwrite", "Overwrite existing files", false)
   .action(async (pack, options) => {
-    const { AddCommand } = require("./commands/add");
+    const { AddCommand } = require("../src/commands/add");
     await AddCommand(pack, options);
   });
 
@@ -24,7 +24,7 @@ program
   .option("-f, --framework <fw>", "Filter by framework (html, react, nextjs)")
   .option("-c, --category <cat>", "Filter by category (landing, saas, etc.)")
   .action(async (options) => {
-    const { ListCommand } = require("./commands/list");
+    const { ListCommand } = require("../src/commands/list");
     await ListCommand(options);
   });
 
@@ -32,7 +32,7 @@ program
   .command("info <pack>")
   .description("Show detailed information about a pack")
   .action(async (pack) => {
-    const { InfoCommand } = require("./commands/info");
+    const { InfoCommand } = require("../src/commands/info");
     await InfoCommand(pack);
   });
 

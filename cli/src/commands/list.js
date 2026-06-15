@@ -36,7 +36,7 @@ async function ListCommand(options) {
         `    ${chalk.dim(pack.description.slice(0, 80))}${pack.description.length > 80 ? "..." : ""}`
       );
       console.log(
-        `    ${chalk.cyan(pack.framework)} · ${chalk.dim(pack.category)} · ${tags}`
+        `    ${chalk.cyan(pack.slug)} · ${pack.framework} · ${chalk.dim(pack.category)} · ${tags}`
       );
       console.log();
     }
