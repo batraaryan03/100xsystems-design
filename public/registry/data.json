@@ -159,6 +159,27 @@
       "title": "Modern SaaS",
       "description": "A curated collection of modern SaaS templates and landing pages for building professional software products.",
       "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react"]
+    },
+    {
+      "id": "saas-templates",
+      "slug": "saas-templates",
+      "title": "SaaS Templates",
+      "description": "Clean, conversion-focused landing pages for software products.",
+      "packSlugs": ["modern-saas-landing"]
+    },
+    {
+      "id": "portfolio-templates",
+      "slug": "portfolio-templates",
+      "title": "Portfolio Templates",
+      "description": "Elegant portfolio pages for developers and creatives.",
+      "packSlugs": ["portfolio-minimal"]
+    },
+    {
+      "id": "agency-templates",
+      "slug": "agency-templates",
+      "title": "Agency Templates",
+      "description": "Bold, editorial pages for creative agencies and studios.",
+      "packSlugs": ["agency-studio"]
     }
   ]
 }
