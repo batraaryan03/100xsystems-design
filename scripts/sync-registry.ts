@@ -85,7 +85,7 @@ function packToRegistryItem(pack: DataJsonPack): RegistryItem {
 
   const item: RegistryItem = {
     name: pack.slug,
-    type: "registry:item",
+    type: "registry:block",
     title: pack.title,
     author: pack.author?.name || "100X Systems",
     description: pack.description,

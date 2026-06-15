@@ -5,7 +5,7 @@
   "items": [
     {
       "name": "open-design-landing-html",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Open Design Landing",
       "author": "Open Design",
       "description": "Single-file editorial landing page. All CSS inlined. Drop one file, get a full page with warm paper aesthetic, coral accents, and editorial typography.",
@@ -30,7 +30,7 @@
     },
     {
       "name": "open-design-landing-split",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Open Design Landing (Split)",
       "author": "Open Design",
       "description": "Editorial landing page with separated HTML and CSS files. Clean markup with external stylesheet for easy customization.",
@@ -61,7 +61,7 @@
     },
     {
       "name": "open-design-landing-react",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Open Design Landing (React)",
       "author": "Open Design",
       "description": "React component version of the Open Design landing page. Use in Next.js or any React project with the Atelier Zero design system.",
@@ -91,7 +91,7 @@
     },
     {
       "name": "modern-saas-landing",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Modern SaaS Landing",
       "author": "100X Systems",
       "description": "Clean, professional SaaS landing page with hero, features grid, pricing cards, and CTA. Built with Inter font and indigo accent color.",
@@ -115,7 +115,7 @@
     },
     {
       "name": "portfolio-minimal",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Portfolio — Minimal",
       "author": "100X Systems",
       "description": "Dark, elegant portfolio page with project grid, about section, skills, timeline, and contact links. Space Grotesk typography.",
@@ -139,7 +139,7 @@
     },
     {
       "name": "agency-studio",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Studio — Creative Agency",
       "author": "100X Systems",
       "description": "Bold, editorial creative agency page with services list, work showcase, client logos, and marquee animation. Playfair Display serif headings.",
