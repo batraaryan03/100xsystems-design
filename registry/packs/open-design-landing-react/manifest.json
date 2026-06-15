@@ -25,5 +25,6 @@
     "github": "nexu-io"
   },
   "featured": true,
-  "createdAt": "2026-01-15"
+  "createdAt": "2026-01-15",
+  "thumbnail": "/packs/open-design-landing-react/thumbnail.png"
 }

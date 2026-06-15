@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { SectionRule } from "@/presentation/_components/components.layout";
-import { CoralDot } from "@/presentation/_components/components.atomic";
+import { CoralDot, CodeBlock } from "@/presentation/_components/components.atomic";
 
 const ACCESS_CODE = "Noni Batra";
 
@@ -11,12 +11,20 @@ function getInitialAuth(): boolean {
   return sessionStorage.getItem("design-skills-admin") === ACCESS_CODE;
 }
 
+type FileInput = {
+  filename: string;
+  content: string;
+  type: "component" | "style" | "config" | "asset";
+};
+
 export function AdminFeature() {
   const [authenticated, setAuthenticated] = useState(getInitialAuth);
   const [code, setCode] = useState("");
   const [codeError, setCodeError] = useState(false);
 
-  const [htmlInput, setHtmlInput] = useState("");
+  const [files, setFiles] = useState<FileInput[]>([
+    { filename: "index.html", content: "", type: "component" },
+  ]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
@@ -50,14 +58,64 @@ export function AdminFeature() {
     }
   };
 
-  const handleHtmlChange = (value: string) => {
-    setHtmlInput(value);
-    if (value && !title) {
+  const handleFileChange = (index: number, value: string) => {
+    const newFiles = [...files];
+    newFiles[index].content = value;
+    setFiles(newFiles);
+
+    if (index === 0 && value && !title) {
       autoExtractTitle(value);
     }
   };
 
+  const handleFilenameChange = (index: number, value: string) => {
+    const newFiles = [...files];
+    newFiles[index].filename = value;
+    setFiles(newFiles);
+  };
+
+  const addFile = () => {
+    setFiles([...files, { filename: "", content: "", type: "component" }]);
+  };
+
+  const removeFile = (index: number) => {
+    if (files.length > 1) {
+      setFiles(files.filter((_, i) => i !== index));
+    }
+  };
+
+  const handleFrameworkChange = (fw: "html" | "react") => {
+    setFramework(fw);
+    if (fw === "html") {
+      setFiles([{ filename: "index.html", content: files[0]?.content || "", type: "component" }]);
+    } else {
+      setFiles([{ filename: "Component.tsx", content: files[0]?.content || "", type: "component" }]);
+    }
+  };
+
+  const getPreviewHtml = (): string => {
+    if (files.length === 1 && files[0].filename.endsWith(".html")) {
+      return files[0].content;
+    }
+    const htmlFile = files.find((f) => f.filename.endsWith(".html"));
+    const cssFile = files.find((f) => f.filename.endsWith(".css"));
+    if (htmlFile) {
+      let html = htmlFile.content;
+      if (cssFile) {
+        html = html.replace("</head>", `<style>${cssFile.content}</style>\n</head>`);
+      }
+      return html;
+    }
+    return "";
+  };
+
   const generateManifest = () => {
+    const manifestFiles = files.map((f) => ({
+      path: f.filename,
+      content: "",
+      type: f.type,
+    }));
+
     const manifest = {
       id: slug || "my-pack",
       slug: slug || "my-pack",
@@ -67,17 +125,11 @@ export function AdminFeature() {
       framework,
       category,
       screenshots: [],
-      files: [
-        {
-          path: framework === "html" ? "index.html" : "Component.tsx",
-          content: "",
-          type: "component",
-        },
-      ],
+      files: manifestFiles,
       dependencies: framework === "react" ? ["next", "react"] : [],
       installCommand: framework === "html"
-        ? "Copy index.html into your project"
-        : "Copy Component.tsx into your project",
+        ? `Copy ${files.map((f) => f.filename).join(" and ")} into your project`
+        : `Copy ${files.map((f) => f.filename).join(", ")} into your components folder`,
       sourceUrl: "",
       githubUrl: "",
       license: "MIT",
@@ -87,7 +139,7 @@ export function AdminFeature() {
       },
       featured: false,
       createdAt: new Date().toISOString().split("T")[0],
-      htmlContent: htmlInput || undefined,
+      htmlContent: getPreviewHtml() || undefined,
     };
     return JSON.stringify(manifest, null, 2);
   };
@@ -140,6 +192,8 @@ export function AdminFeature() {
     );
   }
 
+  const previewHtml = getPreviewHtml();
+
   return (
     <div>
       <section className="tight">
@@ -159,27 +213,92 @@ export function AdminFeature() {
 
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ display: "block", fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 600, color: "var(--ink-mute)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "8px" }}>
-                  HTML / React Code
+                  Framework
                 </label>
-                <textarea
-                  value={htmlInput}
-                  onChange={(e) => handleHtmlChange(e.target.value)}
-                  placeholder="Paste your HTML, CSS, or React component here..."
-                  style={{
-                    width: "100%",
-                    height: "400px",
-                    padding: "16px",
-                    borderRadius: "12px",
-                    border: "1px solid var(--line)",
-                    background: "var(--bone)",
-                    fontFamily: "var(--mono)",
-                    fontSize: "13px",
-                    color: "var(--ink)",
-                    outline: "none",
-                    resize: "vertical",
-                    lineHeight: 1.5,
-                  }}
-                />
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <button
+                    onClick={() => handleFrameworkChange("html")}
+                    className={`pill${framework === "html" ? " active" : ""}`}
+                  >
+                    HTML
+                  </button>
+                  <button
+                    onClick={() => handleFrameworkChange("react")}
+                    className={`pill${framework === "react" ? " active" : ""}`}
+                  >
+                    React
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ marginBottom: "20px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+                  <label style={{ fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 600, color: "var(--ink-mute)", letterSpacing: "0.18em", textTransform: "uppercase" }}>
+                    Files ({files.length})
+                  </label>
+                  <button onClick={addFile} className="pill" style={{ fontSize: "11px", padding: "4px 12px" }}>
+                    + Add File
+                  </button>
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  {files.map((file, index) => (
+                    <div key={index} style={{ border: "1px solid var(--line)", borderRadius: "12px", overflow: "hidden" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 12px", background: "var(--bone)", borderBottom: "1px solid var(--line)" }}>
+                        <input
+                          type="text"
+                          value={file.filename}
+                          onChange={(e) => handleFilenameChange(index, e.target.value)}
+                          placeholder="filename.ext"
+                          style={{
+                            flex: 1,
+                            padding: "6px 10px",
+                            borderRadius: "6px",
+                            border: "1px solid var(--line-soft)",
+                            background: "var(--paper)",
+                            fontFamily: "var(--mono)",
+                            fontSize: "12px",
+                            color: "var(--ink)",
+                            outline: "none",
+                          }}
+                        />
+                        {files.length > 1 && (
+                          <button
+                            onClick={() => removeFile(index)}
+                            style={{
+                              background: "none",
+                              border: "none",
+                              color: "var(--ink-faint)",
+                              cursor: "pointer",
+                              fontSize: "16px",
+                              padding: "4px",
+                            }}
+                          >
+                            ×
+                          </button>
+                        )}
+                      </div>
+                      <textarea
+                        value={file.content}
+                        onChange={(e) => handleFileChange(index, e.target.value)}
+                        placeholder={`Paste ${file.filename.endsWith(".css") ? "CSS" : file.filename.endsWith(".html") ? "HTML" : "React"} code here...`}
+                        style={{
+                          width: "100%",
+                          height: "200px",
+                          padding: "12px",
+                          border: "none",
+                          background: "#15140f",
+                          fontFamily: "var(--mono)",
+                          fontSize: "12px",
+                          color: "#f7f1de",
+                          outline: "none",
+                          resize: "vertical",
+                          lineHeight: 1.5,
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "20px" }}>
@@ -191,7 +310,7 @@ export function AdminFeature() {
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    placeholder="Auto-extracted from <title>"
+                    placeholder="Auto-extracted from &lt;title&gt;"
                     style={{
                       width: "100%",
                       padding: "10px 14px",
@@ -252,30 +371,7 @@ export function AdminFeature() {
                 />
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginBottom: "20px" }}>
-                <div>
-                  <label style={{ display: "block", fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 600, color: "var(--ink-mute)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "8px" }}>
-                    Framework
-                  </label>
-                  <select
-                    value={framework}
-                    onChange={(e) => setFramework(e.target.value as "html" | "react")}
-                    style={{
-                      width: "100%",
-                      padding: "10px 14px",
-                      borderRadius: "8px",
-                      border: "1px solid var(--line)",
-                      background: "var(--bone)",
-                      fontFamily: "var(--sans)",
-                      fontSize: "14px",
-                      color: "var(--ink)",
-                      outline: "none",
-                    }}
-                  >
-                    <option value="html">HTML</option>
-                    <option value="react">React</option>
-                  </select>
-                </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "20px" }}>
                 <div>
                   <label style={{ display: "block", fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 600, color: "var(--ink-mute)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "8px" }}>
                     Category
@@ -335,27 +431,29 @@ export function AdminFeature() {
                 Preview
               </h3>
 
-              {htmlInput && (
+              {previewHtml && (
                 <div style={{ marginBottom: "24px" }}>
                   <h4 style={{ fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 600, color: "var(--ink-mute)", marginBottom: "8px" }}>
                     Live Preview
                   </h4>
-                  <div style={{ position: "relative", background: "var(--bone)", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--line)" }}>
-                    <div className="corner tl" />
-                    <div className="corner tr" />
-                    <div className="corner bl" />
-                    <div className="corner br" />
-                    <iframe
-                      srcDoc={htmlInput}
-                      style={{
-                        width: "100%",
-                        height: "400px",
-                        border: "none",
-                        borderRadius: "12px",
-                      }}
-                      title="Preview"
-                      sandbox="allow-scripts"
-                    />
+                  <div style={{ position: "relative", background: "#15140f", borderRadius: "12px", overflow: "hidden", border: "1px solid rgba(247, 241, 222, 0.1)" }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 16px", borderBottom: "1px solid rgba(247, 241, 222, 0.08)" }}>
+                      <span style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "rgba(247, 241, 222, 0.4)", letterSpacing: "0.04em" }}>
+                        preview
+                      </span>
+                    </div>
+                    <div style={{ position: "relative", height: "400px", overflow: "auto" }}>
+                      <iframe
+                        srcDoc={previewHtml}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          border: "none",
+                        }}
+                        title="Preview"
+                        sandbox="allow-scripts"
+                      />
+                    </div>
                   </div>
                 </div>
               )}
@@ -363,20 +461,7 @@ export function AdminFeature() {
               <h4 style={{ fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 600, color: "var(--ink-mute)", marginBottom: "8px" }}>
                 Generated Manifest
               </h4>
-              <pre style={{
-                background: "var(--bone)",
-                borderRadius: "12px",
-                padding: "16px",
-                fontFamily: "var(--mono)",
-                fontSize: "12px",
-                color: "var(--ink)",
-                overflow: "auto",
-                maxHeight: "500px",
-                border: "1px solid var(--line)",
-                lineHeight: 1.5,
-              }}>
-                {generateManifest()}
-              </pre>
+              <CodeBlock code={generateManifest()} language="json" />
             </div>
           </div>
         </div>

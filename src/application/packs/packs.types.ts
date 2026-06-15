@@ -33,6 +33,7 @@ export type Pack = {
   featured: boolean;
   createdAt: string;
   htmlContent?: string;
+  thumbnail?: string;
 };
 
 export type Collection = {

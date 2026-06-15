@@ -1,22 +1,51 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Pack } from "@/application/packs/packs.types";
 import { Badge, Pill } from "./components.atomic";
 
 export function PackCard({ pack }: { pack: Pack }) {
   return (
-    <Link href={`/packs/${pack.slug}`} className="card" style={{ textDecoration: "none", color: "inherit" }}>
-      <div className="num">
-        <span>{pack.slug.split("-")[0].slice(0, 2).toUpperCase()}</span>
-        <span className="tag">{pack.framework}</span>
-      </div>
-      <h3>{pack.title}</h3>
-      <p>{pack.description}</p>
-      <div style={{ display: "flex", gap: "6px", marginTop: "12px", flexWrap: "wrap" }}>
-        {pack.tags.slice(0, 3).map((tag) => (
-          <Badge key={tag}>{tag}</Badge>
-        ))}
+    <Link href={`/packs/${pack.slug}`} className="card" style={{ textDecoration: "none", color: "inherit", padding: 0, overflow: "hidden" }}>
+      {pack.thumbnail ? (
+        <div style={{ aspectRatio: "16/10", background: "var(--paper-dark)", overflow: "hidden", position: "relative" }}>
+          <Image
+            src={pack.thumbnail}
+            alt={pack.title}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+          <div className="corner tl" />
+          <div className="corner tr" />
+          <div className="corner bl" />
+          <div className="corner br" />
+        </div>
+      ) : (
+        <div style={{ aspectRatio: "16/10", background: "var(--paper-dark)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <span style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "48px", color: "var(--ink-faint)", opacity: 0.3 }}>
+            {pack.title.charAt(0)}
+          </span>
+        </div>
+      )}
+      <div style={{ padding: "20px 22px 24px" }}>
+        <div className="num" style={{ marginBottom: "10px" }}>
+          <span style={{ fontFamily: "var(--sans)", fontSize: "11px", color: "var(--ink-faint)", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+            {pack.framework}
+          </span>
+          <span className="tag">{pack.category}</span>
+        </div>
+        <h3 style={{ fontFamily: "var(--sans)", fontSize: "18px", fontWeight: 700, letterSpacing: "-0.014em", marginBottom: "8px" }}>
+          {pack.title}
+        </h3>
+        <p style={{ fontFamily: "var(--body)", fontSize: "13px", color: "var(--ink-mute)", lineHeight: 1.5, marginBottom: "12px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+          {pack.description}
+        </p>
+        <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+          {pack.tags.slice(0, 3).map((tag) => (
+            <Badge key={tag}>{tag}</Badge>
+          ))}
+        </div>
       </div>
       <span className="arrow-mark">
         <svg viewBox="0 0 24 24">

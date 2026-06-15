@@ -92,7 +92,19 @@ export function Badge({
   );
 }
 
-export function CodeBlock({ code }: { code: string }) {
+function highlightJSON(json: string): string {
+  return json
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"([^"]+)"(?=\s*:)/g, '<span style="color: var(--coral)">"$1"</span>')
+    .replace(/:\s*"([^"]*)"/g, ': <span style="color: #a8d8a8">"$1"</span>')
+    .replace(/:\s*(\d+)/g, ': <span style="color: var(--mustard)">$1</span>')
+    .replace(/:\s*(true|false)/g, ': <span style="color: var(--olive)">$1</span>')
+    .replace(/:\s*(null)/g, ': <span style="color: var(--ink-faint)">$1</span>');
+}
+
+export function CodeBlock({ code, language = "text" }: { code: string; language?: string }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -101,42 +113,53 @@ export function CodeBlock({ code }: { code: string }) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const highlighted = language === "json" ? highlightJSON(code) : code
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
   return (
     <div
       style={{
         position: "relative",
-        background: "var(--bone)",
+        background: "#15140f",
         borderRadius: "12px",
-        padding: "16px 18px",
-        fontFamily: "var(--mono)",
-        fontSize: "13px",
-        color: "var(--ink)",
-        border: "1px solid var(--line-soft)",
         overflow: "hidden",
+        border: "1px solid rgba(247, 241, 222, 0.1)",
       }}
     >
-      <pre style={{ margin: 0, overflowX: "auto" }}>
-        <code>{code}</code>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 16px", borderBottom: "1px solid rgba(247, 241, 222, 0.08)" }}>
+        <span style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "rgba(247, 241, 222, 0.4)", letterSpacing: "0.04em" }}>
+          {language}
+        </span>
+        <button
+          onClick={handleCopy}
+          style={{
+            background: "rgba(247, 241, 222, 0.1)",
+            border: "none",
+            borderRadius: "6px",
+            padding: "4px 10px",
+            fontSize: "11px",
+            fontFamily: "var(--sans)",
+            color: "rgba(247, 241, 222, 0.6)",
+            cursor: "pointer",
+            transition: "all 0.18s ease",
+          }}
+        >
+          {copied ? "Copied" : "Copy"}
+        </button>
+      </div>
+      <pre style={{
+        margin: 0,
+        padding: "16px",
+        overflowX: "auto",
+        fontFamily: "var(--mono)",
+        fontSize: "13px",
+        lineHeight: 1.6,
+        color: "#f7f1de",
+      }}>
+        <code dangerouslySetInnerHTML={{ __html: highlighted }} />
       </pre>
-      <button
-        onClick={handleCopy}
-        style={{
-          position: "absolute",
-          top: "12px",
-          right: "12px",
-          background: "var(--paper)",
-          border: "1px solid var(--line)",
-          borderRadius: "6px",
-          padding: "4px 10px",
-          fontSize: "11px",
-          fontFamily: "var(--sans)",
-          color: "var(--ink-mute)",
-          cursor: "pointer",
-          transition: "all 0.18s ease",
-        }}
-      >
-        {copied ? "Copied" : "Copy"}
-      </button>
     </div>
   );
 }
