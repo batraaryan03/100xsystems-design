@@ -31,6 +31,9 @@ export type Pack = {
   featured: boolean;
   createdAt: string;
   thumbnail?: string;
+  htmlContent?: string;
+  sourceUrl?: string;
+  githubUrl?: string;
 };
 
 export type Collection = {

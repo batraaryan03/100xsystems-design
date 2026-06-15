@@ -205,8 +205,8 @@ export function AdminFeature() {
             </button>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", alignItems: "start" }}>
-            <div>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)", gap: "32px", alignItems: "start" }}>
+            <div style={{ minWidth: 0, overflow: "hidden" }}>
               <h2 className="display" style={{ fontSize: "28px", marginBottom: "24px" }}>
                 Create Pack<CoralDot />
               </h2>
@@ -426,7 +426,7 @@ export function AdminFeature() {
               </button>
             </div>
 
-            <div>
+            <div style={{ minWidth: 0, overflow: "hidden" }}>
               <h3 style={{ fontFamily: "var(--sans)", fontSize: "14px", fontWeight: 600, color: "var(--ink-mute)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "16px" }}>
                 Preview
               </h3>
@@ -442,7 +442,7 @@ export function AdminFeature() {
                         preview
                       </span>
                     </div>
-                    <div style={{ position: "relative", height: "400px", overflow: "auto" }}>
+                    <div style={{ position: "relative", height: "400px", overflow: "hidden" }}>
                       <iframe
                         srcDoc={previewHtml}
                         style={{
@@ -461,7 +461,9 @@ export function AdminFeature() {
               <h4 style={{ fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 600, color: "var(--ink-mute)", marginBottom: "8px" }}>
                 Generated Manifest
               </h4>
-              <CodeBlock code={generateManifest()} language="json" />
+              <div style={{ maxHeight: "400px", overflow: "auto", borderRadius: "12px" }}>
+                <CodeBlock code={generateManifest()} language="json" />
+              </div>
             </div>
           </div>
         </div>

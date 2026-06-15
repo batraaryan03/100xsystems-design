@@ -164,7 +164,7 @@ export function Footer() {
             <h5>Admin</h5>
             <ul>
               <li><Link href="/admin">Dashboard</Link></li>
-              <li><Link href="/about">Contributing</Link></li>
+              <li><Link href="/contribute">Publish a Pack</Link></li>
             </ul>
           </div>
         </div>
