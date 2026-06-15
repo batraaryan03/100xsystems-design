@@ -101,7 +101,8 @@
         "name": "100X Systems"
       },
       "featured": false,
-      "createdAt": "2026-06-15"
+      "createdAt": "2026-06-15",
+      "thumbnail": "/registry/packs/modern-saas-landing/thumbnail.png"
     },
     {
       "id": "portfolio-minimal",
@@ -125,7 +126,8 @@
         "name": "100X Systems"
       },
       "featured": false,
-      "createdAt": "2026-06-15"
+      "createdAt": "2026-06-15",
+      "thumbnail": "/registry/packs/portfolio-minimal/thumbnail.png"
     },
     {
       "id": "agency-studio",
@@ -149,7 +151,8 @@
         "name": "100X Systems"
       },
       "featured": false,
-      "createdAt": "2026-06-15"
+      "createdAt": "2026-06-15",
+      "thumbnail": "/registry/packs/agency-studio/thumbnail.png"
     }
   ],
   "collections": [
