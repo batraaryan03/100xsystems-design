@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Studio — Creative Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; color: #1a1a1a; background: #faf9f6; line-height: 1.6; }
+.container { max-width: 1200px; padding: 0 32px; margin: 0 auto; }
+.serif { font-family: 'Playfair Display', serif; }
+a { color: inherit; text-decoration: none; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+.brand { font-weight: 700; font-size: 20px; letter-spacing: -0.01em; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 14px; color: #666; transition: color 0.2s; }
+.nav-links a:hover { color: #c2410c; }
+.btn { display: inline-flex; align-items: center; padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: #c2410c; color: #fff; }
+.btn-primary:hover { background: #9a3412; }
+.btn-outline { background: transparent; color: #1a1a1a; border: 1.5px solid #1a1a1a; }
+.btn-outline:hover { background: #1a1a1a; color: #fff; }
+.hero { padding: 100px 0 80px; }
+.hero h1 { font-size: clamp(48px, 7vw, 88px); font-weight: 700; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 24px; }
+.hero h1 em { font-style: italic; font-weight: 600; }
+.hero p { font-size: 18px; color: #666; max-width: 480px; margin-bottom: 36px; }
+.marquee { overflow: hidden; border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08); padding: 20px 0; margin: 60px 0; }
+.marquee-inner { display: flex; gap: 48px; animation: scroll 30s linear infinite; white-space: nowrap; }
+.marquee-item { font-family: 'Playfair Display', serif; font-size: 20px; color: #999; flex-shrink: 0; }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.services { padding: 80px 0; }
+.services h2 { font-size: 40px; font-weight: 700; margin-bottom: 48px; letter-spacing: -0.02em; }
+.service-list { display: grid; gap: 0; }
+.service { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid rgba(0,0,0,0.08); align-items: center; }
+.service-num { font-family: 'Playfair Display', serif; font-size: 28px; color: #c2410c; }
+.service h3 { font-size: 22px; font-weight: 700; }
+.service p { font-size: 14px; color: #666; }
+.work { padding: 80px 0; background: #1a1a1a; color: #faf9f6; margin: 0 -32px; padding-left: 32px; padding-right: 32px; }
+.work h2 { font-size: 40px; font-weight: 700; margin-bottom: 48px; letter-spacing: -0.02em; }
+.work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.work-card { background: #262626; border-radius: 12px; overflow: hidden; transition: all 0.3s; }
+.work-card:hover { transform: translateY(-4px); }
+.work-card-img { aspect-ratio: 16/10; background: linear-gradient(135deg, #333, #262626); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+.work-card-body { padding: 24px; }
+.work-card-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.work-card-body p { font-size: 13px; color: #a3a3a3; }
+.work-card-body .meta { font-size: 11px; color: #52525b; margin-top: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+.clients { padding: 80px 0; }
+.clients h2 { font-size: 40px; font-weight: 700; margin-bottom: 48px; letter-spacing: -0.02em; }
+.client-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.client { padding: 32px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; text-align: center; font-size: 14px; color: #666; font-weight: 500; }
+.cta { padding: 100px 0; text-align: center; }
+.cta h2 { font-size: clamp(36px, 5vw, 56px); font-weight: 700; margin-bottom: 20px; letter-spacing: -0.02em; }
+.cta p { color: #666; margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; }
+footer { padding: 40px 0; border-top: 1px solid rgba(0,0,0,0.08); display: flex; justify-content: space-between; font-size: 13px; color: #999; }
+@media (max-width: 768px) {
+  .service { grid-template-columns: 1fr; gap: 12px; }
+  .work-grid { grid-template-columns: 1fr; }
+  .client-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+<nav class="container">
+  <div class="brand">Studio.</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <h1>We design<br /><em>brands that<br />move people</em></h1>
+    <p>A creative studio for ambitious brands. We blend strategy, design, and technology to create experiences that matter.</p>
+    <div style="display: flex; gap: 12px;">
+      <a href="#contact" class="btn btn-primary">Start a Project</a>
+      <a href="#work" class="btn btn-outline">View Work</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-inner">
+    <span class="marquee-item">Branding</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Web Design</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Motion</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Strategy</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Development</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Branding</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Web Design</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Motion</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Strategy</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Development</span>
+    <span class="marquee-item">•</span>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="container">
+    <h2>What we do</h2>
+    <div class="service-list">
+      <div class="service">
+        <div class="service-num">01</div>
+        <div><h3>Brand Strategy</h3></div>
+        <div><p>Positioning, identity, and narrative that resonates with your audience.</p></div>
+      </div>
+      <div class="service">
+        <div class="service-num">02</div>
+        <div><h3>Visual Design</h3></div>
+        <div><p>UI/UX, product design, and visual systems that scale with your product.</p></div>
+      </div>
+      <div class="service">
+        <div class="service-num">03</div>
+        <div><h3>Web Development</h3></div>
+        <div><p>Performant, accessible websites built with modern frameworks.</p></div>
+      </div>
+      <div class="service">
+        <div class="service-num">04</div>
+        <div><h3>Motion & 3D</h3></div>
+        <div><p>Animation, video, and immersive experiences that captivate.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="container">
+    <h2>Selected work</h2>
+    <div class="work-grid">
+      <a href="#" class="work-card">
+        <div class="work-card-img">🏔️</div>
+        <div class="work-card-body">
+          <h3>Alpine Wellness</h3>
+          <p>Brand identity and website for a premium wellness retreat in the Swiss Alps.</p>
+          <div class="meta">Branding · Web · 2026</div>
+        </div>
+      </a>
+      <a href="#" class="work-card">
+        <div class="work-card-img">🎵</div>
+        <div class="work-card-body">
+          <h3>SoundWave Festival</h3>
+          <p>Complete visual identity and digital experience for an electronic music festival.</p>
+          <div class="meta">Identity · Digital · 2025</div>
+        </div>
+      </a>
+      <a href="#" class="work-card">
+        <div class="work-card-img">🏢</div>
+        <div class="work-card-body">
+          <h3>Nexus Architecture</h3>
+          <p>Corporate website redesign for a leading sustainable architecture firm.</p>
+          <div class="meta">Web · Development · 2025</div>
+        </div>
+      </a>
+      <a href="#" class="work-card">
+        <div class="work-card-img">✨</div>
+        <div class="work-card-body">
+          <h3>Lumina Beauty</h3>
+          <p>E-commerce platform and brand refresh for a luxury skincare line.</p>
+          <div class="meta">E-commerce · Brand · 2026</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="clients" id="clients">
+  <div class="container">
+    <h2>Trusted by</h2>
+    <div class="client-grid">
+      <div class="client">Alpine</div>
+      <div class="client">SoundWave</div>
+      <div class="client">Nexus</div>
+      <div class="client">Lumina</div>
+      <div class="client">Vertex</div>
+      <div class="client">Orbit</div>
+      <div class="client">Horizon</div>
+      <div class="client">Prism</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="container">
+    <h2 class="serif"><em>Let's create<br />something great</em></h2>
+    <p>Ready to elevate your brand? We'd love to hear about your project.</p>
+    <a href="mailto:hello@studio.com" class="btn btn-primary">Get in Touch</a>
+  </div>
+</section>
+
+<footer class="container">
+  <span>&copy; 2026 Studio. All rights reserved.</span>
+  <span>Berlin · Tokyo · New York</span>
+</footer>
+</body>
+</html>

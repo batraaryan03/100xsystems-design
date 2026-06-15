@@ -1,0 +1,27 @@
+{
+  "id": "modern-saas-landing",
+  "slug": "modern-saas-landing",
+  "title": "Modern SaaS Landing",
+  "description": "Clean, professional SaaS landing page with hero, features grid, pricing cards, and CTA. Built with Inter font and indigo accent color.",
+  "tags": ["saas", "landing", "pricing", "modern", "clean"],
+  "framework": "html",
+  "category": "saas",
+  "screenshots": [],
+  "files": [
+    {
+      "path": "index.html",
+      "type": "component"
+    }
+  ],
+  "dependencies": [],
+  "installCommand": "Copy index.html into your project",
+  "sourceUrl": "",
+  "githubUrl": "",
+  "license": "MIT",
+  "author": {
+    "name": "100X Systems",
+    "url": "https://100xsystems.dev"
+  },
+  "featured": false,
+  "createdAt": "2026-06-15"
+}

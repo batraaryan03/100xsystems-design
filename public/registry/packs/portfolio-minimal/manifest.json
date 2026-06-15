@@ -1,0 +1,27 @@
+{
+  "id": "portfolio-minimal",
+  "slug": "portfolio-minimal",
+  "title": "Portfolio — Minimal",
+  "description": "Dark, elegant portfolio page with project grid, about section, skills, timeline, and contact links. Space Grotesk typography.",
+  "tags": ["portfolio", "minimal", "dark", "developer", "creative"],
+  "framework": "html",
+  "category": "portfolio",
+  "screenshots": [],
+  "files": [
+    {
+      "path": "index.html",
+      "type": "component"
+    }
+  ],
+  "dependencies": [],
+  "installCommand": "Copy index.html into your project",
+  "sourceUrl": "",
+  "githubUrl": "",
+  "license": "MIT",
+  "author": {
+    "name": "100X Systems",
+    "url": "https://100xsystems.dev"
+  },
+  "featured": false,
+  "createdAt": "2026-06-15"
+}

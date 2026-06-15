@@ -78,6 +78,78 @@
       "featured": true,
       "createdAt": "2026-01-15",
       "thumbnail": "/registry/packs/open-design-landing-react/thumbnail.png"
+    },
+    {
+      "id": "modern-saas-landing",
+      "slug": "modern-saas-landing",
+      "title": "Modern SaaS Landing",
+      "description": "Clean, professional SaaS landing page with hero, features grid, pricing cards, and CTA. Built with Inter font and indigo accent color.",
+      "tags": ["saas", "landing", "pricing", "modern", "clean"],
+      "framework": "html",
+      "category": "saas",
+      "screenshots": [],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
+      "dependencies": [],
+      "installCommand": "Copy index.html into your project",
+      "license": "MIT",
+      "author": {
+        "name": "100X Systems"
+      },
+      "featured": false,
+      "createdAt": "2026-06-15"
+    },
+    {
+      "id": "portfolio-minimal",
+      "slug": "portfolio-minimal",
+      "title": "Portfolio — Minimal",
+      "description": "Dark, elegant portfolio page with project grid, about section, skills, timeline, and contact links. Space Grotesk typography.",
+      "tags": ["portfolio", "minimal", "dark", "developer", "creative"],
+      "framework": "html",
+      "category": "portfolio",
+      "screenshots": [],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
+      "dependencies": [],
+      "installCommand": "Copy index.html into your project",
+      "license": "MIT",
+      "author": {
+        "name": "100X Systems"
+      },
+      "featured": false,
+      "createdAt": "2026-06-15"
+    },
+    {
+      "id": "agency-studio",
+      "slug": "agency-studio",
+      "title": "Studio — Creative Agency",
+      "description": "Bold, editorial creative agency page with services list, work showcase, client logos, and marquee animation. Playfair Display serif headings.",
+      "tags": ["agency", "creative", "editorial", "bold", "studio"],
+      "framework": "html",
+      "category": "agency",
+      "screenshots": [],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
+      "dependencies": [],
+      "installCommand": "Copy index.html into your project",
+      "license": "MIT",
+      "author": {
+        "name": "100X Systems"
+      },
+      "featured": false,
+      "createdAt": "2026-06-15"
     }
   ],
   "collections": [

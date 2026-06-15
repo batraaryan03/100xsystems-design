@@ -88,6 +88,78 @@
         "next",
         "react"
       ]
+    },
+    {
+      "name": "modern-saas-landing",
+      "type": "registry:item",
+      "title": "Modern SaaS Landing",
+      "author": "100X Systems",
+      "description": "Clean, professional SaaS landing page with hero, features grid, pricing cards, and CTA. Built with Inter font and indigo accent color.",
+      "meta": {
+        "category": "saas",
+        "tags": [
+          "saas",
+          "landing",
+          "pricing",
+          "modern",
+          "clean"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/modern-saas-landing/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "portfolio-minimal",
+      "type": "registry:item",
+      "title": "Portfolio — Minimal",
+      "author": "100X Systems",
+      "description": "Dark, elegant portfolio page with project grid, about section, skills, timeline, and contact links. Space Grotesk typography.",
+      "meta": {
+        "category": "portfolio",
+        "tags": [
+          "portfolio",
+          "minimal",
+          "dark",
+          "developer",
+          "creative"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/portfolio-minimal/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "agency-studio",
+      "type": "registry:item",
+      "title": "Studio — Creative Agency",
+      "author": "100X Systems",
+      "description": "Bold, editorial creative agency page with services list, work showcase, client logos, and marquee animation. Playfair Display serif headings.",
+      "meta": {
+        "category": "agency",
+        "tags": [
+          "agency",
+          "creative",
+          "editorial",
+          "bold",
+          "studio"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/agency-studio/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio — Minimal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Space Grotesk', sans-serif; color: #e4e4e7; background: #09090b; line-height: 1.6; }
+.container { max-width: 1100px; padding: 0 24px; margin: 0 auto; }
+a { color: inherit; text-decoration: none; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 32px 0; }
+.name { font-weight: 700; font-size: 18px; letter-spacing: -0.02em; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { font-size: 14px; color: #a1a1aa; transition: color 0.2s; font-weight: 500; }
+.nav-links a:hover { color: #a78bfa; }
+.hero { padding: 120px 0 80px; }
+.hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; }
+.hero h1 .accent { color: #a78bfa; }
+.hero p { font-size: 18px; color: #71717a; max-width: 480px; margin-bottom: 32px; }
+.hero-meta { font-family: 'Space Mono', monospace; font-size: 12px; color: #52525b; letter-spacing: 0.08em; text-transform: uppercase; display: flex; gap: 24px; }
+.section-label { font-family: 'Space Mono', monospace; font-size: 11px; color: #a78bfa; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: #27272a; }
+.projects { padding: 80px 0; }
+.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.project { background: #18181b; border: 1px solid #27272a; border-radius: 12px; overflow: hidden; transition: all 0.3s; }
+.project:hover { border-color: #a78bfa; transform: translateY(-4px); }
+.project-img { aspect-ratio: 16/10; background: linear-gradient(135deg, #27272a, #18181b); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+.project-body { padding: 24px; }
+.project-body h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+.project-body p { font-size: 14px; color: #71717a; margin-bottom: 16px; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag { font-family: 'Space Mono', monospace; font-size: 11px; padding: 4px 10px; background: #27272a; border-radius: 6px; color: #a1a1aa; }
+.about { padding: 80px 0; border-top: 1px solid #27272a; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.about h2 { font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.02em; }
+.about p { font-size: 15px; color: #71717a; margin-bottom: 16px; }
+.skills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
+.skill { font-size: 13px; padding: 8px 16px; background: #18181b; border: 1px solid #27272a; border-radius: 8px; color: #a1a1aa; }
+.contact { padding: 80px 0; border-top: 1px solid #27272a; text-align: center; }
+.contact h2 { font-size: 36px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.02em; }
+.contact p { color: #71717a; margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; }
+.contact-links { display: flex; gap: 16px; justify-content: center; }
+.contact-link { font-size: 14px; font-weight: 500; padding: 12px 24px; border: 1px solid #27272a; border-radius: 8px; transition: all 0.2s; }
+.contact-link:hover { border-color: #a78bfa; color: #a78bfa; }
+footer { padding: 40px 0; text-align: center; font-size: 12px; color: #52525b; font-family: 'Space Mono', monospace; }
+@media (max-width: 768px) {
+  .project-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+<nav class="container">
+  <div class="name">Alex Chen</div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <h1>Crafting digital<br /><span class="accent">experiences</span></h1>
+    <p>Designer & developer building thoughtful products at the intersection of aesthetics and function.</p>
+    <div class="hero-meta">
+      <span>Based in Tokyo</span>
+      <span>Available for freelance</span>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="work">
+  <div class="container">
+    <div class="section-label">Selected Work</div>
+    <div class="project-grid">
+      <a href="#" class="project">
+        <div class="project-img">🎨</div>
+        <div class="project-body">
+          <h3>Aurora Design System</h3>
+          <p>A comprehensive design system for a fintech startup. 40+ components, tokens, and documentation.</p>
+          <div class="tags"><span class="tag">Design System</span><span class="tag">React</span><span class="tag">Figma</span></div>
+        </div>
+      </a>
+      <a href="#" class="project">
+        <div class="project-img">📱</div>
+        <div class="project-body">
+          <h3>Nomad App</h3>
+          <p>Mobile-first travel platform connecting digital nomads with co-living spaces worldwide.</p>
+          <div class="tags"><span class="tag">Mobile</span><span class="tag">React Native</span><span class="tag">UX</span></div>
+        </div>
+      </a>
+      <a href="#" class="project">
+        <div class="project-img">🌐</div>
+        <div class="project-body">
+          <h3>Vertex Landing</h3>
+          <p>Marketing site for a B2B SaaS product. High-converting design with motion and interactivity.</p>
+          <div class="tags"><span class="tag">Web</span><span class="tag">Next.js</span><span class="tag">Animation</span></div>
+        </div>
+      </a>
+      <a href="#" class="project">
+        <div class="project-img">📦</div>
+        <div class="project-body">
+          <h3>Shelf Dashboard</h3>
+          <p>Inventory management dashboard with real-time data visualization and team collaboration.</p>
+          <div class="tags"><span class="tag">Dashboard</span><span class="tag">TypeScript</span><span class="tag">D3.js</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-label">About</div>
+    <div class="about-grid">
+      <div>
+        <h2>Designing with intention</h2>
+        <p>I'm a designer and developer with 8+ years of experience creating digital products. I believe great design is invisible — it just works.</p>
+        <p>Currently focused on design systems, component libraries, and bridging the gap between design and engineering.</p>
+        <div class="skills">
+          <span class="skill">UI/UX Design</span>
+          <span class="skill">React</span>
+          <span class="skill">TypeScript</span>
+          <span class="skill">Next.js</span>
+          <span class="skill">Figma</span>
+          <span class="skill">Tailwind CSS</span>
+          <span class="skill">Design Systems</span>
+        </div>
+      </div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 13px; color: #52525b; line-height: 2;">
+        <div>2024 — Present: Lead Designer @ Vertex</div>
+        <div>2022 — 2024: Senior Designer @ Nomad</div>
+        <div>2020 — 2022: Designer @ Aurora</div>
+        <div>2018 — 2020: Junior Designer @ Studio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Let's work together</h2>
+    <p>Open to freelance projects and full-time opportunities. Let's build something great.</p>
+    <div class="contact-links">
+      <a href="mailto:hello@alexchen.dev" class="contact-link">Email</a>
+      <a href="#" class="contact-link">Twitter</a>
+      <a href="#" class="contact-link">GitHub</a>
+      <a href="#" class="contact-link">Dribbble</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Alex Chen. Built with care.</p>
+  </div>
+</footer>
+</body>
+</html>

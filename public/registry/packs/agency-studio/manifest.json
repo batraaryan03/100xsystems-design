@@ -1,0 +1,27 @@
+{
+  "id": "agency-studio",
+  "slug": "agency-studio",
+  "title": "Studio — Creative Agency",
+  "description": "Bold, editorial creative agency page with services list, work showcase, client logos, and marquee animation. Playfair Display serif headings.",
+  "tags": ["agency", "creative", "editorial", "bold", "studio"],
+  "framework": "html",
+  "category": "agency",
+  "screenshots": [],
+  "files": [
+    {
+      "path": "index.html",
+      "type": "component"
+    }
+  ],
+  "dependencies": [],
+  "installCommand": "Copy index.html into your project",
+  "sourceUrl": "",
+  "githubUrl": "",
+  "license": "MIT",
+  "author": {
+    "name": "100X Systems",
+    "url": "https://100xsystems.dev"
+  },
+  "featured": false,
+  "createdAt": "2026-06-15"
+}
