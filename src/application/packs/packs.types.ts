@@ -4,7 +4,7 @@ export type PackCategory = "landing" | "saas" | "portfolio" | "dashboard" | "age
 
 export type PackFile = {
   path: string;
-  content: string;
+  content?: string;
   type: "component" | "style" | "config" | "asset";
 };
 
@@ -26,13 +26,10 @@ export type Pack = {
   files: PackFile[];
   dependencies: string[];
   installCommand: string;
-  sourceUrl: string;
-  githubUrl: string;
   license: string;
   author: PackAuthor;
   featured: boolean;
   createdAt: string;
-  htmlContent?: string;
   thumbnail?: string;
 };
 

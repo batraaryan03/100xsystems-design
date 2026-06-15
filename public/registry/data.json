@@ -1,0 +1,92 @@
+{
+  "packs": [
+    {
+      "id": "open-design-landing-html",
+      "slug": "open-design-landing-html",
+      "title": "Open Design Landing",
+      "description": "Single-file editorial landing page. All CSS inlined. Drop one file, get a full page with warm paper aesthetic, coral accents, and editorial typography.",
+      "tags": ["editorial", "landing", "single-file", "atelier-zero", "warm", "coral"],
+      "framework": "html",
+      "category": "landing",
+      "screenshots": [],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
+      "dependencies": [],
+      "installCommand": "cp index.html into your project",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "Open Design"
+      },
+      "featured": true,
+      "createdAt": "2026-01-15",
+      "thumbnail": "/registry/packs/open-design-landing-html/thumbnail.png"
+    },
+    {
+      "id": "open-design-landing-split",
+      "slug": "open-design-landing-split",
+      "title": "Open Design Landing (Split)",
+      "description": "Editorial landing page with separated HTML and CSS files. Clean markup with external stylesheet for easy customization.",
+      "tags": ["editorial", "landing", "split", "atelier-zero", "warm", "coral", "css"],
+      "framework": "html",
+      "category": "landing",
+      "screenshots": [],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        },
+        {
+          "path": "styles.css",
+          "type": "style"
+        }
+      ],
+      "dependencies": [],
+      "installCommand": "cp index.html styles.css into your project",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "Open Design"
+      },
+      "featured": false,
+      "createdAt": "2026-01-15",
+      "thumbnail": "/registry/packs/open-design-landing-split/thumbnail.png"
+    },
+    {
+      "id": "open-design-landing-react",
+      "slug": "open-design-landing-react",
+      "title": "Open Design Landing (React)",
+      "description": "React component version of the Open Design landing page. Use in Next.js or any React project with the Atelier Zero design system.",
+      "tags": ["editorial", "landing", "react", "nextjs", "atelier-zero", "warm", "coral"],
+      "framework": "react",
+      "category": "landing",
+      "screenshots": [],
+      "files": [
+        {
+          "path": "OpenDesignLanding.tsx",
+          "type": "component"
+        }
+      ],
+      "dependencies": ["next", "react"],
+      "installCommand": "cp OpenDesignLanding.tsx into your components folder",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "Open Design"
+      },
+      "featured": true,
+      "createdAt": "2026-01-15",
+      "thumbnail": "/registry/packs/open-design-landing-react/thumbnail.png"
+    }
+  ],
+  "collections": [
+    {
+      "id": "modern-saas",
+      "slug": "modern-saas",
+      "title": "Modern SaaS",
+      "description": "A curated collection of modern SaaS templates and landing pages for building professional software products.",
+      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react"]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { RegistryService } from "@/infrastructure/registry/registry.service";
 import type { Pack, PackCategory, PackFramework, Collection } from "./packs.types";
 
@@ -9,49 +9,124 @@ export function usePacks(): {
   featured: Pack[];
   categories: PackCategory[];
   frameworks: PackFramework[];
+  loading: boolean;
 } {
-  const packs = useMemo(() => RegistryService.getAllPacks(), []);
-  const featured = useMemo(() => RegistryService.getFeaturedPacks(), []);
+  const [packs, setPacks] = useState<Pack[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    RegistryService.getAllPacks().then((data) => {
+      if (!cancelled) {
+        setPacks(data);
+        setLoading(false);
+      }
+    });
+    return () => { cancelled = true; };
+  }, []);
+
+  const featured = useMemo(() => packs.filter((p) => p.featured), [packs]);
   const categories = useMemo(
-    () => [...new Set(packs.map((p) => p.category))],
+    () => [...new Set(packs.map((p) => p.category))] as PackCategory[],
     [packs]
   );
   const frameworks = useMemo(
-    () => [...new Set(packs.map((p) => p.framework))],
+    () => [...new Set(packs.map((p) => p.framework))] as PackFramework[],
     [packs]
   );
 
-  return { packs, featured, categories, frameworks };
+  return { packs, featured, categories, frameworks, loading };
 }
 
-export function usePack(slug: string): Pack | undefined {
-  return useMemo(() => RegistryService.getPackBySlug(slug), [slug]);
+export function usePack(slug: string): {
+  pack: Pack | undefined;
+  loading: boolean;
+} {
+  const [pack, setPack] = useState<Pack | undefined>(undefined);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    RegistryService.getPackBySlug(slug).then((data) => {
+      if (!cancelled) {
+        setPack(data);
+        setLoading(false);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [slug]);
+
+  return { pack, loading };
 }
 
-export function usePacksByCategory(category: PackCategory): Pack[] {
-  return useMemo(
-    () => RegistryService.getPacksByCategory(category),
-    [category]
-  );
+export function usePacksByCategory(category: PackCategory): {
+  packs: Pack[];
+  loading: boolean;
+} {
+  const [packs, setPacks] = useState<Pack[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    RegistryService.getPacksByCategory(category).then((data) => {
+      if (!cancelled) {
+        setPacks(data);
+        setLoading(false);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [category]);
+
+  return { packs, loading };
 }
 
-export function usePacksByFramework(framework: PackFramework): Pack[] {
-  return useMemo(
-    () => RegistryService.getPacksByFramework(framework),
-    [framework]
-  );
+export function usePacksByFramework(framework: PackFramework): {
+  packs: Pack[];
+  loading: boolean;
+} {
+  const [packs, setPacks] = useState<Pack[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    RegistryService.getPacksByFramework(framework).then((data) => {
+      if (!cancelled) {
+        setPacks(data);
+        setLoading(false);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [framework]);
+
+  return { packs, loading };
 }
 
 export type CollectionWithPacks = Collection & { packs: Pack[] };
 
-export function useCollections(): { collections: CollectionWithPacks[] } {
-  const collections = useMemo(() => {
-    const all = RegistryService.getAllCollections();
-    return all.map((collection) => ({
-      ...collection,
-      packs: RegistryService.getPacksForCollection(collection.slug),
-    }));
+export function useCollections(): {
+  collections: CollectionWithPacks[];
+  loading: boolean;
+} {
+  const [collections, setCollections] = useState<CollectionWithPacks[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const all = await RegistryService.getAllCollections();
+      const enriched = await Promise.all(
+        all.map(async (collection) => ({
+          ...collection,
+          packs: await RegistryService.getPacksForCollection(collection.slug),
+        }))
+      );
+      if (!cancelled) {
+        setCollections(enriched);
+        setLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
   }, []);
 
-  return { collections };
+  return { collections, loading };
 }

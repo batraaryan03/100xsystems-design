@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Highlight, themes } from "prism-react-renderer";
 
 export function Card({
   number,
@@ -92,17 +93,18 @@ export function Badge({
   );
 }
 
-function highlightJSON(json: string): string {
-  return json
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"([^"]+)"(?=\s*:)/g, '<span style="color: var(--coral)">"$1"</span>')
-    .replace(/:\s*"([^"]*)"/g, ': <span style="color: #a8d8a8">"$1"</span>')
-    .replace(/:\s*(\d+)/g, ': <span style="color: var(--mustard)">$1</span>')
-    .replace(/:\s*(true|false)/g, ': <span style="color: var(--olive)">$1</span>')
-    .replace(/:\s*(null)/g, ': <span style="color: var(--ink-faint)">$1</span>');
-}
+const languageMap: Record<string, string> = {
+  html: "html",
+  css: "css",
+  tsx: "tsx",
+  jsx: "jsx",
+  javascript: "jsx",
+  typescript: "tsx",
+  bash: "bash",
+  shell: "bash",
+  json: "json",
+  text: "text",
+};
 
 export function CodeBlock({ code, language = "text" }: { code: string; language?: string }) {
   const [copied, setCopied] = useState(false);
@@ -113,10 +115,56 @@ export function CodeBlock({ code, language = "text" }: { code: string; language?
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const highlighted = language === "json" ? highlightJSON(code) : code
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+  const lang = languageMap[language] || "text";
+
+  if (lang === "text") {
+    return (
+      <div
+        style={{
+          position: "relative",
+          background: "#15140f",
+          borderRadius: "12px",
+          overflow: "hidden",
+          border: "1px solid rgba(247, 241, 222, 0.1)",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 16px", borderBottom: "1px solid rgba(247, 241, 222, 0.08)" }}>
+          <span style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "rgba(247, 241, 222, 0.4)", letterSpacing: "0.04em" }}>
+            {language}
+          </span>
+          <button
+            onClick={handleCopy}
+            style={{
+              background: "rgba(247, 241, 222, 0.1)",
+              border: "none",
+              borderRadius: "6px",
+              padding: "4px 10px",
+              fontSize: "11px",
+              fontFamily: "var(--sans)",
+              color: "rgba(247, 241, 222, 0.6)",
+              cursor: "pointer",
+              transition: "all 0.18s ease",
+            }}
+          >
+            {copied ? "Copied" : "Copy"}
+          </button>
+        </div>
+        <pre style={{
+          margin: 0,
+          padding: "16px",
+          overflowX: "auto",
+          fontFamily: "var(--mono)",
+          fontSize: "13px",
+          lineHeight: 1.6,
+          color: "#f7f1de",
+          whiteSpace: "pre-wrap",
+          wordBreak: "break-word",
+        }}>
+          <code>{code}</code>
+        </pre>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -149,17 +197,27 @@ export function CodeBlock({ code, language = "text" }: { code: string; language?
           {copied ? "Copied" : "Copy"}
         </button>
       </div>
-      <pre style={{
-        margin: 0,
-        padding: "16px",
-        overflowX: "auto",
-        fontFamily: "var(--mono)",
-        fontSize: "13px",
-        lineHeight: 1.6,
-        color: "#f7f1de",
-      }}>
-        <code dangerouslySetInnerHTML={{ __html: highlighted }} />
-      </pre>
+      <Highlight theme={themes.nightOwl} code={code.trimEnd()} language={lang}>
+        {({ tokens, getLineProps, getTokenProps }) => (
+          <pre style={{
+            margin: 0,
+            padding: "16px",
+            overflowX: "auto",
+            fontFamily: "var(--mono)",
+            fontSize: "13px",
+            lineHeight: 1.6,
+            textAlign: "left",
+          }}>
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line })}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
     </div>
   );
 }
