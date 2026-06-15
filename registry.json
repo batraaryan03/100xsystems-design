@@ -1,15 +1,25 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "design-skills",
-  "homepage": "https://github.com/100xsystems/design-skills",
+  "homepage": "https://github.com/batraaryan03/100xsystems-design",
   "items": [
     {
       "name": "open-design-landing-html",
       "type": "registry:item",
-      "title": "Open Design Landing (HTML)",
-      "author": "100X Systems",
+      "title": "Open Design Landing",
+      "author": "Open Design",
       "description": "Single-file editorial landing page. All CSS inlined. Drop one file, get a full page with warm paper aesthetic, coral accents, and editorial typography.",
-      "meta": { "category": "landing", "tags": ["editorial", "atelier-zero", "warm", "coral"] },
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "editorial",
+          "landing",
+          "single-file",
+          "atelier-zero",
+          "warm",
+          "coral"
+        ]
+      },
       "files": [
         {
           "path": "public/registry/packs/open-design-landing-html/index.html",
@@ -21,10 +31,21 @@
     {
       "name": "open-design-landing-split",
       "type": "registry:item",
-      "title": "Open Design Landing (Split HTML/CSS)",
-      "author": "100X Systems",
+      "title": "Open Design Landing (Split)",
+      "author": "Open Design",
       "description": "Editorial landing page with separated HTML and CSS files. Clean markup with external stylesheet for easy customization.",
-      "meta": { "category": "landing", "tags": ["editorial", "atelier-zero", "split", "css"] },
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "editorial",
+          "landing",
+          "split",
+          "atelier-zero",
+          "warm",
+          "coral",
+          "css"
+        ]
+      },
       "files": [
         {
           "path": "public/registry/packs/open-design-landing-split/index.html",
@@ -42,16 +63,30 @@
       "name": "open-design-landing-react",
       "type": "registry:item",
       "title": "Open Design Landing (React)",
-      "author": "100X Systems",
+      "author": "Open Design",
       "description": "React component version of the Open Design landing page. Use in Next.js or any React project with the Atelier Zero design system.",
-      "meta": { "category": "landing", "tags": ["editorial", "atelier-zero", "react", "nextjs"] },
-      "dependencies": ["next", "react"],
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "editorial",
+          "landing",
+          "react",
+          "nextjs",
+          "atelier-zero",
+          "warm",
+          "coral"
+        ]
+      },
       "files": [
         {
           "path": "public/registry/packs/open-design-landing-react/OpenDesignLanding.tsx",
           "type": "registry:component",
           "target": "~/components/OpenDesignLanding.tsx"
         }
+      ],
+      "dependencies": [
+        "next",
+        "react"
       ]
     }
   ]
