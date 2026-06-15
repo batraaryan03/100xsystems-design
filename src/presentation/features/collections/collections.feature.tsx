@@ -1,46 +1,44 @@
 "use client";
 
-import { PageHeader } from "@/presentation/_components/components.layout";
-import { PackGrid } from "@/presentation/_components/components.composite";
-import { containerStyles, headingStyles } from "@/presentation/_styles/components.styles";
 import { useCollections } from "@/application/packs/packs.hooks";
+import { PackGrid } from "@/presentation/_components/components.composite";
+import { SectionRule, PageHeader } from "@/presentation/_components/components.layout";
+import { CoralDot } from "@/presentation/_components/components.atomic";
 
-export default function CollectionsFeature() {
+export function CollectionsFeature() {
   const { collections } = useCollections();
 
   return (
-    <div className="flex flex-col">
-      <PageHeader
-        title="Collections"
-        description="Curated groups of packs for specific use cases"
-      />
+    <div>
+      <section className="tight">
+        <div className="container">
+          <SectionRule roman="I." meta="Collections" page="001 / 001" />
+          <PageHeader
+            label="Curated Collections"
+            labelIndex="Nº 01"
+            title={<>Groups of <em>skills</em> for specific use cases<CoralDot /></>}
+            lead="Pre-curated collections of skills that work well together."
+          />
 
-      <div className={containerStyles.root}>
-        {collections.length === 0 ? (
-          <div className="py-16 text-center">
-            <p className="text-lg text-muted-foreground">
-              No collections available yet.
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Check back soon for curated packs.
-            </p>
-          </div>
-        ) : (
-          <div className="flex flex-col gap-12">
-            {collections.map((collection) => (
-              <div key={collection.id} className="flex flex-col gap-4">
-                <div>
-                  <h2 className={headingStyles.h2}>{collection.title}</h2>
-                  <p className="mt-1 text-muted-foreground">
-                    {collection.description}
-                  </p>
-                </div>
+          {collections.length === 0 ? (
+            <div style={{ padding: "60px 0", textAlign: "center", color: "var(--ink-mute)" }}>
+              No collections yet.
+            </div>
+          ) : (
+            collections.map((collection) => (
+              <div key={collection.id} style={{ marginBottom: "60px" }}>
+                <h3 style={{ fontFamily: "var(--sans)", fontSize: "24px", fontWeight: 700, marginBottom: "8px" }}>
+                  {collection.title}
+                </h3>
+                <p style={{ fontFamily: "var(--body)", fontSize: "14px", color: "var(--ink-mute)", marginBottom: "24px", maxWidth: "48ch" }}>
+                  {collection.description}
+                </p>
                 <PackGrid packs={collection.packs} />
               </div>
-            ))}
-          </div>
-        )}
-      </div>
+            ))
+          )}
+        </div>
+      </section>
     </div>
   );
 }

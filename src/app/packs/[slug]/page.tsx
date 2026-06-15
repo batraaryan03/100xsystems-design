@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import PackDetailFeature from "@/presentation/features/packs/pack-detail.feature";
+import { PackDetailFeature } from "@/presentation/features/packs/pack-detail.feature";
 
 export default async function PackDetailPage({
   params,

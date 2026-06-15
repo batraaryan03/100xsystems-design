@@ -1,118 +1,160 @@
 "use client";
 
-import * as React from "react";
-import { cn } from "@/lib/utils";
-import {
-  cardVariants,
-  badgeVariants,
-  codeBlockStyles,
-  copyButtonStyles,
-  tagChipStyles,
-  tagChipActiveStyles,
-} from "@/presentation/_styles/components.styles";
-import { Check, Copy } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
-type CardProps = React.ComponentProps<"div"> & {
-  variant?: "default" | "interactive" | "featured";
-};
-
-function Card({ className, variant, ...props }: CardProps) {
-  return (
-    <div className={cn(cardVariants({ variant }), className)} {...props} />
-  );
-}
-
-type BadgeProps = React.ComponentProps<"span"> & {
-  variant?: "default" | "secondary" | "outline" | "framework" | "category";
-};
-
-function Badge({ className, variant, ...props }: BadgeProps) {
-  return (
-    <span className={cn(badgeVariants({ variant }), className)} {...props} />
-  );
-}
-
-function CopyButton({ text, className }: { text: string; className?: string }) {
-  const [copied, setCopied] = React.useState(false);
-
-  const handleCopy = React.useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      const textarea = document.createElement("textarea");
-      textarea.value = text;
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  }, [text]);
-
-  return (
-    <Button
-      variant="ghost"
-      size="sm"
-      onClick={handleCopy}
-      className={cn(copyButtonStyles, className)}
-      aria-label={copied ? "Copied" : "Copy to clipboard"}
-    >
-      {copied ? (
-        <>
-          <Check className="size-3.5" />
-          <span>Copied</span>
-        </>
-      ) : (
-        <>
-          <Copy className="size-3.5" />
-          <span>Copy</span>
-        </>
-      )}
-    </Button>
-  );
-}
-
-function CodeBlock({
-  code,
-  language,
-  className,
+export function Card({
+  number,
+  tag,
+  title,
+  description,
+  href,
 }: {
-  code: string;
-  language?: string;
-  className?: string;
+  number: string;
+  tag: string;
+  title: string;
+  description: string;
+  href?: string;
+}) {
+  const Tag = href ? "a" : "div";
+  const props = href ? { href } : {};
+
+  return (
+    <Tag className="card" {...props}>
+      <div className="num">
+        <span>{number}</span>
+        <span className="tag">{tag}</span>
+      </div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <span className="arrow-mark">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 19L19 5M19 5H8M19 5v11" />
+        </svg>
+      </span>
+    </Tag>
+  );
+}
+
+export function Pill({
+  label,
+  count,
+  active,
+  onClick,
+}: {
+  label: string;
+  count?: number;
+  active?: boolean;
+  onClick?: () => void;
 }) {
   return (
-    <div className={cn(codeBlockStyles.wrapper, className)}>
-      <div className={codeBlockStyles.header}>
-        {language && (
-          <span className={codeBlockStyles.language}>{language}</span>
-        )}
-        <CopyButton text={code} />
-      </div>
-      <pre className={codeBlockStyles.code}>
+    <button
+      className={`pill${active ? " active" : ""}`}
+      onClick={onClick}
+    >
+      {label}
+      {count !== undefined && (
+        <span className="count">{count}</span>
+      )}
+    </button>
+  );
+}
+
+export function Badge({
+  children,
+  variant = "default",
+}: {
+  children: React.ReactNode;
+  variant?: "default" | "coral" | "olive";
+}) {
+  const colors: Record<string, React.CSSProperties> = {
+    default: { color: "var(--ink-mute)", background: "var(--bone)" },
+    coral: { color: "var(--coral)", background: "rgba(237, 111, 92, 0.1)" },
+    olive: { color: "var(--olive)", background: "rgba(110, 116, 72, 0.1)" },
+  };
+
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "6px",
+        padding: "4px 10px",
+        borderRadius: "999px",
+        fontSize: "11px",
+        fontFamily: "var(--sans)",
+        fontWeight: 500,
+        letterSpacing: "0.04em",
+        ...colors[variant],
+      }}
+    >
+      {children}
+    </span>
+  );
+}
+
+export function CodeBlock({ code }: { code: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        background: "var(--bone)",
+        borderRadius: "12px",
+        padding: "16px 18px",
+        fontFamily: "var(--mono)",
+        fontSize: "13px",
+        color: "var(--ink)",
+        border: "1px solid var(--line-soft)",
+        overflow: "hidden",
+      }}
+    >
+      <pre style={{ margin: 0, overflowX: "auto" }}>
         <code>{code}</code>
       </pre>
+      <button
+        onClick={handleCopy}
+        style={{
+          position: "absolute",
+          top: "12px",
+          right: "12px",
+          background: "var(--paper)",
+          border: "1px solid var(--line)",
+          borderRadius: "6px",
+          padding: "4px 10px",
+          fontSize: "11px",
+          fontFamily: "var(--sans)",
+          color: "var(--ink-mute)",
+          cursor: "pointer",
+          transition: "all 0.18s ease",
+        }}
+      >
+        {copied ? "Copied" : "Copy"}
+      </button>
     </div>
   );
 }
 
-type TagChipProps = React.ComponentProps<"button"> & {
-  active?: boolean;
-};
-
-function TagChip({ active, className, ...props }: TagChipProps) {
+export function StatRing({
+  number,
+  variant = "default",
+}: {
+  number: string;
+  variant?: "default" | "solid" | "coral";
+}) {
   return (
-    <button
-      className={cn(tagChipStyles, active && tagChipActiveStyles, className)}
-      {...props}
-    />
+    <span className={`stat-ring${variant !== "default" ? ` ${variant}` : ""}`}>
+      {number}
+    </span>
   );
 }
 
-export { Card, Badge, CopyButton, CodeBlock, TagChip };
+export function CoralDot() {
+  return <span style={{ color: "var(--coral)" }}>.</span>;
+}

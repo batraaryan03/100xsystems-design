@@ -1,63 +1,43 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-import type { Pack, PackCategory, PackFramework } from "@/application/packs/packs.types";
-import { Card, Badge, TagChip } from "./components.atomic";
-import { gridStyles } from "@/presentation/_styles/components.styles";
-import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Pack } from "@/application/packs/packs.types";
+import { Badge, Pill } from "./components.atomic";
 
-function PackCard({ pack, className }: { pack: Pack; className?: string }) {
+export function PackCard({ pack }: { pack: Pack }) {
   return (
-    <Link href={`/packs/${pack.slug}`} className="block">
-      <Card variant="interactive" className={cn("h-full", className)}>
-        {pack.screenshots[0] && (
-          <div className="relative aspect-video w-full overflow-hidden bg-muted">
-            <Image
-              src={pack.screenshots[0]}
-              alt={pack.title}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            />
-          </div>
-        )}
-        <div className="flex flex-1 flex-col gap-2 p-4">
-          <div className="flex items-start justify-between gap-2">
-            <h3 className="line-clamp-1 font-semibold">{pack.title}</h3>
-            <Badge variant="framework">{pack.framework}</Badge>
-          </div>
-          <p className="line-clamp-2 text-sm text-muted-foreground">
-            {pack.description}
-          </p>
-          <div className="mt-auto flex flex-wrap gap-1 pt-2">
-            <Badge variant="category" className="text-[10px]">
-              {pack.category}
-            </Badge>
-            {pack.tags.slice(0, 3).map((tag) => (
-              <Badge key={tag} variant="secondary" className="text-[10px]">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        </div>
-      </Card>
+    <Link href={`/packs/${pack.slug}`} className="card" style={{ textDecoration: "none", color: "inherit" }}>
+      <div className="num">
+        <span>{pack.slug.split("-")[0].slice(0, 2).toUpperCase()}</span>
+        <span className="tag">{pack.framework}</span>
+      </div>
+      <h3>{pack.title}</h3>
+      <p>{pack.description}</p>
+      <div style={{ display: "flex", gap: "6px", marginTop: "12px", flexWrap: "wrap" }}>
+        {pack.tags.slice(0, 3).map((tag) => (
+          <Badge key={tag}>{tag}</Badge>
+        ))}
+      </div>
+      <span className="arrow-mark">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 19L19 5M19 5H8M19 5v11" />
+        </svg>
+      </span>
     </Link>
   );
 }
 
-function PackGrid({
-  packs,
-  className,
-}: {
-  packs: Pack[];
-  className?: string;
-}) {
+export function PackGrid({ packs }: { packs: Pack[] }) {
+  if (packs.length === 0) {
+    return (
+      <div style={{ padding: "60px 0", textAlign: "center", color: "var(--ink-mute)" }}>
+        No skills found.
+      </div>
+    );
+  }
+
   return (
-    <div className={cn(gridStyles.packs, className)}>
+    <div className="grid-packs">
       {packs.map((pack) => (
         <PackCard key={pack.id} pack={pack} />
       ))}
@@ -65,81 +45,48 @@ function PackGrid({
   );
 }
 
-function SearchBar({
-  value,
-  onChange,
-  placeholder,
-  className,
-}: {
-  value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-  className?: string;
-}) {
-  return (
-    <div className={cn("relative", className)}>
-      <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-      <Input
-        type="search"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder ?? "Search packs..."}
-        className="pl-9"
-      />
-    </div>
-  );
-}
-
-function FilterBar({
+export function FilterBar({
   categories,
   frameworks,
   activeCategory,
   activeFramework,
   onCategoryChange,
   onFrameworkChange,
-  className,
 }: {
-  categories: PackCategory[];
-  frameworks: PackFramework[];
-  activeCategory: PackCategory | null;
-  activeFramework: PackFramework | null;
-  onCategoryChange: (category: PackCategory | null) => void;
-  onFrameworkChange: (framework: PackFramework | null) => void;
-  className?: string;
+  categories: string[];
+  frameworks: string[];
+  activeCategory?: string;
+  activeFramework?: string;
+  onCategoryChange: (cat: string | undefined) => void;
+  onFrameworkChange: (fw: string | undefined) => void;
 }) {
   return (
-    <div className={cn("flex flex-wrap gap-2", className)}>
-      <div className="flex items-center gap-1">
-        {categories.map((category) => (
-          <TagChip
-            key={category}
-            active={activeCategory === category}
-            onClick={() =>
-              onCategoryChange(activeCategory === category ? null : category)
-            }
-          >
-            {category}
-          </TagChip>
-        ))}
-      </div>
-      <div className="h-6 w-px bg-border" aria-hidden="true" />
-      <div className="flex items-center gap-1">
-        {frameworks.map((framework) => (
-          <TagChip
-            key={framework}
-            active={activeFramework === framework}
-            onClick={() =>
-              onFrameworkChange(
-                activeFramework === framework ? null : framework
-              )
-            }
-          >
-            {framework}
-          </TagChip>
-        ))}
-      </div>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "32px" }}>
+      <Pill
+        label="All"
+        active={!activeCategory && !activeFramework}
+        onClick={() => {
+          onCategoryChange(undefined);
+          onFrameworkChange(undefined);
+        }}
+      />
+      {categories.map((cat) => (
+        <Pill
+          key={cat}
+          label={cat}
+          active={activeCategory === cat}
+          onClick={() => onCategoryChange(activeCategory === cat ? undefined : cat)}
+        />
+      ))}
+      <span style={{ width: "1px", background: "var(--line)", margin: "0 4px" }} />
+      {frameworks.map((fw) => (
+        <Pill
+          key={fw}
+          label={fw}
+          active={activeFramework === fw}
+          onClick={() => onFrameworkChange(activeFramework === fw ? undefined : fw)}
+        />
+      ))}
     </div>
   );
 }
-
-export { PackCard, PackGrid, SearchBar, FilterBar };

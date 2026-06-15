@@ -1,114 +1,94 @@
 "use client";
 
-import { PageHeader, Section } from "@/presentation/_components/components.layout";
-import { containerStyles, headingStyles } from "@/presentation/_styles/components.styles";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { Search, Download, Layers } from "lucide-react";
+import { SectionRule } from "@/presentation/_components/components.layout";
+import { CoralDot } from "@/presentation/_components/components.atomic";
 
-const steps = [
-  {
-    icon: Search,
-    title: "Discover",
-    description: "Browse our curated collection of production-ready website designs.",
-  },
-  {
-    icon: Download,
-    title: "Install",
-    description: "Copy the pack into your project with a single command.",
-  },
-  {
-    icon: Layers,
-    title: "Build",
-    description: "Customize and ship — no more starting from scratch.",
-  },
-];
-
-export default function AboutFeature() {
+export function AboutFeature() {
   return (
-    <div className="flex flex-col">
-      <PageHeader
-        title="About designx"
-        description="The shadcn/ui registry for complete website designs"
-      />
+    <div>
+      <section className="tight">
+        <div className="container">
+          <SectionRule roman="IV." meta="About Design Skills" page="001 / 001" />
 
-      <Section>
-        <div className={cn(containerStyles.narrow, "flex flex-col gap-10")}>
-          <div className="flex flex-col gap-4">
-            <h2 className={headingStyles.h3}>What is designx?</h2>
-            <p className="text-muted-foreground">
-              designx is an open-source registry of production-ready website
-              designs built on shadcn/ui. Think of it as shadcn/ui, but for
-              entire page layouts and complete website designs — not just
-              individual components.
-            </p>
-          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: "80px", alignItems: "center" }}>
+            <div>
+              <span className="label">
+                About <span className="ix">· Nº 01</span>
+              </span>
+              <h2 className="display" style={{ fontSize: "clamp(44px, 5.4vw, 78px)", margin: "30px 0 36px" }}>
+                Design <em>Skills</em><CoralDot />
+              </h2>
+              <p className="lead" style={{ marginBottom: "36px", maxWidth: "42ch", fontSize: "17px" }}>
+                A curated registry of open-source website designs. Instead of building from scratch,
+                install beautiful, production-ready website designs directly into your project.
+              </p>
 
-          <div className="flex flex-col gap-4">
-            <h2 className={headingStyles.h3}>Why does it exist?</h2>
-            <p className="text-muted-foreground">
-              Every project starts with the same problem: building pages from
-              scratch. You have the components, but you still need the layout,
-              the structure, the design context. designx solves this by giving
-              you complete, copy-paste website designs that work out of the box
-              with shadcn/ui.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <h2 className={headingStyles.h3}>How it works</h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-              {steps.map((step) => (
-                <div
-                  key={step.title}
-                  className="flex flex-col items-center text-center"
-                >
-                  <div className="mb-3 flex size-10 items-center justify-center rounded-full bg-muted">
-                    <step.icon className="size-5 text-muted-foreground" />
-                  </div>
-                  <h3 className="text-base font-semibold">{step.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {step.description}
+              <div style={{ display: "flex", flexDirection: "column", gap: "24px", marginBottom: "40px" }}>
+                <div>
+                  <h3 style={{ fontFamily: "var(--sans)", fontSize: "18px", fontWeight: 700, marginBottom: "8px" }}>
+                    Why Design Skills?
+                  </h3>
+                  <p style={{ fontFamily: "var(--body)", fontSize: "14px", color: "var(--ink-mute)", lineHeight: 1.6, maxWidth: "42ch" }}>
+                    Most AI design tools try to generate designs from prompts. Design Skills takes a
+                    different approach — it provides real, working code from real websites. AI can then
+                    consume these references directly from your codebase.
                   </p>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          <div className="flex flex-col gap-4">
-            <h2 className={headingStyles.h3}>Open source</h2>
-            <p className="text-muted-foreground">
-              designx is fully open source. All packs are available under the
-              MIT license. Contributions, feedback, and new pack submissions are
-              always welcome.
-            </p>
-            <div className="mt-2">
-              <a
-                href="https://github.com/100xsystems/designx"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(buttonVariants({ variant: "outline" }))}
-              >
-                View on GitHub
-              </a>
-            </div>
-          </div>
+                <div>
+                  <h3 style={{ fontFamily: "var(--sans)", fontSize: "18px", fontWeight: 700, marginBottom: "8px" }}>
+                    How it works
+                  </h3>
+                  <ol style={{ fontFamily: "var(--body)", fontSize: "14px", color: "var(--ink-mute)", lineHeight: 1.6, paddingLeft: "20px" }}>
+                    <li>Browse the registry for designs you like</li>
+                    <li>Install them via CLI or copy-paste</li>
+                    <li>AI reads the installed code as context</li>
+                    <li>Build new designs based on real references</li>
+                  </ol>
+                </div>
 
-          <div className="border-t border-border pt-8">
-            <p className="text-sm text-muted-foreground">
-              Built by{" "}
-              <a
-                href="https://100xsystems.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground underline underline-offset-4 hover:text-primary"
-              >
-                100xsystems
-              </a>
-            </p>
+                <div>
+                  <h3 style={{ fontFamily: "var(--sans)", fontSize: "18px", fontWeight: 700, marginBottom: "8px" }}>
+                    Open Source
+                  </h3>
+                  <p style={{ fontFamily: "var(--body)", fontSize: "14px", color: "var(--ink-mute)", lineHeight: 1.6, maxWidth: "42ch" }}>
+                    Design Skills is open source and community-driven. All skills in the registry are
+                    from open-source projects with permissive licenses (MIT, Apache 2.0).
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: "20px", marginTop: "56px", color: "var(--ink-faint)", fontFamily: "var(--sans)", fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" }}>
+                <span style={{ width: "30px", height: "30px", borderRadius: "50%", border: "1px solid var(--ink)", display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "14px", color: "var(--ink)" }}>
+                  DS
+                </span>
+                <span>
+                  Built by <span style={{ color: "var(--ink)" }}>100xsystems</span>
+                </span>
+              </div>
+            </div>
+
+            <div style={{ position: "relative", aspectRatio: "1/1", maxWidth: "620px", marginLeft: "auto" }}>
+              <div style={{
+                width: "100%",
+                height: "100%",
+                background: "var(--bone)",
+                borderRadius: "18px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: "var(--serif)",
+                fontStyle: "italic",
+                fontSize: "120px",
+                color: "var(--ink-faint)",
+                opacity: 0.3,
+              }}>
+                DS
+              </div>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
     </div>
   );
 }

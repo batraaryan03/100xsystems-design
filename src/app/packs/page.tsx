@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import PacksFeature from "@/presentation/features/packs/packs.feature";
+import { PacksFeature } from "@/presentation/features/packs/packs.feature";
 
 export default function PacksPage() {
   return (

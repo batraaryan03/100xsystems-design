@@ -1,22 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Navbar, Footer } from "@/presentation/_components/components.layout";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { Topbar, Navbar, Footer } from "@/presentation/_components/components.layout";
 
 export const metadata: Metadata = {
-  title: "designx — shadcn/ui for website designs",
+  title: "Design Skills — A curated registry of website designs",
   description:
-    "Copy-paste production-ready website designs into your next project. Browse, install, and customize open-source website packs.",
+    "Find beautiful open-source websites. Install them as code. Own them locally. Let AI consume from your codebase.",
 };
 
 export default function RootLayout({
@@ -25,14 +14,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+    <html lang="en" className="antialiased">
+      <body>
+        <div className="side-rail left">
+          <span className="rail-text">Design Skills · Vol. 01</span>
+        </div>
+        <div className="side-rail right">
+          <span className="rail-text">MMXXVI · Open Source</span>
+        </div>
+        <div className="shell">
+          <Topbar />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

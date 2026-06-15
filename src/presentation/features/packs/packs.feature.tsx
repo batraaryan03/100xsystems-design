@@ -1,100 +1,65 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect } from "react";
-import { PageHeader } from "@/presentation/_components/components.layout";
-import {
-  PackGrid,
-  SearchBar,
-  FilterBar,
-} from "@/presentation/_components/components.composite";
-import { containerStyles } from "@/presentation/_styles/components.styles";
 import { usePacks } from "@/application/packs/packs.hooks";
 import { useSearch } from "@/application/search/search.hooks";
-import type { PackCategory, PackFramework } from "@/application/packs/packs.types";
+import { PackGrid, FilterBar } from "@/presentation/_components/components.composite";
+import { SectionRule, PageHeader } from "@/presentation/_components/components.layout";
+import { CoralDot } from "@/presentation/_components/components.atomic";
+import { PackCategory, PackFramework } from "@/application/packs/packs.types";
 
-export default function PacksFeature() {
+export function PacksFeature() {
   const { packs, categories, frameworks } = usePacks();
-  const { results, filters, filteredCount, updateFilters } = useSearch(packs);
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    const category = searchParams.get("category") as PackCategory | null;
-    const framework = searchParams.get("framework") as PackFramework | null;
-    const query = searchParams.get("q");
-
-    if (category && categories.includes(category)) {
-      updateFilters({ category });
-    }
-    if (framework && frameworks.includes(framework)) {
-      updateFilters({ framework });
-    }
-    if (query) {
-      updateFilters({ query });
-    }
-  }, [searchParams, categories, frameworks, updateFilters]);
-
-  const handleSearch = useCallback(
-    (query: string) => updateFilters({ query }),
-    [updateFilters]
-  );
-
-  const handleCategoryChange = useCallback(
-    (category: PackCategory | null) => updateFilters({ category }),
-    [updateFilters]
-  );
-
-  const handleFrameworkChange = useCallback(
-    (framework: PackFramework | null) => updateFilters({ framework }),
-    [updateFilters]
-  );
+  const { filters, results, updateFilters } = useSearch(packs);
 
   return (
-    <div className="flex flex-col">
-      <PageHeader
-        title="Packs"
-        description="Browse curated open-source website designs"
-      />
+    <div>
+      <section className="tight">
+        <div className="container">
+          <SectionRule roman="I." meta="All Skills" page="001 / 001" />
+          <PageHeader
+            label="Browse Skills"
+            labelIndex="Nº 01"
+            title={<>Every skill is a <em>droppable</em> folder<CoralDot /></>}
+            lead="Filter by category or framework. Click any card to see install instructions."
+          />
 
-      <div className={containerStyles.root}>
-        <div className="flex flex-col gap-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <SearchBar
+          <div style={{ marginBottom: "16px" }}>
+            <input
+              type="text"
               value={filters.query}
-              onChange={handleSearch}
-              placeholder="Search packs by name, description, or tag..."
-              className="w-full sm:max-w-sm"
+              onChange={(e) => updateFilters({ query: e.target.value })}
+              placeholder="Search skills..."
+              style={{
+                width: "100%",
+                maxWidth: "400px",
+                padding: "12px 16px",
+                borderRadius: "999px",
+                border: "1px solid var(--line)",
+                background: "var(--bone)",
+                fontFamily: "var(--sans)",
+                fontSize: "14px",
+                color: "var(--ink)",
+                outline: "none",
+              }}
             />
-            <p className="text-sm text-muted-foreground">
-              {filteredCount === packs.length
-                ? `${packs.length} packs`
-                : `${filteredCount} of ${packs.length} packs`}
-            </p>
           </div>
 
           <FilterBar
             categories={categories}
             frameworks={frameworks}
-            activeCategory={filters.category}
-            activeFramework={filters.framework}
-            onCategoryChange={handleCategoryChange}
-            onFrameworkChange={handleFrameworkChange}
+            activeCategory={filters.category ?? undefined}
+            activeFramework={filters.framework ?? undefined}
+            onCategoryChange={(cat) => updateFilters({ category: cat as PackCategory | null })}
+            onFrameworkChange={(fw) => updateFilters({ framework: fw as PackFramework | null })}
           />
 
-          {results.length === 0 ? (
-            <div className="py-16 text-center">
-              <p className="text-lg text-muted-foreground">
-                No packs found matching your filters.
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Try adjusting your search or filters.
-              </p>
-            </div>
-          ) : (
-            <PackGrid packs={results} />
-          )}
+          <div style={{ marginBottom: "24px", fontFamily: "var(--sans)", fontSize: "12px", color: "var(--ink-faint)", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+            {results.length} skill{results.length !== 1 ? "s" : ""} found
+          </div>
+
+          <PackGrid packs={results} />
         </div>
-      </div>
+      </section>
     </div>
   );
 }
