@@ -154,30 +154,37 @@
   ],
   "collections": [
     {
-      "id": "modern-saas",
-      "slug": "modern-saas",
-      "title": "Modern SaaS",
-      "description": "A curated collection of modern SaaS templates and landing pages for building professional software products.",
+      "id": "all-packs",
+      "slug": "all-packs",
+      "title": "All Packs",
+      "description": "Every pack in the registry.",
+      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio"]
+    },
+    {
+      "id": "editorial-landing",
+      "slug": "editorial-landing",
+      "title": "Editorial Landing Pages",
+      "description": "Warm, paper-aesthetic editorial landing pages with coral accents.",
       "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react"]
     },
     {
-      "id": "saas-templates",
-      "slug": "saas-templates",
-      "title": "SaaS Templates",
+      "id": "saas",
+      "slug": "saas",
+      "title": "SaaS",
       "description": "Clean, conversion-focused landing pages for software products.",
       "packSlugs": ["modern-saas-landing"]
     },
     {
-      "id": "portfolio-templates",
-      "slug": "portfolio-templates",
-      "title": "Portfolio Templates",
+      "id": "portfolio",
+      "slug": "portfolio",
+      "title": "Portfolio",
       "description": "Elegant portfolio pages for developers and creatives.",
       "packSlugs": ["portfolio-minimal"]
     },
     {
-      "id": "agency-templates",
-      "slug": "agency-templates",
-      "title": "Agency Templates",
+      "id": "agency",
+      "slug": "agency",
+      "title": "Agency",
       "description": "Bold, editorial pages for creative agencies and studios.",
       "packSlugs": ["agency-studio"]
     }
