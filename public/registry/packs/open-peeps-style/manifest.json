@@ -1,0 +1,13 @@
+{
+  "name": "open-peeps-style",
+  "type": "registry:block",
+  "title": "Open Peeps Style",
+  "description": "Diverse character illustrations in the Open Peeps mix-and-match style. 8 characters with varied skin tones, poses, and outfits.",
+  "files": [
+    { "path": "index.html", "type": "registry:file" }
+  ],
+  "meta": {
+    "category": "illustration",
+    "tags": ["illustrations", "characters", "diverse", "inclusive", "people"]
+  }
+}

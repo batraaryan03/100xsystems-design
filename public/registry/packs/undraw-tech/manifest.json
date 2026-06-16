@@ -1,0 +1,13 @@
+{
+  "name": "undraw-tech",
+  "type": "registry:block",
+  "title": "unDraw Tech",
+  "description": "Minimal tech illustrations for SaaS and developer products. Dashboard, code, team, upload, and more.",
+  "files": [
+    { "path": "index.html", "type": "registry:file" }
+  ],
+  "meta": {
+    "category": "illustration",
+    "tags": ["illustrations", "tech", "saas", "minimal", "developer", "ui"]
+  }
+}

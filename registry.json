@@ -265,6 +265,57 @@
           "target": "~/assets/README.md"
         }
       ]
+    },
+    {
+      "name": "open-peeps-style",
+      "type": "registry:block",
+      "title": "Open Peeps Style",
+      "author": "100X Systems",
+      "description": "Diverse character illustrations in the Open Peeps mix-and-match style. 8 characters with varied skin tones, poses, and outfits for inclusive UI design.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "illustrations",
+          "characters",
+          "diverse",
+          "inclusive",
+          "people",
+          "svg"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/open-peeps-style/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "undraw-tech",
+      "type": "registry:block",
+      "title": "unDraw Tech",
+      "author": "100X Systems",
+      "description": "Minimal tech illustrations for SaaS and developer products. Dashboard, code, team, upload, migration, and success states.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "illustrations",
+          "tech",
+          "saas",
+          "minimal",
+          "developer",
+          "ui",
+          "svg"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/undraw-tech/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

@@ -317,6 +317,74 @@
       "createdAt": "2026-06-16",
       "thumbnail": "/registry/packs/abstract-video-loops/thumbnail.png",
       "itemCount": 3
+    },
+    {
+      "id": "open-peeps-style",
+      "slug": "open-peeps-style",
+      "title": "Open Peeps Style",
+      "description": "Diverse character illustrations in the Open Peeps mix-and-match style. 8 characters with varied skin tones, poses, and outfits for inclusive UI design.",
+      "tags": ["illustrations", "characters", "diverse", "inclusive", "people", "svg"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "illustration",
+      "screenshots": [],
+      "files": [
+        { "path": "index.html", "type": "asset" }
+      ],
+      "assets": [
+        { "name": "Standing", "path": "index.html", "format": "svg" },
+        { "name": "Celebrating", "path": "index.html", "format": "svg" },
+        { "name": "Sitting", "path": "index.html", "format": "svg" },
+        { "name": "Working", "path": "index.html", "format": "svg" },
+        { "name": "Peace", "path": "index.html", "format": "svg" },
+        { "name": "Pointing", "path": "index.html", "format": "svg" },
+        { "name": "Relaxed", "path": "index.html", "format": "svg" },
+        { "name": "Excited", "path": "index.html", "format": "svg" }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/open-peeps-style",
+      "license": "CC0-1.0",
+      "author": { "name": "100X Systems" },
+      "attribution": [
+        { "source": "Open Peeps", "url": "https://www.openpeeps.com/", "license": "CC0", "author": "Pablo Stanley" }
+      ],
+      "featured": true,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/open-peeps-style/thumbnail.png",
+      "itemCount": 1
+    },
+    {
+      "id": "undraw-tech",
+      "slug": "undraw-tech",
+      "title": "unDraw Tech",
+      "description": "Minimal tech illustrations for SaaS and developer products. Dashboard, code, team, upload, migration, and success states.",
+      "tags": ["illustrations", "tech", "saas", "minimal", "developer", "ui", "svg"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "illustration",
+      "screenshots": [],
+      "files": [
+        { "path": "index.html", "type": "asset" }
+      ],
+      "assets": [
+        { "name": "Dashboard", "path": "index.html", "format": "svg" },
+        { "name": "Success", "path": "index.html", "format": "svg" },
+        { "name": "Migration", "path": "index.html", "format": "svg" },
+        { "name": "Code", "path": "index.html", "format": "svg" },
+        { "name": "Team", "path": "index.html", "format": "svg" },
+        { "name": "Upload", "path": "index.html", "format": "svg" }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/undraw-tech",
+      "license": "CC0-1.0",
+      "author": { "name": "100X Systems" },
+      "attribution": [
+        { "source": "unDraw", "url": "https://undraw.co/", "license": "CC0", "author": "Alexandra Misesova" }
+      ],
+      "featured": false,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/undraw-tech/thumbnail.png",
+      "itemCount": 1
     }
   ],
   "collections": [
@@ -325,7 +393,7 @@
       "slug": "all-packs",
       "title": "All Packs",
       "description": "Every pack in the registry.",
-      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops"]
+      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech"]
     },
     {
       "id": "editorial-landing",
@@ -360,7 +428,7 @@
       "slug": "illustrations",
       "title": "Illustrations",
       "description": "Free SVG illustration packs with cohesive design styles.",
-      "packSlugs": ["open-doodles-style"]
+      "packSlugs": ["open-doodles-style", "open-peeps-style", "undraw-tech"]
     },
     {
       "id": "textures-and-images",
