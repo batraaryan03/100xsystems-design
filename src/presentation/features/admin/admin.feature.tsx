@@ -28,8 +28,9 @@ export function AdminFeature() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
-  const [framework, setFramework] = useState<"html" | "react">("html");
+  const [framework, setFramework] = useState<"html" | "react" | "asset">("html");
   const [category, setCategory] = useState("landing");
+  const [assetType, setAssetType] = useState<"component" | "illustration" | "image" | "video">("component");
   const [slug, setSlug] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -84,7 +85,7 @@ export function AdminFeature() {
     }
   };
 
-  const handleFrameworkChange = (fw: "html" | "react") => {
+  const handleFrameworkChange = (fw: "html" | "react" | "asset") => {
     setFramework(fw);
     if (fw === "html") {
       setFiles([{ filename: "index.html", content: files[0]?.content || "", type: "component" }]);
@@ -116,31 +117,32 @@ export function AdminFeature() {
       type: f.type,
     }));
 
-    const manifest = {
+    const manifest: Record<string, unknown> = {
       id: slug || "my-pack",
       slug: slug || "my-pack",
       title: title || "My Pack",
-      description: description || "A website design pack",
+      description: description || "A design pack",
       tags: tags ? tags.split(",").map((t) => t.trim()) : ["design"],
       framework,
       category,
       screenshots: [],
       files: manifestFiles,
       dependencies: framework === "react" ? ["next", "react"] : [],
-      installCommand: framework === "html"
-        ? `Copy ${files.map((f) => f.filename).join(" and ")} into your project`
-        : `Copy ${files.map((f) => f.filename).join(", ")} into your components folder`,
-      sourceUrl: "",
-      githubUrl: "",
+      installCommand: `npx shadcn@latest add batraaryan03/100xsystems-design/${slug || "my-pack"}`,
       license: "MIT",
       author: {
         name: "Your Name",
-        url: "",
       },
       featured: false,
       createdAt: new Date().toISOString().split("T")[0],
       htmlContent: getPreviewHtml() || undefined,
     };
+
+    if (framework === "asset") {
+      manifest.assetType = assetType;
+      manifest.attribution = [];
+    }
+
     return JSON.stringify(manifest, null, 2);
   };
 
@@ -213,23 +215,39 @@ export function AdminFeature() {
 
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ display: "block", fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 600, color: "var(--ink-mute)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "8px" }}>
-                  Framework
+                  Type
                 </label>
-                <div style={{ display: "flex", gap: "8px" }}>
-                  <button
-                    onClick={() => handleFrameworkChange("html")}
-                    className={`pill${framework === "html" ? " active" : ""}`}
-                  >
-                    HTML
-                  </button>
-                  <button
-                    onClick={() => handleFrameworkChange("react")}
-                    className={`pill${framework === "react" ? " active" : ""}`}
-                  >
-                    React
-                  </button>
+                <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                  {(["html", "react", "asset"] as const).map((fw) => (
+                    <button
+                      key={fw}
+                      onClick={() => handleFrameworkChange(fw)}
+                      className={`pill${framework === fw ? " active" : ""}`}
+                    >
+                      {fw === "html" ? "HTML" : fw === "react" ? "React" : "Asset"}
+                    </button>
+                  ))}
                 </div>
               </div>
+
+              {framework === "asset" && (
+                <div style={{ marginBottom: "20px" }}>
+                  <label style={{ display: "block", fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 600, color: "var(--ink-mute)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "8px" }}>
+                    Asset Type
+                  </label>
+                  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                    {(["illustration", "image", "video"] as const).map((at) => (
+                      <button
+                        key={at}
+                        onClick={() => setAssetType(at)}
+                        className={`pill${assetType === at ? " active" : ""}`}
+                      >
+                        {at}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div style={{ marginBottom: "20px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
@@ -395,6 +413,7 @@ export function AdminFeature() {
                     <option value="saas">SaaS</option>
                     <option value="portfolio">Portfolio</option>
                     <option value="dashboard">Dashboard</option>
+                    <option value="agency">Agency</option>
                   </select>
                 </div>
                 <div>
