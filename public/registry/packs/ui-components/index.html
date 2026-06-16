@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Components — Drop-in Elements</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f7f1de; font-family: 'Inter', system-ui, sans-serif; padding: 60px 40px; color: #2d2d2d; }
+    h1 { font-size: 36px; margin-bottom: 8px; }
+    .subtitle { font-size: 14px; color: #888; margin-bottom: 48px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .section { max-width: 1000px; margin: 0 auto 60px; }
+    .section-title { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #e5dfd5; }
+    .footer { text-align: center; margin-top: 64px; padding-top: 32px; border-top: 1px solid #e5dfd5; }
+    .footer p { font-size: 12px; color: #888; }
+    .badge { display: inline-block; background: #5c9ded; color: white; font-size: 11px; padding: 4px 12px; border-radius: 999px; margin-bottom: 24px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* Buttons */
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; border: none; }
+    .btn-primary { background: #ed6f5c; color: #fff; }
+    .btn-primary:hover { background: #d95a48; }
+    .btn-secondary { background: #2d2d2d; color: #fff; }
+    .btn-secondary:hover { background: #1a1a1a; }
+    .btn-outline { background: transparent; color: #2d2d2d; border: 1.5px solid #d1cdc4; }
+    .btn-outline:hover { border-color: #2d2d2d; }
+    .btn-ghost { background: transparent; color: #ed6f5c; }
+    .btn-ghost:hover { background: #ed6f5c10; }
+    .btn-sm { padding: 6px 14px; font-size: 12px; border-radius: 6px; }
+    .btn-lg { padding: 14px 28px; font-size: 16px; border-radius: 10px; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Cards */
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: box-shadow 0.2s ease; }
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+    .card-tag { font-size: 11px; font-weight: 600; color: #ed6f5c; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .card p { font-size: 13px; color: #666; line-height: 1.5; }
+    .card-dark { background: #1a1a2e; color: #f0f0f0; }
+    .card-dark p { color: #a0a0b0; }
+    .card-bordered { background: transparent; border: 1.5px solid #e5dfd5; box-shadow: none; }
+
+    /* Badges */
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    .badge-coral { background: #ed6f5c15; color: #ed6f5c; }
+    .badge-olive { background: #6e744815; color: #6e7448; }
+    .badge-blue { background: #5c9ded15; color: #5c9ded; }
+    .badge-neutral { background: #f0ebe0; color: #666; }
+
+    /* Form */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label { font-size: 12px; font-weight: 600; color: #666; letter-spacing: 0.05em; text-transform: uppercase; }
+    .form-input { padding: 10px 14px; border: 1.5px solid #e5dfd5; border-radius: 8px; font-family: inherit; font-size: 14px; background: white; transition: border-color 0.2s ease; }
+    .form-input:focus { outline: none; border-color: #ed6f5c; }
+    .form-textarea { min-height: 100px; resize: vertical; }
+    .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+
+    /* Toast */
+    .toast { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; background: #1a1a2e; color: #f0f0f0; border-radius: 10px; font-size: 13px; font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .toast-success { border-left: 3px solid #10b981; }
+    .toast-error { border-left: 3px solid #ef4444; }
+    .toast-info { border-left: 3px solid #5c9ded; }
+
+    /* Toggle */
+    .toggle { position: relative; width: 44px; height: 24px; background: #d1cdc4; border-radius: 12px; cursor: pointer; transition: background 0.2s ease; }
+    .toggle.active { background: #ed6f5c; }
+    .toggle::after { content: ''; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; background: white; border-radius: 50%; transition: transform 0.2s ease; }
+    .toggle.active::after { transform: translateX(20px); }
+
+    /* Avatar */
+    .avatar-row { display: flex; gap: 12px; align-items: center; }
+    .avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white; }
+    .avatar-sm { width: 32px; height: 32px; font-size: 12px; }
+    .avatar-lg { width: 56px; height: 56px; font-size: 20px; }
+
+    /* Skeleton */
+    .skeleton { background: linear-gradient(90deg, #e5dfd5 25%, #f0ebe0 50%, #e5dfd5 75%); background-size: 200% 100%; animation: shimmer 1.5s ease-in-out infinite; border-radius: 6px; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    /* Alert */
+    .alert { padding: 14px 18px; border-radius: 10px; font-size: 13px; line-height: 1.5; }
+    .alert-info { background: #5c9ded15; color: #3b82f6; border: 1px solid #5c9ded30; }
+    .alert-success { background: #10b98115; color: #059669; border: 1px solid #10b98130; }
+    .alert-warning { background: #f59e0b15; color: #d97706; border: 1px solid #f59e0b30; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <div class="badge">Component Pack · 8 Categories</div>
+    <h1>UI Components</h1>
+    <p class="subtitle">Self-contained HTML/CSS elements for any project</p>
+
+    <!-- Buttons -->
+    <div class="section">
+      <div class="section-title">Buttons</div>
+      <div class="btn-row">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-outline">Outline</button>
+        <button class="btn btn-ghost">Ghost</button>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary">Default</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+        <button class="btn btn-primary" disabled>Disabled</button>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <div class="section">
+      <div class="section-title">Badges</div>
+      <div class="badge-row">
+        <span class="badge badge-coral">Coral</span>
+        <span class="badge badge-olive">Olive</span>
+        <span class="badge badge-blue">Blue</span>
+        <span class="badge badge-neutral">Neutral</span>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="section">
+      <div class="section-title">Cards</div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-tag">Feature</div>
+          <h3>Light Card</h3>
+          <p>Clean card with subtle shadow. Perfect for feature grids and content blocks.</p>
+        </div>
+        <div class="card card-dark">
+          <div class="card-tag" style="color: #a78bfa;">Dark</div>
+          <h3>Dark Card</h3>
+          <p>Dark themed card for dashboards and dark mode interfaces.</p>
+        </div>
+        <div class="card card-bordered">
+          <div class="card-tag">Outlined</div>
+          <h3>Bordered Card</h3>
+          <p>Minimal card with border instead of shadow. Clean and lightweight.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Elements -->
+    <div class="section">
+      <div class="section-title">Form Elements</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" placeholder="••••••••" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Role</label>
+          <select class="form-input form-select">
+            <option>Developer</option>
+            <option>Designer</option>
+            <option>Manager</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Website</label>
+          <input type="url" class="form-input" placeholder="https://" />
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Message</label>
+          <textarea class="form-input form-textarea" placeholder="Tell us about your project..."></textarea>
+        </div>
+        <div class="form-group full" style="display: flex; gap: 12px; flex-direction: row; align-items: center;">
+          <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+          <span style="font-size: 14px; color: #666;">Subscribe to newsletter</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alerts -->
+    <div class="section">
+      <div class="section-title">Alerts</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="alert alert-info">ℹ️ This is an informational message for the user.</div>
+        <div class="alert alert-success">✅ Success! Your changes have been saved.</div>
+        <div class="alert alert-warning">⚠️ Warning: Please review before continuing.</div>
+      </div>
+    </div>
+
+    <!-- Toasts -->
+    <div class="section">
+      <div class="section-title">Toasts</div>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <div class="toast toast-success">✅ File uploaded successfully</div>
+        <div class="toast toast-error">❌ Something went wrong</div>
+        <div class="toast toast-info">ℹ️ New update available</div>
+      </div>
+    </div>
+
+    <!-- Avatars -->
+    <div class="section">
+      <div class="section-title">Avatars</div>
+      <div class="avatar-row">
+        <div class="avatar avatar-sm" style="background: #ed6f5c;">AB</div>
+        <div class="avatar" style="background: #6e7448;">JD</div>
+        <div class="avatar avatar-lg" style="background: #5c9ded;">MK</div>
+      </div>
+    </div>
+
+    <!-- Skeleton -->
+    <div class="section">
+      <div class="section-title">Skeleton Loading</div>
+      <div style="max-width: 400px;">
+        <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 16px;">
+          <div class="skeleton" style="width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;"></div>
+          <div style="flex: 1;">
+            <div class="skeleton" style="height: 14px; width: 60%; margin-bottom: 8px;"></div>
+            <div class="skeleton" style="height: 12px; width: 40%;"></div>
+          </div>
+        </div>
+        <div class="skeleton" style="height: 12px; width: 100%; margin-bottom: 8px;"></div>
+        <div class="skeleton" style="height: 12px; width: 90%; margin-bottom: 8px;"></div>
+        <div class="skeleton" style="height: 12px; width: 75%;"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Free for commercial use · Pure HTML/CSS · No dependencies · No attribution required</p>
+    </div>
+  </div>
+</body>
+</html>

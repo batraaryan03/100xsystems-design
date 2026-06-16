@@ -390,6 +390,33 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "ui-components",
+      "type": "registry:block",
+      "title": "UI Components",
+      "author": "100X Systems",
+      "description": "Self-contained HTML/CSS buttons, cards, forms, and modals. Drop-in components with modern styling and interactive states.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "components",
+          "buttons",
+          "cards",
+          "forms",
+          "modals",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/ui-components/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "name": "ui-components",
+  "type": "registry:block",
+  "title": "UI Components",
+  "description": "Self-contained HTML/CSS elements: buttons, cards, forms, alerts, toasts, avatars, toggles, and skeleton loaders. No dependencies.",
+  "files": [
+    { "path": "index.html", "type": "registry:file" }
+  ],
+  "meta": {
+    "category": "landing",
+    "tags": ["components", "ui", "buttons", "cards", "forms", "design-system"]
+  }
+}
