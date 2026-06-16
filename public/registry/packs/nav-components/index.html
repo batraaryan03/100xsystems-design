@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Components</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #0a0a0a;
+    }
+    
+    .subtitle {
+      font-size: 1.125rem;
+      color: #666;
+      margin-bottom: 48px;
+    }
+    
+    .section {
+      margin-bottom: 64px;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #e8e8e8;
+      color: #666;
+    }
+    
+    .preview-card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    
+    .preview-label {
+      padding: 12px 16px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #666;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fafafa;
+    }
+    
+    .preview-content {
+      padding: 24px;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .navbar-brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      text-decoration: none;
+    }
+    
+    .navbar-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    
+    .navbar-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .navbar-links a:hover,
+    .navbar-links a.active {
+      color: #0a0a0a;
+    }
+    
+    .navbar-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    .btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: #0a0a0a;
+      color: #fff;
+    }
+    
+    .btn-primary:hover {
+      background: #333;
+    }
+    
+    .btn-ghost {
+      background: transparent;
+      color: #666;
+    }
+    
+    .btn-ghost:hover {
+      background: #f5f5f5;
+      color: #0a0a0a;
+    }
+    
+    /* Sidebar Styles */
+    .sidebar-layout {
+      display: flex;
+      gap: 24px;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .sidebar {
+      width: 240px;
+      background: #fafafa;
+      border-right: 1px solid #e5e5e5;
+      padding: 16px 0;
+    }
+    
+    .sidebar-section {
+      margin-bottom: 24px;
+    }
+    
+    .sidebar-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0 16px;
+      margin-bottom: 8px;
+    }
+    
+    .sidebar-nav {
+      list-style: none;
+    }
+    
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 0.875rem;
+      color: #666;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .sidebar-nav a:hover {
+      background: #f0f0f0;
+      color: #0a0a0a;
+    }
+    
+    .sidebar-nav a.active {
+      background: #e8e8e8;
+      color: #0a0a0a;
+      font-weight: 500;
+    }
+    
+    .sidebar-nav .icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
+    
+    .sidebar-content {
+      flex: 1;
+      padding: 24px;
+    }
+    
+    /* Breadcrumb Styles */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+    }
+    
+    .breadcrumb a {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .breadcrumb a:hover {
+      color: #0a0a0a;
+    }
+    
+    .breadcrumb-separator {
+      color: #ccc;
+    }
+    
+    .breadcrumb-current {
+      color: #0a0a0a;
+      font-weight: 500;
+    }
+    
+    /* Tab Bar Styles */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fff;
+    }
+    
+    .tab {
+      padding: 12px 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #666;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    
+    .tab:hover {
+      color: #0a0a0a;
+      background: #fafafa;
+    }
+    
+    .tab.active {
+      color: #0a0a0a;
+      border-bottom-color: #0a0a0a;
+    }
+    
+    .tab-count {
+      font-size: 0.75rem;
+      background: #e8e8e8;
+      padding: 2px 6px;
+      border-radius: 10px;
+      margin-left: 8px;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      padding: 8px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .navbar-links, .navbar-actions .btn-ghost { display: none; }
+      .mobile-menu-btn { display: block; }
+      .sidebar-layout { flex-direction: column; }
+      .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e5e5e5; }
+    }
+    
+    .usage-note {
+      background: #f8f8f8;
+      border-left: 3px solid #0a0a0a;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 0.875rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Navigation Components</h1>
+    <p class="subtitle">4 essential navigation patterns — navbar, sidebar, breadcrumbs, and tabs.</p>
+    
+    <!-- Navbar -->
+    <div class="section">
+      <div class="section-title">
+        Navbar
+        <span class="badge">Responsive</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Standard navbar with links and actions</div>
+        <div class="preview-content" style="padding: 0;">
+          <nav class="navbar">
+            <a href="#" class="navbar-brand">Acme</a>
+            <ul class="navbar-links">
+              <li><a href="#" class="active">Products</a></li>
+              <li><a href="#">Solutions</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Docs</a></li>
+            </ul>
+            <div class="navbar-actions">
+              <button class="btn btn-ghost">Sign in</button>
+              <button class="btn btn-primary">Get Started</button>
+              <button class="mobile-menu-btn">☰</button>
+            </div>
+          </nav>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the navbar HTML and CSS. Replace links with your routes. Add responsive breakpoint to collapse links into a mobile menu.
+      </div>
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="section">
+      <div class="section-title">
+        Sidebar Navigation
+        <span class="badge">Dashboard</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Collapsible sidebar with sections</div>
+        <div class="preview-content" style="padding: 0;">
+          <div class="sidebar-layout">
+            <aside class="sidebar">
+              <div class="sidebar-section">
+                <div class="sidebar-label">Main</div>
+                <ul class="sidebar-nav">
+                  <li><a href="#" class="active">📊 Dashboard</a></li>
+                  <li><a href="#">📝 Projects</a></li>
+                  <li><a href="#">👥 Team</a></li>
+                  <li><a href="#">📅 Calendar</a></li>
+                </ul>
+              </div>
+              <div class="sidebar-section">
+                <div class="sidebar-label">Settings</div>
+                <ul class="sidebar-nav">
+                  <li><a href="#">⚙️ General</a></li>
+                  <li><a href="#">🔐 Security</a></li>
+                  <li><a href="#">💳 Billing</a></li>
+                </ul>
+              </div>
+            </aside>
+            <main class="sidebar-content">
+              <h3 style="margin-bottom: 16px;">Dashboard</h3>
+              <p style="color: #666;">Select an item from the sidebar to view its content.</p>
+            </main>
+          </div>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the sidebar HTML and CSS. Add your navigation items and wire up active states with your router.
+      </div>
+    </div>
+    
+    <!-- Breadcrumbs -->
+    <div class="section">
+      <div class="section-title">
+        Breadcrumbs
+        <span class="badge">Hierarchy</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Path-based navigation</div>
+        <div class="preview-content">
+          <nav class="breadcrumb" style="margin-bottom: 16px;">
+            <a href="#">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="#">Products</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="#">Enterprise</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Pricing</span>
+          </nav>
+          
+          <nav class="breadcrumb" style="margin-bottom: 16px;">
+            <a href="#">Dashboard</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="#">Projects</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Design System</span>
+          </nav>
+          
+          <nav class="breadcrumb">
+            <a href="#">Settings</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Team Members</span>
+          </nav>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the breadcrumb HTML and CSS. Generate breadcrumbs from your URL path or route configuration.
+      </div>
+    </div>
+    
+    <!-- Tab Bar -->
+    <div class="section">
+      <div class="section-title">
+        Tab Bar
+        <span class="badge">Interactive</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Tabs with counts and hover states</div>
+        <div class="preview-content" style="padding: 0;">
+          <div class="tab-bar">
+            <button class="tab active">Overview <span class="tab-count">12</span></button>
+            <button class="tab">Members <span class="tab-count">8</span></button>
+            <button class="tab">Settings</button>
+            <button class="tab">Activity</button>
+          </div>
+          <div style="padding: 24px; color: #666;">
+            <p>Tab content area. Wire up tab switching with your framework's state management.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Pill-style tabs</div>
+        <div class="preview-content">
+          <div style="display: flex; gap: 8px; background: #f5f5f5; padding: 4px; border-radius: 8px; display: inline-flex;">
+            <button style="padding: 8px 16px; border-radius: 6px; border: none; background: #fff; font-weight: 500; font-size: 0.875rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">All</button>
+            <button style="padding: 8px 16px; border-radius: 6px; border: none; background: transparent; color: #666; font-weight: 500; font-size: 0.875rem;">Active</button>
+            <button style="padding: 8px 16px; border-radius: 6px; border: none; background: transparent; color: #666; font-weight: 500; font-size: 0.875rem;">Archived</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the tab HTML and CSS. Add click handlers to toggle the active class. For pill tabs, swap background and color on selection.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

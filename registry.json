@@ -417,6 +417,33 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "nav-components",
+      "type": "registry:block",
+      "title": "Navigation Components",
+      "author": "100X Systems",
+      "description": "Essential navigation patterns — navbar, sidebar, breadcrumbs, and tab bar. Responsive with hover and active states.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "navigation",
+          "navbar",
+          "sidebar",
+          "breadcrumbs",
+          "tabs",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/nav-components/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

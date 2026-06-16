@@ -473,6 +473,28 @@
       "createdAt": "2026-06-16",
       "thumbnail": "/registry/packs/ui-components/thumbnail.png",
       "itemCount": 4
+    },
+    {
+      "id": "nav-components",
+      "slug": "nav-components",
+      "title": "Navigation Components",
+      "description": "Essential navigation patterns — navbar, sidebar, breadcrumbs, and tab bar. Responsive with hover and active states.",
+      "tags": ["navigation", "navbar", "sidebar", "breadcrumbs", "tabs", "html", "css", "ui"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "component",
+      "screenshots": [],
+      "files": [
+        { "path": "index.html", "type": "asset" }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/nav-components",
+      "license": "CC0-1.0",
+      "author": { "name": "100X Systems" },
+      "featured": true,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/nav-components/thumbnail.png",
+      "itemCount": 4
     }
   ],
   "collections": [
@@ -481,7 +503,7 @@
       "slug": "all-packs",
       "title": "All Packs",
       "description": "Every pack in the registry.",
-      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions", "typography-pairings", "color-palettes", "ui-components"]
+      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions", "typography-pairings", "color-palettes", "ui-components", "nav-components"]
     },
     {
       "id": "editorial-landing",
@@ -537,7 +559,7 @@
       "slug": "design-system",
       "title": "Design System",
       "description": "Typography, textures, and foundational assets for building consistent UI.",
-      "packSlugs": ["typography-pairings", "minimal-textures", "micro-interactions", "color-palettes", "ui-components"]
+      "packSlugs": ["typography-pairings", "minimal-textures", "micro-interactions", "color-palettes", "ui-components", "nav-components"]
     }
   ]
 }
