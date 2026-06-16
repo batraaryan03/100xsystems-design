@@ -2,12 +2,11 @@
 
 import Link from "next/link";
 import { usePacks } from "@/application/packs/packs.hooks";
-import { PackGrid } from "@/presentation/_components/components.composite";
 import { SectionRule, PageHeader } from "@/presentation/_components/components.layout";
 import { CoralDot } from "@/presentation/_components/components.atomic";
 
 export function HomeFeature() {
-  const { packs, featured, frameworks } = usePacks();
+  const { packs, frameworks } = usePacks();
 
   return (
     <div>
@@ -40,7 +39,7 @@ export function HomeFeature() {
               <span className="stat-ring coral">{packs.length}</span>
               <span style={{ fontFamily: "var(--sans)", fontSize: "11px", color: "var(--ink-soft)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
                 <b style={{ display: "block", fontWeight: 700, color: "var(--ink)", fontSize: "12px" }}>{packs.length}</b>
-                Skills
+                Websites
               </span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "9px" }}>
@@ -63,20 +62,27 @@ export function HomeFeature() {
 
       <section className="tight">
         <div className="container">
-          <SectionRule roman="I." meta="Browse the collection" page={`001 / 004`} />
+          <SectionRule roman="I." meta="Browse the collection" page="001 / 003" />
           <PageHeader
-            label="All Skills"
+            label="Every skill is a droppable folder"
             labelIndex="Nº 01"
-            title={<>Every skill is a <em>droppable</em> folder<CoralDot /></>}
-            lead="Each card is a live render of what the agent produces. Drop a folder, restart, it shows up."
+            title={<>Browse our curated <em>websites</em><CoralDot /></>}
+            lead="Each design is a complete website — HTML, CSS, or React — ready to install."
           />
-          <PackGrid packs={packs} />
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "32px" }}>
+            <Link href="/skills/websites" className="btn btn-primary" style={{ fontSize: "16px", padding: "16px 32px" }}>
+              View All Websites
+              <span className="arrow">
+                <svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11" /></svg>
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
 
       <section className="tight">
         <div className="container">
-          <SectionRule roman="II." meta="How it works" page="002 / 004" />
+          <SectionRule roman="II." meta="How it works" page="002 / 003" />
           <PageHeader
             label="Method"
             labelIndex="Nº 02"
@@ -102,25 +108,13 @@ export function HomeFeature() {
         </div>
       </section>
 
-      <section className="tight">
-        <div className="container">
-          <SectionRule roman="III." meta="Featured" page="003 / 004" />
-          <PageHeader
-            label="Featured Skills"
-            labelIndex="Nº 03"
-            title={<>Selected <em>work</em><CoralDot /></>}
-          />
-          <PackGrid packs={featured.slice(0, 6)} />
-        </div>
-      </section>
-
       <div className="work">
         <div style={{ position: "relative", zIndex: 1 }}>
-          <SectionRule roman="IV." meta="Start building" page="004 / 004" />
+          <SectionRule roman="III." meta="Start building" page="003 / 003" />
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "50px", alignItems: "center" }}>
             <div>
               <span className="label" style={{ color: "var(--coral)" }}>
-                Get started <span className="ix">· Nº 04</span>
+                Get started <span className="ix">· Nº 03</span>
               </span>
               <h2 className="display" style={{ fontSize: "clamp(40px, 5vw, 66px)", margin: "28px 0 36px", color: "var(--paper)" }}>
                 Start building with <em style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontWeight: 500 }}>Design Skills</em><CoralDot />

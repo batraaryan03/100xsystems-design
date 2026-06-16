@@ -7,7 +7,7 @@ import { Badge, Pill } from "./components.atomic";
 
 export function PackCard({ pack }: { pack: Pack }) {
   return (
-    <Link href={`/packs/${pack.slug}`} className="card" style={{ textDecoration: "none", color: "inherit", padding: 0, overflow: "hidden" }}>
+    <Link href={`/skills/websites/${pack.slug}`} style={{ textDecoration: "none", color: "inherit", display: "block", overflow: "hidden", background: "var(--bone)", boxShadow: "var(--shadow)", transition: "transform 0.2s ease", position: "relative" }}>
       {pack.thumbnail ? (
         <div style={{ aspectRatio: "16/10", background: "var(--paper-dark)", overflow: "hidden", position: "relative" }}>
           <Image
