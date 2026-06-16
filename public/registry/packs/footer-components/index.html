@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Components</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #0a0a0a;
+    }
+    
+    .subtitle {
+      font-size: 1.125rem;
+      color: #666;
+      margin-bottom: 48px;
+    }
+    
+    .section {
+      margin-bottom: 64px;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #e8e8e8;
+      color: #666;
+    }
+    
+    .preview-card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    
+    .preview-label {
+      padding: 12px 16px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #666;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fafafa;
+    }
+    
+    .preview-content {
+      padding: 0;
+    }
+    
+    /* Simple Footer */
+    .footer-simple {
+      background: #0a0a0a;
+      color: #fff;
+      padding: 32px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .footer-simple-brand {
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+    
+    .footer-simple-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    
+    .footer-simple-links a {
+      color: #999;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    
+    .footer-simple-links a:hover {
+      color: #fff;
+    }
+    
+    .footer-simple-copy {
+      color: #666;
+      font-size: 0.75rem;
+    }
+    
+    /* Multi-column Footer */
+    .footer-multi {
+      background: #111;
+      color: #fff;
+      padding: 64px 24px 32px;
+    }
+    
+    .footer-multi-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    
+    .footer-multi-brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .footer-multi-desc {
+      color: #888;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+    
+    .footer-multi-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #666;
+      margin-bottom: 16px;
+    }
+    
+    .footer-multi-list {
+      list-style: none;
+    }
+    
+    .footer-multi-list li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-multi-list a {
+      color: #999;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    
+    .footer-multi-list a:hover {
+      color: #fff;
+    }
+    
+    .footer-multi-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #666;
+      font-size: 0.75rem;
+    }
+    
+    .footer-multi-social {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .footer-multi-social a {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer-multi-social a:hover {
+      color: #fff;
+    }
+    
+    /* Editorial Footer */
+    .footer-editorial {
+      background: #f5f0e8;
+      color: #1a1a1a;
+      padding: 64px 24px 32px;
+    }
+    
+    .footer-editorial-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    
+    .footer-editorial-brand {
+      font-family: 'Georgia', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .footer-editorial-desc {
+      color: #666;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    
+    .footer-editorial-heading {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    
+    .footer-editorial-list {
+      list-style: none;
+    }
+    
+    .footer-editorial-list li {
+      margin-bottom: 8px;
+    }
+    
+    .footer-editorial-list a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    
+    .footer-editorial-list a:hover {
+      color: #1a1a1a;
+    }
+    
+    .footer-editorial-bottom {
+      padding-top: 32px;
+      border-top: 1px solid #d4cfc4;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #999;
+      font-size: 0.75rem;
+    }
+    
+    @media (max-width: 768px) {
+      .footer-simple { flex-direction: column; text-align: center; }
+      .footer-multi-grid { grid-template-columns: 1fr 1fr; }
+      .footer-editorial-grid { grid-template-columns: 1fr; }
+    }
+    
+    .usage-note {
+      background: #f8f8f8;
+      border-left: 3px solid #0a0a0a;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 0.875rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Footer Components</h1>
+    <p class="subtitle">3 essential footer patterns — simple, multi-column, and editorial.</p>
+    
+    <!-- Simple Footer -->
+    <div class="section">
+      <div class="section-title">
+        Simple Footer
+        <span class="badge">Minimal</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Single-line footer with brand and links</div>
+        <div class="preview-content">
+          <footer class="footer-simple">
+            <div class="footer-simple-brand">Acme</div>
+            <ul class="footer-simple-links">
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="footer-simple-copy">© 2026 Acme Inc. All rights reserved.</div>
+          </footer>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the footer HTML and CSS. Replace brand name, links, and copyright text. Adjust colors to match your design system.
+      </div>
+    </div>
+    
+    <!-- Multi-column Footer -->
+    <div class="section">
+      <div class="section-title">
+        Multi-column Footer
+        <span class="badge">Full</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Footer with columns for links, social, and legal</div>
+        <div class="preview-content">
+          <footer class="footer-multi">
+            <div class="footer-multi-grid">
+              <div>
+                <div class="footer-multi-brand">Acme</div>
+                <p class="footer-multi-desc">Building the future of design tools. Open-source, community-driven, and always free.</p>
+              </div>
+              <div>
+                <div class="footer-multi-heading">Product</div>
+                <ul class="footer-multi-list">
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Pricing</a></li>
+                  <li><a href="#">Changelog</a></li>
+                  <li><a href="#">Roadmap</a></li>
+                </ul>
+              </div>
+              <div>
+                <div class="footer-multi-heading">Resources</div>
+                <ul class="footer-multi-list">
+                  <li><a href="#">Documentation</a></li>
+                  <li><a href="#">Tutorials</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Community</a></li>
+                </ul>
+              </div>
+              <div>
+                <div class="footer-multi-heading">Company</div>
+                <ul class="footer-multi-list">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Legal</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-multi-bottom">
+              <div>© 2026 Acme Inc. All rights reserved.</div>
+              <div class="footer-multi-social">
+                <a href="#">Twitter</a>
+                <a href="#">GitHub</a>
+                <a href="#">Discord</a>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the footer HTML and CSS. Adjust the grid columns for your link structure. Add or remove social links as needed.
+      </div>
+    </div>
+    
+    <!-- Editorial Footer -->
+    <div class="section">
+      <div class="section-title">
+        Editorial Footer
+        <span class="badge">Warm</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Warm, paper-aesthetic footer with serif typography</div>
+        <div class="preview-content">
+          <footer class="footer-editorial">
+            <div class="footer-editorial-inner">
+              <div class="footer-editorial-grid">
+                <div>
+                  <div class="footer-editorial-brand">The Journal</div>
+                  <p class="footer-editorial-desc">Thoughtful essays on design, technology, and the craft of building products that matter.</p>
+                </div>
+                <div>
+                  <div class="footer-editorial-heading">Explore</div>
+                  <ul class="footer-editorial-list">
+                    <li><a href="#">Latest Articles</a></li>
+                    <li><a href="#">Topics</a></li>
+                    <li><a href="#">Authors</a></li>
+                    <li><a href="#">Subscribe</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="footer-editorial-heading">Connect</div>
+                  <ul class="footer-editorial-list">
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">RSS Feed</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-editorial-bottom">
+                <div>© 2026 The Journal. All rights reserved.</div>
+                <div>Made with care.</div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the footer HTML and CSS. Pairs well with the Open Design Landing pack for a cohesive editorial aesthetic.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

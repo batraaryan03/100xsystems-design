@@ -444,6 +444,31 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "footer-components",
+      "type": "registry:block",
+      "title": "Footer Components",
+      "author": "100X Systems",
+      "description": "Essential footer patterns — simple, multi-column, and editorial. Responsive with social links and legal sections.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "footer",
+          "layout",
+          "html",
+          "css",
+          "ui",
+          "responsive"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/footer-components/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }
