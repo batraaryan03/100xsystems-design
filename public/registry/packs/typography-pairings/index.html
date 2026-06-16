@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography Pairings — Font Combinations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Outfit:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f7f1de; font-family: 'Inter', system-ui, sans-serif; padding: 60px 40px; color: #2d2d2d; }
+    h1 { font-family: Georgia, serif; font-size: 36px; margin-bottom: 8px; }
+    .subtitle { font-size: 14px; color: #888; margin-bottom: 48px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .pairings { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px; }
+    .pairing { background: white; border-radius: 16px; padding: 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .pairing-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #f0ebe0; }
+    .pairing-name { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #888; }
+    .pairing-tag { font-size: 11px; padding: 4px 10px; border-radius: 999px; background: #ed6f5c15; color: #ed6f5c; font-weight: 600; }
+    .pairing-demo { margin-bottom: 24px; }
+    .pairing-demo h2 { margin-bottom: 12px; line-height: 1.2; }
+    .pairing-demo p { line-height: 1.7; color: #555; max-width: 60ch; }
+    .pairing-meta { display: flex; gap: 24px; font-size: 12px; color: #888; }
+    .pairing-meta span { display: flex; align-items: center; gap: 6px; }
+    .pairing-meta code { background: #f0ebe0; padding: 2px 8px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+    .footer { text-align: center; margin-top: 64px; padding-top: 32px; border-top: 1px solid #e5dfd5; }
+    .footer p { font-size: 12px; color: #888; }
+    .badge { display: inline-block; background: #6e7448; color: white; font-size: 11px; padding: 4px 12px; border-radius: 999px; margin-bottom: 24px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <div class="badge">Typography Pack · 6 Pairings</div>
+    <h1>Typography Pairings</h1>
+    <p class="subtitle">Curated serif + sans-serif font combinations for modern UI</p>
+
+    <div class="pairings">
+      <!-- Pairing 1: Editorial -->
+      <div class="pairing">
+        <div class="pairing-header">
+          <span class="pairing-name">I. Editorial</span>
+          <span class="pairing-tag">Warm &amp; Refined</span>
+        </div>
+        <div class="pairing-demo">
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700;">The Art of Simplicity</h2>
+          <p style="font-family: 'Inter', sans-serif; font-size: 15px; margin-top: 12px;">Great typography is invisible when done well. It guides the reader through content without calling attention to itself, creating a seamless reading experience that feels effortless.</p>
+        </div>
+        <div class="pairing-meta">
+          <span>Heading: <code>Playfair Display</code></span>
+          <span>Body: <code>Inter</code></span>
+          <span>Mood: Editorial, Magazine, Blog</span>
+        </div>
+      </div>
+
+      <!-- Pairing 2: Tech -->
+      <div class="pairing">
+        <div class="pairing-header">
+          <span class="pairing-name">II. Tech Forward</span>
+          <span class="pairing-tag">Modern &amp; Clean</span>
+        </div>
+        <div class="pairing-demo">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700;">Build What Matters</h2>
+          <p style="font-family: 'DM Sans', sans-serif; font-size: 15px; margin-top: 12px;">The best products are built with intention. Every pixel, every interaction, every line of code serves a purpose. Focus on what your users need, and the rest will follow.</p>
+        </div>
+        <div class="pairing-meta">
+          <span>Heading: <code>Space Grotesk</code></span>
+          <span>Body: <code>DM Sans</code></span>
+          <span>Mood: SaaS, Developer, Startup</span>
+        </div>
+      </div>
+
+      <!-- Pairing 3: Luxury -->
+      <div class="pairing">
+        <div class="pairing-header">
+          <span class="pairing-name">III. Luxury</span>
+          <span class="pairing-tag">Elegant &amp; Bold</span>
+        </div>
+        <div class="pairing-demo">
+          <h2 style="font-family: 'DM Serif Display', serif; font-size: 32px;">Crafted with Precision</h2>
+          <p style="font-family: 'Outfit', sans-serif; font-size: 15px; margin-top: 12px;">Premium design is about restraint. Every element earns its place through purpose, not decoration. When you strip away the unnecessary, what remains speaks for itself.</p>
+        </div>
+        <div class="pairing-meta">
+          <span>Heading: <code>DM Serif Display</code></span>
+          <span>Body: <code>Outfit</code></span>
+          <span>Mood: Agency, Portfolio, Luxury</span>
+        </div>
+      </div>
+
+      <!-- Pairing 4: Classic -->
+      <div class="pairing">
+        <div class="pairing-header">
+          <span class="pairing-name">IV. Classic</span>
+          <span class="pairing-tag">Timeless &amp; Trustworthy</span>
+        </div>
+        <div class="pairing-demo">
+          <h2 style="font-family: 'Libre Baskerville', serif; font-size: 32px; font-weight: 700;">Stories Worth Telling</h2>
+          <p style="font-family: 'Source Sans 3', sans-serif; font-size: 15px; margin-top: 12px;">Some things never go out of style. A well-set serif paired with a clean sans-serif creates instant authority and readability that works across every medium and every screen.</p>
+        </div>
+        <div class="pairing-meta">
+          <span>Heading: <code>Libre Baskerville</code></span>
+          <span>Body: <code>Source Sans 3</code></span>
+          <span>Mood: News, Education, Finance</span>
+        </div>
+      </div>
+
+      <!-- Pairing 5: Expressive -->
+      <div class="pairing">
+        <div class="pairing-header">
+          <span class="pairing-name">V. Expressive</span>
+          <span class="pairing-tag">Playful &amp; Dynamic</span>
+        </div>
+        <div class="pairing-demo">
+          <h2 style="font-family: 'Fraunces', serif; font-size: 32px; font-weight: 700;">Design Without Limits</h2>
+          <p style="font-family: 'Karla', sans-serif; font-size: 15px; margin-top: 12px;">The variable axis in Fraunces lets you dial the personality from refined to whimsical. Pair it with Karla's friendly geometry for interfaces that feel alive and approachable.</p>
+        </div>
+        <div class="pairing-meta">
+          <span>Heading: <code>Fraunces</code></span>
+          <span>Body: <code>Karla</code></span>
+          <span>Mood: Creative, Brand, Landing</span>
+        </div>
+      </div>
+
+      <!-- Pairing 6: Minimal -->
+      <div class="pairing">
+        <div class="pairing-header">
+          <span class="pairing-name">VI. Minimal</span>
+          <span class="pairing-tag">Sharp &amp; Geometric</span>
+        </div>
+        <div class="pairing-demo">
+          <h2 style="font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 700;">Less, But Better</h2>
+          <p style="font-family: 'Crimson Pro', serif; font-size: 16px; margin-top: 12px; font-style: italic;">When headings are geometric and bodies are literary, you get a tension that holds attention. The contrast between Sora's precision and Crimson Pro's warmth creates hierarchy through texture.</p>
+        </div>
+        <div class="pairing-meta">
+          <span>Heading: <code>Sora</code></span>
+          <span>Body: <code>Crimson Pro</code></span>
+          <span>Mood: Art, Design, Architecture</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Free for commercial use · All fonts from Google Fonts · No attribution required</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -342,6 +342,30 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "typography-pairings",
+      "type": "registry:block",
+      "title": "Typography Pairings",
+      "author": "100X Systems",
+      "description": "6 curated serif + sans-serif font combinations for modern UI. Each pairing includes Google Fonts links and usage examples.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "typography",
+          "fonts",
+          "google-fonts",
+          "pairings",
+          "design-system"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/typography-pairings/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

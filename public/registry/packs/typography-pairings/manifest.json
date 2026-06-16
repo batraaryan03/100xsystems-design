@@ -1,0 +1,13 @@
+{
+  "name": "typography-pairings",
+  "type": "registry:block",
+  "title": "Typography Pairings",
+  "description": "6 curated serif + sans-serif font combinations for modern UI. Each pairing includes Google Fonts links and usage examples.",
+  "files": [
+    { "path": "index.html", "type": "registry:file" }
+  ],
+  "meta": {
+    "category": "landing",
+    "tags": ["typography", "fonts", "google-fonts", "pairings", "design-system"]
+  }
+}
