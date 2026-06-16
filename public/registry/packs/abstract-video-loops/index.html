@@ -6,66 +6,135 @@
   <title>Abstract Video Loops — Motion Assets</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; font-family: 'Inter', system-ui, sans-serif; padding: 60px 40px; color: white; }
+    body { background: #0a0a1a; font-family: 'Inter', system-ui, sans-serif; padding: 60px 40px; color: white; }
     h1 { font-family: Georgia, serif; font-size: 36px; margin-bottom: 8px; }
     .subtitle { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 48px; letter-spacing: 0.05em; text-transform: uppercase; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
-    .card { background: rgba(255,255,255,0.05); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
-    .card .preview { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 48px; }
-    .card .info { padding: 20px; }
+    .card { background: rgba(255,255,255,0.03); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+    .preview { height: 220px; position: relative; overflow: hidden; }
+    .info { padding: 20px; }
     .card h3 { font-size: 14px; font-weight: 600; }
     .card p { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
-    .card .meta { display: flex; gap: 8px; margin-top: 12px; }
-    .card .tag { font-size: 10px; background: rgba(237,111,92,0.2); color: #ed6f5c; padding: 2px 8px; border-radius: 999px; }
-    .footer { text-align: center; margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .meta { display: flex; gap: 8px; margin-top: 12px; }
+    .tag { font-size: 10px; background: rgba(237,111,92,0.2); color: #ed6f5c; padding: 2px 8px; border-radius: 999px; }
+    .footer { text-align: center; margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); }
     .footer p { font-size: 12px; color: rgba(255,255,255,0.4); }
     .badge { display: inline-block; background: #ed6f5c; color: white; font-size: 11px; padding: 4px 12px; border-radius: 999px; margin-bottom: 24px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* Gradient Flow Animation */
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .gradient-flow {
+      background: linear-gradient(-45deg, #ed6f5c44, #6e744844, #5c9ded44, #ed6f5c22, #6e744822);
+      background-size: 400% 400%;
+      animation: gradientFlow 8s ease infinite;
+    }
+
+    /* Particle Drift Animation */
+    @keyframes float { 0%,100% { transform: translateY(0) translateX(0); opacity: 0.6; } 50% { transform: translateY(-20px) translateX(10px); opacity: 1; } }
+    @keyframes float2 { 0%,100% { transform: translateY(0) translateX(0); opacity: 0.4; } 50% { transform: translateY(15px) translateX(-12px); opacity: 0.8; } }
+    @keyframes float3 { 0%,100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-30px); opacity: 0.9; } }
+    .particle { position: absolute; border-radius: 50%; }
+    .p1 { width: 4px; height: 4px; background: #ed6f5c; top: 20%; left: 15%; animation: float 4s ease-in-out infinite; }
+    .p2 { width: 6px; height: 6px; background: #5c9ded; top: 40%; left: 35%; animation: float2 5s ease-in-out infinite 0.5s; }
+    .p3 { width: 3px; height: 3px; background: #6e7448; top: 60%; left: 55%; animation: float3 3.5s ease-in-out infinite 1s; }
+    .p4 { width: 5px; height: 5px; background: #ed6f5c; top: 30%; left: 75%; animation: float 4.5s ease-in-out infinite 0.3s; }
+    .p5 { width: 4px; height: 4px; background: #5c9ded; top: 70%; left: 25%; animation: float2 3s ease-in-out infinite 0.7s; }
+    .p6 { width: 7px; height: 7px; background: #6e7448; top: 50%; left: 80%; animation: float 5s ease-in-out infinite 1.2s; }
+    .p7 { width: 3px; height: 3px; background: #ed6f5c; top: 15%; left: 50%; animation: float3 4s ease-in-out infinite 0.8s; }
+    .p8 { width: 5px; height: 5px; background: #5c9ded; top: 80%; left: 65%; animation: float2 3.5s ease-in-out infinite 0.4s; }
+
+    .wave-container { background: linear-gradient(180deg, #0a0a2e, #1a1a4e); }
   </style>
 </head>
 <body>
   <div style="max-width: 1200px; margin: 0 auto;">
-    <div class="badge">Video Pack · 3 Clips</div>
+    <div class="badge">Video Pack · 3 Loops</div>
     <h1>Abstract Video Loops</h1>
-    <p class="subtitle">Short, reusable video clips for design projects</p>
-    
+    <p class="subtitle">CSS-animated looping backgrounds for hero sections and loading screens</p>
+
     <div class="grid">
       <div class="card">
-        <div class="preview" style="background: linear-gradient(135deg, #ed6f5c33, #6e744833, #5c9ded33);">🌊</div>
+        <div class="preview gradient-flow"></div>
         <div class="info">
           <h3>Gradient Flow</h3>
-          <p>Slow-moving gradient mesh background</p>
-          <div class="meta">
-            <span class="tag">10s loop</span>
-            <span class="tag">1080p</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="preview" style="background: radial-gradient(circle at 30% 40%, #5c9ded22, transparent), radial-gradient(circle at 70% 60%, #ed6f5c22, transparent), #0a0a1a;">✨</div>
-        <div class="info">
-          <h3>Particle Drift</h3>
-          <p>Floating particles on dark background</p>
+          <p>Slow-moving gradient mesh with coral, olive, and blue tones</p>
           <div class="meta">
             <span class="tag">8s loop</span>
-            <span class="tag">1080p</span>
+            <span class="tag">CSS</span>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="preview" style="background: linear-gradient(180deg, #0a0a2e, #1a1a4e);">〰️</div>
+        <div class="preview" style="background: #0a0a1a;">
+          <div class="particle p1"></div>
+          <div class="particle p2"></div>
+          <div class="particle p3"></div>
+          <div class="particle p4"></div>
+          <div class="particle p5"></div>
+          <div class="particle p6"></div>
+          <div class="particle p7"></div>
+          <div class="particle p8"></div>
+        </div>
+        <div class="info">
+          <h3>Particle Drift</h3>
+          <p>Floating color particles on a dark background</p>
+          <div class="meta">
+            <span class="tag">3-5s loop</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview wave-container" style="display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 400 160" width="100%" height="100%" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="wg1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#5c9ded" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#ed6f5c" stop-opacity="0.1"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#wg1)" opacity="0.6">
+              <animate attributeName="d" dur="6s" repeatCount="indefinite"
+                values="M0,80 C60,20 140,140 200,80 C260,20 340,140 400,80 L400,160 L0,160 Z;
+                        M0,80 C60,140 140,20 200,80 C260,140 340,20 400,80 L400,160 L0,160 Z;
+                        M0,80 C60,20 140,140 200,80 C260,20 340,140 400,80 L400,160 L0,160 Z"/>
+            </path>
+            <path fill="#ed6f5c" opacity="0.2">
+              <animate attributeName="d" dur="8s" repeatCount="indefinite"
+                values="M0,100 C80,60 160,140 240,100 C320,60 400,140 400,100 L400,160 L0,160 Z;
+                        M0,100 C80,140 160,60 240,100 C320,140 400,60 400,100 L400,160 L0,160 Z;
+                        M0,100 C80,60 160,140 240,100 C320,60 400,140 400,100 L400,160 L0,160 Z"/>
+            </path>
+          </svg>
+        </div>
         <div class="info">
           <h3>Wave Motion</h3>
-          <p>Abstract wave animation</p>
+          <p>Layered SVG wave animation with gradient fills</p>
           <div class="meta">
-            <span class="tag">12s loop</span>
-            <span class="tag">1080p</span>
+            <span class="tag">6-8s loop</span>
+            <span class="tag">SVG</span>
           </div>
         </div>
       </div>
     </div>
-    
+
+    <div style="max-width: 1200px; margin: 48px auto 0; padding: 32px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+      <h3 style="font-size: 14px; margin-bottom: 12px;">Usage</h3>
+      <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 16px;">
+        Each animation is a self-contained CSS or SVG loop. Copy the relevant keyframes and HTML into your project.
+        No JavaScript required — pure CSS/SVG animations that run at 60fps.
+      </p>
+      <div style="background: #15140f; border-radius: 8px; padding: 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #f7f1de; overflow-x: auto;">
+        <code>&lt;div class="gradient-flow" style="width:100%;height:100vh;"&gt;&lt;/div&gt;</code>
+      </div>
+    </div>
+
     <div class="footer">
-      <p>Pexels License · Free for commercial use · No attribution required</p>
+      <p>Free for commercial use · No attribution required · Created with pure CSS/SVG</p>
     </div>
   </div>
 </body>
