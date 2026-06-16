@@ -41,7 +41,7 @@ export function DocsFeature() {
               <p style={{ fontFamily: "var(--body)", fontSize: "15px", color: "var(--ink-soft)", lineHeight: 1.7, maxWidth: "60ch", marginBottom: "16px" }}>
                 Install any skill using the shadcn CLI:
               </p>
-              <CodeBlock code="npx shadcn@latest add batraaryan03/100xsystems-design/open-design-landing-html" language="bash" />
+              <CodeBlock code="npx shadcn@latest add batraaryan03/100xsystems-design/open-design-landing-html" language="bash" showViewMore={false} />
 
               <p style={{ fontFamily: "var(--body)", fontSize: "15px", color: "var(--ink-soft)", lineHeight: 1.7, maxWidth: "60ch", marginTop: "16px", marginBottom: "8px" }}>
                 Install an illustration pack:
