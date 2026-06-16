@@ -25,13 +25,13 @@ export function HomeFeature() {
             Let AI consume from your codebase.
           </p>
           <div style={{ display: "flex", gap: "14px", marginBottom: "38px" }}>
-            <Link href="/packs" className="btn btn-primary">
-              Browse Skills
+            <Link href="/skills/websites" className="btn btn-primary">
+              Browse Websites
               <span className="arrow">
                 <svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11" /></svg>
               </span>
             </Link>
-            <a href="https://github.com/100xsystems/design-skills" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+            <a href="https://github.com/batraaryan03/100xsystems-design" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
               View on GitHub
             </a>
           </div>
@@ -130,8 +130,8 @@ export function HomeFeature() {
                 No AI generation. No complex infrastructure. Just code.
               </p>
               <div style={{ display: "flex", gap: "14px" }}>
-                <Link href="/packs" className="btn btn-primary">
-                  Browse Skills
+                <Link href="/skills/websites" className="btn btn-primary">
+                  Browse Websites
                   <span className="arrow">
                     <svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11" /></svg>
                   </span>

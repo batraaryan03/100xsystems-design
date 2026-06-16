@@ -36,8 +36,9 @@ export function Navbar() {
           </Link>
 
           <nav className="nav-links">
-            <Link href="/packs">Skills</Link>
+            <Link href="/skills/websites">Websites</Link>
             <Link href="/collections">Collections</Link>
+            <Link href="/docs">Docs</Link>
             <Link href="/about">About</Link>
           </nav>
 
@@ -57,7 +58,7 @@ export function Navbar() {
               100X Systems
             </a>
             <a
-              href="https://github.com/100xsystems/design-skills"
+              href="https://github.com/batraaryan03/100xsystems-design"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-cta"
@@ -137,25 +138,25 @@ export function Footer() {
             </p>
           </div>
           <div className="foot-col">
-            <h5>Registry</h5>
+            <h5>Skills</h5>
             <ul>
-              <li><Link href="/packs">All Skills</Link></li>
+              <li><Link href="/skills/websites">Websites</Link></li>
               <li><Link href="/collections">Collections</Link></li>
-              <li><Link href="/packs?category=landing">Landing Pages</Link></li>
+              <li><Link href="/skills/websites?category=landing">Landing Pages</Link></li>
             </ul>
           </div>
           <div className="foot-col">
-            <h5>Frameworks</h5>
+            <h5>Resources</h5>
             <ul>
-              <li><Link href="/packs?framework=html">HTML</Link></li>
-              <li><Link href="/packs?framework=react">React</Link></li>
-              <li><Link href="/packs?framework=nextjs">Next.js</Link></li>
+              <li><Link href="/docs">Documentation</Link></li>
+              <li><Link href="/contribute">Contribute</Link></li>
+              <li><Link href="/admin">Admin</Link></li>
             </ul>
           </div>
           <div className="foot-col">
             <h5>Connect</h5>
             <ul>
-              <li><a href="https://github.com/100xsystems/design-skills" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://github.com/batraaryan03/100xsystems-design" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               <li><a href="https://100xsystems.dev" target="_blank" rel="noopener noreferrer">100X Systems</a></li>
               <li><Link href="/about">About</Link></li>
             </ul>

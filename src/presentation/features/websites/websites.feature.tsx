@@ -7,7 +7,7 @@ import { SectionRule, PageHeader } from "@/presentation/_components/components.l
 import { CoralDot } from "@/presentation/_components/components.atomic";
 import { PackCategory, PackFramework } from "@/application/packs/packs.types";
 
-export function PacksFeature() {
+export function WebsitesFeature() {
   const { packs, categories, frameworks } = usePacks();
   const { filters, results, updateFilters } = useSearch(packs);
 

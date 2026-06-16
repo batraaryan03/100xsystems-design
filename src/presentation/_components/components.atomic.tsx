@@ -106,8 +106,9 @@ const languageMap: Record<string, string> = {
   text: "text",
 };
 
-export function CodeBlock({ code, language = "text" }: { code: string; language?: string }) {
+export function CodeBlock({ code, language = "text", maxHeight = "50vh" }: { code: string; language?: string; maxHeight?: string }) {
   const [copied, setCopied] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);
@@ -149,19 +150,71 @@ export function CodeBlock({ code, language = "text" }: { code: string; language?
             {copied ? "Copied" : "Copy"}
           </button>
         </div>
-        <pre style={{
-          margin: 0,
-          padding: "16px",
-          overflowX: "auto",
-          fontFamily: "var(--mono)",
-          fontSize: "13px",
-          lineHeight: 1.6,
-          color: "#f7f1de",
-          whiteSpace: "pre-wrap",
-          wordBreak: "break-word",
-        }}>
-          <code>{code}</code>
-        </pre>
+        <div style={{ position: "relative", maxHeight: expanded ? "none" : maxHeight, overflow: "auto" }}>
+          <pre style={{
+            margin: 0,
+            padding: "16px",
+            fontFamily: "var(--mono)",
+            fontSize: "13px",
+            lineHeight: 1.6,
+            color: "#f7f1de",
+            whiteSpace: "pre-wrap",
+            wordBreak: "break-word",
+          }}>
+            <code>{code}</code>
+          </pre>
+          {!expanded && (
+            <div style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: "80px",
+              background: "linear-gradient(transparent, #15140f)",
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "center",
+              paddingBottom: "8px",
+            }}>
+              <button
+                onClick={() => setExpanded(true)}
+                style={{
+                  padding: "8px 24px",
+                  borderRadius: "999px",
+                  border: "1px solid rgba(247, 241, 222, 0.2)",
+                  background: "rgba(247, 241, 222, 0.1)",
+                  color: "rgba(247, 241, 222, 0.8)",
+                  fontFamily: "var(--sans)",
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  cursor: "pointer",
+                  transition: "all 0.18s ease",
+                }}
+              >
+                View more
+              </button>
+            </div>
+          )}
+        </div>
+        {expanded && (
+          <div style={{ padding: "8px 16px", borderTop: "1px solid rgba(247, 241, 222, 0.08)" }}>
+            <button
+              onClick={() => setExpanded(false)}
+              style={{
+                padding: "6px 16px",
+                borderRadius: "999px",
+                border: "1px solid rgba(247, 241, 222, 0.2)",
+                background: "transparent",
+                color: "rgba(247, 241, 222, 0.6)",
+                fontFamily: "var(--sans)",
+                fontSize: "11px",
+                cursor: "pointer",
+              }}
+            >
+              Collapse
+            </button>
+          </div>
+        )}
       </div>
     );
   }
@@ -197,27 +250,79 @@ export function CodeBlock({ code, language = "text" }: { code: string; language?
           {copied ? "Copied" : "Copy"}
         </button>
       </div>
-      <Highlight theme={themes.nightOwl} code={code.trimEnd()} language={lang}>
-        {({ tokens, getLineProps, getTokenProps }) => (
-          <pre style={{
-            margin: 0,
-            padding: "16px",
-            overflowX: "auto",
-            fontFamily: "var(--mono)",
-            fontSize: "13px",
-            lineHeight: 1.6,
-            textAlign: "left",
+      <div style={{ position: "relative", maxHeight: expanded ? "none" : maxHeight, overflow: "auto" }}>
+        <Highlight theme={themes.nightOwl} code={code.trimEnd()} language={lang}>
+          {({ tokens, getLineProps, getTokenProps }) => (
+            <pre style={{
+              margin: 0,
+              padding: "16px",
+              fontFamily: "var(--mono)",
+              fontSize: "13px",
+              lineHeight: 1.6,
+              textAlign: "left",
+            }}>
+              {tokens.map((line, i) => (
+                <div key={i} {...getLineProps({ line })}>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token })} />
+                  ))}
+                </div>
+              ))}
+            </pre>
+          )}
+        </Highlight>
+        {!expanded && (
+          <div style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "80px",
+            background: "linear-gradient(transparent, #15140f)",
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "center",
+            paddingBottom: "8px",
           }}>
-            {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} />
-                ))}
-              </div>
-            ))}
-          </pre>
+            <button
+              onClick={() => setExpanded(true)}
+              style={{
+                padding: "8px 24px",
+                borderRadius: "999px",
+                border: "1px solid rgba(247, 241, 222, 0.2)",
+                background: "rgba(247, 241, 222, 0.1)",
+                color: "rgba(247, 241, 222, 0.8)",
+                fontFamily: "var(--sans)",
+                fontSize: "12px",
+                fontWeight: 500,
+                cursor: "pointer",
+                transition: "all 0.18s ease",
+              }}
+            >
+              View more
+            </button>
+          </div>
         )}
-      </Highlight>
+      </div>
+      {expanded && (
+        <div style={{ padding: "8px 16px", borderTop: "1px solid rgba(247, 241, 222, 0.08)" }}>
+          <button
+            onClick={() => setExpanded(false)}
+            style={{
+              padding: "6px 16px",
+              borderRadius: "999px",
+              border: "1px solid rgba(247, 241, 222, 0.2)",
+              background: "transparent",
+              color: "rgba(247, 241, 222, 0.6)",
+              fontFamily: "var(--sans)",
+              fontSize: "11px",
+              cursor: "pointer",
+            }}
+          >
+            Collapse
+          </button>
+        </div>
+      )}
     </div>
   );
 }
