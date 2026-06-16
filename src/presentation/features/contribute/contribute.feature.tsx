@@ -13,25 +13,17 @@ const MANIFEST_TEMPLATE = `{
   "tags": ["landing", "modern", "responsive"],
   "framework": "html",
   "category": "landing",
+  "assetType": "component",
   "screenshots": [],
   "files": [
-    {
-      "path": "index.html",
-      "content": "",
-      "type": "component"
-    }
+    { "path": "index.html", "type": "component" }
   ],
   "dependencies": [],
-  "installCommand": "Copy index.html into your project",
-  "sourceUrl": "https://github.com/yourname/your-project",
-  "githubUrl": "https://github.com/yourname/your-project",
+  "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/my-awesome-landing",
   "license": "MIT",
-  "author": {
-    "name": "Your Name",
-    "url": "https://yourwebsite.com"
-  },
+  "author": { "name": "Your Name" },
   "featured": false,
-  "createdAt": "2026-01-15"
+  "createdAt": "2026-06-16"
 }`;
 
 const PR_TEMPLATE = `## Add [Pack Name] to Registry
@@ -39,18 +31,26 @@ const PR_TEMPLATE = `## Add [Pack Name] to Registry
 ### What does this pack do?
 A brief description of the design/template.
 
+### Pack type
+- [ ] Component (HTML/CSS/React website)
+- [ ] Illustration (SVG illustration pack)
+- [ ] Image (texture/photo/gradient pack)
+- [ ] Video (video/animation pack)
+
 ### How to use it
-1. Copy the files into your project
-2. Follow the setup instructions in the README
+1. Run \`npx tsx scripts/sync-registry.ts\`
+2. Run \`npx shadcn@latest registry validate\`
 3. Done!
 
 ### Checklist
-- [ ] Pack follows the naming convention: \`[category]-[name]\`
-- [ ] All files are included in the \`files\` array
-- [ ] \`manifest.json\` is valid JSON
-- [ ] \`README.md\` includes usage instructions
-- [ ] License is specified (MIT or Apache-2.0)
-- [ ] Author information is complete`;
+- [ ] Pack follows naming convention: \`[category]-[name]\`
+- [ ] All files in \`files\` array
+- [ ] Entry added to \`public/registry/data.json\`
+- [ ] \`npx tsx scripts/sync-registry.ts\` passes
+- [ ] \`npx shadcn@latest registry validate\` passes
+- [ ] License specified (MIT, Apache-2.0, or CC0)
+- [ ] Author info complete
+- [ ] Attribution for third-party assets`;
 
 export function ContributeFeature() {
   const [copiedManifest, setCopiedManifest] = useState(false);
@@ -272,7 +272,7 @@ export function ContributeFeature() {
                 </p>
                 <div style={{ display: "flex", gap: "12px" }}>
                   <a
-                    href="https://github.com/100xsystems/design-skills"
+                    href="https://github.com/batraaryan03/100xsystems-design"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-ghost"
@@ -283,7 +283,7 @@ export function ContributeFeature() {
                       <svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11" /></svg>
                     </span>
                   </a>
-                  <Link href="/packs" className="btn btn-ghost" style={{ fontSize: "13px" }}>
+                  <Link href="/skills/websites" className="btn btn-ghost" style={{ fontSize: "13px" }}>
                     Browse Existing Packs
                   </Link>
                 </div>
@@ -341,7 +341,7 @@ export function ContributeFeature() {
                 </h4>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                   <a
-                    href="https://github.com/100xsystems/design-skills/tree/main/public/registry/packs"
+                    href="https://github.com/batraaryan03/100xsystems-design/tree/main/public/registry/packs"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ fontFamily: "var(--body)", fontSize: "14px", color: "var(--ink)", textDecoration: "none", display: "flex", alignItems: "center", gap: "8px" }}
@@ -350,7 +350,7 @@ export function ContributeFeature() {
                     View existing packs structure
                   </a>
                   <a
-                    href="https://github.com/100xsystems/design-skills/blob/main/public/registry/packs/open-design-landing-html/manifest.json"
+                    href="https://github.com/batraaryan03/100xsystems-design/blob/main/public/registry/packs/open-design-landing-html/manifest.json"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ fontFamily: "var(--body)", fontSize: "14px", color: "var(--ink)", textDecoration: "none", display: "flex", alignItems: "center", gap: "8px" }}

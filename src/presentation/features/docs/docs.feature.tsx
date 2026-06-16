@@ -59,15 +59,17 @@ export function DocsFeature() {
                 Available Skills<CoralDot />
               </h2>
               <p style={{ fontFamily: "var(--body)", fontSize: "15px", color: "var(--ink-soft)", lineHeight: 1.7, maxWidth: "60ch", marginBottom: "16px" }}>
-                Browse all available skills in the <Link href="/skills/websites" style={{ color: "var(--coral)", textDecoration: "none" }}>registry</Link>. Each skill includes:
+                Browse all available skills in the registry. Skills come in four types:
               </p>
               <ul style={{ fontFamily: "var(--body)", fontSize: "15px", color: "var(--ink-soft)", lineHeight: 1.7, paddingLeft: "20px", maxWidth: "60ch" }}>
-                <li>Live preview of the design</li>
-                <li>Source code with syntax highlighting</li>
-                <li>Install command</li>
-                <li>Dependencies (if any)</li>
-                <li>License and attribution</li>
+                <li><Link href="/skills/websites" style={{ color: "var(--coral)", textDecoration: "none" }}>Websites</Link> — Complete HTML, CSS, or React page designs</li>
+                <li><Link href="/skills/illustrations" style={{ color: "var(--coral)", textDecoration: "none" }}>Illustrations</Link> — SVG character and icon illustration packs</li>
+                <li><Link href="/skills/images" style={{ color: "var(--coral)", textDecoration: "none" }}>Images</Link> — Textures, gradients, and background patterns</li>
+                <li><Link href="/skills/videos" style={{ color: "var(--coral)", textDecoration: "none" }}>Videos</Link> — CSS-animated looping backgrounds</li>
               </ul>
+              <p style={{ fontFamily: "var(--body)", fontSize: "15px", color: "var(--ink-soft)", lineHeight: 1.7, maxWidth: "60ch", marginTop: "12px" }}>
+                Each skill includes live preview, source code, install command, and license attribution.
+              </p>
             </div>
 
             {/* How to Add Your Own */}
@@ -137,7 +139,7 @@ git push`} language="bash" />
                 We welcome contributions! You can:
               </p>
               <ul style={{ fontFamily: "var(--body)", fontSize: "15px", color: "var(--ink-soft)", lineHeight: 1.7, paddingLeft: "20px", maxWidth: "60ch" }}>
-                <li>Add new website designs to the registry</li>
+                <li>Add new website designs, illustrations, textures, or video loops</li>
                 <li>Improve existing designs</li>
                 <li>Report bugs or suggest features</li>
                 <li>Improve documentation</li>
