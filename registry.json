@@ -604,6 +604,33 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "cta-banners",
+      "type": "registry:block",
+      "title": "CTA Banners",
+      "author": "100X Systems",
+      "description": "3 call-to-action patterns — gradient, minimal, and newsletter signup. Responsive with dual buttons.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "cta",
+          "banner",
+          "newsletter",
+          "signup",
+          "gradient",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/cta-banners/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

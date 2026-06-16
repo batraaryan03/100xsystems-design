@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-banners",
+  "title": "CTA Banners",
+  "description": "3 call-to-action patterns — gradient, minimal, and newsletter signup. Responsive with dual buttons.",
+  "type": "registry:style",
+  "author": "100X Systems",
+  "license": "CC0-1.0",
+  "files": [
+    {
+      "path": "index.html",
+      "type": "registry:ui",
+      "target": "components/cta-banners.html"
+    }
+  ]
+}

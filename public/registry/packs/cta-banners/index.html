@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTA Banners</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fafafa; color: #1a1a1a; line-height: 1.5; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+    h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; color: #0a0a0a; }
+    .subtitle { font-size: 1.125rem; color: #666; margin-bottom: 48px; }
+    .section { margin-bottom: 64px; }
+    .section-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; color: #1a1a1a; display: flex; align-items: center; gap: 12px; }
+    .badge { font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 4px; background: #e8e8e8; color: #666; }
+    .preview-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+    .preview-label { padding: 12px 16px; font-size: 0.875rem; font-weight: 500; color: #666; border-bottom: 1px solid #e5e5e5; background: #fafafa; }
+    .preview-content { padding: 0; }
+    .usage-note { background: #f8f8f8; border-left: 3px solid #0a0a0a; padding: 16px; margin-top: 16px; font-size: 0.875rem; color: #666; }
+    .btn { padding: 12px 24px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border: none; text-decoration: none; display: inline-block; }
+    .btn-white { background: #fff; color: #0a0a0a; }
+    .btn-white:hover { background: #f0f0f0; }
+    .btn-primary { background: #0a0a0a; color: #fff; }
+    .btn-primary:hover { background: #333; }
+    .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    /* Gradient CTA */
+    .cta-gradient { background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7); color: #fff; padding: 64px 48px; text-align: center; position: relative; overflow: hidden; }
+    .cta-gradient::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%); }
+    .cta-gradient h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 12px; position: relative; z-index: 1; letter-spacing: -0.02em; }
+    .cta-gradient p { font-size: 1.125rem; color: rgba(255,255,255,0.8); max-width: 450px; margin: 0 auto 28px; position: relative; z-index: 1; }
+    .cta-gradient .btn-group { display: flex; gap: 12px; justify-content: center; position: relative; z-index: 1; flex-wrap: wrap; }
+
+    /* Minimal CTA */
+    .cta-minimal { padding: 64px 48px; text-align: center; background: #fff; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
+    .cta-minimal h2 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .cta-minimal p { font-size: 1rem; color: #666; max-width: 400px; margin: 0 auto 24px; }
+    .cta-minimal .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* Newsletter CTA */
+    .cta-newsletter { background: #0a0a0a; color: #fff; padding: 64px 48px; text-align: center; }
+    .cta-newsletter h2 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .cta-newsletter p { font-size: 1rem; color: #888; max-width: 400px; margin: 0 auto 28px; }
+    .newsletter-form { display: flex; gap: 8px; max-width: 420px; margin: 0 auto; }
+    .newsletter-input { flex: 1; padding: 12px 16px; border-radius: 8px; border: 1px solid #333; background: #111; color: #fff; font-size: 0.875rem; font-family: inherit; outline: none; transition: border-color 0.2s; }
+    .newsletter-input:focus { border-color: #6366f1; }
+    .newsletter-input::placeholder { color: #555; }
+    .newsletter-btn { padding: 12px 24px; border-radius: 8px; background: #6366f1; color: #fff; font-size: 0.875rem; font-weight: 600; border: none; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+    .newsletter-btn:hover { background: #4f46e5; }
+    .newsletter-note { font-size: 0.75rem; color: #555; margin-top: 12px; }
+
+    @media (max-width: 768px) {
+      .cta-gradient, .cta-minimal, .cta-newsletter { padding: 48px 24px; }
+      .cta-gradient h2, .cta-minimal h2, .cta-newsletter h2 { font-size: 1.75rem; }
+      .newsletter-form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CTA Banners</h1>
+    <p class="subtitle">3 call-to-action patterns — gradient, minimal, and newsletter signup.</p>
+
+    <!-- Gradient CTA -->
+    <div class="section">
+      <div class="section-title">Gradient CTA <span class="badge">Bold</span></div>
+      <div class="preview-card">
+        <div class="preview-label">Vibrant gradient background with dual buttons</div>
+        <div class="preview-content">
+          <section class="cta-gradient">
+            <h2>Start building today</h2>
+            <p>Install production-ready packs in seconds. No design skills required.</p>
+            <div class="btn-group">
+              <a href="#" class="btn btn-white">Browse Packs</a>
+              <a href="#" class="btn btn-outline">View on GitHub</a>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="usage-note"><strong>Usage:</strong> Copy the CTA HTML and CSS. Change gradient colors in <code>background: linear-gradient(...)</code>. Swap button styles for your design system.</div>
+    </div>
+
+    <!-- Minimal CTA -->
+    <div class="section">
+      <div class="section-title">Minimal CTA <span class="badge">Clean</span></div>
+      <div class="preview-card">
+        <div class="preview-label">White background with subtle borders</div>
+        <div class="preview-content">
+          <section class="cta-minimal">
+            <h2>Ready to ship?</h2>
+            <p>Join thousands of developers using design skills to build faster.</p>
+            <div class="btn-group">
+              <a href="#" class="btn btn-primary">Get Started Free</a>
+              <a href="#" class="btn" style="background: transparent; color: #666; border: 1px solid #e5e5e5;">View Documentation</a>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="usage-note"><strong>Usage:</strong> Copy the CTA HTML and CSS. Works well between content sections. Adjust border colors and padding for your layout.</div>
+    </div>
+
+    <!-- Newsletter CTA -->
+    <div class="section">
+      <div class="section-title">Newsletter Signup <span class="badge">Email</span></div>
+      <div class="preview-card">
+        <div class="preview-label">Dark background with email input and submit button</div>
+        <div class="preview-content">
+          <section class="cta-newsletter">
+            <h2>Stay in the loop</h2>
+            <p>Get notified when we publish new packs, components, and design resources.</p>
+            <form class="newsletter-form" onsubmit="return false;">
+              <input type="email" class="newsletter-input" placeholder="you@example.com">
+              <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+            <div class="newsletter-note">No spam. Unsubscribe anytime.</div>
+          </section>
+        </div>
+      </div>
+      <div class="usage-note"><strong>Usage:</strong> Copy the CTA HTML and CSS. Wire the form to your email service (Mailchimp, Resend, etc.). Adjust input styling to match your design system.</div>
+    </div>
+  </div>
+</body>
+</html>
