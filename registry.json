@@ -496,6 +496,33 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "hero-sections",
+      "type": "registry:block",
+      "title": "Hero Sections",
+      "author": "100X Systems",
+      "description": "4 hero patterns for landing pages — centered, split, gradient, and dark grid. Responsive with CTAs.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "hero",
+          "landing",
+          "header",
+          "gradient",
+          "responsive",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/hero-sections/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

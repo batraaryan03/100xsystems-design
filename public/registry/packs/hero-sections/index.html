@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Sections</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #0a0a0a;
+    }
+    
+    .subtitle {
+      font-size: 1.125rem;
+      color: #666;
+      margin-bottom: 48px;
+    }
+    
+    .section {
+      margin-bottom: 64px;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #e8e8e8;
+      color: #666;
+    }
+    
+    .preview-card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    
+    .preview-label {
+      padding: 12px 16px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #666;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fafafa;
+    }
+    
+    .preview-content {
+      padding: 0;
+    }
+    
+    /* Hero 1: Centered */
+    .hero-centered {
+      background: #0a0a0a;
+      color: #fff;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    
+    .hero-centered h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    
+    .hero-centered p {
+      font-size: 1.125rem;
+      color: #999;
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+    
+    .hero-centered .btn-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: #fff;
+      color: #0a0a0a;
+    }
+    
+    .btn-primary:hover {
+      background: #e8e8e8;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid #333;
+    }
+    
+    .btn-outline:hover {
+      border-color: #666;
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.1);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #999;
+      margin-bottom: 24px;
+    }
+    
+    /* Hero 2: Split */
+    .hero-split {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding: 64px 48px;
+      background: #fff;
+    }
+    
+    .hero-split-text {
+      flex: 1;
+    }
+    
+    .hero-split-text h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    
+    .hero-split-text p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 24px;
+      max-width: 400px;
+    }
+    
+    .hero-split-visual {
+      flex: 1;
+      background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+      border-radius: 16px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 0.875rem;
+    }
+    
+    .hero-split .btn-primary {
+      background: #0a0a0a;
+      color: #fff;
+    }
+    
+    .hero-split .btn-primary:hover {
+      background: #333;
+    }
+    
+    .hero-split .btn-ghost {
+      background: transparent;
+      color: #666;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    /* Hero 3: Gradient */
+    .hero-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-gradient::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    
+    .hero-gradient h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-gradient p {
+      font-size: 1.125rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 500px;
+      margin: 0 auto 32px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-gradient .btn-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Hero 4: Dark with grid */
+    .hero-dark {
+      background: #111;
+      color: #fff;
+      padding: 80px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    
+    .hero-dark-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+    
+    .hero-dark h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    
+    .hero-dark h2 span {
+      color: #a78bfa;
+    }
+    
+    .hero-dark p {
+      font-size: 1.125rem;
+      color: #888;
+      margin-bottom: 32px;
+      max-width: 450px;
+    }
+    
+    .hero-dark .btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .hero-dark .btn-purple {
+      background: #a78bfa;
+      color: #fff;
+    }
+    
+    .hero-dark .btn-purple:hover {
+      background: #8b5cf6;
+    }
+    
+    .hero-dark .btn-outline {
+      border-color: #333;
+      color: #999;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-centered h2, .hero-gradient h2, .hero-dark h2 { font-size: 2rem; }
+      .hero-split { flex-direction: column; padding: 48px 24px; }
+      .hero-split-text h2 { font-size: 2rem; }
+      .hero-dark-content { max-width: 100%; }
+    }
+    
+    .usage-note {
+      background: #f8f8f8;
+      border-left: 3px solid #0a0a0a;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 0.875rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hero Sections</h1>
+    <p class="subtitle">4 hero patterns for landing pages — centered, split, gradient, and dark grid.</p>
+    
+    <!-- Hero 1: Centered -->
+    <div class="section">
+      <div class="section-title">
+        Centered Hero
+        <span class="badge">Classic</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Centered text with badge, headline, and CTA buttons</div>
+        <div class="preview-content">
+          <section class="hero-centered">
+            <div class="hero-badge">✨ Version 2.0 is here</div>
+            <h2>Build faster with<br>design skills</h2>
+            <p>Curated packs of landing pages, illustrations, and components. Install with one command.</p>
+            <div class="btn-group">
+              <a href="#" class="btn btn-primary">Browse Packs</a>
+              <a href="#" class="btn btn-outline">View on GitHub</a>
+            </div>
+          </section>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the hero HTML and CSS. Replace badge text, headline, description, and button links. Adjust max-width and padding to fit your layout.
+      </div>
+    </div>
+    
+    <!-- Hero 2: Split -->
+    <div class="section">
+      <div class="section-title">
+        Split Hero
+        <span class="badge">Two-column</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Text left, visual right — works with screenshots or illustrations</div>
+        <div class="preview-content">
+          <section class="hero-split">
+            <div class="hero-split-text">
+              <h2>Design systems that scale</h2>
+              <p>Stop rebuilding the same components. Install production-ready packs and focus on what makes your product unique.</p>
+              <a href="#" class="btn btn-primary">Get Started</a>
+              <a href="#" class="btn-ghost">Learn more →</a>
+            </div>
+            <div class="hero-split-visual">
+              [ Your screenshot or illustration here ]
+            </div>
+          </section>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the hero HTML and CSS. Replace the visual placeholder with an `<img>`, `<svg>`, or component screenshot. Swap flex direction for visual-first layout.
+      </div>
+    </div>
+    
+    <!-- Hero 3: Gradient -->
+    <div class="section">
+      <div class="section-title">
+        Gradient Hero
+        <span class="badge">Colorful</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Animated gradient background with centered text</div>
+        <div class="preview-content">
+          <section class="hero-gradient">
+            <h2>Ship beautiful UI<br>in minutes</h2>
+            <p>From hero sections to full landing pages — copy, paste, customize. No design skills required.</p>
+            <div class="btn-group">
+              <a href="#" class="btn btn-primary">Start Building</a>
+              <a href="#" class="btn btn-outline">See Examples</a>
+            </div>
+          </section>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the hero HTML and CSS. Change the gradient colors in `background: linear-gradient(...)`. Adjust animation speed in the `@keyframes pulse` rule.
+      </div>
+    </div>
+    
+    <!-- Hero 4: Dark Grid -->
+    <div class="section">
+      <div class="section-title">
+        Dark Grid Hero
+        <span class="badge">Developer</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Dark background with subtle grid pattern and accent color</div>
+        <div class="preview-content">
+          <section class="hero-dark">
+            <div class="hero-dark-content">
+              <h2>The open-source<br><span>design registry</span></h2>
+              <p>Install landing pages, illustrations, and components directly from the CLI. Built for developers who ship fast.</p>
+              <div class="btn-group">
+                <a href="#" class="btn btn-purple">Install a Pack</a>
+                <a href="#" class="btn btn-outline">Read the Docs</a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the hero HTML and CSS. Change the accent color in the `<span>` and `.btn-purple` classes. Adjust grid line spacing in the `background-size` property.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

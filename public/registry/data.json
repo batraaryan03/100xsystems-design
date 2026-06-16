@@ -539,6 +539,28 @@
       "createdAt": "2026-06-16",
       "thumbnail": "/registry/packs/form-components/thumbnail.png",
       "itemCount": 5
+    },
+    {
+      "id": "hero-sections",
+      "slug": "hero-sections",
+      "title": "Hero Sections",
+      "description": "4 hero patterns for landing pages — centered, split, gradient, and dark grid. Responsive with CTAs.",
+      "tags": ["hero", "landing", "header", "gradient", "responsive", "html", "css", "ui"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "component",
+      "screenshots": [],
+      "files": [
+        { "path": "index.html", "type": "asset" }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/hero-sections",
+      "license": "CC0-1.0",
+      "author": { "name": "100X Systems" },
+      "featured": true,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/hero-sections/thumbnail.png",
+      "itemCount": 4
     }
   ],
   "collections": [
@@ -547,7 +569,7 @@
       "slug": "all-packs",
       "title": "All Packs",
       "description": "Every pack in the registry.",
-      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions", "typography-pairings", "color-palettes", "ui-components", "nav-components", "footer-components", "form-components"]
+      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions", "typography-pairings", "color-palettes", "ui-components", "nav-components", "footer-components", "form-components", "hero-sections"]
     },
     {
       "id": "editorial-landing",

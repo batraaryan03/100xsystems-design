@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-sections",
+  "title": "Hero Sections",
+  "description": "4 hero patterns for landing pages — centered, split, gradient, and dark grid. Responsive with CTAs.",
+  "type": "registry:style",
+  "author": "100X Systems",
+  "license": "CC0-1.0",
+  "files": [
+    {
+      "path": "index.html",
+      "type": "registry:ui",
+      "target": "components/hero-sections.html"
+    }
+  ]
+}
