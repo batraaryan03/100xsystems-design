@@ -469,6 +469,33 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "form-components",
+      "type": "registry:block",
+      "title": "Form Components",
+      "author": "100X Systems",
+      "description": "Input fields, textareas, selects, checkboxes, and validation states. Clean, accessible form patterns.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "forms",
+          "inputs",
+          "selects",
+          "checkboxes",
+          "validation",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/form-components/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

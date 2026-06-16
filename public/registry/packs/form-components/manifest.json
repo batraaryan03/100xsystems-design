@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form-components",
+  "title": "Form Components",
+  "description": "Input fields, textareas, selects, checkboxes, and validation states. Clean, accessible form patterns.",
+  "type": "registry:style",
+  "author": "100X Systems",
+  "license": "CC0-1.0",
+  "files": [
+    {
+      "path": "index.html",
+      "type": "registry:ui",
+      "target": "components/form-components.html"
+    }
+  ]
+}

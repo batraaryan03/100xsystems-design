@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Components</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #0a0a0a;
+    }
+    
+    .subtitle {
+      font-size: 1.125rem;
+      color: #666;
+      margin-bottom: 48px;
+    }
+    
+    .section {
+      margin-bottom: 64px;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #e8e8e8;
+      color: #666;
+    }
+    
+    .preview-card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    
+    .preview-label {
+      padding: 12px 16px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #666;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fafafa;
+    }
+    
+    .preview-content {
+      padding: 32px;
+    }
+    
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #1a1a1a;
+    }
+    
+    .form-hint {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 4px;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-family: inherit;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #0a0a0a;
+      box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.1);
+    }
+    
+    .form-input::placeholder {
+      color: #ccc;
+    }
+    
+    .form-input.error {
+      border-color: #dc3545;
+    }
+    
+    .form-input.error:focus {
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+    }
+    
+    .form-input.success {
+      border-color: #28a745;
+    }
+    
+    .form-input.success:focus {
+      box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+    }
+    
+    .form-error {
+      font-size: 0.75rem;
+      color: #dc3545;
+      margin-top: 4px;
+    }
+    
+    .form-success {
+      font-size: 0.75rem;
+      color: #28a745;
+      margin-top: 4px;
+    }
+    
+    /* Textarea */
+    .form-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 100px;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    
+    .form-textarea:focus {
+      outline: none;
+      border-color: #0a0a0a;
+      box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.1);
+    }
+    
+    /* Select */
+    .form-select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-family: inherit;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.2s;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+    
+    .form-select:focus {
+      outline: none;
+      border-color: #0a0a0a;
+      box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.1);
+    }
+    
+    /* Checkbox & Radio */
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    
+    .form-check input[type="checkbox"],
+    .form-check input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #0a0a0a;
+      cursor: pointer;
+    }
+    
+    .form-check-label {
+      font-size: 0.875rem;
+      color: #1a1a1a;
+      cursor: pointer;
+    }
+    
+    /* Input with icon */
+    .input-icon-wrapper {
+      position: relative;
+    }
+    
+    .input-icon-wrapper .form-input {
+      padding-left: 36px;
+    }
+    
+    .input-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      font-size: 0.875rem;
+    }
+    
+    /* Input group */
+    .input-group {
+      display: flex;
+    }
+    
+    .input-group .form-input {
+      border-radius: 0;
+    }
+    
+    .input-group .form-input:first-child {
+      border-radius: 8px 0 0 8px;
+    }
+    
+    .input-group .form-input:last-child {
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .input-group-addon {
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      background: #f5f5f5;
+      border: 1px solid #e5e5e5;
+      font-size: 0.875rem;
+      color: #666;
+    }
+    
+    /* Button */
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: #0a0a0a;
+      color: #fff;
+    }
+    
+    .btn-primary:hover {
+      background: #333;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    
+    .usage-note {
+      background: #f8f8f8;
+      border-left: 3px solid #0a0a0a;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 0.875rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Form Components</h1>
+    <p class="subtitle">Input fields, textareas, selects, checkboxes, and validation states.</p>
+    
+    <!-- Text Inputs -->
+    <div class="section">
+      <div class="section-title">
+        Text Inputs
+        <span class="badge">States</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Default, focus, error, and success states</div>
+        <div class="preview-content">
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Default</label>
+              <input type="text" class="form-input" placeholder="Enter your name">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">With value</label>
+              <input type="text" class="form-input" value="John Doe">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Error</label>
+              <input type="email" class="form-input error" value="invalid-email">
+              <div class="form-error">Please enter a valid email address</div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Success</label>
+              <input type="text" class="form-input success" value="john@example.com">
+              <div class="form-success">Looks good!</div>
+            </div>
+          </div>
+          
+          <div class="form-group" style="margin-top: 20px;">
+            <label class="form-label">With hint</label>
+            <input type="text" class="form-input" placeholder="Username">
+            <div class="form-hint">This will be your public display name</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the input HTML and CSS. Toggle between states by swapping the class names (default, error, success).
+      </div>
+    </div>
+    
+    <!-- Textarea -->
+    <div class="section">
+      <div class="section-title">
+        Textarea
+        <span class="badge">Multi-line</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Resizable textarea with character count pattern</div>
+        <div class="preview-content">
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="Write your message here..." rows="4"></textarea>
+            <div class="form-hint">Maximum 500 characters</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Select -->
+    <div class="section">
+      <div class="section-title">
+        Select
+        <span class="badge">Dropdown</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Custom-styled select with options</div>
+        <div class="preview-content">
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select class="form-select">
+                <option value="" disabled selected>Select a category</option>
+                <option>Landing Page</option>
+                <option>SaaS</option>
+                <option>Portfolio</option>
+                <option>Dashboard</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Framework</label>
+              <select class="form-select">
+                <option>HTML</option>
+                <option>React</option>
+                <option>Vue</option>
+                <option>Svelte</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Checkbox & Radio -->
+    <div class="section">
+      <div class="section-title">
+        Checkboxes & Radios
+        <span class="badge">Selection</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Checkboxes for multiple selection, radios for single</div>
+        <div class="preview-content">
+          <div class="grid-2">
+            <div>
+              <div class="form-label" style="margin-bottom: 12px;">Frameworks (multi)</div>
+              <div class="form-group">
+                <label class="form-check">
+                  <input type="checkbox" checked>
+                  <span class="form-check-label">HTML</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="form-check">
+                  <input type="checkbox" checked>
+                  <span class="form-check-label">React</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="form-check">
+                  <input type="checkbox">
+                  <span class="form-check-label">Vue</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="form-check">
+                  <input type="checkbox">
+                  <span class="form-check-label">Svelte</span>
+                </label>
+              </div>
+            </div>
+            
+            <div>
+              <div class="form-label" style="margin-bottom: 12px;">License (single)</div>
+              <div class="form-group">
+                <label class="form-check">
+                  <input type="radio" name="license" checked>
+                  <span class="form-check-label">MIT</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="form-check">
+                  <input type="radio" name="license">
+                  <span class="form-check-label">Apache 2.0</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="form-check">
+                  <input type="radio" name="license">
+                  <span class="form-check-label">CC0</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Input Group -->
+    <div class="section">
+      <div class="section-title">
+        Input Groups
+        <span class="badge">Combined</span>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-label">Input with prefix/suffix and icon</div>
+        <div class="preview-content">
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Price</label>
+              <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input type="text" class="form-input" value="29.99">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Website</label>
+              <div class="input-group">
+                <input type="text" class="form-input" value="https://">
+                <div class="input-group-addon">.com</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group" style="margin-top: 20px;">
+            <label class="form-label">Search</label>
+            <div class="input-icon-wrapper">
+              <span class="input-icon">🔍</span>
+              <input type="text" class="form-input" placeholder="Search packs...">
+            </div>
+          </div>
+          
+          <div style="margin-top: 24px;">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="usage-note">
+        <strong>Usage:</strong> Copy the input group HTML and CSS. Adjust the addon content and icon for your use case.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
