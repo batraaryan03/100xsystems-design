@@ -577,6 +577,33 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "layout-grids",
+      "type": "registry:block",
+      "title": "Layout Grids",
+      "author": "100X Systems",
+      "description": "4 responsive grid patterns — masonry, dashboard, split view, and card grid. Flexible layouts for any project.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "grid",
+          "layout",
+          "masonry",
+          "dashboard",
+          "split-view",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/layout-grids/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

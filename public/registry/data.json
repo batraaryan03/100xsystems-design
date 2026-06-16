@@ -605,6 +605,28 @@
       "createdAt": "2026-06-16",
       "thumbnail": "/registry/packs/social-proof/thumbnail.png",
       "itemCount": 4
+    },
+    {
+      "id": "layout-grids",
+      "slug": "layout-grids",
+      "title": "Layout Grids",
+      "description": "4 responsive grid patterns — masonry, dashboard, split view, and card grid. Flexible layouts for any project.",
+      "tags": ["grid", "layout", "masonry", "dashboard", "split-view", "html", "css", "ui"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "component",
+      "screenshots": [],
+      "files": [
+        { "path": "index.html", "type": "asset" }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/layout-grids",
+      "license": "CC0-1.0",
+      "author": { "name": "100X Systems" },
+      "featured": false,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/layout-grids/thumbnail.png",
+      "itemCount": 4
     }
   ],
   "collections": [
@@ -613,7 +635,7 @@
       "slug": "all-packs",
       "title": "All Packs",
       "description": "Every pack in the registry.",
-      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions", "typography-pairings", "color-palettes", "ui-components", "nav-components", "footer-components", "form-components", "hero-sections", "pricing-tables", "social-proof"]
+      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions", "typography-pairings", "color-palettes", "ui-components", "nav-components", "footer-components", "form-components", "hero-sections", "pricing-tables", "social-proof", "layout-grids"]
     },
     {
       "id": "editorial-landing",
