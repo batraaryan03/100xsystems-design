@@ -322,7 +322,7 @@
       "type": "registry:block",
       "title": "Micro Interactions",
       "author": "100X Systems",
-      "description": "Pure CSS animations for loading states, feedback, and delight. 12 self-contained keyframe animations with no JavaScript.",
+      "description": "Pure CSS animations for loading states, feedback, and delight. 13 self-contained keyframe animations with no JavaScript.",
       "meta": {
         "category": "landing",
         "tags": [

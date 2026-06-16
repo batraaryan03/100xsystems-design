@@ -390,7 +390,7 @@
       "id": "micro-interactions",
       "slug": "micro-interactions",
       "title": "Micro Interactions",
-      "description": "Pure CSS animations for loading states, feedback, and delight. 12 self-contained keyframe animations with no JavaScript.",
+      "description": "Pure CSS animations for loading states, feedback, and delight. 13 self-contained keyframe animations with no JavaScript.",
       "tags": ["animations", "micro-interactions", "css", "loading", "feedback", "ui", "motion"],
       "framework": "asset",
       "category": "landing",
