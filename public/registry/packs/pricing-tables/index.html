@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Tables</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fafafa; color: #1a1a1a; line-height: 1.5; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+    h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; color: #0a0a0a; }
+    .subtitle { font-size: 1.125rem; color: #666; margin-bottom: 48px; }
+    .section { margin-bottom: 64px; }
+    .section-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; color: #1a1a1a; display: flex; align-items: center; gap: 12px; }
+    .badge { font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 4px; background: #e8e8e8; color: #666; }
+    .preview-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+    .preview-label { padding: 12px 16px; font-size: 0.875rem; font-weight: 500; color: #666; border-bottom: 1px solid #e5e5e5; background: #fafafa; }
+    .preview-content { padding: 32px; }
+    .btn { padding: 12px 24px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border: none; text-decoration: none; display: inline-block; text-align: center; width: 100%; }
+    .btn-primary { background: #0a0a0a; color: #fff; }
+    .btn-primary:hover { background: #333; }
+    .btn-outline { background: transparent; color: #0a0a0a; border: 1px solid #e5e5e5; }
+    .btn-outline:hover { border-color: #0a0a0a; }
+    .btn-accent { background: #6366f1; color: #fff; }
+    .btn-accent:hover { background: #4f46e5; }
+    .usage-note { background: #f8f8f8; border-left: 3px solid #0a0a0a; padding: 16px; margin-top: 16px; font-size: 0.875rem; color: #666; }
+
+    /* Variant 1: Simple 3-tier */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 960px; margin: 0 auto; }
+    .pricing-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; position: relative; }
+    .pricing-card.featured { border-color: #0a0a0a; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .pricing-card.featured::before { content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #0a0a0a; color: #fff; font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+    .pricing-name { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .pricing-desc { font-size: 0.875rem; color: #666; margin-bottom: 24px; }
+    .pricing-amount { display: flex; align-items: baseline; gap: 4px; margin-bottom: 24px; }
+    .pricing-currency { font-size: 1.25rem; font-weight: 600; color: #666; }
+    .pricing-value { font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; }
+    .pricing-period { font-size: 0.875rem; color: #999; }
+    .pricing-features { list-style: none; margin-bottom: 32px; }
+    .pricing-features li { padding: 8px 0; font-size: 0.875rem; color: #444; display: flex; align-items: center; gap: 10px; }
+    .pricing-features li::before { content: '✓'; color: #22c55e; font-weight: 600; }
+    .pricing-features li.disabled { color: #ccc; }
+    .pricing-features li.disabled::before { content: '–'; color: #ddd; }
+
+    /* Variant 2: Feature comparison */
+    .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .comparison-table th, .comparison-table td { padding: 14px 16px; text-align: center; border-bottom: 1px solid #f0f0f0; }
+    .comparison-table th:first-child, .comparison-table td:first-child { text-align: left; font-weight: 500; }
+    .comparison-table thead th { background: #fafafa; font-weight: 600; font-size: 0.875rem; }
+    .comparison-table thead th.highlight { background: #0a0a0a; color: #fff; }
+    .comparison-table .check { color: #22c55e; font-weight: 600; }
+    .comparison-table .dash { color: #ddd; }
+    .comparison-table .category-row td { background: #fafafa; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #999; padding: 10px 16px; }
+
+    /* Variant 3: Horizontal cards */
+    .pricing-horizontal { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    .pricing-row { display: flex; align-items: center; gap: 24px; background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 24px 32px; }
+    .pricing-row.featured { border-color: #6366f1; background: #fafafe; }
+    .pricing-row-info { flex: 1; }
+    .pricing-row-name { font-size: 1.125rem; font-weight: 700; margin-bottom: 4px; }
+    .pricing-row-desc { font-size: 0.875rem; color: #666; }
+    .pricing-row-price { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; }
+    .pricing-row-price span { font-size: 0.875rem; font-weight: 400; color: #999; }
+    .pricing-row-btn { min-width: 140px; }
+    @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } .pricing-row { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pricing Tables</h1>
+    <p class="subtitle">3 pricing patterns — tiered cards, feature comparison, and horizontal layout.</p>
+
+    <!-- Variant 1: Simple 3-tier -->
+    <div class="section">
+      <div class="section-title">Tiered Pricing <span class="badge">Classic</span></div>
+      <div class="preview-card">
+        <div class="preview-label">3-tier cards with highlighted popular plan</div>
+        <div class="preview-content">
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="pricing-name">Starter</div>
+              <div class="pricing-desc">For individuals and small projects.</div>
+              <div class="pricing-amount">
+                <span class="pricing-currency">$</span>
+                <span class="pricing-value">0</span>
+                <span class="pricing-period">/month</span>
+              </div>
+              <ul class="pricing-features">
+                <li>5 projects</li>
+                <li>Basic analytics</li>
+                <li>Community support</li>
+                <li class="disabled">Custom domain</li>
+                <li class="disabled">API access</li>
+              </ul>
+              <a href="#" class="btn btn-outline">Get Started</a>
+            </div>
+            <div class="pricing-card featured">
+              <div class="pricing-name">Pro</div>
+              <div class="pricing-desc">For growing teams and businesses.</div>
+              <div class="pricing-amount">
+                <span class="pricing-currency">$</span>
+                <span class="pricing-value">29</span>
+                <span class="pricing-period">/month</span>
+              </div>
+              <ul class="pricing-features">
+                <li>Unlimited projects</li>
+                <li>Advanced analytics</li>
+                <li>Priority support</li>
+                <li>Custom domain</li>
+                <li class="disabled">API access</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Start Free Trial</a>
+            </div>
+            <div class="pricing-card">
+              <div class="pricing-name">Enterprise</div>
+              <div class="pricing-desc">For large organizations.</div>
+              <div class="pricing-amount">
+                <span class="pricing-currency">$</span>
+                <span class="pricing-value">99</span>
+                <span class="pricing-period">/month</span>
+              </div>
+              <ul class="pricing-features">
+                <li>Unlimited everything</li>
+                <li>Custom analytics</li>
+                <li>Dedicated support</li>
+                <li>Custom domain</li>
+                <li>Full API access</li>
+              </ul>
+              <a href="#" class="btn btn-outline">Contact Sales</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="usage-note"><strong>Usage:</strong> Copy the pricing grid HTML and CSS. Adjust tier names, prices, and feature lists. Toggle the <code>.featured</code> class to highlight a different tier.</div>
+    </div>
+
+    <!-- Variant 2: Feature comparison -->
+    <div class="section">
+      <div class="section-title">Feature Comparison <span class="badge">Detailed</span></div>
+      <div class="preview-card">
+        <div class="preview-label">Side-by-side feature comparison table</div>
+        <div class="preview-content" style="overflow-x: auto;">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th style="width: 40%;">Feature</th>
+                <th>Free</th>
+                <th class="highlight">Pro</th>
+                <th>Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="category-row"><td colspan="4">Usage</td></tr>
+              <tr><td>Projects</td><td>5</td><td>Unlimited</td><td>Unlimited</td></tr>
+              <tr><td>Storage</td><td>1 GB</td><td>50 GB</td><td>Unlimited</td></tr>
+              <tr><td>Team members</td><td>1</td><td>10</td><td>Unlimited</td></tr>
+              <tr class="category-row"><td colspan="4">Features</td></tr>
+              <tr><td>Custom domain</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
+              <tr><td>API access</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
+              <tr><td>Analytics</td><td>Basic</td><td>Advanced</td><td>Custom</td></tr>
+              <tr><td>SSO / SAML</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
+              <tr class="category-row"><td colspan="4">Support</td></tr>
+              <tr><td>Email support</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
+              <tr><td>Priority support</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
+              <tr><td>Dedicated manager</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="usage-note"><strong>Usage:</strong> Copy the table HTML and CSS. Add or remove rows and columns. Use <code>.highlight</code> on the header to emphasize a column.</div>
+    </div>
+
+    <!-- Variant 3: Horizontal cards -->
+    <div class="section">
+      <div class="section-title">Horizontal Cards <span class="badge">Compact</span></div>
+      <div class="preview-card">
+        <div class="preview-label">Stacked horizontal rows for narrow layouts</div>
+        <div class="preview-content">
+          <div class="pricing-horizontal">
+            <div class="pricing-row">
+              <div class="pricing-row-info">
+                <div class="pricing-row-name">Starter</div>
+                <div class="pricing-row-desc">5 projects, basic analytics, community support.</div>
+              </div>
+              <div class="pricing-row-price">Free</div>
+              <div class="pricing-row-btn"><a href="#" class="btn btn-outline">Get Started</a></div>
+            </div>
+            <div class="pricing-row featured">
+              <div class="pricing-row-info">
+                <div class="pricing-row-name">Pro</div>
+                <div class="pricing-row-desc">Unlimited projects, advanced analytics, priority support.</div>
+              </div>
+              <div class="pricing-row-price">$29 <span>/mo</span></div>
+              <div class="pricing-row-btn"><a href="#" class="btn btn-accent">Start Free Trial</a></div>
+            </div>
+            <div class="pricing-row">
+              <div class="pricing-row-info">
+                <div class="pricing-row-name">Enterprise</div>
+                <div class="pricing-row-desc">Unlimited everything, SSO, dedicated support.</div>
+              </div>
+              <div class="pricing-row-price">$99 <span>/mo</span></div>
+              <div class="pricing-row-btn"><a href="#" class="btn btn-outline">Contact Sales</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="usage-note"><strong>Usage:</strong> Copy the horizontal pricing HTML and CSS. Ideal for sidebars or narrow layouts where vertical cards don't fit.</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -561,6 +561,28 @@
       "createdAt": "2026-06-16",
       "thumbnail": "/registry/packs/hero-sections/thumbnail.png",
       "itemCount": 4
+    },
+    {
+      "id": "pricing-tables",
+      "slug": "pricing-tables",
+      "title": "Pricing Tables",
+      "description": "3 pricing patterns — tiered cards, feature comparison table, and horizontal layout. Responsive with highlighted plans.",
+      "tags": ["pricing", "tables", "cards", "comparison", "saas", "html", "css", "ui"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "component",
+      "screenshots": [],
+      "files": [
+        { "path": "index.html", "type": "asset" }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/pricing-tables",
+      "license": "CC0-1.0",
+      "author": { "name": "100X Systems" },
+      "featured": true,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/pricing-tables/thumbnail.png",
+      "itemCount": 3
     }
   ],
   "collections": [
@@ -569,7 +591,7 @@
       "slug": "all-packs",
       "title": "All Packs",
       "description": "Every pack in the registry.",
-      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions", "typography-pairings", "color-palettes", "ui-components", "nav-components", "footer-components", "form-components", "hero-sections"]
+      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions", "typography-pairings", "color-palettes", "ui-components", "nav-components", "footer-components", "form-components", "hero-sections", "pricing-tables"]
     },
     {
       "id": "editorial-landing",

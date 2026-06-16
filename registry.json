@@ -523,6 +523,33 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "pricing-tables",
+      "type": "registry:block",
+      "title": "Pricing Tables",
+      "author": "100X Systems",
+      "description": "3 pricing patterns — tiered cards, feature comparison table, and horizontal layout. Responsive with highlighted plans.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "pricing",
+          "tables",
+          "cards",
+          "comparison",
+          "saas",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/pricing-tables/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

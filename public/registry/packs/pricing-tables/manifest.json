@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pricing-tables",
+  "title": "Pricing Tables",
+  "description": "3 pricing patterns — tiered cards, feature comparison table, and horizontal layout. Responsive with highlighted plans.",
+  "type": "registry:style",
+  "author": "100X Systems",
+  "license": "CC0-1.0",
+  "files": [
+    {
+      "path": "index.html",
+      "type": "registry:ui",
+      "target": "components/pricing-tables.html"
+    }
+  ]
+}
