@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Micro Interactions — Animated UI Elements</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f7f1de; font-family: 'Inter', system-ui, sans-serif; padding: 60px 40px; }
+    h1 { font-family: Georgia, serif; font-size: 36px; color: #2d2d2d; margin-bottom: 8px; }
+    .subtitle { font-size: 14px; color: #888; margin-bottom: 48px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .card { background: white; border-radius: 16px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .card .anim { width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; }
+    .card h3 { font-size: 13px; color: #2d2d2d; font-weight: 600; }
+    .card p { font-size: 11px; color: #888; margin-top: -8px; }
+    .footer { text-align: center; margin-top: 64px; padding-top: 32px; border-top: 1px solid #e5dfd5; }
+    .footer p { font-size: 12px; color: #888; }
+    .badge { display: inline-block; background: #ed6f5c; color: white; font-size: 11px; padding: 4px 12px; border-radius: 999px; margin-bottom: 24px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* Spinner */
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .spinner { width: 40px; height: 40px; border: 3px solid #f0ebe0; border-top-color: #ed6f5c; border-radius: 50%; animation: spin 0.8s linear infinite; }
+
+    /* Pulse */
+    @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.15); opacity: 0.7; } }
+    .pulse { width: 40px; height: 40px; background: #ed6f5c; border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+
+    /* Checkmark */
+    @keyframes draw { 0% { stroke-dashoffset: 24; } 100% { stroke-dashoffset: 0; } }
+    @keyframes circleGrow { 0% { r: 0; } 100% { r: 18; } }
+    .checkmark-circle { fill: none; stroke: #6e7448; stroke-width: 2; animation: circleGrow 0.3s ease forwards; }
+    .checkmark-path { fill: none; stroke: #6e7448; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 24; stroke-dashoffset: 24; animation: draw 0.4s ease 0.3s forwards; }
+
+    /* Dots Loading */
+    @keyframes dotBounce { 0%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-12px); } }
+    .dot { width: 10px; height: 10px; background: #ed6f5c; border-radius: 50%; display: inline-block; margin: 0 4px; animation: dotBounce 1.2s ease-in-out infinite; }
+    .dot:nth-child(2) { animation-delay: 0.15s; background: #6e7448; }
+    .dot:nth-child(3) { animation-delay: 0.3s; background: #5c9ded; }
+
+    /* Progress Bar */
+    @keyframes progress { 0% { width: 0%; } 100% { width: 100%; } }
+    .progress-track { width: 160px; height: 6px; background: #f0ebe0; border-radius: 3px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #ed6f5c, #6e7448); border-radius: 3px; animation: progress 2s ease-in-out infinite; }
+
+    /* Heartbeat */
+    @keyframes heartbeat { 0%,100% { transform: scale(1); } 14% { transform: scale(1.2); } 28% { transform: scale(1); } 42% { transform: scale(1.2); } 70% { transform: scale(1); } }
+    .heartbeat { font-size: 36px; animation: heartbeat 1.5s ease-in-out infinite; }
+
+    /* Fade In Up */
+    @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+    .fade-in-up { font-size: 14px; font-weight: 600; color: #2d2d2d; animation: fadeInUp 0.6s ease infinite alternate; }
+
+    /* Ripple */
+    @keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(237,111,92,0.4); } 100% { box-shadow: 0 0 0 20px rgba(237,111,92,0); } }
+    .ripple { width: 40px; height: 40px; background: #ed6f5c; border-radius: 50%; animation: ripple 1.5s ease infinite; }
+
+    /* Shimmer */
+    @keyframes shimmer { 0% { background-position: -200px 0; } 100% { background-position: 200px 0; } }
+    .shimmer { width: 160px; height: 16px; background: linear-gradient(90deg, #f0ebe0 25%, #e5dfd5 50%, #f0ebe0 75%); background-size: 200px 100%; border-radius: 4px; animation: shimmer 1.5s ease-in-out infinite; }
+
+    /* Typing Dots */
+    @keyframes typingDot { 0%,60%,100% { opacity: 0.3; transform: scale(0.8); } 30% { opacity: 1; transform: scale(1); } }
+    .typing-dot { width: 8px; height: 8px; background: #2d2d2d; border-radius: 50%; display: inline-block; margin: 0 3px; animation: typingDot 1.4s ease-in-out infinite; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Rotate */
+    @keyframes rotate3d { 0% { transform: perspective(200px) rotateY(0deg); } 100% { transform: perspective(200px) rotateY(360deg); } }
+    .rotate3d { width: 40px; height: 40px; background: linear-gradient(135deg, #ed6f5c, #6e7448); border-radius: 8px; animation: rotate3d 2s ease-in-out infinite; }
+
+    /* Scale Bounce */
+    @keyframes scaleBounce { 0%,100% { transform: scale(1); } 50% { transform: scale(0.85); } }
+    .scale-bounce { width: 40px; height: 40px; background: #5c9ded; border-radius: 50%; animation: scaleBounce 0.8s ease-in-out infinite; }
+
+    /* Slide In */
+    @keyframes slideIn { 0% { transform: translateX(-100%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+    .slide-in { font-size: 13px; font-weight: 600; color: #2d2d2d; background: #f0ebe0; padding: 8px 16px; border-radius: 8px; animation: slideIn 1s ease infinite alternate; }
+
+    /* Wave Bars */
+    @keyframes waveBar { 0%,100% { height: 8px; } 50% { height: 28px; } }
+    .wave-bar { width: 4px; background: #ed6f5c; border-radius: 2px; display: inline-block; margin: 0 2px; animation: waveBar 1s ease-in-out infinite; }
+    .wave-bar:nth-child(2) { animation-delay: 0.1s; background: #6e7448; }
+    .wave-bar:nth-child(3) { animation-delay: 0.2s; background: #5c9ded; }
+    .wave-bar:nth-child(4) { animation-delay: 0.3s; background: #ed6f5c; }
+    .wave-bar:nth-child(5) { animation-delay: 0.4s; background: #6e7448; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="badge">Animation Pack · 12 CSS Animations</div>
+    <h1>Micro Interactions</h1>
+    <p class="subtitle">Pure CSS animations for loading states, feedback, and delight</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="anim"><div class="spinner"></div></div>
+        <h3>Spinner</h3>
+        <p>Loading indicator</p>
+      </div>
+      <div class="card">
+        <div class="anim"><div class="pulse"></div></div>
+        <h3>Pulse</h3>
+        <p>Attention pulse</p>
+      </div>
+      <div class="card">
+        <div class="anim">
+          <svg width="44" height="44" viewBox="0 0 44 44">
+            <circle class="checkmark-circle" cx="22" cy="22" r="18"/>
+            <path class="checkmark-path" d="M14 22 L20 28 L30 16"/>
+          </svg>
+        </div>
+        <h3>Checkmark</h3>
+        <p>Success confirmation</p>
+      </div>
+      <div class="card">
+        <div class="anim" style="display:flex;align-items:flex-end;">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <h3>Bouncing Dots</h3>
+        <p>Loading dots</p>
+      </div>
+      <div class="card">
+        <div class="anim" style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+        </div>
+        <h3>Progress Bar</h3>
+        <p>Upload/download progress</p>
+      </div>
+      <div class="card">
+        <div class="anim"><div class="heartbeat">❤️</div></div>
+        <h3>Heartbeat</h3>
+        <p>Favorite/like action</p>
+      </div>
+      <div class="card">
+        <div class="anim"><div class="fade-in-up">Hello</div></div>
+        <h3>Fade In Up</h3>
+        <p>Content entrance</p>
+      </div>
+      <div class="card">
+        <div class="anim"><div class="ripple"></div></div>
+        <h3>Ripple</h3>
+        <p>Click feedback</p>
+      </div>
+      <div class="card">
+        <div class="anim" style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+          <div class="shimmer"></div>
+          <div class="shimmer" style="width:120px;height:12px;"></div>
+        </div>
+        <h3>Shimmer</h3>
+        <p>Skeleton loading</p>
+      </div>
+      <div class="card">
+        <div class="anim" style="display:flex;align-items:center;">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+        <h3>Typing Dots</h3>
+        <p>Chat/message input</p>
+      </div>
+      <div class="card">
+        <div class="anim"><div class="rotate3d"></div></div>
+        <h3>3D Rotate</h3>
+        <p>Card flip effect</p>
+      </div>
+      <div class="card">
+        <div class="anim"><div class="scale-bounce"></div></div>
+        <h3>Scale Bounce</h3>
+        <p>Button press feedback</p>
+      </div>
+    </div>
+
+    <div style="max-width: 1200px; margin: 48px auto 0;">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+        <div class="card">
+          <div class="anim" style="display:flex;gap:3px;align-items:flex-end;height:32px;">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+          </div>
+          <h3>Wave Bars</h3>
+          <p>Audio/voice indicator</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width: 1200px; margin: 48px auto 0; padding: 32px; background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+      <h3 style="font-size: 14px; margin-bottom: 12px; font-weight: 600;">Usage</h3>
+      <p style="font-size: 13px; color: #888; line-height: 1.6; margin-bottom: 16px;">
+        Each animation is a self-contained CSS keyframe. Copy the relevant @keyframes and HTML class into your project.
+        Pure CSS — no JavaScript, no dependencies, 60fps hardware-accelerated.
+      </p>
+      <div style="background: #15140f; border-radius: 8px; padding: 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #f7f1de; overflow-x: auto;">
+        <code>&lt;div class="spinner"&gt;&lt;/div&gt;</code>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>CC0 · Free for commercial use · No attribution required · Pure CSS animations</p>
+    </div>
+  </div>
+</body>
+</html>

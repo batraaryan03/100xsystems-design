@@ -385,6 +385,28 @@
       "createdAt": "2026-06-16",
       "thumbnail": "/registry/packs/undraw-tech/thumbnail.png",
       "itemCount": 1
+    },
+    {
+      "id": "micro-interactions",
+      "slug": "micro-interactions",
+      "title": "Micro Interactions",
+      "description": "Pure CSS animations for loading states, feedback, and delight. 12 self-contained keyframe animations with no JavaScript.",
+      "tags": ["animations", "micro-interactions", "css", "loading", "feedback", "ui", "motion"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "video",
+      "screenshots": [],
+      "files": [
+        { "path": "index.html", "type": "asset" }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/micro-interactions",
+      "license": "CC0-1.0",
+      "author": { "name": "100X Systems" },
+      "featured": false,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/micro-interactions/thumbnail.png",
+      "itemCount": 1
     }
   ],
   "collections": [
@@ -393,7 +415,7 @@
       "slug": "all-packs",
       "title": "All Packs",
       "description": "Every pack in the registry.",
-      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech"]
+      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions"]
     },
     {
       "id": "editorial-landing",
@@ -440,9 +462,9 @@
     {
       "id": "video-loops",
       "slug": "video-loops",
-      "title": "Video Loops",
-      "description": "Short, reusable video clips for hero sections and backgrounds.",
-      "packSlugs": ["abstract-video-loops"]
+      "title": "Video Loops & Animations",
+      "description": "Short, reusable video clips and CSS animations for hero sections, loading states, and backgrounds.",
+      "packSlugs": ["abstract-video-loops", "micro-interactions"]
     }
   ]
 }

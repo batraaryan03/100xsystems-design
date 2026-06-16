@@ -1,0 +1,13 @@
+{
+  "name": "micro-interactions",
+  "type": "registry:block",
+  "title": "Micro Interactions",
+  "description": "Pure CSS animations for loading states, feedback, and delight. 12 self-contained keyframe animations with no JavaScript.",
+  "files": [
+    { "path": "index.html", "type": "registry:file" }
+  ],
+  "meta": {
+    "category": "animation",
+    "tags": ["animations", "micro-interactions", "css", "loading", "feedback", "ui"]
+  }
+}

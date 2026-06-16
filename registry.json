@@ -316,6 +316,32 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "micro-interactions",
+      "type": "registry:block",
+      "title": "Micro Interactions",
+      "author": "100X Systems",
+      "description": "Pure CSS animations for loading states, feedback, and delight. 12 self-contained keyframe animations with no JavaScript.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "animations",
+          "micro-interactions",
+          "css",
+          "loading",
+          "feedback",
+          "ui",
+          "motion"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/micro-interactions/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }
