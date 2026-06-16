@@ -30,7 +30,7 @@ export function AdminFeature() {
   const [tags, setTags] = useState("");
   const [framework, setFramework] = useState<"html" | "react" | "asset">("html");
   const [category, setCategory] = useState("landing");
-  const [assetType, setAssetType] = useState<"component" | "illustration" | "image" | "video">("component");
+  const [assetType, setAssetType] = useState<"component" | "illustration" | "image" | "video">("illustration");
   const [slug, setSlug] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -117,7 +117,7 @@ export function AdminFeature() {
       type: f.type,
     }));
 
-    const manifest: Record<string, unknown> = {
+    const manifest = {
       id: slug || "my-pack",
       slug: slug || "my-pack",
       title: title || "My Pack",
@@ -139,8 +139,8 @@ export function AdminFeature() {
     };
 
     if (framework === "asset") {
-      manifest.assetType = assetType;
-      manifest.attribution = [];
+      (manifest as Record<string, unknown>).assetType = assetType;
+      (manifest as Record<string, unknown>).attribution = [{ source: "", url: "", license: "" }];
     }
 
     return JSON.stringify(manifest, null, 2);
