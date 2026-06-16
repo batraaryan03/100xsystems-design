@@ -429,6 +429,28 @@
       "createdAt": "2026-06-16",
       "thumbnail": "/registry/packs/typography-pairings/thumbnail.png",
       "itemCount": 6
+    },
+    {
+      "id": "color-palettes",
+      "slug": "color-palettes",
+      "title": "Color Palettes",
+      "description": "6 curated 5-color systems with CSS custom properties. Atelier Zero, Midnight SaaS, Terracotta Studio, Soft Mint, Neon Dark, Sunbleached.",
+      "tags": ["colors", "palette", "design-system", "css-variables", "theme"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "component",
+      "screenshots": [],
+      "files": [
+        { "path": "index.html", "type": "asset" }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/color-palettes",
+      "license": "CC0-1.0",
+      "author": { "name": "100X Systems" },
+      "featured": false,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/color-palettes/thumbnail.png",
+      "itemCount": 6
     }
   ],
   "collections": [
@@ -437,7 +459,7 @@
       "slug": "all-packs",
       "title": "All Packs",
       "description": "Every pack in the registry.",
-      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions", "typography-pairings"]
+      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops", "open-peeps-style", "undraw-tech", "micro-interactions", "typography-pairings", "color-palettes"]
     },
     {
       "id": "editorial-landing",
@@ -493,7 +515,7 @@
       "slug": "design-system",
       "title": "Design System",
       "description": "Typography, textures, and foundational assets for building consistent UI.",
-      "packSlugs": ["typography-pairings", "minimal-textures", "micro-interactions"]
+      "packSlugs": ["typography-pairings", "minimal-textures", "micro-interactions", "color-palettes"]
     }
   ]
 }

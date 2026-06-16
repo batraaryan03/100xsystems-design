@@ -1,0 +1,13 @@
+{
+  "name": "color-palettes",
+  "type": "registry:block",
+  "title": "Color Palettes",
+  "description": "6 curated 5-color systems with CSS custom properties. Atelier Zero, Midnight SaaS, Terracotta Studio, Soft Mint, Neon Dark, Sunbleached.",
+  "files": [
+    { "path": "index.html", "type": "registry:file" }
+  ],
+  "meta": {
+    "category": "landing",
+    "tags": ["colors", "palette", "design-system", "css-variables", "theme"]
+  }
+}

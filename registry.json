@@ -366,6 +366,30 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "color-palettes",
+      "type": "registry:block",
+      "title": "Color Palettes",
+      "author": "100X Systems",
+      "description": "6 curated 5-color systems with CSS custom properties. Atelier Zero, Midnight SaaS, Terracotta Studio, Soft Mint, Neon Dark, Sunbleached.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "colors",
+          "palette",
+          "design-system",
+          "css-variables",
+          "theme"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/color-palettes/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

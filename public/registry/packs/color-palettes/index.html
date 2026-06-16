@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palettes — Curated Color Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f7f1de; font-family: 'Inter', system-ui, sans-serif; padding: 60px 40px; color: #2d2d2d; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 36px; margin-bottom: 8px; }
+    .subtitle { font-size: 14px; color: #888; margin-bottom: 48px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .palettes { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+    .palette { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .palette-header { padding: 24px 32px; border-bottom: 1px solid #f0ebe0; display: flex; justify-content: space-between; align-items: center; }
+    .palette-name { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #2d2d2d; }
+    .palette-mood { font-size: 11px; padding: 4px 10px; border-radius: 999px; background: #f0ebe0; color: #888; }
+    .palette-colors { display: flex; height: 120px; }
+    .color-swatch { flex: 1; display: flex; align-items: flex-end; padding: 12px; position: relative; }
+    .color-swatch .label { font-size: 10px; font-weight: 600; letter-spacing: 0.05em; opacity: 0.8; }
+    .color-swatch .hex { font-size: 11px; font-family: 'JetBrains Mono', monospace; opacity: 0.9; }
+    .palette-meta { padding: 16px 32px; display: flex; gap: 24px; font-size: 11px; color: #888; border-top: 1px solid #f0ebe0; }
+    .palette-meta code { background: #f0ebe0; padding: 2px 6px; border-radius: 3px; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+    .footer { text-align: center; margin-top: 64px; padding-top: 32px; border-top: 1px solid #e5dfd5; }
+    .footer p { font-size: 12px; color: #888; }
+    .badge { display: inline-block; background: #ed6f5c; color: white; font-size: 11px; padding: 4px 12px; border-radius: 999px; margin-bottom: 24px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <div class="badge">Design System Pack · 6 Palettes</div>
+    <h1>Color Palettes</h1>
+    <p class="subtitle">Curated 5-color systems with CSS variables ready to use</p>
+
+    <div class="palettes">
+      <!-- Palette 1: Atelier Zero -->
+      <div class="palette">
+        <div class="palette-header">
+          <span class="palette-name">I. Atelier Zero</span>
+          <span class="palette-mood">Warm & Editorial</span>
+        </div>
+        <div class="palette-colors">
+          <div class="color-swatch" style="background: #efe7d2;"><span class="label" style="color: #2d2d2d;">Paper<br/></span><span class="hex" style="color: #2d2d2d;">#efe7d2</span></div>
+          <div class="color-swatch" style="background: #ed6f5c;"><span class="label" style="color: #fff;">Coral<br/></span><span class="hex" style="color: #fff;">#ed6f5c</span></div>
+          <div class="color-swatch" style="background: #6e7448;"><span class="label" style="color: #fff;">Olive<br/></span><span class="hex" style="color: #fff;">#6e7448</span></div>
+          <div class="color-swatch" style="background: #2d2d2d;"><span class="label" style="color: #f7f1de;">Ink<br/></span><span class="hex" style="color: #f7f1de;">#2d2d2d</span></div>
+          <div class="color-swatch" style="background: #f7f1de; border: 1px solid #e5dfd5;"><span class="label" style="color: #888;">Bone<br/></span><span class="hex" style="color: #888;">#f7f1de</span></div>
+        </div>
+        <div class="palette-meta">
+          <span>Usage: <code>--paper: #efe7d2</code> <code>--coral: #ed6f5c</code></span>
+          <span>Mood: Magazine, Blog, Editorial</span>
+        </div>
+      </div>
+
+      <!-- Palette 2: Midnight SaaS -->
+      <div class="palette">
+        <div class="palette-header">
+          <span class="palette-name">II. Midnight SaaS</span>
+          <span class="palette-mood">Dark & Professional</span>
+        </div>
+        <div class="palette-colors">
+          <div class="color-swatch" style="background: #0f172a;"><span class="label" style="color: #94a3b8;">Navy<br/></span><span class="hex" style="color: #94a3b8;">#0f172a</span></div>
+          <div class="color-swatch" style="background: #1e293b;"><span class="label" style="color: #94a3b8;">Slate<br/></span><span class="hex" style="color: #94a3b8;">#1e293b</span></div>
+          <div class="color-swatch" style="background: #6366f1;"><span class="label" style="color: #fff;">Indigo<br/></span><span class="hex" style="color: #fff;">#6366f1</span></div>
+          <div class="color-swatch" style="background: #f8fafc;"><span class="label" style="color: #0f172a;">Snow<br/></span><span class="hex" style="color: #0f172a;">#f8fafc</span></div>
+          <div class="color-swatch" style="background: #64748b;"><span class="label" style="color: #fff;">Muted<br/></span><span class="hex" style="color: #fff;">#64748b</span></div>
+        </div>
+        <div class="palette-meta">
+          <span>Usage: <code>--navy: #0f172a</code> <code>--indigo: #6366f1</code></span>
+          <span>Mood: SaaS, Dashboard, Finance</span>
+        </div>
+      </div>
+
+      <!-- Palette 3: Terracotta Studio -->
+      <div class="palette">
+        <div class="palette-header">
+          <span class="palette-name">III. Terracotta Studio</span>
+          <span class="palette-mood">Bold & Earthy</span>
+        </div>
+        <div class="palette-colors">
+          <div class="color-swatch" style="background: #c2410c;"><span class="label" style="color: #fff;">Terra<br/></span><span class="hex" style="color: #fff;">#c2410c</span></div>
+          <div class="color-swatch" style="background: #fed7aa;"><span class="label" style="color: #78350f;">Peach<br/></span><span class="hex" style="color: #78350f;">#fed7aa</span></div>
+          <div class="color-swatch" style="background: #292524;"><span class="label" style="color: #fafaf9;">Stone<br/></span><span class="hex" style="color: #fafaf9;">#292524</span></div>
+          <div class="color-swatch" style="background: #fafaf9; border: 1px solid #e7e5e4;"><span class="label" style="color: #78350f;">Linen<br/></span><span class="hex" style="color: #78350f;">#fafaf9</span></div>
+          <div class="color-swatch" style="background: #78350f;"><span class="label" style="color: #fef3c7;">Umber<br/></span><span class="hex" style="color: #fef3c7;">#78350f</span></div>
+        </div>
+        <div class="palette-meta">
+          <span>Usage: <code>--terra: #c2410c</code> <code>--stone: #292524</code></span>
+          <span>Mood: Agency, Portfolio, Restaurant</span>
+        </div>
+      </div>
+
+      <!-- Palette 4: Soft Mint -->
+      <div class="palette">
+        <div class="palette-header">
+          <span class="palette-name">IV. Soft Mint</span>
+          <span class="palette-mood">Fresh & Calm</span>
+        </div>
+        <div class="palette-colors">
+          <div class="color-swatch" style="background: #d1fae5;"><span class="label" style="color: #065f46;">Mint<br/></span><span class="hex" style="color: #065f46;">#d1fae5</span></div>
+          <div class="color-swatch" style="background: #10b981;"><span class="label" style="color: #fff;">Emerald<br/></span><span class="hex" style="color: #fff;">#10b981</span></div>
+          <div class="color-swatch" style="background: #064e3b;"><span class="label" style="color: #d1fae5;">Forest<br/></span><span class="hex" style="color: #d1fae5;">#064e3b</span></div>
+          <div class="color-swatch" style="background: #f0fdf4; border: 1px solid #d1fae5;"><span class="label" style="color: #065f46;">Snow<br/></span><span class="hex" style="color: #065f46;">#f0fdf4</span></div>
+          <div class="color-swatch" style="background: #059669;"><span class="label" style="color: #d1fae5;">Jade<br/></span><span class="hex" style="color: #d1fae5;">#059669</span></div>
+        </div>
+        <div class="palette-meta">
+          <span>Usage: <code>--mint: #d1fae5</code> <code>--emerald: #10b981</code></span>
+          <span>Mood: Health, Sustainability, Finance</span>
+        </div>
+      </div>
+
+      <!-- Palette 5: Neon Dark -->
+      <div class="palette">
+        <div class="palette-header">
+          <span class="palette-name">V. Neon Dark</span>
+          <span class="palette-mood">Vibrant & Futuristic</span>
+        </div>
+        <div class="palette-colors">
+          <div class="color-swatch" style="background: #09090b;"><span class="label" style="color: #a1a1aa;">Void<br/></span><span class="hex" style="color: #a1a1aa;">#09090b</span></div>
+          <div class="color-swatch" style="background: #18181b;"><span class="label" style="color: #a1a1aa;">Carbon<br/></span><span class="hex" style="color: #a1a1aa;">#18181b</span></div>
+          <div class="color-swatch" style="background: #a855f7;"><span class="label" style="color: #fff;">Purple<br/></span><span class="hex" style="color: #fff;">#a855f7</span></div>
+          <div class="color-swatch" style="background: #22d3ee;"><span class="label" style="color: #09090b;">Cyan<br/></span><span class="hex" style="color: #09090b;">#22d3ee</span></div>
+          <div class="color-swatch" style="background: #fafafa;"><span class="label" style="color: #09090b;">White<br/></span><span class="hex" style="color: #09090b;">#fafafa</span></div>
+        </div>
+        <div class="palette-meta">
+          <span>Usage: <code>--void: #09090b</code> <code>--purple: #a855f7</code></span>
+          <span>Mood: AI, Developer, Crypto</span>
+        </div>
+      </div>
+
+      <!-- Palette 6: Sunbleached -->
+      <div class="palette">
+        <div class="palette-header">
+          <span class="palette-name">VI. Sunbleached</span>
+          <span class="palette-mood">Minimal & Airy</span>
+        </div>
+        <div class="palette-colors">
+          <div class="color-swatch" style="background: #fafaf9; border: 1px solid #e7e5e4;"><span class="label" style="color: #57534e;">Linen<br/></span><span class="hex" style="color: #57534e;">#fafaf9</span></div>
+          <div class="color-swatch" style="background: #e7e5e4;"><span class="label" style="color: #44403c;">Ash<br/></span><span class="hex" style="color: #44403c;">#e7e5e4</span></div>
+          <div class="color-swatch" style="background: #fbbf24;"><span class="label" style="color: #78350f;">Saffron<br/></span><span class="hex" style="color: #78350f;">#fbbf24</span></div>
+          <div class="color-swatch" style="background: #44403c;"><span class="label" style="color: #fafaf9;">Charcoal<br/></span><span class="hex" style="color: #fafaf9;">#44403c</span></div>
+          <div class="color-swatch" style="background: #78716c;"><span class="label" style="color: #fafaf9;">Stone<br/></span><span class="hex" style="color: #fafaf9;">#78716c</span></div>
+        </div>
+        <div class="palette-meta">
+          <span>Usage: <code>--linen: #fafaf9</code> <code>--saffron: #fbbf24</code></span>
+          <span>Mood: Minimal, E-commerce, Landing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Free for commercial use · All colors as CSS custom properties · No attribution required</p>
+    </div>
+  </div>
+</body>
+</html>
