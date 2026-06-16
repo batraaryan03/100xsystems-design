@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "social-proof",
+  "title": "Social Proof",
+  "description": "Testimonials, logo bars, stats counters, and review cards. Build trust with social proof patterns.",
+  "type": "registry:style",
+  "author": "100X Systems",
+  "license": "CC0-1.0",
+  "files": [
+    {
+      "path": "index.html",
+      "type": "registry:ui",
+      "target": "components/social-proof.html"
+    }
+  ]
+}

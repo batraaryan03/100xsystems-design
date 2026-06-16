@@ -550,6 +550,33 @@
           "target": "~/assets/index.html"
         }
       ]
+    },
+    {
+      "name": "social-proof",
+      "type": "registry:block",
+      "title": "Social Proof",
+      "author": "100X Systems",
+      "description": "Testimonials, logo bars, stats counters, and review cards. Build trust with social proof patterns.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "testimonials",
+          "reviews",
+          "stats",
+          "logo-bar",
+          "social-proof",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/social-proof/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
     }
   ]
 }

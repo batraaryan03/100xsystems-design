@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Proof Components</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fafafa; color: #1a1a1a; line-height: 1.5; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+    h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; color: #0a0a0a; }
+    .subtitle { font-size: 1.125rem; color: #666; margin-bottom: 48px; }
+    .section { margin-bottom: 64px; }
+    .section-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; color: #1a1a1a; display: flex; align-items: center; gap: 12px; }
+    .badge { font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 4px; background: #e8e8e8; color: #666; }
+    .preview-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+    .preview-label { padding: 12px 16px; font-size: 0.875rem; font-weight: 500; color: #666; border-bottom: 1px solid #e5e5e5; background: #fafafa; }
+    .preview-content { padding: 32px; }
+    .usage-note { background: #f8f8f8; border-left: 3px solid #0a0a0a; padding: 16px; margin-top: 16px; font-size: 0.875rem; color: #666; }
+
+    /* Testimonials */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 24px; }
+    .testimonial-stars { color: #f59e0b; font-size: 0.875rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .testimonial-text { font-size: 0.9375rem; color: #333; margin-bottom: 20px; line-height: 1.6; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar { width: 40px; height: 40px; border-radius: 50%; background: #e8e8e8; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.875rem; color: #666; }
+    .testimonial-name { font-size: 0.875rem; font-weight: 600; }
+    .testimonial-role { font-size: 0.75rem; color: #999; }
+
+    /* Logo Bar */
+    .logo-bar { display: flex; align-items: center; justify-content: center; gap: 48px; padding: 32px 0; flex-wrap: wrap; }
+    .logo-item { font-size: 1.25rem; font-weight: 700; color: #ccc; letter-spacing: -0.02em; white-space: nowrap; }
+    .logo-bar-centered { text-align: center; margin-bottom: 32px; }
+    .logo-bar-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 16px; }
+
+    /* Stats */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+    .stat-item { padding: 24px; }
+    .stat-value { font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; color: #0a0a0a; }
+    .stat-label { font-size: 0.875rem; color: #666; margin-top: 4px; }
+    .stats-bordered { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; }
+    .stats-bordered .stat-item { border-right: 1px solid #f0f0f0; }
+    .stats-bordered .stat-item:last-child { border-right: none; }
+    .stats-dark { background: #0a0a0a; border-radius: 12px; }
+    .stats-dark .stat-value { color: #fff; }
+    .stats-dark .stat-label { color: #888; }
+
+    /* Review Cards */
+    .reviews-list { display: flex; flex-direction: column; gap: 16px; max-width: 640px; }
+    .review-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 20px 24px; }
+    .review-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .review-source { font-size: 0.75rem; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.05em; }
+    .review-stars { color: #f59e0b; font-size: 0.75rem; letter-spacing: 1px; }
+    .review-text { font-size: 0.875rem; color: #333; line-height: 1.6; margin-bottom: 12px; }
+    .review-author { font-size: 0.75rem; color: #999; }
+
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-bordered .stat-item { border-right: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Social Proof</h1>
+    <p class="subtitle">Testimonials, logo bars, stats counters, and review cards.</p>
+
+    <!-- Testimonials -->
+    <div class="section">
+      <div class="section-title">Testimonials <span class="badge">Cards</span></div>
+      <div class="preview-card">
+        <div class="preview-label">3-column testimonial cards with stars and author info</div>
+        <div class="preview-content">
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <div class="testimonial-text">"This saved our team hours of design work. The packs are production-ready and look incredible out of the box."</div>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">SK</div>
+                <div>
+                  <div class="testimonial-name">Sarah Kim</div>
+                  <div class="testimonial-role">Frontend Lead, Vercel</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <div class="testimonial-text">"Finally, a design registry that actually works with the shadcn CLI. Install a pack, get a full page. Done."</div>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">JR</div>
+                <div>
+                  <div class="testimonial-name">James Rivera</div>
+                  <div class="testimonial-role">Solo Developer</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <div class="testimonial-text">"The illustration packs are beautiful. We use the Open Doodles set across our entire product for empty states and onboarding."</div>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">ML</div>
+                <div>
+                  <div class="testimonial-name">Maya Lee</div>
+                  <div class="testimonial-role">Product Designer, Stripe</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="usage-note"><strong>Usage:</strong> Copy the testimonial card HTML and CSS. Adjust star count, text, and author details. Use a 2-column or 1-column grid on smaller screens.</div>
+    </div>
+
+    <!-- Logo Bar -->
+    <div class="section">
+      <div class="section-title">Logo Bar <span class="badge">Trust</span></div>
+      <div class="preview-card">
+        <div class="preview-label">Trusted by logos — replace with your company logos</div>
+        <div class="preview-content">
+          <div class="logo-bar-centered">
+            <div class="logo-bar-label">Trusted by teams at</div>
+            <div class="logo-bar">
+              <span class="logo-item">Vercel</span>
+              <span class="logo-item">Stripe</span>
+              <span class="logo-item">Linear</span>
+              <span class="logo-item">Notion</span>
+              <span class="logo-item">Figma</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="usage-note"><strong>Usage:</strong> Replace text logos with `<img>` tags or SVG logos. Adjust `gap` and opacity on hover for a subtle effect.</div>
+    </div>
+
+    <!-- Stats -->
+    <div class="section">
+      <div class="section-title">Stats Counters <span class="badge">Numbers</span></div>
+      <div class="preview-card">
+        <div class="preview-label">Light background stats</div>
+        <div class="preview-content" style="padding: 0;">
+          <div class="stats-grid stats-bordered">
+            <div class="stat-item"><div class="stat-value">20+</div><div class="stat-label">Design packs</div></div>
+            <div class="stat-item"><div class="stat-value">10K+</div><div class="stat-label">Downloads</div></div>
+            <div class="stat-item"><div class="stat-value">500+</div><div class="stat-label">GitHub stars</div></div>
+            <div class="stat-item"><div class="stat-value">99%</div><div class="stat-label">Uptime</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="preview-card">
+        <div class="preview-label">Dark background stats</div>
+        <div class="preview-content" style="padding: 0;">
+          <div class="stats-grid stats-dark">
+            <div class="stat-item"><div class="stat-value">20+</div><div class="stat-label">Design packs</div></div>
+            <div class="stat-item"><div class="stat-value">10K+</div><div class="stat-label">Downloads</div></div>
+            <div class="stat-item"><div class="stat-value">500+</div><div class="stat-label">GitHub stars</div></div>
+            <div class="stat-item"><div class="stat-value">99%</div><div class="stat-label">Uptime</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="usage-note"><strong>Usage:</strong> Copy the stats HTML and CSS. For animated counters, add a small JS snippet that counts up on scroll into view.</div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="section">
+      <div class="section-title">Review Cards <span class="badge">Compact</span></div>
+      <div class="preview-card">
+        <div class="preview-label">Compact review cards from multiple sources</div>
+        <div class="preview-content">
+          <div class="reviews-list">
+            <div class="review-card">
+              <div class="review-header">
+                <span class="review-source">Product Hunt</span>
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <div class="review-text">"Best open-source design registry I've found. The install flow with shadcn CLI is seamless."</div>
+              <div class="review-author">@devbuilds</div>
+            </div>
+            <div class="review-card">
+              <div class="review-header">
+                <span class="review-source">Twitter</span>
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <div class="review-text">"The editorial landing page pack is gorgeous. Dropped it into my project and got a full page in 30 seconds."</div>
+              <div class="review-author">@sarahcodes</div>
+            </div>
+            <div class="review-card">
+              <div class="review-header">
+                <span class="review-source">GitHub</span>
+                <span class="review-stars">★★★★☆</span>
+              </div>
+              <div class="review-text">"Great collection of packs. Would love to see more React components and a CLI for scaffolding."</div>
+              <div class="review-author">@alexchen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="usage-note"><strong>Usage:</strong> Copy the review card HTML and CSS. Adjust the source label, stars, and text. Stack vertically or use a 2-column grid.</div>
+    </div>
+  </div>
+</body>
+</html>
