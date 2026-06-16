@@ -43,6 +43,10 @@ export function DocsFeature() {
               </p>
               <CodeBlock code="npx shadcn@latest add batraaryan03/100xsystems-design/open-design-landing-html" language="bash" />
 
+              <p style={{ fontFamily: "var(--body)", fontSize: "15px", color: "var(--ink-soft)", lineHeight: 1.7, maxWidth: "60ch", marginTop: "16px", marginBottom: "8px" }}>
+                Install an illustration pack:
+              </p>
+              <CodeBlock code="npx shadcn@latest add batraaryan03/100xsystems-design/open-doodles-style" language="bash" showViewMore={false} />
               <p style={{ fontFamily: "var(--body)", fontSize: "15px", color: "var(--ink-soft)", lineHeight: 1.7, maxWidth: "60ch", marginTop: "16px", marginBottom: "16px" }}>
                 Or browse the <Link href="/skills/websites" style={{ color: "var(--coral)", textDecoration: "none" }}>registry</Link> and copy the install command from any skill&apos;s detail page.
               </p>
