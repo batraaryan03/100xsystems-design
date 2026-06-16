@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, useRef } from "react";
 import { SectionRule } from "@/presentation/_components/components.layout";
 import { CoralDot, CodeBlock } from "@/presentation/_components/components.atomic";
 
@@ -33,6 +33,8 @@ export function AdminFeature() {
   const [assetType, setAssetType] = useState<"component" | "illustration" | "image" | "video">("illustration");
   const [slug, setSlug] = useState("");
   const [copied, setCopied] = useState(false);
+  const [dragOver, setDragOver] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleLogin = () => {
     if (code === ACCESS_CODE) {
@@ -146,6 +148,85 @@ export function AdminFeature() {
     return JSON.stringify(manifest, null, 2);
   };
 
+  const getFileType = (filename: string): "component" | "style" | "config" | "asset" => {
+    if (filename.endsWith(".css")) return "style";
+    if (filename.endsWith(".json")) return "config";
+    if (filename.endsWith(".svg") || filename.endsWith(".png") || filename.endsWith(".jpg") || filename.endsWith(".jpeg") || filename.endsWith(".gif") || filename.endsWith(".mp4") || filename.endsWith(".webm") || filename.endsWith(".webp")) return "asset";
+    return "component";
+  };
+
+  const autoDetectFramework = (fn: string): "html" | "react" | "asset" => {
+    if (fn.endsWith(".svg") || fn.endsWith(".png") || fn.endsWith(".jpg") || fn.endsWith(".mp4") || fn.endsWith(".webm")) return "asset";
+    if (fn.endsWith(".tsx") || fn.endsWith(".jsx")) return "react";
+    return "html";
+  };
+
+  const autoDetectAssetType = (fn: string): "illustration" | "image" | "video" => {
+    if (fn.endsWith(".mp4") || fn.endsWith(".webm")) return "video";
+    if (fn.endsWith(".png") || fn.endsWith(".jpg") || fn.endsWith(".jpeg") || fn.endsWith(".webp")) return "image";
+    return "illustration";
+  };
+
+  const processDroppedFiles = useCallback((droppedFiles: FileList) => {
+    const newFiles: FileInput[] = [];
+    let detectedFramework: "html" | "react" | "asset" = framework;
+    let detectedAssetType = assetType;
+
+    Array.from(droppedFiles).forEach((file) => {
+      const fw = autoDetectFramework(file.name);
+      if (fw !== detectedFramework) detectedFramework = fw;
+      if (fw === "asset") detectedAssetType = autoDetectAssetType(file.name);
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const content = e.target?.result as string;
+        newFiles.push({
+          filename: file.name,
+          content,
+          type: getFileType(file.name),
+        });
+
+        if (newFiles.length === droppedFiles.length) {
+          setFiles(newFiles);
+          setFramework(detectedFramework);
+          setAssetType(detectedAssetType);
+          if (!title && newFiles[0]?.filename.endsWith(".html")) {
+            autoExtractTitle(newFiles[0].content);
+          }
+          if (!slug) {
+            const name = newFiles[0]?.filename.replace(/\.[^.]+$/, "") || "my-pack";
+            setSlug(name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""));
+          }
+        }
+      };
+      reader.readAsText(file);
+    });
+  }, [framework, assetType, title, slug]);
+
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setDragOver(false);
+    if (e.dataTransfer.files.length > 0) {
+      processDroppedFiles(e.dataTransfer.files);
+    }
+  }, [processDroppedFiles]);
+
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setDragOver(true);
+  }, []);
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setDragOver(false);
+  }, []);
+
+  const handleFileInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      processDroppedFiles(e.target.files);
+    }
+  }, [processDroppedFiles]);
+
   const copyManifest = async () => {
     await navigator.clipboard.writeText(generateManifest());
     setCopied(true);
@@ -254,9 +335,49 @@ export function AdminFeature() {
                   <label style={{ fontFamily: "var(--sans)", fontSize: "12px", fontWeight: 600, color: "var(--ink-mute)", letterSpacing: "0.18em", textTransform: "uppercase" }}>
                     Files ({files.length})
                   </label>
-                  <button onClick={addFile} className="pill" style={{ fontSize: "11px", padding: "4px 12px" }}>
-                    + Add File
-                  </button>
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    <button onClick={() => fileInputRef.current?.click()} className="pill" style={{ fontSize: "11px", padding: "4px 12px" }}>
+                      Upload Files
+                    </button>
+                    <button onClick={addFile} className="pill" style={{ fontSize: "11px", padding: "4px 12px" }}>
+                      + Add Empty
+                    </button>
+                  </div>
+                </div>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  multiple
+                  onChange={handleFileInput}
+                  style={{ display: "none" }}
+                  accept=".html,.css,.tsx,.jsx,.ts,.js,.svg,.png,.jpg,.jpeg,.gif,.mp4,.webm,.json,.md"
+                />
+
+                <div
+                  onDrop={handleDrop}
+                  onDragOver={handleDragOver}
+                  onDragLeave={handleDragLeave}
+                  onClick={() => fileInputRef.current?.click()}
+                  style={{
+                    border: `2px dashed ${dragOver ? "var(--coral)" : "var(--line)"}`,
+                    borderRadius: "12px",
+                    padding: "32px 20px",
+                    textAlign: "center",
+                    cursor: "pointer",
+                    background: dragOver ? "rgba(237, 111, 92, 0.05)" : "transparent",
+                    transition: "all 0.2s ease",
+                    marginBottom: files.length > 0 ? "16px" : "0",
+                  }}
+                >
+                  <div style={{ fontSize: "28px", marginBottom: "8px", opacity: dragOver ? 1 : 0.4 }}>
+                    {dragOver ? "↓" : "⊕"}
+                  </div>
+                  <p style={{ fontFamily: "var(--sans)", fontSize: "13px", color: dragOver ? "var(--coral)" : "var(--ink-mute)", marginBottom: "4px" }}>
+                    {dragOver ? "Drop files here" : "Drag & drop files or click to upload"}
+                  </p>
+                  <p style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--ink-faint)", letterSpacing: "0.04em" }}>
+                    HTML, CSS, SVG, images, video, JSON — auto-detects type
+                  </p>
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
