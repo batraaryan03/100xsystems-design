@@ -37,9 +37,11 @@ export function Navbar() {
 
           <nav className="nav-links">
             <Link href="/skills/websites">Websites</Link>
+            <Link href="/skills/illustrations">Illustrations</Link>
+            <Link href="/skills/images">Images</Link>
+            <Link href="/skills/videos">Videos</Link>
             <Link href="/collections">Collections</Link>
             <Link href="/docs">Docs</Link>
-            <Link href="/about">About</Link>
           </nav>
 
           <div className="nav-side">
@@ -141,8 +143,10 @@ export function Footer() {
             <h5>Skills</h5>
             <ul>
               <li><Link href="/skills/websites">Websites</Link></li>
+              <li><Link href="/skills/illustrations">Illustrations</Link></li>
+              <li><Link href="/skills/images">Images</Link></li>
+              <li><Link href="/skills/videos">Videos</Link></li>
               <li><Link href="/collections">Collections</Link></li>
-              <li><Link href="/skills/websites?category=landing">Landing Pages</Link></li>
             </ul>
           </div>
           <div className="foot-col">

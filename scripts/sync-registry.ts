@@ -27,6 +27,7 @@ interface DataJsonPack {
   tags: string[];
   framework: string;
   category: string;
+  assetType?: string;
   files: DataJsonFile[];
   dependencies: string[];
   author?: { name: string };
@@ -71,6 +72,10 @@ function mapFileType(filePath: string): string {
 function getTarget(framework: string, filePath: string): string {
   if (framework === "react" && filePath.endsWith(".tsx")) {
     return `~/components/${filePath}`;
+  }
+  if (framework === "asset") {
+    // Assets get placed in a dedicated assets folder
+    return `~/assets/${filePath}`;
   }
   return `~/${filePath}`;
 }

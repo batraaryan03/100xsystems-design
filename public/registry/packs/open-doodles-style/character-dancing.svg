@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" fill="none">
+  <!-- Open Doodles Style: Dancing Character -->
+  <style>
+    .stroke { stroke: #2d2d2d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .fill-skin { fill: #f4d9a0; }
+    .fill-dark { fill: #2d2d2d; }
+    .fill-coral { fill: #ed6f5c; }
+  </style>
+  
+  <!-- Head -->
+  <circle cx="200" cy="180" r="60" class="fill-skin stroke"/>
+  
+  <!-- Eyes - excited -->
+  <circle cx="182" cy="168" r="6" class="fill-dark"/>
+  <circle cx="218" cy="168" r="6" class="fill-dark"/>
+  <circle cx="184" cy="166" r="2" fill="white"/>
+  <circle cx="220" cy="166" r="2" fill="white"/>
+  
+  <!-- Big open smile -->
+  <path d="M182 198 Q200 222 218 198" class="fill-coral stroke"/>
+  
+  <!-- Body -->
+  <path d="M200 240 L210 380" class="stroke"/>
+  
+  <!-- Arms up dancing -->
+  <path d="M200 280 L130 230 L110 180" class="stroke"/>
+  <path d="M210 280 L280 230 L300 180" class="stroke"/>
+  
+  <!-- Legs - dancing pose -->
+  <path d="M210 380 L150 470 L140 500" class="stroke"/>
+  <path d="M210 380 L270 470 L280 500" class="stroke"/>
+  
+  <!-- Music notes -->
+  <text x="80" y="200" font-size="24" fill="#ed6f5c" font-family="sans-serif">♪</text>
+  <text x="300" y="160" font-size="18" fill="#5c9ded" font-family="sans-serif">♫</text>
+</svg>

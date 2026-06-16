@@ -1,4 +1,4 @@
-import type { Pack, PackFramework, PackCategory, Collection } from "@/application/packs/packs.types";
+import type { Pack, PackFramework, PackCategory, PackAssetType, Collection } from "@/application/packs/packs.types";
 
 type RegistryData = {
   packs: Pack[];
@@ -34,6 +34,11 @@ export class RegistryService {
   static async getPacksByFramework(framework: PackFramework): Promise<Pack[]> {
     const data = await this.load();
     return data.packs.filter((p) => p.framework === framework);
+  }
+
+  static async getPacksByAssetType(assetType: PackAssetType): Promise<Pack[]> {
+    const data = await this.load();
+    return data.packs.filter((p) => p.assetType === assetType);
   }
 
   static async getFeaturedPacks(): Promise<Pack[]> {

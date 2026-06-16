@@ -106,7 +106,7 @@ const languageMap: Record<string, string> = {
   text: "text",
 };
 
-export function CodeBlock({ code, language = "text", maxHeight = "50vh" }: { code: string; language?: string; maxHeight?: string }) {
+export function CodeBlock({ code, language = "text", maxHeight = "50vh", showViewMore = true }: { code: string; language?: string; maxHeight?: string; showViewMore?: boolean }) {
   const [copied, setCopied] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
@@ -162,8 +162,7 @@ export function CodeBlock({ code, language = "text", maxHeight = "50vh" }: { cod
             wordBreak: "break-word",
           }}>
             <code>{code}</code>
-          </pre>
-          {!expanded && (
+          </pre>          {showViewMore && !expanded && (
             <div style={{
               position: "absolute",
               bottom: 0,
@@ -196,7 +195,7 @@ export function CodeBlock({ code, language = "text", maxHeight = "50vh" }: { cod
             </div>
           )}
         </div>
-        {expanded && (
+        {showViewMore && expanded && (
           <div style={{ padding: "8px 16px", borderTop: "1px solid rgba(247, 241, 222, 0.08)" }}>
             <button
               onClick={() => setExpanded(false)}
@@ -271,7 +270,7 @@ export function CodeBlock({ code, language = "text", maxHeight = "50vh" }: { cod
             </pre>
           )}
         </Highlight>
-        {!expanded && (
+        {showViewMore && !expanded && (
           <div style={{
             position: "absolute",
             bottom: 0,
@@ -304,25 +303,25 @@ export function CodeBlock({ code, language = "text", maxHeight = "50vh" }: { cod
           </div>
         )}
       </div>
-      {expanded && (
-        <div style={{ padding: "8px 16px", borderTop: "1px solid rgba(247, 241, 222, 0.08)" }}>
-          <button
-            onClick={() => setExpanded(false)}
-            style={{
-              padding: "6px 16px",
-              borderRadius: "999px",
-              border: "1px solid rgba(247, 241, 222, 0.2)",
-              background: "transparent",
-              color: "rgba(247, 241, 222, 0.6)",
-              fontFamily: "var(--sans)",
-              fontSize: "11px",
-              cursor: "pointer",
-            }}
-          >
-            Collapse
-          </button>
-        </div>
-      )}
+      {showViewMore && expanded && (
+          <div style={{ padding: "8px 16px", borderTop: "1px solid rgba(247, 241, 222, 0.08)" }}>
+            <button
+              onClick={() => setExpanded(false)}
+              style={{
+                padding: "6px 16px",
+                borderRadius: "999px",
+                border: "1px solid rgba(247, 241, 222, 0.2)",
+                background: "transparent",
+                color: "rgba(247, 241, 222, 0.6)",
+                fontFamily: "var(--sans)",
+                fontSize: "11px",
+                cursor: "pointer",
+              }}
+            >
+              Collapse
+            </button>
+          </div>
+        )}
     </div>
   );
 }

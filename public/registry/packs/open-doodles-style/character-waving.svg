@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" fill="none">
+  <!-- Open Doodles Style: Waving Character -->
+  <style>
+    .stroke { stroke: #2d2d2d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .fill-skin { fill: #f4d9a0; }
+    .fill-dark { fill: #2d2d2d; }
+    .fill-olive { fill: #6e7448; }
+  </style>
+  
+  <!-- Head -->
+  <circle cx="200" cy="180" r="60" class="fill-skin stroke"/>
+  
+  <!-- Eyes - happy squint -->
+  <path d="M178 172 Q182 168 186 172" class="stroke"/>
+  <path d="M214 172 Q218 168 222 172" class="stroke"/>
+  
+  <!-- Big smile -->
+  <path d="M180 195 Q200 218 220 195" class="stroke"/>
+  
+  <!-- Body -->
+  <path d="M200 240 L200 380" class="stroke"/>
+  
+  <!-- Waving arm (left) -->
+  <path d="M200 280 L120 220 L100 180" class="stroke"/>
+  
+  <!-- Other arm -->
+  <path d="M200 280 L260 320" class="stroke"/>
+  
+  <!-- Legs -->
+  <path d="M200 380 L160 480" class="stroke"/>
+  <path d="M200 380 L240 480" class="stroke"/>
+  
+  <!-- Hat -->
+  <ellipse cx="200" cy="128" rx="45" ry="12" class="fill-olive stroke"/>
+  <path d="M170 128 L180 95 L220 95 L230 128" class="fill-olive stroke"/>
+</svg>

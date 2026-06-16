@@ -23,8 +23,10 @@ function CopyPageDropdown({ pack, fileContents }: { pack: Pack; fileContents: Re
     setOpen(false);
   };
 
-  const chatgptUrl = `https://chatgpt.com/?q=Here+is+the+code+for+${encodeURIComponent(pack.title)}:+${encodeURIComponent(allCode.slice(0, 2000))}`;
-  const v0Url = `https://v0.dev/?q=Based+on+this+design:+${encodeURIComponent(allCode.slice(0, 2000))}`;
+  const aiPrompt = `I want to install this design skill in my project. Here is the code for "${pack.title}" (${pack.framework}, ${pack.category}):\n\nInstall command: ${pack.installCommand}\n\nSource code:\n${allCode.slice(0, 3000)}\n\nPlease help me set this up in my project. Create the necessary files, install dependencies, and make sure everything works.`;
+  const chatgptUrl = `https://chatgpt.com/?q=${encodeURIComponent(aiPrompt)}`;
+  const claudeUrl = `https://claude.ai/new?q=${encodeURIComponent(aiPrompt)}`;
+  const v0Url = `https://v0.dev/?q=${encodeURIComponent(`Recreate this design: ${pack.title}. ${allCode.slice(0, 2000)}`)}`;
 
   return (
     <div style={{ position: "relative" }}>
@@ -109,6 +111,23 @@ function CopyPageDropdown({ pack, fileContents }: { pack: Pack; fileContents: Re
             }}
           >
             Open in ChatGPT
+          </a>
+          <a
+            href={claudeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            style={{
+              display: "block",
+              padding: "10px 14px",
+              borderTop: "1px solid var(--line-soft)",
+              fontFamily: "var(--sans)",
+              fontSize: "13px",
+              color: "var(--ink)",
+              textDecoration: "none",
+            }}
+          >
+            Open in Claude
           </a>
           <a
             href={v0Url}
@@ -316,7 +335,7 @@ function PackDetailInner({ pack }: { pack: Pack }) {
           <h3 style={{ fontFamily: "var(--sans)", fontSize: "14px", fontWeight: 600, color: "var(--ink-mute)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "16px" }}>
             Install
           </h3>
-          <CodeBlock code={pack.installCommand} language="bash" />
+          <CodeBlock code={pack.installCommand} language="bash" showViewMore={false} />
         </div>
 
         <div style={{ borderTop: "1px solid var(--line)", paddingTop: "32px", marginBottom: "32px" }}>

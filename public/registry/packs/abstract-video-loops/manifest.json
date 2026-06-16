@@ -1,0 +1,13 @@
+{
+  "name": "abstract-video-loops",
+  "type": "registry:block",
+  "title": "Abstract Video Loops",
+  "description": "Short, reusable video clips for design projects. Gradient flows, particle drifts, and wave animations.",
+  "files": [
+    { "path": "README.md", "type": "registry:file" }
+  ],
+  "meta": {
+    "category": "video",
+    "tags": ["video", "loops", "abstract", "backgrounds", "animation"]
+  }
+}

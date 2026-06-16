@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { RegistryService } from "@/infrastructure/registry/registry.service";
-import type { Pack, PackCategory, PackFramework, Collection } from "./packs.types";
+import type { Pack, PackCategory, PackFramework, PackAssetType, Collection } from "./packs.types";
 
 export function usePacks(): {
   packs: Pack[];
   featured: Pack[];
   categories: PackCategory[];
   frameworks: PackFramework[];
+  assetTypes: PackAssetType[];
   loading: boolean;
 } {
   const [packs, setPacks] = useState<Pack[]>([]);
@@ -34,8 +35,12 @@ export function usePacks(): {
     () => [...new Set(packs.map((p) => p.framework))] as PackFramework[],
     [packs]
   );
+  const assetTypes = useMemo(
+    () => [...new Set(packs.filter((p) => p.assetType).map((p) => p.assetType!))] as PackAssetType[],
+    [packs]
+  );
 
-  return { packs, featured, categories, frameworks, loading };
+  return { packs, featured, categories, frameworks, assetTypes, loading };
 }
 
 export function usePack(slug: string): {
@@ -97,6 +102,27 @@ export function usePacksByFramework(framework: PackFramework): {
     });
     return () => { cancelled = true; };
   }, [framework]);
+
+  return { packs, loading };
+}
+
+export function usePacksByAssetType(assetType: PackAssetType): {
+  packs: Pack[];
+  loading: boolean;
+} {
+  const [packs, setPacks] = useState<Pack[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    RegistryService.getPacksByAssetType(assetType).then((data) => {
+      if (!cancelled) {
+        setPacks(data);
+        setLoading(false);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [assetType]);
 
   return { packs, loading };
 }

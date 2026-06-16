@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" fill="none">
+  <!-- Open Doodles Style: Thinking Character -->
+  <style>
+    .stroke { stroke: #2d2d2d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .fill-skin { fill: #f4d9a0; }
+    .fill-dark { fill: #2d2d2d; }
+    .fill-blue { fill: #5c9ded; }
+  </style>
+  
+  <!-- Head -->
+  <circle cx="200" cy="180" r="60" class="fill-skin stroke"/>
+  
+  <!-- Eyes -->
+  <circle cx="182" cy="172" r="5" class="fill-dark"/>
+  <circle cx="218" cy="172" r="5" class="fill-dark"/>
+  
+  <!-- Thinking mouth -->
+  <path d="M190 200 Q200 195 210 200" class="stroke"/>
+  
+  <!-- Hand on chin -->
+  <path d="M200 240 L200 300 L160 280 L160 240" class="stroke"/>
+  <path d="M260 240 L260 300 L280 280" class="stroke"/>
+  
+  <!-- Body -->
+  <path d="M200 300 L200 400" class="stroke"/>
+  
+  <!-- Legs -->
+  <path d="M200 400 L165 480" class="stroke"/>
+  <path d="M200 400 L235 480" class="stroke"/>
+  
+  <!-- Thought bubbles -->
+  <circle cx="280" cy="120" r="8" class="fill-blue stroke"/>
+  <circle cx="300" cy="90" r="12" class="fill-blue stroke"/>
+  <circle cx="320" cy="55" r="18" class="fill-blue stroke"/>
+</svg>

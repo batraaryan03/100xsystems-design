@@ -1,0 +1,16 @@
+{
+  "name": "open-doodles-style",
+  "type": "registry:block",
+  "title": "Open Doodles Style",
+  "description": "Hand-drawn character illustrations in the Open Doodles style. Happy, thinking, waving, and dancing characters for playful UI designs.",
+  "files": [
+    { "path": "character-happy.svg", "type": "registry:file" },
+    { "path": "character-thinking.svg", "type": "registry:file" },
+    { "path": "character-waving.svg", "type": "registry:file" },
+    { "path": "character-dancing.svg", "type": "registry:file" }
+  ],
+  "meta": {
+    "category": "illustration",
+    "tags": ["illustrations", "characters", "hand-drawn", "doodles"]
+  }
+}

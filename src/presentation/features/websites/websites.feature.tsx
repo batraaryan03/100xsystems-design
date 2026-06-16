@@ -5,11 +5,13 @@ import { useSearch } from "@/application/search/search.hooks";
 import { PackGrid, FilterBar } from "@/presentation/_components/components.composite";
 import { SectionRule, PageHeader } from "@/presentation/_components/components.layout";
 import { CoralDot } from "@/presentation/_components/components.atomic";
+import { useMemo } from "react";
 import { PackCategory, PackFramework } from "@/application/packs/packs.types";
 
 export function WebsitesFeature() {
   const { packs, categories, frameworks } = usePacks();
-  const { filters, results, updateFilters } = useSearch(packs);
+  const componentPacks = useMemo(() => packs.filter((p) => p.framework !== "asset"), [packs]);
+  const { filters, results, updateFilters } = useSearch(componentPacks);
 
   return (
     <div>
@@ -17,9 +19,9 @@ export function WebsitesFeature() {
         <div className="container">
           <SectionRule roman="I." meta="All Skills" page="001 / 001" />
           <PageHeader
-            label="Browse Skills"
+            label="Browse Websites"
             labelIndex="Nº 01"
-            title={<>Every skill is a <em>droppable</em> folder<CoralDot /></>}
+            title={<>Every website is a <em>droppable</em> folder<CoralDot /></>}
             lead="Filter by category or framework. Click any card to see install instructions."
           />
 

@@ -160,6 +160,111 @@
           "target": "~/index.html"
         }
       ]
+    },
+    {
+      "name": "open-doodles-style",
+      "type": "registry:block",
+      "title": "Open Doodles Style",
+      "author": "100X Systems",
+      "description": "Hand-drawn character illustrations in the Open Doodles style. Happy, thinking, waving, and dancing characters for playful UI designs.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "illustrations",
+          "characters",
+          "hand-drawn",
+          "doodles",
+          "playful",
+          "svg"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/open-doodles-style/character-happy.svg",
+          "type": "registry:file",
+          "target": "~/assets/character-happy.svg"
+        },
+        {
+          "path": "public/registry/packs/open-doodles-style/character-thinking.svg",
+          "type": "registry:file",
+          "target": "~/assets/character-thinking.svg"
+        },
+        {
+          "path": "public/registry/packs/open-doodles-style/character-waving.svg",
+          "type": "registry:file",
+          "target": "~/assets/character-waving.svg"
+        },
+        {
+          "path": "public/registry/packs/open-doodles-style/character-dancing.svg",
+          "type": "registry:file",
+          "target": "~/assets/character-dancing.svg"
+        }
+      ]
+    },
+    {
+      "name": "minimal-textures",
+      "type": "registry:block",
+      "title": "Minimal Textures",
+      "author": "100X Systems",
+      "description": "Subtle background textures for modern UI. Paper grain, mesh gradients, dark noise, and dot patterns.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "textures",
+          "backgrounds",
+          "gradients",
+          "patterns",
+          "svg",
+          "minimal"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/minimal-textures/paper-grain.svg",
+          "type": "registry:file",
+          "target": "~/assets/paper-grain.svg"
+        },
+        {
+          "path": "public/registry/packs/minimal-textures/mesh-gradient.svg",
+          "type": "registry:file",
+          "target": "~/assets/mesh-gradient.svg"
+        },
+        {
+          "path": "public/registry/packs/minimal-textures/dark-grain.svg",
+          "type": "registry:file",
+          "target": "~/assets/dark-grain.svg"
+        },
+        {
+          "path": "public/registry/packs/minimal-textures/dot-pattern.svg",
+          "type": "registry:file",
+          "target": "~/assets/dot-pattern.svg"
+        }
+      ]
+    },
+    {
+      "name": "abstract-video-loops",
+      "type": "registry:block",
+      "title": "Abstract Video Loops",
+      "author": "100X Systems",
+      "description": "Short, reusable video clips for design projects. Gradient flows, particle drifts, and wave animations.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "video",
+          "loops",
+          "abstract",
+          "backgrounds",
+          "animation",
+          "motion"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/abstract-video-loops/README.md",
+          "type": "registry:file",
+          "target": "~/assets/README.md"
+        }
+      ]
     }
   ]
 }

@@ -153,6 +153,170 @@
       "featured": false,
       "createdAt": "2026-06-15",
       "thumbnail": "/registry/packs/agency-studio/thumbnail.png"
+    },
+    {
+      "id": "open-doodles-style",
+      "slug": "open-doodles-style",
+      "title": "Open Doodles Style",
+      "description": "Hand-drawn character illustrations in the Open Doodles style. Happy, thinking, waving, and dancing characters for playful UI designs.",
+      "tags": ["illustrations", "characters", "hand-drawn", "doodles", "playful", "svg"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "illustration",
+      "screenshots": [],
+      "files": [
+        {
+          "path": "character-happy.svg",
+          "type": "asset"
+        },
+        {
+          "path": "character-thinking.svg",
+          "type": "asset"
+        },
+        {
+          "path": "character-waving.svg",
+          "type": "asset"
+        },
+        {
+          "path": "character-dancing.svg",
+          "type": "asset"
+        }
+      ],
+      "assets": [
+        {
+          "name": "Happy Character",
+          "path": "character-happy.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Thinking Character",
+          "path": "character-thinking.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Waving Character",
+          "path": "character-waving.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Dancing Character",
+          "path": "character-dancing.svg",
+          "format": "svg"
+        }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/open-doodles-style",
+      "license": "CC0-1.0",
+      "author": {
+        "name": "100X Systems"
+      },
+      "attribution": [
+        {
+          "source": "Open Doodles",
+          "url": "https://www.opendoodles.com/",
+          "license": "CC0",
+          "author": "Pablo Stanley"
+        }
+      ],
+      "featured": true,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/open-doodles-style/thumbnail.png",
+      "itemCount": 4
+    },
+    {
+      "id": "minimal-textures",
+      "slug": "minimal-textures",
+      "title": "Minimal Textures",
+      "description": "Subtle background textures for modern UI. Paper grain, mesh gradients, dark noise, and dot patterns.",
+      "tags": ["textures", "backgrounds", "gradients", "patterns", "svg", "minimal"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "image",
+      "screenshots": [],
+      "files": [
+        {
+          "path": "paper-grain.svg",
+          "type": "asset"
+        },
+        {
+          "path": "mesh-gradient.svg",
+          "type": "asset"
+        },
+        {
+          "path": "dark-grain.svg",
+          "type": "asset"
+        },
+        {
+          "path": "dot-pattern.svg",
+          "type": "asset"
+        }
+      ],
+      "assets": [
+        {
+          "name": "Paper Grain",
+          "path": "paper-grain.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Mesh Gradient",
+          "path": "mesh-gradient.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Dark Grain",
+          "path": "dark-grain.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Dot Pattern",
+          "path": "dot-pattern.svg",
+          "format": "svg"
+        }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/minimal-textures",
+      "license": "CC0-1.0",
+      "author": {
+        "name": "100X Systems"
+      },
+      "featured": false,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/minimal-textures/thumbnail.png",
+      "itemCount": 4
+    },
+    {
+      "id": "abstract-video-loops",
+      "slug": "abstract-video-loops",
+      "title": "Abstract Video Loops",
+      "description": "Short, reusable video clips for design projects. Gradient flows, particle drifts, and wave animations.",
+      "tags": ["video", "loops", "abstract", "backgrounds", "animation", "motion"],
+      "framework": "asset",
+      "category": "landing",
+      "assetType": "video",
+      "screenshots": [],
+      "files": [
+        {
+          "path": "README.md",
+          "type": "asset"
+        }
+      ],
+      "dependencies": [],
+      "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/abstract-video-loops",
+      "license": "Pexels License",
+      "author": {
+        "name": "100X Systems"
+      },
+      "attribution": [
+        {
+          "source": "Pexels",
+          "url": "https://www.pexels.com/",
+          "license": "Pexels License"
+        }
+      ],
+      "featured": false,
+      "createdAt": "2026-06-16",
+      "thumbnail": "/registry/packs/abstract-video-loops/thumbnail.png",
+      "itemCount": 3
     }
   ],
   "collections": [
@@ -161,7 +325,7 @@
       "slug": "all-packs",
       "title": "All Packs",
       "description": "Every pack in the registry.",
-      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio"]
+      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react", "modern-saas-landing", "portfolio-minimal", "agency-studio", "open-doodles-style", "minimal-textures", "abstract-video-loops"]
     },
     {
       "id": "editorial-landing",
@@ -190,6 +354,27 @@
       "title": "Agency",
       "description": "Bold, editorial pages for creative agencies and studios.",
       "packSlugs": ["agency-studio"]
+    },
+    {
+      "id": "illustrations",
+      "slug": "illustrations",
+      "title": "Illustrations",
+      "description": "Free SVG illustration packs with cohesive design styles.",
+      "packSlugs": ["open-doodles-style"]
+    },
+    {
+      "id": "textures-and-images",
+      "slug": "textures-and-images",
+      "title": "Textures & Images",
+      "description": "Background textures, gradients, and image assets for modern UI.",
+      "packSlugs": ["minimal-textures"]
+    },
+    {
+      "id": "video-loops",
+      "slug": "video-loops",
+      "title": "Video Loops",
+      "description": "Short, reusable video clips for hero sections and backgrounds.",
+      "packSlugs": ["abstract-video-loops"]
     }
   ]
 }

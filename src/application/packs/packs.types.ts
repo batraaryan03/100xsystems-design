@@ -1,11 +1,31 @@
-export type PackFramework = "html" | "react" | "nextjs" | "vue";
+export type PackFramework = "html" | "react" | "nextjs" | "vue" | "asset";
 
 export type PackCategory = "landing" | "saas" | "portfolio" | "dashboard" | "agency" | "3d";
+
+export type PackAssetType = "component" | "illustration" | "image" | "video";
 
 export type PackFile = {
   path: string;
   content?: string;
   type: "component" | "style" | "config" | "asset";
+};
+
+export type PackAsset = {
+  name: string;
+  path: string;
+  format: string;
+  width?: number;
+  height?: number;
+  size?: string;
+  source?: string;
+  license?: string;
+};
+
+export type PackAttribution = {
+  source: string;
+  url: string;
+  license: string;
+  author?: string;
 };
 
 export type PackAuthor = {
@@ -22,18 +42,22 @@ export type Pack = {
   tags: string[];
   framework: PackFramework;
   category: PackCategory;
+  assetType?: PackAssetType;
   screenshots: string[];
   files: PackFile[];
+  assets?: PackAsset[];
   dependencies: string[];
   installCommand: string;
   license: string;
   author: PackAuthor;
+  attribution?: PackAttribution[];
   featured: boolean;
   createdAt: string;
   thumbnail?: string;
   htmlContent?: string;
   sourceUrl?: string;
   githubUrl?: string;
+  itemCount?: number;
 };
 
 export type Collection = {

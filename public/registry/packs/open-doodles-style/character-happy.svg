@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" fill="none">
+  <!-- Open Doodles Style: Happy Character -->
+  <style>
+    .stroke { stroke: #2d2d2d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .fill-coral { fill: #ed6f5c; }
+    .fill-skin { fill: #f4d9a0; }
+    .fill-dark { fill: #2d2d2d; }
+  </style>
+  
+  <!-- Head -->
+  <circle cx="200" cy="180" r="60" class="fill-skin stroke"/>
+  
+  <!-- Eyes -->
+  <circle cx="182" cy="172" r="5" class="fill-dark"/>
+  <circle cx="218" cy="172" r="5" class="fill-dark"/>
+  
+  <!-- Smile -->
+  <path d="M185 195 Q200 215 215 195" class="stroke"/>
+  
+  <!-- Body -->
+  <path d="M200 240 L200 380" class="stroke"/>
+  
+  <!-- Arms -->
+  <path d="M200 280 L140 320" class="stroke"/>
+  <path d="M200 280 L260 320" class="stroke"/>
+  
+  <!-- Legs -->
+  <path d="M200 380 L160 480" class="stroke"/>
+  <path d="M200 380 L240 480" class="stroke"/>
+  
+  <!-- Hair -->
+  <path d="M150 160 Q160 120 200 110 Q240 120 250 160" class="stroke"/>
+  
+  <!-- Arms holding something -->
+  <circle cx="140" cy="320" r="15" class="fill-coral stroke"/>
+  <text x="132" y="325" font-size="14" fill="white" font-family="sans-serif">★</text>
+</svg>

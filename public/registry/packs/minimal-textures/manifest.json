@@ -1,0 +1,16 @@
+{
+  "name": "minimal-textures",
+  "type": "registry:block",
+  "title": "Minimal Textures",
+  "description": "Subtle background textures for modern UI. Paper grain, mesh gradients, dark noise, and dot patterns.",
+  "files": [
+    { "path": "paper-grain.svg", "type": "registry:file" },
+    { "path": "mesh-gradient.svg", "type": "registry:file" },
+    { "path": "dark-grain.svg", "type": "registry:file" },
+    { "path": "dot-pattern.svg", "type": "registry:file" }
+  ],
+  "meta": {
+    "category": "image",
+    "tags": ["textures", "backgrounds", "gradients", "patterns"]
+  }
+}
