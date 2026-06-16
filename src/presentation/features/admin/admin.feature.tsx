@@ -168,40 +168,44 @@ export function AdminFeature() {
   };
 
   const processDroppedFiles = useCallback((droppedFiles: FileList) => {
-    const newFiles: FileInput[] = [];
-    let detectedFramework: "html" | "react" | "asset" = framework;
-    let detectedAssetType = assetType;
+    const fileArray = Array.from(droppedFiles);
+    const results: FileInput[] = [];
+    let detectedFramework: "html" | "react" | "asset" = "html";
+    let detectedAssetType: "illustration" | "image" | "video" = "illustration";
 
-    Array.from(droppedFiles).forEach((file) => {
+    fileArray.forEach((file) => {
       const fw = autoDetectFramework(file.name);
-      if (fw !== detectedFramework) detectedFramework = fw;
+      detectedFramework = fw;
       if (fw === "asset") detectedAssetType = autoDetectAssetType(file.name);
 
       const reader = new FileReader();
       reader.onload = (e) => {
-        const content = e.target?.result as string;
-        newFiles.push({
-          filename: file.name,
-          content,
-          type: getFileType(file.name),
-        });
+        const content = (e.target?.result as string) || "";
+        results.push({ filename: file.name, content, type: getFileType(file.name) });
 
-        if (newFiles.length === droppedFiles.length) {
-          setFiles(newFiles);
+        if (results.length === fileArray.length) {
+          const sorted = fileArray.map((f) => results.find((r) => r.filename === f.name)!).filter(Boolean);
+          setFiles(sorted);
           setFramework(detectedFramework);
           setAssetType(detectedAssetType);
-          if (!title && newFiles[0]?.filename.endsWith(".html")) {
-            autoExtractTitle(newFiles[0].content);
+          if (sorted[0]?.filename.endsWith(".html")) {
+            autoExtractTitle(sorted[0].content);
           }
           if (!slug) {
-            const name = newFiles[0]?.filename.replace(/\.[^.]+$/, "") || "my-pack";
+            const name = sorted[0]?.filename.replace(/\.[^.]+$/, "") || "my-pack";
             setSlug(name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""));
           }
         }
       };
+      reader.onerror = () => {
+        results.push({ filename: file.name, content: "// Error reading file", type: "asset" });
+        if (results.length === fileArray.length) {
+          setFiles(results);
+        }
+      };
       reader.readAsText(file);
     });
-  }, [framework, assetType, title, slug]);
+  }, []);
 
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -209,7 +213,7 @@ export function AdminFeature() {
     if (e.dataTransfer.files.length > 0) {
       processDroppedFiles(e.dataTransfer.files);
     }
-  }, [processDroppedFiles]);
+  }, []);
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -225,7 +229,7 @@ export function AdminFeature() {
     if (e.target.files && e.target.files.length > 0) {
       processDroppedFiles(e.target.files);
     }
-  }, [processDroppedFiles]);
+  }, []);
 
   const copyManifest = async () => {
     await navigator.clipboard.writeText(generateManifest());
