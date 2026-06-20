@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search & Filter Components</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f5f2; --surface: #fff; --text: #1a1a1a; --text-soft: #5a5a5a; --text-mute: #999;
+  --accent: #dc6b4b; --accent-soft: #fdf0ec; --border: #e5e2dc; --radius: 12px; --radius-sm: 8px;
+  --sans: 'Inter', system-ui, sans-serif; --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px; max-width: 800px; margin: 0 auto; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--text-soft); margin-bottom: 36px; }
+.demo-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 24px; }
+.demo-section h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; color: var(--text-soft); letter-spacing: 0.02em; }
+.search-row { display: flex; gap: 10px; margin-bottom: 16px; }
+.search-input { flex: 1; display: flex; align-items: center; gap: 10px; padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); }
+.search-input:focus-within { border-color: var(--accent); }
+.search-input input { border: none; background: none; outline: none; flex: 1; font-family: var(--sans); font-size: 14px; color: var(--text); }
+.search-input input::placeholder { color: var(--text-mute); }
+.search-input .icon { color: var(--text-mute); flex-shrink: 0; }
+.filter-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); font-size: 12px; font-weight: 500; color: var(--text-soft); cursor: pointer; transition: all 0.15s ease; }
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.chip .remove { font-size: 14px; opacity: 0.5; margin-left: 2px; }
+.chip .remove:hover { opacity: 1; }
+
+/* Tags */
+.tag-input-wrap { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); min-height: 44px; align-items: center; }
+.tag-input-wrap:focus-within { border-color: var(--accent); }
+.tag { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 500; }
+.tag .remove { cursor: pointer; opacity: 0.6; font-size: 14px; }
+.tag .remove:hover { opacity: 1; }
+.tag-input-wrap input { border: none; background: none; outline: none; flex: 1; min-width: 80px; font-family: var(--sans); font-size: 13px; color: var(--text); padding: 4px 0; }
+.tag-input-wrap input::placeholder { color: var(--text-mute); }
+
+/* Search results */
+.search-results { }
+.search-result { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.1s ease; }
+.search-result:last-child { border-bottom: none; }
+.search-result:hover { opacity: 0.7; }
+.search-result .icon { width: 36px; height: 36px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+.search-result .content { flex: 1; }
+.search-result .content .title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.search-result .content .desc { font-size: 12px; color: var(--text-soft); }
+.search-result .badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+
+/* Range slider */
+.range-row { display: flex; align-items: center; gap: 16px; }
+.range-row input[type="range"] { flex: 1; accent-color: var(--accent); }
+.range-row .value { min-width: 40px; font-family: var(--mono); font-size: 14px; color: var(--text); }
+</style>
+</head>
+<body>
+<h1>Search & Filter Components</h1>
+<p class="sub">Search bars, filter chips, tag inputs, autocomplete, and range sliders.</p>
+
+<div class="demo-section">
+  <h3>Search bar with autocomplete</h3>
+  <div class="search-row">
+    <div class="search-input">
+      <span class="icon">🔍</span>
+      <input type="text" placeholder="Search projects, teams, or documents..." value="">
+      <span class="icon" style="font-size:11px;opacity:0.4;font-family:var(--mono)">⌘K</span>
+    </div>
+    <button style="padding:12px 20px;border-radius:var(--radius-sm);border:none;background:var(--accent);color:#fff;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer">Search</button>
+  </div>
+  <div class="search-results">
+    <div class="search-result"><div class="icon" style="background:#efedfe;color:#6c5ce7">◇</div><div class="content"><div class="title">Design System</div><div class="desc">Project · Updated 2 days ago</div></div><span class="badge">Pro</span></div>
+    <div class="search-result"><div class="icon" style="background:#fef3e2;color:#d97706">△</div><div class="content"><div class="title">Analytics Dashboard</div><div class="desc">Project · Updated 5 hours ago</div></div><span class="badge">Pro</span></div>
+    <div class="search-result"><div class="icon" style="background:#e2f5ec;color:#059669">□</div><div class="content"><div class="title">Marketing Site</div><div class="desc">Project · Updated 1 week ago</div></div><span class="badge">Free</span></div>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h3>Filter chips</h3>
+  <div class="filter-chips">
+    <span class="chip active">All</span>
+    <span class="chip">Design</span>
+    <span class="chip">Engineering</span>
+    <span class="chip">Marketing</span>
+    <span class="chip">Product</span>
+    <span class="chip">Data</span>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h3>Active filter tags</h3>
+  <div class="filter-chips">
+    <span class="chip active">Category: Design <span class="remove">×</span></span>
+    <span class="chip active">Status: In Progress <span class="remove">×</span></span>
+    <span class="chip active">Priority: High <span class="remove">×</span></span>
+    <span class="chip">+ Add filter</span>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h3>Tag input</h3>
+  <div class="tag-input-wrap">
+    <span class="tag">react <span class="remove">×</span></span>
+    <span class="tag">typescript <span class="remove">×</span></span>
+    <span class="tag">design-system <span class="remove">×</span></span>
+    <input type="text" placeholder="Add a tag...">
+  </div>
+</div>
+
+<div class="demo-section">
+  <h3>Range slider</h3>
+  <div class="range-row">
+    <span style="font-size:12px;color:var(--text-soft)">$0</span>
+    <input type="range" min="0" max="500" value="175">
+    <span class="value">$175</span>
+    <span style="font-size:12px;color:var(--text-soft)">$500</span>
+  </div>
+  <div style="display:flex;gap:16px;margin-top:16px">
+    <div style="flex:1"><label style="font-size:11px;color:var(--text-mute);display:block;margin-bottom:4px">Min</label><div class="search-input" style="padding:8px 12px"><input type="text" value="$0"></div></div>
+    <div style="flex:1"><label style="font-size:11px;color:var(--text-mute);display:block;margin-bottom:4px">Max</label><div class="search-input" style="padding:8px 12px"><input type="text" value="$500"></div></div>
+  </div>
+</div>
+</body>
+</html>

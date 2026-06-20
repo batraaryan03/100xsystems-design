@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notifications & Toasts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f4f0; --surface: #fff; --text: #1a1a1a; --text-soft: #5a5a5a;
+  --green: #10b981; --green-soft: #ecfdf5; --blue: #3b82f6; --blue-soft: #eff6ff;
+  --red: #ef4444; --red-soft: #fef2f2; --yellow: #f59e0b; --yellow-soft: #fffbeb;
+  --border: #e5e5e0; --radius: 12px; --radius-sm: 8px;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px; max-width: 800px; margin: 0 auto; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--text-soft); margin-bottom: 36px; }
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 48px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; cursor: pointer; transition: all 0.2s ease; text-align: center; }
+.card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
+.card .emoji { font-size: 32px; margin-bottom: 10px; }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.card p { font-size: 12px; color: var(--text-soft); }
+
+/* Toast container */
+.toast-container { position: fixed; top: 24px; right: 24px; z-index: 100; display: flex; flex-direction: column; gap: 10px; pointer-events: none; }
+.toast { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); min-width: 320px; max-width: 420px; animation: slideIn 0.3s ease; pointer-events: auto; }
+.toast.removing { animation: slideOut 0.25s ease forwards; }
+@keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+.toast .icon { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+.toast .icon.success { background: var(--green-soft); color: var(--green); }
+.toast .icon.error { background: var(--red-soft); color: var(--red); }
+.toast .icon.info { background: var(--blue-soft); color: var(--blue); }
+.toast .icon.warning { background: var(--yellow-soft); color: var(--yellow); }
+.toast .content { flex: 1; }
+.toast .content strong { display: block; font-size: 13px; font-weight: 600; }
+.toast .content span { font-size: 12px; color: var(--text-soft); }
+.toast .close { width: 20px; height: 20px; border: none; background: none; cursor: pointer; color: var(--text-soft); font-size: 16px; display: flex; align-items: center; justify-content: center; opacity: 0.5; transition: opacity 0.15s ease; }
+.toast .close:hover { opacity: 1; }
+
+/* Banner variant */
+.banner-container { position: fixed; top: 0; left: 0; right: 0; z-index: 99; padding: 16px 24px; display: none; }
+.banner-container.show { display: flex; justify-content: center; }
+.banner { display: flex; align-items: center; gap: 12px; padding: 12px 24px; border-radius: 10px; max-width: 600px; width: 100%; font-size: 13px; animation: slideDown 0.3s ease; }
+@keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.banner.info { background: var(--blue-soft); border: 1px solid var(--blue); color: #1e40af; }
+.banner.warning { background: var(--yellow-soft); border: 1px solid var(--yellow); color: #92400e; }
+.banner .banner-close { margin-left: auto; border: none; background: none; cursor: pointer; font-size: 16px; opacity: 0.5; }
+.banner .banner-close:hover { opacity: 1; }
+</style>
+</head>
+<body>
+<h1>Notifications & Toasts</h1>
+<p class="sub">Click any card to trigger the notification. 4 toast types and an inline banner.</p>
+
+<div class="grid">
+  <div class="card" onclick="showToast('success')"><div class="emoji">✅</div><h3>Success Toast</h3><p>Green accent, checkmark icon. For completed actions.</p></div>
+  <div class="card" onclick="showToast('error')"><div class="emoji">❌</div><h3>Error Toast</h3><p>Red accent, X icon. For failures and errors.</p></div>
+  <div class="card" onclick="showToast('info')"><div class="emoji">ℹ️</div><h3>Info Toast</h3><p>Blue accent, info icon. For general updates.</p></div>
+  <div class="card" onclick="showToast('warning')"><div class="emoji">⚠️</div><h3>Warning Toast</h3><p>Yellow accent, alert icon. For cautionary messages.</p></div>
+</div>
+
+<div style="text-align:center;margin-bottom:32px">
+  <button onclick="showBanner()" class="card" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border:none;cursor:pointer;font-family:var(--sans);font-size:14px;font-weight:500">
+    📋 Show inline banner
+  </button>
+</div>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer"></div>
+<!-- Banner -->
+<div class="banner-container" id="bannerContainer">
+  <div class="banner info">
+    <span>📢</span>
+    <span>We've updated our terms of service. <a href="#" style="color:inherit;font-weight:600">Review changes →</a></span>
+    <button class="banner-close" onclick="document.getElementById('bannerContainer').classList.remove('show')">×</button>
+  </div>
+</div>
+
+<script>
+function showToast(type) {
+  const configs = {
+    success: { icon: '✓', label: 'Success', msg: 'Changes saved successfully.', cls: 'success' },
+    error: { icon: '✗', label: 'Error', msg: 'Something went wrong. Please try again.', cls: 'error' },
+    info: { icon: 'ℹ', label: 'New update', msg: 'Your report is ready to view.', cls: 'info' },
+    warning: { icon: '!', label: 'Warning', msg: 'Your session will expire in 5 minutes.', cls: 'warning' }
+  };
+  const c = configs[type];
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<div class="icon ${c.cls}">${c.icon}</div><div class="content"><strong>${c.label}</strong><span>${c.msg}</span></div><button class="close" onclick="this.closest('.toast').classList.add('removing');setTimeout(()=>this.closest('.toast').remove(),250)">×</button>`;
+  container.appendChild(toast);
+  setTimeout(() => { if (toast.isConnected) { toast.classList.add('removing'); setTimeout(() => toast.remove(), 250); } }, 4000);
+}
+function showBanner() { document.getElementById('bannerContainer').classList.add('show'); }
+</script>
+</body>
+</html>

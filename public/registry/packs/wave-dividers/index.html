@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wave Dividers</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; padding: 48px 24px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .sub { color: #64748b; margin-bottom: 40px; }
+  .grid { display: grid; gap: 48px; }
+  .demo { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+  .demo-header { padding: 24px 32px 0; }
+  .demo-header h2 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .demo-header p { font-size: 13px; color: #94a3b8; }
+  .divider-showcase { position: relative; }
+  .divider-showcase .top-section { padding: 32px; text-align: center; }
+  .divider-showcase .top-section h3 { font-size: 18px; margin-bottom: 8px; }
+  .divider-showcase .top-section p { font-size: 13px; color: #64748b; }
+  .divider-showcase .bottom-section { padding: 32px; text-align: center; }
+  .divider-showcase .bottom-section h3 { font-size: 18px; margin-bottom: 8px; }
+  .divider-showcase .bottom-section p { font-size: 13px; color: #64748b; }
+
+  .divider-shape { display: flex; flex-direction: column; gap: 0; align-items: stretch; }
+  .divider-shape svg { display: block; width: 100%; height: auto; }
+
+  .code-box { background: #0f172a; color: #e2e8f0; padding: 16px 24px; font-family: 'Menlo', 'Consolas', monospace; font-size: 12px; white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Wave Dividers</h1>
+  <p class="sub">SVG section dividers — waves, angles, curves, and layered shapes. Drop-in HTML for separating page sections.</p>
+  <div class="grid">
+
+    <!-- Wave -->
+    <div class="demo">
+      <div class="demo-header"><h2>Wave Divider</h2><p>Smooth sinusoidal wave for organic section transitions.</p></div>
+      <div class="divider-showcase">
+        <div class="top-section" style="background:#eef2ff;"><h3 style="color:#6366f1;">Section Above</h3><p>Wave flows naturally between sections</p></div>
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style="display:block;width:100%;height:80px;"><path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z" fill="#eef2ff"/><path d="M0,80 C240,120 480,40 720,80 C960,120 1200,40 1440,80 L1440,120 L0,120 Z" fill="#fff"/></svg>
+        <div class="bottom-section" style="background:#fff;"><h3>Section Below</h3><p>Clean transition with layered wave</p></div>
+      </div>
+    </div>
+
+    <!-- Angle / Slant -->
+    <div class="demo">
+      <div class="demo-header"><h2>Angle Divider</h2><p>Sharp diagonal slant for modern, bold transitions.</p></div>
+      <div class="divider-showcase">
+        <div class="top-section" style="background:#1e293b;color:#fff;"><h3>Dark Section</h3><p style="color:#94a3b8;">Dramatic angle transition</p></div>
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style="display:block;width:100%;height:80px;"><polygon points="0,120 1440,0 1440,120 0,120" fill="#1e293b"/></svg>
+        <div class="bottom-section" style="background:#fff;"><h3>Light Section</h3><p>Sharp clean divider</p></div>
+      </div>
+    </div>
+
+    <!-- Curves -->
+    <div class="demo">
+      <div class="demo-header"><h2>Curve / Blob Divider</h2><p>Soft organic curves for elegant separation.</p></div>
+      <div class="divider-showcase">
+        <div class="top-section" style="background:#d1fae5;"><h3 style="color:#059669;">Top Section</h3><p>Gentle curve transition</p></div>
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style="display:block;width:100%;height:80px;"><path d="M0,80 C360,130 540,0 720,40 C900,-20 1080,100 1440,60 L1440,120 L0,120 Z" fill="#d1fae5"/></svg>
+        <div class="bottom-section" style="background:#fff;"><h3>Bottom Section</h3><p>Organic blob shape</p></div>
+      </div>
+    </div>
+
+    <!-- Hills / Mountains -->
+    <div class="demo">
+      <div class="demo-header"><h2>Layered Hills</h2><p>Multiple overlapping curves for depth.</p></div>
+      <div class="divider-showcase">
+        <div class="top-section" style="background:#fce7f3;"><h3 style="color:#be185d;">Pink Section</h3><p>Layered hill effect</p></div>
+        <svg viewBox="0 0 1440 160" preserveAspectRatio="none" style="display:block;width:100%;height:100px;">
+          <path d="M0,80 C240,120 480,40 720,80 C960,120 1200,40 1440,80 L1440,160 L0,160 Z" fill="#fce7f3" opacity="0.5"/>
+          <path d="M0,100 C240,140 480,60 720,100 C960,140 1200,60 1440,100 L1440,160 L0,160 Z" fill="#fce7f3" opacity="0.7"/>
+          <path d="M0,120 C240,150 480,90 720,120 C960,150 1200,90 1440,120 L1440,160 L0,160 Z" fill="#fce7f3"/>
+        </svg>
+        <div class="bottom-section" style="background:#fff;"><h3>Bottom Section</h3><p>Three layers for depth</p></div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="demo">
+      <div class="demo-header"><h2>Arrow / Chevron Divider</h2><p>Sharp chevron pattern for dynamic section breaks.</p></div>
+      <div class="divider-showcase">
+        <div class="top-section" style="background:#e0e7ff;"><h3 style="color:#4338ca;">Upper Section</h3><p>Chevron pointing down</p></div>
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:60px;"><polygon points="720,80 0,0 1440,0" fill="#e0e7ff"/></svg>
+        <div class="bottom-section" style="background:#fff;"><h3>Lower Section</h3><p>Inverted chevron</p></div>
+      </div>
+    </div>
+
+    <!-- Rounded Split -->
+    <div class="demo">
+      <div class="demo-header"><h2>Rounded Split Divider</h2><p>Large radius split for minimal section transitions.</p></div>
+      <div class="divider-showcase">
+        <div class="top-section" style="background:#fef3c7;"><h3 style="color:#d97706;">Warm Section</h3><p>Rounded corner transition</p></div>
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style="display:block;width:100%;height:80px;"><path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#fef3c7"/></svg>
+        <div class="bottom-section" style="background:#fff;"><h3>Bottom Section</h3><p>Curved corners</p></div>
+      </div>
+    </div>
+
+  </div>
+  <div style="margin-top:48px;background:#fff;border-radius:16px;padding:32px;border:1px solid #e2e8f0;">
+    <h2 style="font-size:16px;font-weight:600;margin-bottom:16px;color:#475569;">Usage Guide</h2>
+    <p style="font-size:14px;color:#64748b;margin-bottom:16px;">Copy any SVG divider and place it between two sections. Set <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:13px;">preserveAspectRatio="none"</code> for responsive stretching. Change the <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:13px;">fill</code> color to match your section background. Adjust <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:13px;">height</code> for taller/shorter dividers.</p>
+    <div class="code-box">&lt;!-- Wave divider --&gt;
+&lt;svg viewBox="0 0 1440 120" preserveAspectRatio="none"
+     style="display:block;width:100%;height:80px;"&gt;
+  &lt;path d="M0,60 C240,120 480,0 720,60
+           C960,120 1200,0 1440,60 L1440,120 L0,120 Z"
+        fill="#eef2ff" /&gt;
+&lt;/svg&gt;
+
+&lt;!-- Angle divider --&gt;
+&lt;svg viewBox="0 0 1440 120" preserveAspectRatio="none"
+     style="display:block;width:100%;height:80px;"&gt;
+  &lt;polygon points="0,120 1440,0 1440,120 0,120"
+           fill="#1e293b" /&gt;
+&lt;/svg&gt;</div>
+  </div>
+</div>
+</body>
+</html>

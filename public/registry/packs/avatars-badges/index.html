@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avatars &amp; Badges</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; padding: 48px 24px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .sub { color: #64748b; margin-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .demo { background: #fff; border-radius: 16px; padding: 32px; border: 1px solid #e2e8f0; }
+  .demo h2 { font-size: 16px; font-weight: 600; margin-bottom: 20px; color: #475569; }
+  .demo-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+  .demo-row:last-child { margin-bottom: 0; }
+  .demo-row .label { font-size: 12px; color: #94a3b8; width: 100%; margin-bottom: -8px; font-weight: 500; text-transform: uppercase; letter-spacing: .5px; }
+
+  /* Avatars */
+  .avatar { width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 14px; flex-shrink: 0; position: relative; }
+  .avatar-sm { width: 28px; height: 28px; font-size: 11px; }
+  .avatar-lg { width: 56px; height: 56px; font-size: 20px; }
+  .avatar-xl { width: 72px; height: 72px; font-size: 26px; }
+  .avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+  /* Avatar group */
+  .avatar-group { display: inline-flex; }
+  .avatar-group .avatar { border: 2px solid #fff; margin-left: -8px; }
+  .avatar-group .avatar:first-child { margin-left: 0; }
+  .avatar-group .avatar.more { background: #f1f5f9; color: #64748b; font-weight: 600; font-size: 13px; border: 2px solid #fff; }
+
+  /* Status indicator */
+  .avatar .status { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #fff; position: absolute; bottom: 0; right: 0; }
+  .avatar .status.online { background: #22c55e; }
+  .avatar .status.away { background: #f59e0b; }
+  .avatar .status.dnd { background: #ef4444; }
+  .avatar .status.offline { background: #94a3b8; }
+  .avatar-lg .status { width: 14px; height: 14px; border-width: 2.5px; bottom: 1px; right: 1px; }
+  .avatar-sm .status { width: 8px; height: 8px; }
+
+  /* Badges */
+  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 100px; font-size: 12px; font-weight: 600; line-height: 1.4; }
+  .badge-default { background: #f1f5f9; color: #475569; }
+  .badge-primary { background: #eef2ff; color: #6366f1; }
+  .badge-success { background: #d1fae5; color: #059669; }
+  .badge-warning { background: #fef3c7; color: #d97706; }
+  .badge-danger { background: #fee2e2; color: #dc2626; }
+  .badge-neutral { background: #f1f5f9; color: #64748b; }
+
+  /* Badge sizes */
+  .badge-sm { padding: 2px 8px; font-size: 11px; }
+  .badge-lg { padding: 6px 14px; font-size: 13px; }
+
+  /* Badge with icon */
+  .badge .b-icon { font-size: 12px; }
+
+  /* Dot badges */
+  .badge-dot { width: 8px; height: 8px; border-radius: 50%; padding: 0; }
+  .badge-dot.green { background: #22c55e; }
+  .badge-dot.yellow { background: #f59e0b; }
+  .badge-dot.red { background: #ef4444; }
+  .badge-dot.gray { background: #94a3b8; }
+
+  /* Number badges */
+  .badge-num { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; border-radius: 10px; padding: 0 6px; font-size: 11px; font-weight: 700; }
+  .badge-num.primary { background: #6366f1; color: #fff; }
+  .badge-num.danger { background: #ef4444; color: #fff; }
+
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Avatars &amp; Badges</h1>
+  <p class="sub">Avatar groups, status indicators, badge variants, and count badges.</p>
+
+  <div class="grid">
+    <!-- Avatar sizes -->
+    <div class="demo">
+      <h2>Avatar Sizes</h2>
+      <div class="demo-row"><span class="label">Small</span><div class="avatar avatar-sm" style="background:#6366f1;">S</div><div class="avatar avatar-sm" style="background:#e85d3a;">M</div><div class="avatar avatar-sm" style="background:#059669;">K</div></div>
+      <div class="demo-row"><span class="label">Default</span><div class="avatar" style="background:#6366f1;">A</div><div class="avatar" style="background:#7c3aed;">R</div><div class="avatar" style="background:#0891b2;">J</div></div>
+      <div class="demo-row"><span class="label">Large</span><div class="avatar avatar-lg" style="background:#d97706;">P</div><div class="avatar avatar-lg" style="background:#be185d;">L</div><div class="avatar avatar-lg" style="background:#1d4ed8;">T</div></div>
+      <div class="demo-row"><span class="label">Extra Large</span><div class="avatar avatar-xl" style="background:#6366f1;">C</div></div>
+    </div>
+
+    <!-- Avatar with status -->
+    <div class="demo">
+      <h2>Status Indicators</h2>
+      <div class="demo-row">
+        <div class="avatar avatar-lg" style="background:#6366f1;">S<span class="status online"></span></div>
+        <div class="avatar avatar-lg" style="background:#e85d3a;">M<span class="status away"></span></div>
+        <div class="avatar avatar-lg" style="background:#059669;">K<span class="status dnd"></span></div>
+        <div class="avatar avatar-lg" style="background:#94a3b8;">J<span class="status offline"></span></div>
+      </div>
+      <div class="demo-row" style="gap:20px;">
+        <div class="avatar" style="background:#6366f1;">A<span class="status online"></span></div>
+        <span style="font-size:13px; color:#475569;">Online</span>
+        <div class="avatar" style="background:#f59e0b;">B<span class="status away"></span></div>
+        <span style="font-size:13px; color:#475569;">Away</span>
+        <div class="avatar" style="background:#ef4444;">C<span class="status dnd"></span></div>
+        <span style="font-size:13px; color:#475569;">DND</span>
+      </div>
+    </div>
+
+    <!-- Avatar groups -->
+    <div class="demo">
+      <h2>Avatar Groups</h2>
+      <div class="demo-row"><span class="label">Small group</span></div>
+      <div class="demo-row">
+        <div class="avatar-group">
+          <div class="avatar avatar-sm" style="background:#6366f1;">A</div>
+          <div class="avatar avatar-sm" style="background:#e85d3a;">S</div>
+          <div class="avatar avatar-sm" style="background:#059669;">M</div>
+          <div class="avatar avatar-sm" style="background:#d97706;">K</div>
+        </div>
+      </div>
+      <div class="demo-row"><span class="label">Large group + overflow</span></div>
+      <div class="demo-row">
+        <div class="avatar-group">
+          <div class="avatar" style="background:#6366f1;">A</div>
+          <div class="avatar" style="background:#7c3aed;">R</div>
+          <div class="avatar" style="background:#0891b2;">J</div>
+          <div class="avatar" style="background:#d97706;">P</div>
+          <div class="avatar" style="background:#be185d;">L</div>
+          <div class="avatar" style="background:#1d4ed8;">T</div>
+          <div class="avatar more">+3</div>
+        </div>
+      </div>
+      <div class="demo-row"><span class="label">With status</span></div>
+      <div class="demo-row">
+        <div class="avatar-group">
+          <div class="avatar" style="background:#6366f1;">A<span class="status online"></span></div>
+          <div class="avatar" style="background:#e85d3a;">S<span class="status away"></span></div>
+          <div class="avatar" style="background:#059669;">M<span class="status online"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Badge variants -->
+    <div class="demo">
+      <h2>Badge Variants</h2>
+      <div class="demo-row">
+        <span class="badge badge-default">Default</span>
+        <span class="badge badge-primary">Primary</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-warning">Warning</span>
+        <span class="badge badge-danger">Danger</span>
+        <span class="badge badge-neutral">Neutral</span>
+      </div>
+      <div class="demo-row"><span class="label">Sizes</span></div>
+      <div class="demo-row">
+        <span class="badge badge-primary badge-sm">Small</span>
+        <span class="badge badge-primary">Default</span>
+        <span class="badge badge-primary badge-lg">Large</span>
+      </div>
+      <div class="demo-row"><span class="label">With icons</span></div>
+      <div class="demo-row">
+        <span class="badge badge-success"><span class="b-icon">✓</span> Approved</span>
+        <span class="badge badge-warning"><span class="b-icon">⚠</span> Pending</span>
+        <span class="badge badge-danger"><span class="b-icon">✕</span> Rejected</span>
+        <span class="badge badge-primary"><span class="b-icon">★</span> Featured</span>
+      </div>
+      <div class="demo-row"><span class="label">Number / Counter badges</span></div>
+      <div class="demo-row">
+        <span class="badge-num primary">3</span>
+        <span class="badge-num danger">99+</span>
+        <span class="badge-num primary">12</span>
+        <span class="badge-num danger">5</span>
+      </div>
+      <div class="demo-row"><span class="label">Dot badges</span></div>
+      <div class="demo-row">
+        <span class="badge badge-default"><span class="badge-dot green"></span> Active</span>
+        <span class="badge badge-default"><span class="badge-dot yellow"></span> Away</span>
+        <span class="badge badge-default"><span class="badge-dot red"></span> Offline</span>
+        <span class="badge badge-default"><span class="badge-dot gray"></span> Inactive</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

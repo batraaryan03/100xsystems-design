@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blob Shapes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f7f4; --text: #1a1a1a; --text-soft: #5a5a5a;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--text-soft); margin-bottom: 36px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; }
+.blob-card { background: #fff; border: 1px solid #e5e5e0; border-radius: 16px; overflow: hidden; }
+.blob-preview { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 24px; }
+.blob-preview svg { width: 100%; height: 100%; max-width: 280px; }
+.blob-info { padding: 16px 20px 20px; }
+.blob-info h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.blob-info .detail { font-size: 12px; color: var(--text-soft); font-family: var(--mono, monospace); }
+</style>
+</head>
+<body>
+<h1>Blob Shapes</h1>
+<p class="sub">Organic SVG blobs for hero sections, dividers, backgrounds, and decorative accents.</p>
+<div class="grid">
+
+<div class="blob-card">
+  <div class="blob-preview" style="background:#f5f0ec">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <path d="M350,250 C380,300 340,380 280,390 C220,400 160,380 120,340 C80,300 40,280 30,220 C20,160 60,100 110,70 C160,40 220,30 270,60 C320,90 370,140 380,190 C390,240 320,200 350,250Z" fill="#c73b2b" opacity="0.12"/>
+    </svg>
+  </div>
+  <div class="blob-info">
+    <h3>Organic Blob</h3>
+    <div class="detail">400×400 · warm tone</div>
+  </div>
+</div>
+
+<div class="blob-card">
+  <div class="blob-preview" style="background:#eef2ff">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <path d="M370,240 C400,290 380,370 320,390 C260,410 180,390 130,340 C80,290 30,250 20,180 C10,110 50,50 110,30 C170,10 240,20 290,60 C340,100 390,160 380,210 C370,260 340,190 370,240Z" fill="#4f6ef7" opacity="0.1"/>
+    </svg>
+  </div>
+  <div class="blob-info">
+    <h3>Cloud Blob</h3>
+    <div class="detail">400×400 · blue tone</div>
+  </div>
+</div>
+
+<div class="blob-card">
+  <div class="blob-preview" style="background:#f0faf0">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <path d="M340,210 C370,260 380,340 330,370 C280,400 200,390 150,350 C100,310 40,280 30,220 C20,160 50,90 100,60 C150,30 220,10 270,40 C320,70 380,120 370,180 C360,240 310,160 340,210Z" fill="#059669" opacity="0.1"/>
+    </svg>
+  </div>
+  <div class="blob-info">
+    <h3>Leaf Blob</h3>
+    <div class="detail">400×400 · green tone</div>
+  </div>
+</div>
+
+<div class="blob-card">
+  <div class="blob-preview" style="background:#fdf2f8">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <path d="M320,380 C260,400 180,390 130,340 C80,290 30,260 20,190 C10,120 40,60 100,30 C160,0 230,10 280,50 C330,90 390,140 380,200 C370,260 380,360 320,380Z" fill="#db2777" opacity="0.08"/>
+    </svg>
+  </div>
+  <div class="blob-info">
+    <h3>Petal Blob</h3>
+    <div class="detail">400×400 · pink tone</div>
+  </div>
+</div>
+
+<div class="blob-card">
+  <div class="blob-preview" style="background:#fffbeb">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <path d="M380,280 C390,330 350,390 290,390 C230,390 170,370 120,330 C70,290 20,260 20,190 C20,120 50,60 110,30 C170,0 240,10 290,50 C340,90 400,140 390,200 C380,260 370,230 380,280Z" fill="#d97706" opacity="0.1"/>
+    </svg>
+  </div>
+  <div class="blob-info">
+    <h3>Sun Blob</h3>
+    <div class="detail">400×400 · warm amber</div>
+  </div>
+</div>
+
+<div class="blob-card">
+  <div class="blob-preview" style="background:#f0f0f0">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <path d="M350,230 C380,280 390,360 330,390 C270,420 190,390 130,350 C70,310 30,280 20,210 C10,140 50,70 110,40 C170,10 240,20 290,60 C340,100 380,150 380,200 C380,250 320,180 350,230Z" fill="#1a1a1a" opacity="0.06"/>
+    </svg>
+  </div>
+  <div class="blob-info">
+    <h3>Shadow Blob</h3>
+    <div class="detail">400×400 · neutral dark</div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumina · App Showcase</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface-hover: #1a1a26;
+  --text: #f0eff5;
+  --text-soft: #a8a7b8;
+  --text-mute: #6a6980;
+  --accent: #8b5cf6;
+  --accent-soft: rgba(139,92,246,0.08);
+  --accent-glow: rgba(139,92,246,0.2);
+  --green: #34d399;
+  --border: rgba(240,239,245,0.06);
+  --border-hover: rgba(240,239,245,0.12);
+  --radius: 20px;
+  --radius-sm: 10px;
+  --sans: 'Inter', system-ui, sans-serif;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--bg); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background: radial-gradient(ellipse at 20% 20%, rgba(139,92,246,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(139,92,246,0.03) 0%, transparent 50%);
+  pointer-events: none; z-index: 0;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+/* Nav */
+nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+.brand { font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--text); text-decoration: none; }
+.brand span { color: var(--accent); }
+.nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; }
+.nav-links a { color: var(--text-soft); text-decoration: none; transition: color 0.15s ease; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta { padding: 10px 22px; border-radius: 999px; background: var(--accent); color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.15s ease; }
+.nav-cta:hover { background: #7c4ae8; transform: translateY(-1px); }
+
+/* Hero */
+.hero { padding: 80px 0 60px; text-align: center; }
+.hero-tag { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); font-size: 12px; color: var(--text-soft); margin-bottom: 24px; }
+.hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.hero h1 { font-family: var(--serif); font-size: clamp(48px, 7vw, 88px); font-weight: 400; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero p { font-size: 17px; color: var(--text-soft); line-height: 1.6; max-width: 48ch; margin: 0 auto 32px; }
+.hero-actions { display: flex; gap: 12px; justify-content: center; margin-bottom: 48px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-family: var(--sans); font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.15s ease; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #7c4ae8; transform: translateY(-1px); }
+.btn-ghost { border: 1px solid var(--border-hover); color: var(--text); }
+.btn-ghost:hover { background: var(--surface-hover); }
+
+/* App mockup */
+.app-mockup { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); margin-bottom: 80px; }
+.app-mockup .bar { display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-bottom: 1px solid var(--border); }
+.app-mockup .bar .dot { width: 10px; height: 10px; border-radius: 50%; }
+.app-mockup .bar .dot:nth-child(1) { background: #ef4444; }
+.app-mockup .bar .dot:nth-child(2) { background: #eab308; }
+.app-mockup .bar .dot:nth-child(3) { background: #22c55e; }
+.app-mockup .screen { padding: 32px; display: grid; grid-template-columns: 200px 1fr; gap: 24px; min-height: 380px; }
+.app-mockup .sidebar { display: flex; flex-direction: column; gap: 4px; }
+.app-mockup .sidebar-item { padding: 10px 14px; border-radius: 8px; background: var(--surface-hover); font-size: 12px; color: var(--text-soft); display: flex; align-items: center; gap: 8px; }
+.app-mockup .sidebar-item.active { background: var(--accent-soft); color: var(--accent); }
+.app-mockup .content { }
+.app-mockup .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+.app-mockup .content-card { padding: 20px; border-radius: 10px; background: var(--surface-hover); }
+.app-mockup .content-card .bar { padding: 0; border: none; flex-direction: column; align-items: flex-start; gap: 4px; }
+.app-mockup .content-card .bar .line { height: 8px; border-radius: 4px; background: rgba(255,255,255,0.06); }
+.app-mockup .content-card .bar .line:nth-child(1) { width: 60%; }
+.app-mockup .content-card .bar .line:nth-child(2) { width: 40%; }
+.app-mockup .content-card .bar .line:nth-child(3) { width: 80%; height: 4px; }
+
+/* Features grid */
+.features { padding: 60px 0 80px; }
+.section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+.features h2 { font-family: var(--serif); font-size: 42px; font-weight: 400; margin-bottom: 16px; line-height: 1.15; }
+.features h2 em { color: var(--accent); font-style: italic; }
+.features .head-text { color: var(--text-soft); font-size: 15px; max-width: 42ch; line-height: 1.6; margin-bottom: 48px; }
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.feature-card { padding: 32px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); transition: all 0.2s ease; }
+.feature-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+.feature-card .icon { font-size: 32px; margin-bottom: 16px; }
+.feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+.feature-card p { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
+
+/* Testimonials */
+.testimonials { padding: 60px 0; border-top: 1px solid var(--border); }
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.testimonial-card { padding: 28px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
+.testimonial-card .stars { color: #eab308; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
+.testimonial-card blockquote { font-size: 14px; color: var(--text-soft); line-height: 1.6; margin-bottom: 16px; font-style: italic; }
+.testimonial-card .author { display: flex; align-items: center; gap: 12px; }
+.testimonial-card .author .avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--accent); font-weight: 600; }
+.testimonial-card .author-info strong { font-size: 13px; font-weight: 600; display: block; }
+.testimonial-card .author-info span { font-size: 11px; color: var(--text-mute); }
+
+/* Pricing */
+.pricing { padding: 80px 0; border-top: 1px solid var(--border); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.plan-card { padding: 36px 32px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); position: relative; }
+.plan-card.featured { border-color: var(--accent); background: var(--surface); }
+.plan-card.featured::before { content: 'Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 4px 16px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 600; }
+.plan-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.plan-card .sub { font-size: 13px; color: var(--text-soft); margin-bottom: 20px; }
+.plan-card .price { font-family: var(--sans); font-size: 44px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 4px; }
+.plan-card .price span { font-size: 16px; font-weight: 400; color: var(--text-mute); }
+.plan-card .per { font-size: 12px; color: var(--text-mute); margin-bottom: 24px; }
+.plan-card ul { list-style: none; margin-bottom: 28px; }
+.plan-card ul li { padding: 8px 0; font-size: 13px; color: var(--text-soft); display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
+.plan-card ul li:last-child { border-bottom: none; }
+.plan-card ul li::before { content: '✓'; color: var(--green); font-weight: 700; }
+.plan-card .btn { width: 100%; justify-content: center; }
+
+/* CTA */
+.cta-section { padding: 60px 0 80px; text-align: center; border-top: 1px solid var(--border); }
+.cta-section h2 { font-family: var(--serif); font-size: 42px; margin-bottom: 12px; }
+.cta-section p { color: var(--text-soft); font-size: 15px; margin-bottom: 28px; }
+
+footer { padding: 32px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-mute); }
+footer .links { display: flex; gap: 20px; }
+footer .links a { color: var(--text-soft); text-decoration: none; }
+footer .links a:hover { color: var(--text); }
+
+@media (max-width: 900px) {
+  .features-grid, .pricing-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+  .app-mockup .screen { grid-template-columns: 1fr; }
+  .app-mockup .sidebar { display: none; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .features-grid, .pricing-grid, .testimonial-grid { grid-template-columns: 1fr; }
+  .container { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <nav>
+    <a href="#" class="brand">Lum<span>i</span>na</a>
+    <div class="nav-links">
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">Docs</a>
+      <a href="#">Blog</a>
+    </div>
+    <a href="#" class="nav-cta">Get Started</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-tag"><span class="dot"></span> Now in public beta — v2.0</div>
+    <h1>Build faster with <em>intelligent</em> design</h1>
+    <p>The collaborative design platform that helps teams ship better products, faster. AI-powered, developer-friendly, and built for scale.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary">Start free trial →</a>
+      <a href="#" class="btn btn-ghost">Watch demo</a>
+    </div>
+    <div class="app-mockup">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="screen">
+        <div class="sidebar">
+          <div class="sidebar-item active">◇ Overview</div>
+          <div class="sidebar-item">□ Projects</div>
+          <div class="sidebar-item">○ Analytics</div>
+          <div class="sidebar-item">△ Settings</div>
+        </div>
+        <div class="content">
+          <div class="content-grid">
+            <div class="content-card"><div class="bar"><div class="line"></div><div class="line"></div><div class="line"></div></div></div>
+            <div class="content-card"><div class="bar"><div class="line"></div><div class="line"></div><div class="line"></div></div></div>
+            <div class="content-card"><div class="bar"><div class="line"></div><div class="line"></div><div class="line"></div></div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="content-card" style="padding:32px"><div class="bar"><div class="line" style="width:50%"></div><div class="line" style="width:80%"></div></div></div>
+            <div class="content-card" style="padding:32px"><div class="bar"><div class="line" style="width:70%"></div><div class="line" style="width:40%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="section-label">Features</div>
+    <h2>Everything you need to <em>ship</em></h2>
+    <p class="head-text">From design to deploy — a complete toolkit for modern product teams. No fluff, just the tools that matter.</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="icon">🎨</div><h3>Visual Editor</h3><p>Drag-and-drop interface with real-time collaboration. Design systems, components, and pages — all in one place.</p></div>
+      <div class="feature-card"><div class="icon">⚡</div><h3>AI Assistant</h3><p>Generate layouts, copy, and assets from natural language prompts. Trained on best-in-class design patterns.</p></div>
+      <div class="feature-card"><div class="icon">🔌</div><h3>API First</h3><p>Everything is accessible via REST API. Integrate with your existing tools and workflows seamlessly.</p></div>
+      <div class="feature-card"><div class="icon">📊</div><h3>Analytics</h3><p>Understand how your designs perform. Heatmaps, session recording, and conversion tracking built in.</p></div>
+      <div class="feature-card"><div class="icon">🔒</div><h3>Enterprise Security</h3><p>SOC 2 compliant, SSO, granular permissions, and audit logs. Enterprise-grade security out of the box.</p></div>
+      <div class="feature-card"><div class="icon">🚀</div><h3>One-Click Deploy</h3><p>Push to production with a single click. Global CDN, automatic SSL, and rollback support included.</p></div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="section-label">Testimonials</div>
+    <h2 style="font-size:32px;margin-bottom:32px">Loved by <em style="font-style:italic;color:var(--accent)">teams worldwide</em></h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"We cut our design-to-development handoff time by 60%. Lumina has become essential to our workflow."</blockquote><div class="author"><div class="avatar">SK</div><div class="author-info"><strong>Sarah Kim</strong><span>Product Lead, Vercel</span></div></div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"The AI features are genuinely useful — not just a gimmick. It understands our design system context."</blockquote><div class="author"><div class="avatar">MR</div><div class="author-info"><strong>Marcus Reed</strong><span>CTO, Stellar Labs</span></div></div></div>
+      <div class="testimonial-card"><div class="stars">★★★★☆</div><blockquote>"We evaluated 6 platforms before choosing Lumina. The API-first approach sealed the deal."</blockquote><div class="author"><div class="avatar">EC</div><div class="author-info"><strong>Elena Chen</strong><span>Engineering Lead, Palette</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <div class="section-label">Pricing</div>
+    <h2 style="font-size:36px">Simple, transparent pricing</h2>
+    <p style="color:var(--text-soft);font-size:15px">No hidden fees. No surprises. Start free and upgrade as you grow.</p>
+    <div class="pricing-grid">
+      <div class="plan-card"><h3>Starter</h3><div class="sub">For individuals and small projects</div><div class="price">$19 <span>/mo</span></div><div class="per">billed monthly</div><ul><li>Up to 3 projects</li><li>Basic AI assistant</li><li>5 GB storage</li><li>Community support</li></ul><a href="#" class="btn btn-ghost">Get Started</a></div>
+      <div class="plan-card featured"><h3>Pro</h3><div class="sub">For growing teams</div><div class="price">$49 <span>/mo</span></div><div class="per">billed monthly</div><ul><li>Unlimited projects</li><li>Advanced AI</li><li>50 GB storage</li><li>Priority support</li><li>Team collaboration</li></ul><a href="#" class="btn btn-primary">Get Started</a></div>
+      <div class="plan-card"><h3>Enterprise</h3><div class="sub">For organizations at scale</div><div class="price">$149 <span>/mo</span></div><div class="per">billed annually</div><ul><li>Everything in Pro</li><li>Unlimited storage</li><li>SSO & SAML</li><li>Dedicated support</li><li>Custom integrations</li><li>SLA guarantee</li></ul><a href="#" class="btn btn-ghost">Contact Sales</a></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to ship faster?</h2>
+    <p>Join thousands of teams already building with Lumina. Free for 14 days, no credit card required.</p>
+    <a href="#" class="btn btn-primary">Start your free trial →</a>
+  </section>
+
+  <footer>
+    <span>© 2026 Lumina. All rights reserved.</span>
+    <div class="links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+  </footer>
+</div>
+</body>
+</html>

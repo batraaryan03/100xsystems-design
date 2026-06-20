@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Indicators</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f8f6; --surface: #fff; --text: #1a1a1a; --text-soft: #5a5a5a;
+  --accent: #6366f1; --border: #e5e5e0; --radius: 12px;
+  --sans: 'Inter', system-ui, sans-serif; --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px; max-width: 1000px; margin: 0 auto; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--text-soft); margin-bottom: 36px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.demo-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.demo-preview { padding: 48px; display: flex; align-items: center; justify-content: center; min-height: 160px; background: #fafaf8; }
+.demo-info { padding: 16px 20px 20px; border-top: 1px solid var(--border); }
+.demo-info h3 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.demo-info .detail { font-size: 12px; color: var(--text-soft); font-family: var(--mono); }
+
+/* Spinner 1: Classic circle */
+.spinner-ring { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Spinner 2: Dots bounce */
+.dots-bounce { display: flex; gap: 6px; }
+.dots-bounce span { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); animation: bounce 1.4s ease-in-out infinite both; }
+.dots-bounce span:nth-child(1) { animation-delay: -0.32s; }
+.dots-bounce span:nth-child(2) { animation-delay: -0.16s; }
+.dots-bounce span:nth-child(3) { animation-delay: 0s; }
+@keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+
+/* Spinner 3: Pulse */
+.pulse-ring { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); animation: pulse-ring 1.5s ease-out infinite; }
+@keyframes pulse-ring { 0% { transform: scale(0.8); opacity: 0.6; } 50% { transform: scale(1.2); opacity: 0.2; } 100% { transform: scale(0.8); opacity: 0.6; } }
+
+/* Spinner 4: Bar */
+.bar-loader { width: 60px; height: 4px; border-radius: 4px; background: var(--border); overflow: hidden; position: relative; }
+.bar-loader::after { content: ''; position: absolute; top: 0; left: -40%; width: 40%; height: 100%; border-radius: 4px; background: var(--accent); animation: bar 1.4s ease infinite; }
+@keyframes bar { 0% { left: -40%; } 50% { left: 100%; } 100% { left: 100%; } }
+
+/* Spinner 5: Spinner dots */
+.spinner-dots { width: 40px; height: 40px; position: relative; }
+.spinner-dots span { position: absolute; width: 100%; height: 100%; border-radius: 50%; animation: dots-rotate 1.2s linear infinite; }
+.spinner-dots span::after { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin: 0 auto; }
+.spinner-dots span:nth-child(1) { animation-delay: 0s; }
+.spinner-dots span:nth-child(2) { animation-delay: -0.4s; }
+.spinner-dots span:nth-child(3) { animation-delay: -0.8s; }
+@keyframes dots-rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Spinner 6: Skeleton */
+.skeleton { display: flex; flex-direction: column; gap: 10px; width: 160px; }
+.skeleton-line { height: 10px; border-radius: 4px; background: var(--border); animation: skeleton 1.8s ease-in-out infinite; }
+.skeleton-line:nth-child(1) { width: 80%; }
+.skeleton-line:nth-child(2) { width: 60%; }
+.skeleton-line:nth-child(3) { width: 90%; height: 40px; border-radius: 6px; }
+.skeleton-line:nth-child(4) { width: 50%; }
+@keyframes skeleton { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+/* Spinner 7: Progress bar */
+.progress-wrap { width: 180px; }
+.progress-track { height: 6px; border-radius: 6px; background: var(--border); overflow: hidden; margin-bottom: 6px; }
+.progress-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--accent), #a855f7); width: 0%; animation: progress-fill 2.5s ease-in-out infinite; }
+@keyframes progress-fill { 0% { width: 0%; } 50% { width: 70%; } 100% { width: 100%; } }
+.progress-label { font-size: 11px; color: var(--text-soft); font-family: var(--mono); display: flex; justify-content: space-between; }
+
+@media (max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } body { padding: 24px; } }
+</style>
+</head>
+<body>
+<h1>Loading Indicators</h1>
+<p class="sub">7 spinner, skeleton, and progress patterns for load states and feedback.</p>
+<div class="grid">
+  <div class="demo-card"><div class="demo-preview"><div class="spinner-ring"></div></div><div class="demo-info"><h3>Ring Spinner</h3><div class="detail">Classic rotating circle</div></div></div>
+  <div class="demo-card"><div class="demo-preview"><div class="dots-bounce"><span></span><span></span><span></span></div></div><div class="demo-info"><h3>Bouncing Dots</h3><div class="detail">3-dot staggered bounce</div></div></div>
+  <div class="demo-card"><div class="demo-preview"><div class="pulse-ring"></div></div><div class="demo-info"><h3>Pulse Ring</h3><div class="detail">Expanding pulse animation</div></div></div>
+  <div class="demo-card"><div class="demo-preview"><div class="bar-loader"></div></div><div class="demo-info"><h3>Bar Loader</h3><div class="detail">Sweeping progress bar</div></div></div>
+  <div class="demo-card"><div class="demo-preview"><div class="spinner-dots"><span></span><span></span><span></span></div></div><div class="demo-info"><h3>Rotating Dots</h3><div class="detail">3-point radial spinner</div></div></div>
+  <div class="demo-card"><div class="demo-preview"><div class="skeleton"><div class="skeleton-line"></div><div class="skeleton-line"></div><div class="skeleton-line"></div><div class="skeleton-line"></div></div></div><div class="demo-info"><h3>Skeleton Screen</h3><div class="detail">Content placeholder shimmer</div></div></div>
+  <div class="demo-card" style="grid-column:span 1"><div class="demo-preview"><div class="progress-wrap"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-label"><span>Uploading...</span><span>47%</span></div></div></div><div class="demo-info"><h3>Progress Bar</h3><div class="detail">Animated determinate bar</div></div></div>
+</div>
+</body>
+</html>

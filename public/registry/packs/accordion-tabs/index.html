@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accordion & Tabs</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f7f4;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-soft: #5a5a5a;
+  --text-mute: #999994;
+  --accent: #1a1a1a;
+  --accent-soft: #f0f0ed;
+  --border: #e5e5e0;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px 48px 80px; max-width: 960px; margin: 0 auto; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--text-soft); margin-bottom: 40px; font-size: 14px; }
+.section-title { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 16px; padding-top: 8px; border-top: 1px solid var(--border); padding-top: 24px; margin-top: 40px; }
+.section-title:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+
+/* Tabs */
+.tabs-demo { margin-bottom: 40px; }
+.tab-bar { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+.tab-btn { padding: 12px 24px; border: none; background: none; font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--text-mute); cursor: pointer; transition: all 0.15s ease; position: relative; }
+.tab-btn:hover { color: var(--text-soft); }
+.tab-btn.active { color: var(--accent); font-weight: 600; }
+.tab-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: var(--accent); }
+.tab-content { display: none; padding: 4px 0; }
+.tab-content.active { display: block; }
+.tab-content h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.tab-content p { font-size: 14px; color: var(--text-soft); line-height: 1.6; max-width: 48ch; }
+
+/* Pills variant */
+.tab-bar.pills { border-bottom: none; gap: 8px; }
+.tab-bar.pills .tab-btn { padding: 8px 18px; border-radius: 999px; background: var(--accent-soft); color: var(--text-soft); font-size: 13px; }
+.tab-bar.pills .tab-btn.active { background: var(--accent); color: #fff; }
+.tab-bar.pills .tab-btn.active::after { display: none; }
+
+/* Accordion */
+.accordion { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.accordion-item { border-bottom: 1px solid var(--border); }
+.accordion-item:last-child { border-bottom: none; }
+.accordion-trigger { width: 100%; padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; border: none; background: var(--surface); font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--text); cursor: pointer; transition: background 0.15s ease; text-align: left; }
+.accordion-trigger:hover { background: var(--accent-soft); }
+.accordion-trigger .arrow { transition: transform 0.2s ease; color: var(--text-mute); }
+.accordion-trigger.open .arrow { transform: rotate(180deg); }
+.accordion-panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.accordion-panel-inner { padding: 0 22px 18px; font-size: 14px; color: var(--text-soft); line-height: 1.6; }
+
+/* Stepper */
+.stepper { display: flex; gap: 0; margin-bottom: 32px; }
+.step { flex: 1; display: flex; align-items: center; }
+.step-circle { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: var(--text-mute); background: var(--surface); flex-shrink: 0; transition: all 0.2s ease; }
+.step.active .step-circle { border-color: var(--accent); background: var(--accent); color: #fff; }
+.step.completed .step-circle { border-color: var(--accent); background: var(--accent); color: #fff; }
+.step.completed .step-circle::after { content: '✓'; font-size: 14px; }
+.step.completed .step-circle span { display: none; }
+.step-label { margin-left: 10px; font-size: 13px; font-weight: 500; color: var(--text-mute); }
+.step.active .step-label { color: var(--text); font-weight: 600; }
+.step-line { flex: 1; height: 2px; background: var(--border); margin: 0 12px; }
+.step.completed .step-line { background: var(--accent); }
+.stepper-content { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; }
+.stepper-content h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.stepper-content p { font-size: 14px; color: var(--text-soft); line-height: 1.6; margin-bottom: 20px; }
+.stepper-nav { display: flex; gap: 10px; }
+.stepper-nav button { padding: 10px 20px; border-radius: var(--radius-sm); border: 1px solid var(--border); font-family: var(--sans); font-size: 13px; font-weight: 600; cursor: pointer; background: var(--surface); color: var(--text); transition: all 0.15s ease; }
+.stepper-nav button:hover { background: var(--accent-soft); }
+.stepper-nav button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.stepper-nav button.primary:hover { opacity: 0.9; }
+.stepper-nav button:disabled { opacity: 0.4; cursor: default; }
+</style>
+</head>
+<body>
+<h1>Accordion, Tabs & Stepper</h1>
+<p class="sub">Interactive UI patterns for organizing content and guiding users through flows.</p>
+
+<div class="section-title">Tab Interfaces</div>
+
+<div class="tabs-demo">
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab(this, 'tab-lines')">Line style</button>
+    <button class="tab-btn" onclick="switchTab(this, 'tab-pills')">Pill style</button>
+    <button class="tab-btn" onclick="switchTab(this, 'tab-underlined')">Underlined</button>
+  </div>
+  <div class="tab-content active" id="tab-lines">
+    <h3>Line style tabs</h3>
+    <p>The classic horizontal tab pattern with an underline indicator. Best for primary navigation within a page or section where visual hierarchy matters.</p>
+  </div>
+  <div class="tab-content" id="tab-pills">
+    <h3>Pill style tabs</h3>
+    <p>Rounded pill-shaped tabs with filled active state. Great for filtering interfaces, category browsing, or settings panels where tabs feel like toggle buttons.</p>
+  </div>
+  <div class="tab-content" id="tab-underlined">
+    <h3>Underlined tabs</h3>
+    <p>Minimal tabs with only a text label and underline on hover/active. Perfect for secondary navigation or compact UIs where space is at a premium.</p>
+  </div>
+</div>
+
+<div class="tabs-demo">
+  <div class="tab-bar pills">
+    <button class="tab-btn active" onclick="switchTab(this, 'tab-all')">All</button>
+    <button class="tab-btn" onclick="switchTab(this, 'tab-design')">Design</button>
+    <button class="tab-btn" onclick="switchTab(this, 'tab-dev')">Development</button>
+    <button class="tab-btn" onclick="switchTab(this, 'tab-motion')">Motion</button>
+  </div>
+  <div class="tab-content active" id="tab-all">
+    <p>Browse all categories. This pill-style tab bar is ideal for filtering content collections with clear category labels.</p>
+  </div>
+  <div class="tab-content" id="tab-design">
+    <p>Design resources, UI kits, design systems, and visual inspiration.</p>
+  </div>
+  <div class="tab-content" id="tab-dev">
+    <p>Code components, developer tools, libraries, and implementation guides.</p>
+  </div>
+  <div class="tab-content" id="tab-motion">
+    <p>Animation libraries, Lottie files, micro-interactions, and motion design.</p>
+  </div>
+</div>
+
+<div class="section-title">Accordion / FAQ</div>
+
+<div class="accordion" style="margin-bottom:40px">
+  <div class="accordion-item">
+    <button class="accordion-trigger open" onclick="toggleAccordion(this)">
+      What is a design system?
+      <span class="arrow">▼</span>
+    </button>
+    <div class="accordion-panel" style="max-height:200px">
+      <div class="accordion-panel-inner">
+        A design system is a collection of reusable components, guidelines, and standards that teams use to build consistent digital products. It includes UI components, design tokens, typography, spacing, and interaction patterns.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+      How do I get started?
+      <span class="arrow">▼</span>
+    </button>
+    <div class="accordion-panel">
+      <div class="accordion-panel-inner">
+        Start by auditing your existing UI for patterns. Document common components, establish a color palette and typography scale, then build your component library incrementally. Tools like Figma and Storybook can help.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+      What tools should I use?
+      <span class="arrow">▼</span>
+    </button>
+    <div class="accordion-panel">
+      <div class="accordion-panel-inner">
+        Popular tools include Figma for design, Storybook for component development, Style Dictionary for design tokens, and Backlight for full-system management. Choose tools that integrate well with your existing workflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+      How often should I update it?
+      <span class="arrow">▼</span>
+    </button>
+    <div class="accordion-panel">
+      <div class="accordion-panel-inner">
+        Treat your design system like a living product. Schedule regular review cycles (monthly or quarterly), track component usage, gather feedback from teams, and iterate based on real needs rather than hypothetical ones.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">Stepper / Wizard</div>
+
+<div class="stepper">
+  <div class="step completed">
+    <div class="step-circle"><span>1</span></div>
+    <div class="step-label">Plan</div>
+  </div>
+  <div class="step-line"></div>
+  <div class="step active">
+    <div class="step-circle"><span>2</span></div>
+    <div class="step-label">Design</div>
+  </div>
+  <div class="step-line"></div>
+  <div class="step">
+    <div class="step-circle"><span>3</span></div>
+    <div class="step-label">Develop</div>
+  </div>
+  <div class="step-line"></div>
+  <div class="step">
+    <div class="step-circle"><span>4</span></div>
+    <div class="step-label">Launch</div>
+  </div>
+</div>
+
+<div class="stepper-content">
+  <h3>Step 2: Design</h3>
+  <p>Create wireframes and high-fidelity mockups. Review with stakeholders and iterate on feedback before moving to development.</p>
+  <div class="stepper-nav">
+    <button id="stepperPrev">← Previous</button>
+    <button id="stepperNext" class="primary">Next Step →</button>
+  </div>
+</div>
+
+<script>
+function switchTab(btn, tabId) {
+  const bar = btn.parentElement;
+  bar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const container = bar.closest('.tabs-demo') || bar.parentElement;
+  container.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+}
+function toggleAccordion(btn) {
+  btn.classList.toggle('open');
+  const panel = btn.nextElementSibling;
+  if (btn.classList.contains('open')) {
+    panel.style.maxHeight = panel.scrollHeight + 'px';
+  } else {
+    panel.style.maxHeight = '0';
+  }
+}
+// Stepper
+let step = 2;
+const steps = ['Plan', 'Design', 'Develop', 'Launch'];
+const contents = ['Define project scope, goals, and requirements. Gather stakeholder input and create a timeline.', 'Create wireframes and high-fidelity mockups. Review with stakeholders and iterate on feedback before moving to development.', 'Build the product using the approved designs. Follow the component library and design system for consistency.', 'Deploy to production, monitor performance, and gather user feedback for future iterations.'];
+function updateStepper() {
+  document.querySelectorAll('.step').forEach((el, i) => {
+    el.classList.toggle('completed', i < step - 1);
+    el.classList.toggle('active', i === step - 1);
+  });
+  document.querySelector('.stepper-content h3').textContent = 'Step ' + step + ': ' + steps[step - 1];
+  document.querySelector('.stepper-content p').textContent = contents[step - 1];
+  document.getElementById('stepperPrev').disabled = step === 1;
+  document.getElementById('stepperNext').textContent = step === 4 ? 'Finish →' : 'Next Step →';
+}
+document.getElementById('stepperNext').addEventListener('click', () => { if (step < 4) { step++; updateStepper(); } });
+document.getElementById('stepperPrev').addEventListener('click', () => { if (step > 1) { step--; updateStepper(); } });
+</script>
+</body>
+</html>

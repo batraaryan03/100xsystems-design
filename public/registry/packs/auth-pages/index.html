@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auth · Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0b0a;
+  --surface: #161412;
+  --surface-hover: #1e1b18;
+  --text: #f0ede6;
+  --text-soft: #a8a297;
+  --text-mute: #6b665c;
+  --accent: #d4a853;
+  --accent-soft: rgba(212,168,83,0.08);
+  --accent-glow: rgba(212,168,83,0.15);
+  --border: rgba(240,237,230,0.08);
+  --border-hover: rgba(240,237,230,0.15);
+  --shadow: 0 0 80px rgba(0,0,0,0.3);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --sans: 'Inter', system-ui, sans-serif;
+  --serif: 'Playfair Display', Georgia, serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; -webkit-font-smoothing: antialiased; }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(212,168,83,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(212,168,83,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Splash container */
+.auth-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1100px;
+  width: 100%;
+  min-height: 640px;
+  background: var(--surface);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+/* Brand panel (left) */
+.brand-panel {
+  background: linear-gradient(160deg, #161412 0%, #1c1915 100%);
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.brand-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 80%, rgba(212,168,83,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.brand-panel .logo {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  position: relative;
+}
+.brand-panel .logo span { color: var(--accent); }
+.brand-panel .quote {
+  position: relative;
+  max-width: 360px;
+}
+.brand-panel .quote .mark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 72px;
+  color: var(--accent);
+  opacity: 0.2;
+  line-height: 0.6;
+  margin-bottom: -12px;
+}
+.brand-panel .quote blockquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.35;
+  color: var(--text-soft);
+  font-weight: 400;
+}
+.brand-panel .quote cite {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-style: normal;
+  color: var(--text-mute);
+  letter-spacing: 0.04em;
+}
+.brand-panel .footer-text {
+  font-size: 12px;
+  color: var(--text-mute);
+  position: relative;
+}
+.brand-panel .footer-text .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Decorative grid dots */
+.brand-panel .deco {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 200px;
+  height: 200px;
+  background-image: radial-gradient(circle, rgba(212,168,83,0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Auth panel (right) */
+.auth-panel {
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.auth-panel .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-mute);
+  text-decoration: none;
+  margin-bottom: 32px;
+  transition: color 0.15s ease;
+}
+.auth-panel .back-link:hover { color: var(--text-soft); }
+.auth-panel .tabs {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+.auth-panel .tabs a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-mute);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  padding-bottom: 16px;
+  margin-bottom: -16px;
+  border-bottom: 2px solid transparent;
+}
+.auth-panel .tabs a:hover { color: var(--text-soft); }
+.auth-panel .tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
+.auth-panel h2 {
+  font-family: var(--sans);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.auth-panel .subtitle {
+  font-size: 14px;
+  color: var(--text-soft);
+  margin-bottom: 28px;
+}
+.form-group {
+  margin-bottom: 18px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.form-group .input-wrap {
+  position: relative;
+}
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: all 0.15s ease;
+}
+.form-group input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.form-group input::placeholder { color: var(--text-mute); }
+.form-group .input-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-mute);
+  cursor: pointer;
+}
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+.form-row .remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-soft);
+  cursor: pointer;
+}
+.form-row .remember input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 16px; height: 16px;
+  cursor: pointer;
+}
+.form-row .forgot {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+}
+.form-row .forgot:hover { text-decoration: underline; }
+.btn-primary {
+  width: 100%;
+  padding: 13px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-primary:hover { background: #c5983f; }
+.btn-primary:active { transform: scale(0.98); }
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+  font-size: 12px;
+  color: var(--text-mute);
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.social-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-soft);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.social-btn:hover { border-color: var(--border-hover); background: var(--surface-hover); }
+.social-btn .icon { font-size: 18px; }
+.auth-panel .signup-note {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-mute);
+}
+.auth-panel .signup-note a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.auth-panel .signup-note a:hover { text-decoration: underline; }
+
+@media (max-width: 860px) {
+  .auth-split { grid-template-columns: 1fr; max-width: 480px; }
+  .brand-panel { display: none; }
+  .auth-panel { padding: 40px 32px; }
+}
+@media (max-width: 480px) {
+  body { padding: 16px; }
+  .auth-panel { padding: 28px 20px; }
+  .social-btns { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="auth-split">
+  <div class="brand-panel">
+    <div class="deco"></div>
+    <div class="logo">Aurel<span>.</span></div>
+    <div class="quote">
+      <div class="mark">"</div>
+      <blockquote>Design is not just what it looks like and feels like. Design is how it works.</blockquote>
+      <cite>— Steve Jobs</cite>
+    </div>
+    <div class="footer-text">
+      <span class="dot"></span>
+      Welcome back to Aurel.
+    </div>
+  </div>
+
+  <div class="auth-panel">
+    <a href="#" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Back to home
+    </a>
+
+    <div class="tabs">
+      <a href="#" class="active">Sign In</a>
+      <a href="#">Create Account</a>
+    </div>
+
+    <h2>Welcome back</h2>
+    <p class="subtitle">Sign in to your account to continue.</p>
+
+    <form onsubmit="return false">
+      <div class="form-group">
+        <label>Email</label>
+        <div class="input-wrap">
+          <input type="email" placeholder="you@example.com" value="alex@example.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-wrap">
+          <input type="password" placeholder="••••••••" value="password123">
+          <span class="input-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="remember">
+          <input type="checkbox" checked> Remember me
+        </label>
+        <a href="#" class="forgot">Forgot password?</a>
+      </div>
+
+      <button class="btn-primary">Sign In</button>
+    </form>
+
+    <div class="divider">or continue with</div>
+
+    <div class="social-btns">
+      <button class="social-btn">
+        <span class="icon">G</span>
+        Google
+      </button>
+      <button class="social-btn">
+        <span class="icon">⌘</span>
+        Apple
+      </button>
+    </div>
+
+    <p class="signup-note">
+      Don't have an account? <a href="#">Sign up</a>
+    </p>
+  </div>
+</div>
+</body>
+</html>

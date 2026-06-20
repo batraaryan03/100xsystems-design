@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Icons</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; padding: 48px 24px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .sub { color: #64748b; margin-bottom: 40px; }
+
+  .section-title { font-size: 18px; font-weight: 700; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #e2e8f0; }
+  .section-title:first-of-type { margin-top: 0; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; }
+  .icon-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 12px; text-align: center; transition: all .2s; cursor: pointer; }
+  .icon-card:hover { border-color: #6366f1; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+  .icon-card svg { width: 36px; height: 36px; margin-bottom: 8px; }
+  .icon-card .name { font-size: 12px; font-weight: 600; }
+  .icon-card .hint { font-size: 10px; color: #94a3b8; margin-top: 1px; }
+
+  .code-box { background: #0f172a; color: #e2e8f0; padding: 16px 24px; font-family: 'Menlo', 'Consolas', monospace; font-size: 12px; white-space: pre; overflow-x: auto; border-radius: 12px; margin-top: 16px; }
+
+  .usage-guide { background: #fff; border-radius: 16px; padding: 32px; border: 1px solid #e2e8f0; margin-top: 48px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Social Media Icons</h1>
+  <p class="sub">14 SVG brand icons for social media platforms. 24×24 viewBox, brand-appropriate colors, ready to drop in.</p>
+
+  <h2 class="section-title">Core Platforms</h2>
+  <div class="grid">
+    <!-- X/Twitter -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      <div class="name">X (Twitter)</div><div class="hint">#000</div>
+    </div>
+    <!-- GitHub -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#000"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.28.1-2.68 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33s1.7.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.4.2 2.43.1 2.68.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+      <div class="name">GitHub</div><div class="hint">#000</div>
+    </div>
+    <!-- LinkedIn -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.46v6.28zM5.34 7.43a2.06 2.06 0 01-2.06-2.06 2.06 2.06 0 012.06-2.06 2.06 2.06 0 012.06 2.06 2.06 2.06 0 01-2.06 2.06zM7.05 20.45H3.63V9h3.42v11.45z"/></svg>
+      <div class="name">LinkedIn</div><div class="hint">#0a66c2</div>
+    </div>
+    <!-- Discord -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#5865f2"><path d="M20.32 4.37A18.1 18.1 0 0015.4 2.9a.07.07 0 00-.08.03c-.33.6-.7 1.37-.96 1.99a16.62 16.62 0 00-4.72 0A16.8 16.8 0 008.68 2.93a.07.07 0 00-.08-.03 18.14 18.14 0 00-4.92 1.47.06.06 0 00-.03.02A18.66 18.66 0 00.3 16.67a.07.07 0 00.03.05 18.3 18.3 0 005.52 2.79.07.07 0 00.07-.02c.43-.59.82-1.21 1.15-1.86a.07.07 0 00-.04-.1 11.8 11.8 0 01-1.76-.84.07.07 0 01-.01-.11c.12-.09.24-.18.35-.28a.06.06 0 01.06-.01 12.57 12.57 0 0011.38 0 .06.06 0 01.06.01c.12.1.23.2.35.28a.07.07 0 01-.02.11 11.8 11.8 0 01-1.75.84.07.07 0 00-.04.1c.33.65.72 1.27 1.15 1.86a.07.07 0 00.07.02 18.3 18.3 0 005.53-2.8.07.07 0 00.03-.05A18.66 18.66 0 0020.35 4.4a.06.06 0 00-.03-.02zM8.02 14.13c-1.08 0-1.96-.99-1.96-2.2s.86-2.2 1.96-2.2 1.97.99 1.96 2.2c0 1.21-.87 2.2-1.96 2.2zm7.96 0c-1.08 0-1.96-.99-1.96-2.2s.86-2.2 1.96-2.2 1.97.99 1.96 2.2c0 1.21-.87 2.2-1.96 2.2z"/></svg>
+      <div class="name">Discord</div><div class="hint">#5865f2</div>
+    </div>
+    <!-- Slack -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="9" width="5" height="5" rx="1.5" fill="#e01e5a"/>
+        <rect x="9" y="2" width="5" height="5" rx="1.5" fill="#36c5f0"/>
+        <rect x="9" y="9" width="5" height="5" rx="1.5" fill="#2eb67d"/>
+        <rect x="16" y="9" width="5" height="5" rx="1.5" fill="#ecb22e"/>
+        <rect x="2" y="16" width="5" height="5" rx="1.5" fill="#36c5f0" opacity=".5"/>
+        <rect x="16" y="2" width="5" height="5" rx="1.5" fill="#e01e5a" opacity=".5"/>
+      </svg>
+      <div class="name">Slack</div><div class="hint">#4a154b</div>
+    </div>
+    <!-- YouTube -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#ff0000"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14c.33-1.9.5-3.84.5-5.81a31.6 31.6 0 00-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+      <div class="name">YouTube</div><div class="hint">#ff0000</div>
+    </div>
+    <!-- Instagram -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="url(#ig_grad)"><defs><linearGradient id="ig_grad" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stop-color="#f58529"/><stop offset="50%" stop-color="#dd2a7b"/><stop offset="100%" stop-color="#8134af"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5.5" stroke="#fff" stroke-width="1.5" fill="none"/><circle cx="18" cy="6" r="1.5" fill="#fff"/></svg>
+      <div class="name">Instagram</div><div class="hint">Gradient</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Communication &amp; More</h2>
+  <div class="grid">
+    <!-- Telegram -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#26a5e4"><path d="M11.94 22.02c-1.1 0-1.54-.77-2.13-2.08l-1.6-5.27 12.2-7.73c.53-.34.72-.34.45-.12L8.54 15.53l-.08.02-2.78-.9c-.83-.27-.85-.83.18-1.33l13.65-6.36c.74-.34 1.46-.16 1.13.66l-2.17 10.23c-.18.86-.67 1.19-1.38.74l-3.77-2.8-1.82 1.76c-.2.2-.37.37-.74.37z"/></svg>
+      <div class="name">Telegram</div><div class="hint">#26a5e4</div>
+    </div>
+    <!-- WhatsApp -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#25d366"><path d="M17.47 6.53a8.5 8.5 0 01-8 14.35l-5.6 1.62 1.61-5.6a8.5 8.5 0 019.3-11.56c.85.3 1.65.74 2.35 1.3l.34-.27zm-2.33 4.75c-.17-.09-.36-.14-.55-.17-.16-.02-.32 0-.48.02-.2.02-.38.1-.55.19-.16.08-.33.18-.48.28-.2.14-.37.3-.55.46-.27.25-.56.23-.86.07-.15-.08-.3-.17-.44-.27-.23-.16-.45-.33-.68-.49-.2-.15-.42-.29-.62-.45-.19-.14-.34-.31-.46-.52-.12-.2-.09-.38.04-.54.03-.04.06-.08.08-.12.11-.17.22-.34.32-.52.1-.17.15-.36.18-.55.03-.19.02-.38-.04-.57-.07-.23-.18-.44-.3-.63-.12-.2-.26-.39-.38-.59-.1-.17-.2-.35-.27-.54-.15-.41-.4-.75-.76-1.02-.27-.2-.58-.28-.9-.28-.4 0-.79.07-1.15.24-.4.18-.73.45-.97.79-.23.31-.38.66-.43 1.04-.05.37-.02.73.1 1.08.12.33.3.62.5.9.38.5.82.93 1.3 1.33.25.2.51.4.79.56.29.17.58.33.88.47.7.34 1.42.6 2.17.78.62.15 1.24.2 1.87.15.35-.03.68-.14.98-.32.28-.17.5-.4.7-.66.17-.22.3-.46.4-.72.06-.15.1-.3.12-.46.02-.12.02-.24-.01-.36-.02-.12-.06-.22-.12-.32z"/></svg>
+      <div class="name">WhatsApp</div><div class="hint">#25d366</div>
+    </div>
+    <!-- YouTube (alt circle) -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#ff0000"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.9 12.85c-.2.78-.83 1.4-1.63 1.6-1.44.38-7.17.38-7.17.38s-5.73 0-7.17-.38c-.8-.2-1.43-.82-1.63-1.6C9.5 13.5 9.5 12 9.5 12s0-1.5.3-2.85c.2-.78.83-1.4 1.63-1.6C12.87 7.5 18.6 7.5 18.6 7.5s5.73 0 7.17.38c.8.2 1.43.82 1.63 1.6.3 1.35.3 2.85.3 2.85s0 1.5-.3 2.85z"/><polygon points="10.5 9.5 15.5 12 10.5 14.5" fill="#fff"/></svg>
+      <div class="name">YouTube</div><div class="hint">#ff0000</div>
+    </div>
+    <!-- TikTok -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#000"><path d="M12.53 2h3.08v1.77c.52.6 2.07 1.23 3.32.85l.07-.03v3.13c-.4.1-1.03.2-1.82.2-1.7 0-3.1-.68-4.17-1.73v7.58c0 3.55-2.87 6.43-6.42 6.43a6.44 6.44 0 01-6.42-6.43c0-3.55 2.87-6.43 6.42-6.43.47 0 .93.05 1.37.15v3.45c-.34-.1-.7-.15-1.07-.15a3.1 3.1 0 00-3.1 3.1 3.1 3.1 0 003.1 3.1c1.72 0 3.15-1.38 3.15-3.1V2z"/></svg>
+      <div class="name">TikTok</div><div class="hint">#000</div>
+    </div>
+    <!-- Reddit -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#ff4500"><circle cx="12" cy="17" r="8" opacity=".15"/><circle cx="12" cy="5.5" r="2" stroke="#ff4500" stroke-width="1.3" fill="none"/><circle cx="18.5" cy="11" r="2" stroke="#ff4500" stroke-width="1.3" fill="none"/><circle cx="5.5" cy="11" r="2" stroke="#ff4500" stroke-width="1.3" fill="none"/><path d="M8 13.5c1.5 1 4 1 8 0" stroke="#ff4500" stroke-width="1.3" stroke-linecap="round" fill="none"/><circle cx="9" cy="14.5" r="1.5" fill="#ff4500" opacity=".4"/><circle cx="15" cy="14.5" r="1.5" fill="#ff4500" opacity=".4"/><path d="M12 18c2 0 3-1 3-2H9c0 1 1 2 3 2z" fill="#ff4500" opacity=".5"/></svg>
+      <div class="name">Reddit</div><div class="hint">#ff4500</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Developer &amp; Product</h2>
+  <div class="grid">
+    <!-- Stack Overflow -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#f48024"><path d="M17.65 17.34v4.16H5.88v-4.16h1.92v2.24h7.93v-2.24h1.92zM7.8 14.42l.38-1.88 9.4 1.88-.38 1.88-9.4-1.88zm1.18-4.46l.76-1.78 8.88 3.78-.76 1.78-8.88-3.78zm2.3-4.3l1.16-1.56 7.76 5.8-1.16 1.56-7.76-5.8z"/></svg>
+      <div class="name">Stack Overflow</div><div class="hint">#f48024</div>
+    </div>
+    <!-- Dev.to -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#000"><path d="M7.83 8.3c-.3-.3-.7-.5-1.2-.5H4.5v8.4h2.13c.5 0 .9-.2 1.2-.5.3-.3.5-.8.5-1.4v-4.6c0-.6-.17-1.1-.5-1.4zm-.5 5.8c0 .4-.1.5-.2.6-.1.1-.3.2-.5.2H6.25v-5.8h.38c.2 0 .4.1.5.2.1.1.2.2.2.6v4.2zM12.6 8.17v5.9l-2.47-5.9H9v6.5h1.1l.04-5.87 2.47 5.87h1.1V8.17zM17.9 12.37l-1.75-4.2h-1.3v6.5h1.1v-4.2l1.77 4.2H18.2l1.77-4.2v4.2h1.1V8.17h-1.26l-1.75 4.2h-.16z"/></svg>
+      <div class="name">Dev.to</div><div class="hint">#000</div>
+    </div>
+    <!-- Product Hunt -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#da552f"><path d="M13.6 12.1H11V8.6h2.6c1.1 0 1.9.8 1.9 1.75 0 .95-.8 1.75-1.9 1.75zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.6 11.85c-1.1 1.1-2.6 1.65-4.3 1.65H11v3.1H8.6V6.7h4.8c1.7 0 3.15.55 4.3 1.65 1.15 1.1 1.7 2.5 1.7 4.25s-.55 3.15-1.7 4.25z"/></svg>
+      <div class="name">Product Hunt</div><div class="hint">#da552f</div>
+    </div>
+    <!-- Dribbble -->
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24" fill="#ea4c89"><circle cx="12" cy="12" r="10" stroke="#ea4c89" stroke-width="1.2" fill="none"/><path d="M3 9.4c3.7 1 7.5 1.5 11.4 1.4" stroke="#ea4c89" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M21 14.6c-3.7-1-7.5-1.5-11.4-1.4" stroke="#ea4c89" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M12 2c-2.5 5.5-2.5 11 0 20" stroke="#ea4c89" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M12 22c2.5-5.5 2.5-11 0-20" stroke="#ea4c89" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+      <div class="name">Dribbble</div><div class="hint">#ea4c89</div>
+    </div>
+  </div>
+
+  <div class="usage-guide">
+    <h2 style="font-size:16px;font-weight:600;margin-bottom:12px;">Usage</h2>
+    <p style="font-size:14px;color:#64748b;margin-bottom:16px;">All icons are 24×24 SVGs with brand-appropriate colors. Drop directly into HTML or React. Change <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:12px;">fill</code> to customize colors.</p>
+    <div class="code-box">&lt;!-- GitHub icon --&gt;
+&lt;svg viewBox="0 0 24 24" fill="#000"&gt;
+  &lt;path d="M12 2C6.48 2 2 6.48 2 12 ..."/&gt;
+&lt;/svg&gt;</div>
+  </div>
+</div>
+</body>
+</html>

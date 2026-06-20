@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f7f4; --surface: #fff; --text: #1a1a1a; --text-soft: #5a5a5a; --text-mute: #999;
+  --accent: #2563eb; --border: #e5e5e0; --radius: 16px; --radius-sm: 10px;
+  --sans: 'Inter', system-ui, sans-serif; --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px; max-width: 1100px; margin: 0 auto; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--text-soft); margin-bottom: 36px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.2s ease; }
+.card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.04); transform: translateY(-3px); }
+.card-header { padding: 28px 28px 0; text-align: center; }
+.avatar-lg { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 28px; font-weight: 700; color: #fff; }
+.card-header h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 2px; }
+.card-header .role { font-size: 13px; color: var(--text-soft); margin-bottom: 4px; }
+.card-header .location { font-size: 12px; color: var(--text-mute); display: flex; align-items: center; justify-content: center; gap: 4px; margin-bottom: 16px; }
+.card-body { padding: 0 28px 20px; }
+.card-body .bio { font-size: 13px; color: var(--text-soft); line-height: 1.55; text-align: center; margin-bottom: 16px; }
+.card-body .tags { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.card-body .tags span { padding: 3px 10px; border-radius: 999px; background: var(--bg); font-size: 11px; color: var(--text-soft); font-weight: 500; }
+.card-footer { padding: 16px 28px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
+.card-footer .btn { flex: 1; padding: 9px; border-radius: var(--radius-sm); border: 1px solid var(--border); font-family: var(--sans); font-size: 12px; font-weight: 600; cursor: pointer; background: var(--surface); color: var(--text); transition: all 0.15s ease; text-align: center; text-decoration: none; }
+.card-footer .btn:hover { background: var(--bg); border-color: var(--text-mute); }
+.card-footer .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.card-footer .btn-primary:hover { opacity: 0.9; }
+
+/* Horizontal variant */
+.horizontal { display: flex; gap: 20px; align-items: center; padding: 20px 24px; text-align: left; }
+.horizontal .avatar-lg { margin: 0; width: 56px; height: 56px; font-size: 22px; flex-shrink: 0; }
+.horizontal .card-body { padding: 0; text-align: left; flex: 1; }
+.horizontal .card-body .bio { text-align: left; }
+.horizontal .card-body .tags { justify-content: flex-start; }
+.horizontal .card-footer { border-top: none; padding: 0; flex-shrink: 0; }
+
+/* Minimal */
+.minimal { text-align: center; padding: 32px 24px; }
+.minimal .avatar-lg { width: 56px; height: 56px; font-size: 22px; }
+.minimal .card-body { padding: 0; }
+.minimal .card-footer { border-top: none; padding: 16px 0 0; justify-content: center; }
+
+.section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mute); margin: 40px 0 16px; }
+
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } body { padding: 24px; } }
+</style>
+</head>
+<body>
+<h1>Profile Cards</h1>
+<p class="sub">Vertical, horizontal, and minimal profile card variants for team pages and user lists.</p>
+
+<h2 class="section-title">Vertical (default)</h2>
+<div class="grid">
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar-lg" style="background:#2563eb">SK</div>
+      <h3>Sarah Kim</h3>
+      <div class="role">Principal Product Designer</div>
+      <div class="location">📍 San Francisco, CA</div>
+    </div>
+    <div class="card-body">
+      <div class="bio">Design systems advocate. Previously at Stripe and Figma. Passionate about bridging design and engineering.</div>
+      <div class="tags"><span>Design Systems</span><span>Figma</span><span>React</span></div>
+    </div>
+    <div class="card-footer"><a class="btn">Profile</a><a class="btn btn-primary">Message</a></div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar-lg" style="background:#7c3aed">MR</div>
+      <h3>Marcus Reed</h3>
+      <div class="role">Senior Software Engineer</div>
+      <div class="location">📍 New York, NY</div>
+    </div>
+    <div class="card-body">
+      <div class="bio">Full-stack engineer focused on developer experience and platform architecture. Open source contributor.</div>
+      <div class="tags"><span>TypeScript</span><span>Go</span><span>Kubernetes</span></div>
+    </div>
+    <div class="card-footer"><a class="btn">Profile</a><a class="btn btn-primary">Message</a></div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar-lg" style="background:#059669">EC</div>
+      <h3>Elena Chen</h3>
+      <div class="role">Product Manager</div>
+      <div class="location">📍 London, UK</div>
+    </div>
+    <div class="card-body">
+      <div class="bio">Leading product strategy for the platform team. Data-driven decision maker and user research enthusiast.</div>
+      <div class="tags"><span>Strategy</span><span>Analytics</span><span>Leadership</span></div>
+    </div>
+    <div class="card-footer"><a class="btn">Profile</a><a class="btn btn-primary">Message</a></div>
+  </div>
+</div>
+
+<h2 class="section-title">Horizontal</h2>
+<div class="grid">
+  <div class="card horizontal" style="grid-column:span 2">
+    <div class="avatar-lg" style="background:#d97706">JP</div>
+    <div class="card-body"><h3 style="font-size:16px">James Park</h3><div class="role" style="font-size:12px">Data Engineer</div><div class="bio" style="font-size:12px">Building the data infrastructure that powers our analytics platform. Spark, Airflow, and dbt at scale.</div></div>
+    <div class="card-footer"><a class="btn">Profile</a><a class="btn btn-primary">Chat</a></div>
+  </div>
+  <div class="card horizontal" style="grid-column:span 1">
+    <div class="avatar-lg" style="background:#dc2626">LT</div>
+    <div class="card-body"><h3 style="font-size:16px">Lena T.</h3><div class="role" style="font-size:12px">Content Strategist</div><div class="bio" style="font-size:12px">Crafting clear, consistent messaging across all product touchpoints.</div></div>
+    <div class="card-footer"><a class="btn">Profile</a><a class="btn btn-primary">Chat</a></div>
+  </div>
+</div>
+
+<h2 class="section-title">Minimal</h2>
+<div class="grid">
+  <div class="card minimal">
+    <div class="avatar-lg" style="background:#6366f1">AK</div>
+    <h3 style="font-size:16px;margin-bottom:2px">Alice Kim</h3>
+    <div class="role" style="font-size:12px">Marketing Lead</div>
+    <div class="card-footer"><a class="btn" style="padding:6px 20px">View</a><a class="btn btn-primary" style="padding:6px 20px">Follow</a></div>
+  </div>
+  <div class="card minimal">
+    <div class="avatar-lg" style="background:#0ea5e9">OG</div>
+    <h3 style="font-size:16px;margin-bottom:2px">Oliver Gray</h3>
+    <div class="role" style="font-size:12px">UX Researcher</div>
+    <div class="card-footer"><a class="btn" style="padding:6px 20px">View</a><a class="btn btn-primary" style="padding:6px 20px">Follow</a></div>
+  </div>
+  <div class="card minimal">
+    <div class="avatar-lg" style="background:#a855f7">NW</div>
+    <h3 style="font-size:16px;margin-bottom:2px">Noah Williams</h3>
+    <div class="role" style="font-size:12px">DevOps Engineer</div>
+    <div class="card-footer"><a class="btn" style="padding:6px 20px">View</a><a class="btn btn-primary" style="padding:6px 20px">Follow</a></div>
+  </div>
+</div>
+</body>
+</html>

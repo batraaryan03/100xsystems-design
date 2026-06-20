@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Table Patterns</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f8f6;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-soft: #5a5a5a;
+  --text-mute: #999996;
+  --accent: #2563eb;
+  --accent-soft: #eff4ff;
+  --border: #e5e5e0;
+  --border-light: #f0f0ed;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px; max-width: 1100px; margin: 0 auto; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--text-soft); margin-bottom: 40px; font-size: 14px; }
+.table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 40px; }
+.table-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; border-bottom: 1px solid var(--border-light); }
+.table-header h3 { font-size: 15px; font-weight: 600; }
+.table-header .search { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; color: var(--text-mute); }
+.table-header .search input { border: none; background: none; outline: none; font-family: var(--sans); font-size: 13px; color: var(--text); width: 160px; }
+.table-header .search input::placeholder { color: var(--text-mute); }
+.toolbar { display: flex; gap: 8px; align-items: center; }
+.toolbar .pill { padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); font-size: 12px; font-weight: 500; color: var(--text-soft); cursor: pointer; transition: all 0.15s ease; }
+.toolbar .pill:hover { border-color: var(--text-mute); }
+.toolbar .pill.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+table { width: 100%; border-collapse: collapse; }
+thead th { text-align: left; padding: 12px 22px; font-size: 11px; font-weight: 600; color: var(--text-mute); letter-spacing: 0.04em; text-transform: uppercase; background: var(--bg); border-bottom: 1px solid var(--border); user-select: none; cursor: pointer; }
+thead th:hover { color: var(--text); }
+thead th .sort { margin-left: 4px; opacity: 0.3; }
+thead th:hover .sort { opacity: 0.6; }
+tbody td { padding: 14px 22px; font-size: 13px; border-bottom: 1px solid var(--border-light); }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+.user-cell { display: flex; align-items: center; gap: 10px; }
+.user-cell .avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; }
+.user-cell .name { font-weight: 500; }
+.user-cell .email { font-size: 12px; color: var(--text-mute); }
+.badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+.badge-green { background: #ecfdf5; color: #059669; }
+.badge-blue { background: var(--accent-soft); color: var(--accent); }
+.badge-yellow { background: #fffbeb; color: #d97706; }
+.badge-red { background: #fef2f2; color: #dc2626; }
+.badge-gray { background: var(--bg); color: var(--text-mute); }
+.amount { font-family: var(--mono); font-weight: 500; font-size: 13px; }
+.actions { display: flex; gap: 6px; }
+.actions button { padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); font-size: 11px; font-weight: 500; color: var(--text-soft); cursor: pointer; transition: all 0.15s ease; }
+.actions button:hover { border-color: var(--text-mute); }
+.pagination { display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; border-top: 1px solid var(--border-light); font-size: 12px; color: var(--text-mute); }
+.pagination .btns { display: flex; gap: 6px; }
+.pagination .btns button { width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); font-size: 12px; color: var(--text-soft); cursor: pointer; transition: all 0.15s ease; }
+.pagination .btns button:hover { border-color: var(--text-mute); }
+.pagination .btns button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Compact variant */
+.table-wrap.compact td, .table-wrap.compact th { padding: 10px 16px; }
+.table-wrap.compact td { font-size: 12px; }
+.table-wrap.compact .user-cell .avatar { width: 24px; height: 24px; font-size: 10px; }
+
+/* Striped variant */
+.table-wrap.striped tbody tr:nth-child(even) { background: var(--bg); }
+.table-wrap.striped tbody tr:hover { background: var(--accent-soft); }
+</style>
+</head>
+<body>
+<h1>Data Table Patterns</h1>
+<p class="sub">Three table variants for different use cases — standard, compact, and striped.</p>
+
+<!-- Standard table -->
+<div class="table-wrap">
+  <div class="table-header">
+    <h3>Team Members</h3>
+    <div class="search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" placeholder="Search members..." value="Search members...">
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name <span class="sort">↑</span></th>
+        <th>Role</th>
+        <th>Department</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="user-cell"><div class="avatar" style="background:#2563eb">AK</div><div><div class="name">Alice Kim</div><div class="email">alice@example.com</div></div></div></td>
+        <td>Product Designer</td>
+        <td>Design</td>
+        <td><span class="badge badge-green">● Active</span></td>
+        <td><div class="actions"><button>Edit</button><button>···</button></div></td>
+      </tr>
+      <tr>
+        <td><div class="user-cell"><div class="avatar" style="background:#7c3aed">MR</div><div><div class="name">Marcus Reed</div><div class="email">marcus@example.com</div></div></div></td>
+        <td>Engineer</td>
+        <td>Engineering</td>
+        <td><span class="badge badge-green">● Active</span></td>
+        <td><div class="actions"><button>Edit</button><button>···</button></div></td>
+      </tr>
+      <tr>
+        <td><div class="user-cell"><div class="avatar" style="background:#059669">SC</div><div><div class="name">Sofia Chen</div><div class="email">sofia@example.com</div></div></div></td>
+        <td>Marketing Lead</td>
+        <td>Marketing</td>
+        <td><span class="badge badge-yellow">● Away</span></td>
+        <td><div class="actions"><button>Edit</button><button>···</button></div></td>
+      </tr>
+      <tr>
+        <td><div class="user-cell"><div class="avatar" style="background:#d97706">JP</div><div><div class="name">James Park</div><div class="email">james@example.com</div></div></div></td>
+        <td>Data Analyst</td>
+        <td>Data</td>
+        <td><span class="badge badge-green">● Active</span></td>
+        <td><div class="actions"><button>Edit</button><button>···</button></div></td>
+      </tr>
+      <tr>
+        <td><div class="user-cell"><div class="avatar" style="background:#dc2626">LT</div><div><div class="name">Lena T.</div><div class="email">lena@example.com</div></div></div></td>
+        <td>Copywriter</td>
+        <td>Content</td>
+        <td><span class="badge badge-red">● Offline</span></td>
+        <td><div class="actions"><button>Edit</button><button>···</button></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <span>Showing 1–5 of 24</span>
+    <div class="btns">
+      <button>‹</button>
+      <button class="active">1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>›</button>
+    </div>
+  </div>
+</div>
+
+<!-- Compact table -->
+<div class="table-wrap compact">
+  <div class="table-header">
+    <h3>Inventory (Compact)</h3>
+    <div class="toolbar">
+      <span class="pill active">All</span>
+      <span class="pill">In Stock</span>
+      <span class="pill">Low</span>
+      <button class="pill">⋯</button>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>SKU</th>
+        <th>Product</th>
+        <th>Category</th>
+        <th>Stock</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="font-family:var(--mono);font-size:12px">SKU-0428</td><td>Relaxed Linen Shirt</td><td>Clothing</td><td><span class="badge badge-green">● 48</span></td><td class="amount">$89.00</td></tr>
+      <tr><td style="font-family:var(--mono);font-size:12px">SKU-0317</td><td>Waxed Canvas Tote</td><td>Accessories</td><td><span class="badge badge-green">● 124</span></td><td class="amount">$45.00</td></tr>
+      <tr><td style="font-family:var(--mono);font-size:12px">SKU-0562</td><td>Stoneware Mug</td><td>Objects</td><td><span class="badge badge-yellow">● 12</span></td><td class="amount">$28.00</td></tr>
+      <tr><td style="font-family:var(--mono);font-size:12px">SKU-0194</td><td>Merino Scarf</td><td>Accessories</td><td><span class="badge badge-green">● 36</span></td><td class="amount">$72.00</td></tr>
+      <tr><td style="font-family:var(--mono);font-size:12px">SKU-0738</td><td>Brass Desk Lamp</td><td>Objects</td><td><span class="badge badge-red">● 3</span></td><td class="amount">$94.00</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Striped table -->
+<div class="table-wrap striped">
+  <div class="table-header">
+    <h3>Recent Transactions</h3>
+    <div class="toolbar">
+      <span class="pill">Export</span>
+      <span class="pill">Filter</span>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Customer</th>
+        <th>Plan</th>
+        <th>Amount</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="font-family:var(--mono);font-size:12px;color:var(--text-mute)">#INV-2026-001</td><td style="font-weight:500">Alice Kim</td><td>Pro Monthly</td><td class="amount">$49.00</td><td><span class="badge badge-green">Paid</span></td></tr>
+      <tr><td style="font-family:var(--mono);font-size:12px;color:var(--text-mute)">#INV-2026-002</td><td style="font-weight:500">Marcus Reed</td><td>Enterprise</td><td class="amount">$149.00</td><td><span class="badge badge-green">Paid</span></td></tr>
+      <tr><td style="font-family:var(--mono);font-size:12px;color:var(--text-mute)">#INV-2026-003</td><td style="font-weight:500">Sofia Chen</td><td>Starter</td><td class="amount">$19.00</td><td><span class="badge badge-yellow">Pending</span></td></tr>
+      <tr><td style="font-family:var(--mono);font-size:12px;color:var(--text-mute)">#INV-2026-004</td><td style="font-weight:500">James Park</td><td>Pro Annual</td><td class="amount">$490.00</td><td><span class="badge badge-green">Paid</span></td></tr>
+      <tr><td style="font-family:var(--mono);font-size:12px;color:var(--text-mute)">#INV-2026-005</td><td style="font-weight:500">Lena T.</td><td>Pro Monthly</td><td class="amount">$49.00</td><td><span class="badge badge-red">Overdue</span></td></tr>
+      <tr><td style="font-family:var(--mono);font-size:12px;color:var(--text-mute)">#INV-2026-006</td><td style="font-weight:500">Oliver Gray</td><td>Starter</td><td class="amount">$19.00</td><td><span class="badge badge-gray">Refunded</span></td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

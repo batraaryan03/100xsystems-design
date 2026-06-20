@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abstract Illustrations</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f7f4; --text: #1a1a1a; --text-soft: #5a5a5a;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--text-soft); margin-bottom: 36px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; }
+.illus-card { background: #fff; border: 1px solid #e5e5e0; border-radius: 16px; overflow: hidden; }
+.illus-preview { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; padding: 32px; background: #faf8f5; position: relative; }
+.illus-preview svg { width: 100%; height: 100%; max-width: 320px; }
+.illus-info { padding: 16px 20px 20px; }
+.illus-info h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.illus-info .detail { font-size: 12px; color: var(--text-soft); font-family: var(--mono, monospace); }
+</style>
+</head>
+<body>
+<h1>Abstract Illustrations</h1>
+<p class="sub">Minimalist abstract SVG illustrations for hero sections, empty states, and decorative use.</p>
+<div class="grid">
+
+<div class="illus-card">
+  <div class="illus-preview" style="background:#f5f7fa">
+    <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="80" cy="100" r="50" fill="#e0e7ff" opacity="0.6"/>
+      <circle cx="180" cy="70" r="35" fill="#dbeafe" opacity="0.5"/>
+      <circle cx="140" cy="150" r="28" fill="#ede9fe" opacity="0.5"/>
+      <circle cx="220" cy="170" r="20" fill="#fce7f3" opacity="0.4"/>
+      <circle cx="60" cy="190" r="18" fill="#d1fae5" opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="illus-info">
+    <h3>Floating Orbs</h3>
+    <div class="detail">300×260 · pastel circles</div>
+  </div>
+</div>
+
+<div class="illus-card">
+  <div class="illus-preview" style="background:#faf8f5">
+    <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+      <rect x="40" y="60" width="80" height="80" rx="16" fill="#1a1a1a" opacity="0.06" transform="rotate(-12, 80, 100)"/>
+      <rect x="140" y="40" width="60" height="60" rx="12" fill="#1a1a1a" opacity="0.04" transform="rotate(8, 170, 70)"/>
+      <rect x="90" y="120" width="50" height="50" rx="10" fill="#1a1a1a" opacity="0.05" transform="rotate(-5, 115, 145)"/>
+      <rect x="200" y="120" width="70" height="70" rx="14" fill="#1a1a1a" opacity="0.03" transform="rotate(15, 235, 155)"/>
+    </svg>
+  </div>
+  <div class="illus-info">
+    <h3>Floating Frames</h3>
+    <div class="detail">300×260 · rotated rects</div>
+  </div>
+</div>
+
+<div class="illus-card">
+  <div class="illus-preview" style="background:#f5f0ec">
+    <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 200 Q80 40 160 60 Q240 80 270 180 Q300 280 160 220 Q20 160 30 200Z" fill="#c73b2b" opacity="0.08"/>
+      <path d="M50 190 Q90 70 160 85 Q230 100 250 175 Q270 250 160 205 Q50 160 50 190Z" fill="#c73b2b" opacity="0.05"/>
+    </svg>
+  </div>
+  <div class="illus-info">
+    <h3>Fluid Wave</h3>
+    <div class="detail">300×260 · organic curves</div>
+  </div>
+</div>
+
+<div class="illus-card">
+  <div class="illus-preview" style="background:#eef2ff">
+    <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+      <line x1="40" y1="210" x2="100" y2="50" stroke="#4f6ef7" stroke-width="2" opacity="0.15"/>
+      <line x1="80" y1="210" x2="140" y2="40" stroke="#4f6ef7" stroke-width="2" opacity="0.12"/>
+      <line x1="120" y1="210" x2="180" y2="60" stroke="#4f6ef7" stroke-width="2" opacity="0.1"/>
+      <line x1="160" y1="210" x2="220" y2="50" stroke="#4f6ef7" stroke-width="2" opacity="0.08"/>
+      <line x1="200" y1="210" x2="260" y2="70" stroke="#4f6ef7" stroke-width="2" opacity="0.06"/>
+    </svg>
+  </div>
+  <div class="illus-info">
+    <h3>Signal Bars</h3>
+    <div class="detail">300×260 · line abstract</div>
+  </div>
+</div>
+
+<div class="illus-card">
+  <div class="illus-preview" style="background:#f0faf0">
+    <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="150,20 260,80 210,180 90,180 40,80" fill="#059669" opacity="0.07"/>
+      <polygon points="150,50 230,90 195,160 105,160 70,90" fill="#059669" opacity="0.05"/>
+      <polygon points="150,75 200,100 180,140 120,140 100,100" fill="#059669" opacity="0.04"/>
+    </svg>
+  </div>
+  <div class="illus-info">
+    <h3>Nested Pentagon</h3>
+    <div class="detail">300×260 · geometric layers</div>
+  </div>
+</div>
+
+<div class="illus-card">
+  <div class="illus-preview" style="background:#faf5ff">
+    <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="80" cy="80" r="4" fill="#7c3aed" opacity="0.3"/>
+      <circle cx="150" cy="60" r="6" fill="#7c3aed" opacity="0.25"/>
+      <circle cx="220" cy="90" r="5" fill="#7c3aed" opacity="0.2"/>
+      <circle cx="100" cy="150" r="3" fill="#7c3aed" opacity="0.3"/>
+      <circle cx="180" cy="170" r="7" fill="#7c3aed" opacity="0.15"/>
+      <circle cx="250" cy="160" r="4" fill="#7c3aed" opacity="0.2"/>
+      <circle cx="60" cy="180" r="5" fill="#7c3aed" opacity="0.15"/>
+      <circle cx="200" cy="220" r="3" fill="#7c3aed" opacity="0.2"/>
+    </svg>
+  </div>
+  <div class="illus-info">
+    <h3>Constellation</h3>
+    <div class="detail">300×260 · dot pattern</div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

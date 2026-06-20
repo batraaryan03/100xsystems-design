@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team — Culture</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #faf9f8; color: #1a1a2e; line-height: 1.6; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero { padding: 80px 0 64px; text-align: center; }
+  .hero-tag { display: inline-block; background: #1a1a2e; color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 24px; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(48px, 6vw, 80px); line-height: 1.05; color: #1a1a2e; margin-bottom: 20px; }
+  .hero h1 span { color: #e85d3a; }
+  .hero p { font-size: 18px; color: #666; max-width: 560px; margin: 0 auto; }
+
+  /* Values */
+  .values { padding: 64px 0; }
+  .values-header { text-align: center; margin-bottom: 48px; }
+  .values-header h2 { font-family: 'DM Serif Display', serif; font-size: 36px; margin-bottom: 12px; }
+  .values-header p { color: #666; font-size: 16px; }
+  .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+  .value-card { background: #fff; border-radius: 16px; padding: 32px; border: 1px solid #eee; transition: transform .2s, box-shadow .2s; }
+  .value-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.06); }
+  .value-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
+  .value-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .value-card p { font-size: 14px; color: #666; line-height: 1.7; }
+
+  /* Team Grid */
+  .team { padding: 64px 0; }
+  .team-header { text-align: center; margin-bottom: 48px; }
+  .team-header h2 { font-family: 'DM Serif Display', serif; font-size: 36px; margin-bottom: 12px; }
+  .team-header p { color: #666; font-size: 16px; }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
+  .member { background: #fff; border-radius: 16px; padding: 24px; text-align: center; border: 1px solid #eee; transition: transform .2s; }
+  .member:hover { transform: translateY(-3px); }
+  .member-avatar { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; color: #fff; }
+  .member h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .member .role { font-size: 13px; color: #999; margin-bottom: 12px; }
+  .member .bio { font-size: 13px; color: #666; line-height: 1.6; }
+
+  /* Stats */
+  .stats { padding: 48px 0; }
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .stat h3 { font-family: 'DM Serif Display', serif; font-size: 40px; color: #e85d3a; }
+  .stat p { font-size: 14px; color: #666; margin-top: 4px; }
+
+  /* Culture CTA */
+  .culture-cta { padding: 80px 0; text-align: center; }
+  .culture-cta h2 { font-family: 'DM Serif Display', serif; font-size: 40px; margin-bottom: 16px; }
+  .culture-cta p { color: #666; font-size: 16px; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px; border: none; cursor: pointer; text-decoration: none; transition: all .2s; }
+  .btn-primary { background: #1a1a2e; color: #fff; }
+  .btn-primary:hover { background: #e85d3a; transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: #1a1a2e; border: 2px solid #ddd; }
+  .btn-outline:hover { border-color: #1a1a2e; transform: translateY(-2px); }
+
+  @media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container">
+      <span class="hero-tag">About Us</span>
+      <h1>We're a <span>remote-first</span><br>team of builders</h1>
+      <p>Designers, engineers, and product thinkers creating tools that help millions ship better software.</p>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="container">
+      <div class="values-header">
+        <h2>Our Values</h2>
+        <p>Four principles that guide every decision we make.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon" style="background:#fef3e2;">⚡</div>
+          <h3>Ship with Speed</h3>
+          <p>We bias toward action. Small teams, fast iterations, and a culture that celebrates shipping over perfection.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon" style="background:#e8f4f8;">🔮</div>
+          <h3>Design First</h3>
+          <p>Every feature starts with the user experience. Great design isn't a layer — it's how we think.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon" style="background:#f0eefb;">🧠</div>
+          <h3>Own It</h3>
+          <p>Everyone is a founder. We give ownership, trust judgment, and support bold decisions across the team.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon" style="background:#fce8e8;">🌱</div>
+          <h3>Grow Together</h3>
+          <p>We invest in each other's growth through mentorship, transparency, and a genuine culture of feedback.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat"><h3>42</h3><p>Team Members</p></div>
+        <div class="stat"><h3>18</h3><p>Time Zones</p></div>
+        <div class="stat"><h3>6</h3><p>Years Running</p></div>
+        <div class="stat"><h3>98%</h3><p>Employee Sat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team">
+    <div class="container">
+      <div class="team-header">
+        <h2>Meet the Team</h2>
+        <p>The people who make it all happen.</p>
+      </div>
+      <div class="team-grid">
+        <div class="member">
+          <div class="member-avatar" style="background:#e85d3a;">A</div>
+          <h4>Alex Rivera</h4>
+          <p class="role">CEO &amp; Co-Founder</p>
+          <p class="bio">Former design lead at Figma. Obsessed with craft and culture.</p>
+        </div>
+        <div class="member">
+          <div class="member-avatar" style="background:#2563eb;">S</div>
+          <h4>Sam Chen</h4>
+          <p class="role">CTO &amp; Co-Founder</p>
+          <p class="bio">Built distributed systems at Stripe. Loves Rust and Go.</p>
+        </div>
+        <div class="member">
+          <div class="member-avatar" style="background:#7c3aed;">J</div>
+          <h4>Jordan Park</h4>
+          <p class="role">Head of Design</p>
+          <p class="bio">Design systems advocate. Previously lead design at Linear.</p>
+        </div>
+        <div class="member">
+          <div class="member-avatar" style="background:#059669;">M</div>
+          <h4>Maya Patel</h4>
+          <p class="role">Engineering Lead</p>
+          <p class="bio">Full-stack engineer. Open source contributor and conference speaker.</p>
+        </div>
+        <div class="member">
+          <div class="member-avatar" style="background:#d97706;">T</div>
+          <h4>Tom Walker</h4>
+          <p class="role">Product Manager</p>
+          <p class="bio">Turns customer pain into product strategy. Former founder.</p>
+        </div>
+        <div class="member">
+          <div class="member-avatar" style="background:#dc2626;">L</div>
+          <h4>Lena Okafor</h4>
+          <p class="role">Developer Advocate</p>
+          <p class="bio">Community builder and content creator. Writes about DX.</p>
+        </div>
+        <div class="member">
+          <div class="member-avatar" style="background:#0891b2;">K</div>
+          <h4>Kai Yamamoto</h4>
+          <p class="role">Frontend Engineer</p>
+          <p class="bio">React and TypeScript specialist. Anime and coffee enthusiast.</p>
+        </div>
+        <div class="member">
+          <div class="member-avatar" style="background:#be185d;">E</div>
+          <h4>Elena Rossi</h4>
+          <p class="role">Data Analyst</p>
+          <p class="bio">Turns complex data into actionable insights. SQL magician.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="culture-cta">
+    <div class="container">
+      <h2>Want to join us?</h2>
+      <p>We're always looking for talented people who share our values. Check our open roles.</p>
+      <div class="btn-group">
+        <a href="#" class="btn btn-primary">View Open Positions →</a>
+        <a href="#" class="btn btn-outline">Learn About Benefits</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

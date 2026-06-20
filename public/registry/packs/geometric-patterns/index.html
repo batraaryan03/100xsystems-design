@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geometric Patterns</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f7f4; --text: #1a1a1a; --text-soft: #5a5a5a;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--text-soft); margin-bottom: 36px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; }
+.pattern-card { background: #fff; border: 1px solid #e5e5e0; border-radius: 16px; overflow: hidden; }
+.pattern-preview { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.pattern-preview svg { width: 100%; height: 100%; }
+.pattern-info { padding: 16px 20px 20px; }
+.pattern-info h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.pattern-info .detail { font-size: 12px; color: var(--text-soft); font-family: var(--mono, monospace); }
+</style>
+</head>
+<body>
+<h1>Geometric Patterns</h1>
+<p class="sub">Repeating SVG patterns for backgrounds, dividers, and decorative elements.</p>
+<div class="grid">
+
+<!-- Chevron -->
+<div class="pattern-card">
+  <div class="pattern-preview" style="background:#f0eee8">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="chevron" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M0 20 L20 0 L40 20" fill="none" stroke="#1a1a1a" stroke-width="1" opacity="0.12"/>
+          <path d="M0 40 L20 20 L40 40" fill="none" stroke="#1a1a1a" stroke-width="1" opacity="0.08"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#chevron)"/>
+    </svg>
+  </div>
+  <div class="pattern-info">
+    <h3>Chevron</h3>
+    <div class="detail">40×40 · repeating zigzag</div>
+  </div>
+</div>
+
+<!-- Hexagon -->
+<div class="pattern-card">
+  <div class="pattern-preview" style="background:#f5f3ef">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="hex" width="56" height="48" patternUnits="userSpaceOnUse">
+          <path d="M14 0 L42 0 L56 24 L42 48 L14 48 L0 24 Z" fill="none" stroke="#1a1a1a" stroke-width="1" opacity="0.08"/>
+          <path d="M14 48 L42 48 L56 24 L42 0 L14 0 L0 24 Z" fill="none" stroke="#1a1a1a" stroke-width="0.6" opacity="0.06"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hex)"/>
+    </svg>
+  </div>
+  <div class="pattern-info">
+    <h3>Hexagon</h3>
+    <div class="detail">56×48 · honeycomb</div>
+  </div>
+</div>
+
+<!-- Dot Grid -->
+<div class="pattern-card">
+  <div class="pattern-preview" style="background:#faf8f5">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+          <circle cx="12" cy="12" r="1.5" fill="#1a1a1a" opacity="0.15"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#dots)"/>
+    </svg>
+  </div>
+  <div class="pattern-info">
+    <h3>Dot Grid</h3>
+    <div class="detail">24×24 · even spacing</div>
+  </div>
+</div>
+
+<!-- Diagonal Stripes -->
+<div class="pattern-card">
+  <div class="pattern-preview" style="background:#f3f1ec">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="stripes" width="30" height="30" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+          <rect width="6" height="30" fill="#1a1a1a" opacity="0.06"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#stripes)"/>
+    </svg>
+  </div>
+  <div class="pattern-info">
+    <h3>Diagonal Stripes</h3>
+    <div class="detail">30×30 · 45° angle</div>
+  </div>
+</div>
+
+<!-- Crosshatch -->
+<div class="pattern-card">
+  <div class="pattern-preview" style="background:#f5f2ed">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="crosshatch" width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M0 0 L20 20 M20 0 L0 20" stroke="#1a1a1a" stroke-width="0.8" opacity="0.08"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#crosshatch)"/>
+    </svg>
+  </div>
+  <div class="pattern-info">
+    <h3>Crosshatch</h3>
+    <div class="detail">20×20 · intersecting lines</div>
+  </div>
+</div>
+
+<!-- Triangle -->
+<div class="pattern-card">
+  <div class="pattern-preview" style="background:#f4f2ed">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="triangles" width="40" height="34.6" patternUnits="userSpaceOnUse">
+          <polygon points="20,0 40,34.6 0,34.6" fill="none" stroke="#1a1a1a" stroke-width="0.8" opacity="0.08"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#triangles)"/>
+    </svg>
+  </div>
+  <div class="pattern-info">
+    <h3>Triangles</h3>
+    <div class="detail">40×34.6 · tessellating</div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

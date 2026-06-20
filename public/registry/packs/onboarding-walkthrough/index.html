@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome — Onboarding</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  .container { max-width: 800px; width: 100%; padding: 24px; }
+
+  .onboarding { background: #fff; border-radius: 24px; box-shadow: 0 4px 24px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06); overflow: hidden; }
+  .onboarding-inner { padding: 48px 56px; }
+
+  /* Steps indicator */
+  .steps { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 48px; }
+  .step-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: #e2e8f0; color: #94a3b8; transition: all .3s; position: relative; }
+  .step-dot.active { background: #6366f1; color: #fff; box-shadow: 0 0 0 4px rgba(99,102,241,.15); }
+  .step-dot.done { background: #6366f1; color: #fff; }
+  .step-line { width: 60px; height: 2px; background: #e2e8f0; transition: background .3s; }
+  .step-line.done { background: #6366f1; }
+
+  /* Steps content */
+  .step-content { display: none; }
+  .step-content.active { display: block; animation: fadeIn .35s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .step-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 20px; }
+  .step-content h2 { font-size: 28px; font-weight: 700; margin-bottom: 8px; letter-spacing: -.5px; }
+  .step-content .desc { color: #64748b; font-size: 16px; line-height: 1.7; margin-bottom: 32px; max-width: 480px; }
+
+  /* Feature cards */
+  .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 32px; }
+  .feature-item { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; transition: border-color .2s; cursor: pointer; }
+  .feature-item:hover { border-color: #6366f1; }
+  .feature-item .icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .feature-item .info h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .feature-item .info p { font-size: 12px; color: #94a3b8; }
+
+  /* Nav */
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+  .skip { background: none; border: none; color: #94a3b8; font-size: 14px; cursor: pointer; padding: 8px 0; transition: color .2s; }
+  .skip:hover { color: #64748b; }
+  .nav-right { display: flex; gap: 8px; }
+  .btn { padding: 10px 20px; border-radius: 10px; font-weight: 600; font-size: 14px; border: none; cursor: pointer; transition: all .2s; }
+  .btn-back { background: #f1f5f9; color: #475569; }
+  .btn-back:hover { background: #e2e8f0; }
+  .btn-next { background: #6366f1; color: #fff; }
+  .btn-next:hover { background: #5558e6; transform: translateY(-1px); }
+  .btn-finish { background: #059669; color: #fff; }
+  .btn-finish:hover { background: #047857; }
+
+  /* Form example (step 3) */
+  .pref-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .pref-card { padding: 16px; border-radius: 12px; border: 2px solid #e2e8f0; text-align: center; cursor: pointer; transition: all .2s; }
+  .pref-card:hover { border-color: #a5b4fc; }
+  .pref-card.selected { border-color: #6366f1; background: #eef2ff; }
+  .pref-card .emoji { font-size: 28px; margin-bottom: 8px; display: block; }
+  .pref-card h4 { font-size: 13px; font-weight: 600; }
+
+  @media (max-width: 640px) { .onboarding-inner { padding: 32px 24px; } .features { grid-template-columns: 1fr; } .pref-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="onboarding">
+    <div class="onboarding-inner">
+      <!-- Step indicators -->
+      <div class="steps">
+        <div class="step-dot active" data-step="1">1</div>
+        <div class="step-line" data-step="1"></div>
+        <div class="step-dot" data-step="2">2</div>
+        <div class="step-line" data-step="2"></div>
+        <div class="step-dot" data-step="3">3</div>
+        <div class="step-line" data-step="3"></div>
+        <div class="step-dot" data-step="4">4</div>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="step-content active" data-step="1">
+        <div class="step-icon" style="background:#eef2ff;">🚀</div>
+        <h2>Welcome to Lumina</h2>
+        <p class="desc">Let's get you set up in under 2 minutes. We'll walk you through the essentials to get you up and running.</p>
+        <div class="features">
+          <div class="feature-item"><div class="icon" style="background:#fef3c7;">⚡</div><div class="info"><h4>Lightning fast</h4><p>Built for speed from the ground up.</p></div></div>
+          <div class="feature-item"><div class="icon" style="background:#dbeafe;">🎨</div><div class="info"><h4>Beautiful by default</h4><p>Pixel-perfect design out of the box.</p></div></div>
+          <div class="feature-item"><div class="icon" style="background:#fce7f3;">🔗</div><div class="info"><h4>Team collaboration</h4><p>Work together in real-time.</p></div></div>
+          <div class="feature-item"><div class="icon" style="background:#d1fae5;">🛡️</div><div class="info"><h4>Enterprise grade</h4><p>Security and compliance built in.</p></div></div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-content" data-step="2">
+        <div class="step-icon" style="background:#fef3c7;">🔧</div>
+        <h2>Customize your workspace</h2>
+        <p class="desc">Set up your workspace name and preferences. You can change these anytime.</p>
+        <div style="display:grid; gap:16px; margin-bottom:24px;">
+          <div><label style="font-size:13px; font-weight:600; color:#475569; display:block; margin-bottom:6px;">Workspace name</label><input type="text" value="My Team" style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid #e2e8f0; font-size:15px; outline:none; transition:border-color.2s;" onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#e2e8f0'"></div>
+          <div><label style="font-size:13px; font-weight:600; color:#475569; display:block; margin-bottom:6px;">Team size</label>
+            <select style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid #e2e8f0; font-size:15px; outline:none; background:#fff;">
+              <option>Just me</option><option>2–5 people</option><option>6–20 people</option><option>20+ people</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-content" data-step="3">
+        <div class="step-icon" style="background:#fce7f3;">🎯</div>
+        <h2>What brings you here?</h2>
+        <p class="desc">Pick your primary use case so we can tailor the experience for you.</p>
+        <div class="pref-grid">
+          <div class="pref-card selected"><span class="emoji">💻</span><h4>Development</h4></div>
+          <div class="pref-card"><span class="emoji">🎨</span><h4>Design</h4></div>
+          <div class="pref-card"><span class="emoji">📊</span><h4>Analytics</h4></div>
+          <div class="pref-card"><span class="emoji">📝</span><h4>Content</h4></div>
+          <div class="pref-card"><span class="emoji">🛠️</span><h4>DevOps</h4></div>
+          <div class="pref-card"><span class="emoji">📦</span><h4>Product</h4></div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-content" data-step="4">
+        <div class="step-icon" style="background:#d1fae5;">🎉</div>
+        <h2>You're all set!</h2>
+        <p class="desc">Your workspace is ready. Here's what to do next:</p>
+        <div class="features" style="grid-template-columns:1fr">
+          <div class="feature-item" style="cursor:default;"><div class="icon" style="background:#eef2ff;">1</div><div class="info"><h4>Invite your team</h4><p>Share the invite link with your teammates.</p></div></div>
+          <div class="feature-item" style="cursor:default;"><div class="icon" style="background:#fef3c7;">2</div><div class="info"><h4>Create your first project</h4><p>Hit the ground running with a template.</p></div></div>
+          <div class="feature-item" style="cursor:default;"><div class="icon" style="background:#fce7f3;">3</div><div class="info"><h4>Explore integrations</h4><p>Connect your favorite tools.</p></div></div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="nav">
+        <button class="skip" id="skipBtn">Skip tour</button>
+        <div class="nav-right">
+          <button class="btn btn-back" id="backBtn" style="display:none;">Back</button>
+          <button class="btn btn-next" id="nextBtn">Continue →</button>
+          <button class="btn btn-finish" id="finishBtn" style="display:none;">Go to Dashboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentStep = 1;
+  const totalSteps = 4;
+  const dots = document.querySelectorAll('.step-dot');
+  const lines = document.querySelectorAll('.step-line');
+  const contents = document.querySelectorAll('.step-content');
+  const backBtn = document.getElementById('backBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const finishBtn = document.getElementById('finishBtn');
+  const skipBtn = document.getElementById('skipBtn');
+
+  function updateStep(step) {
+    currentStep = step;
+    contents.forEach(c => c.classList.toggle('active', parseInt(c.dataset.step) === step));
+    dots.forEach(d => {
+      const s = parseInt(d.dataset.step);
+      d.classList.toggle('active', s === step);
+      d.classList.toggle('done', s < step);
+    });
+    lines.forEach(l => l.classList.toggle('done', parseInt(l.dataset.step) < step));
+    backBtn.style.display = step === 1 ? 'none' : 'inline-flex';
+    nextBtn.style.display = step === totalSteps ? 'none' : 'inline-flex';
+    finishBtn.style.display = step === totalSteps ? 'inline-flex' : 'none';
+  }
+
+  nextBtn.addEventListener('click', () => { if (currentStep < totalSteps) updateStep(currentStep + 1); });
+  backBtn.addEventListener('click', () => { if (currentStep > 1) updateStep(currentStep - 1); });
+  finishBtn.addEventListener('click', () => alert('🎉 Welcome aboard! Redirecting to dashboard...'));
+  skipBtn.addEventListener('click', () => { updateStep(totalSteps); });
+
+  // Preference select
+  document.querySelectorAll('.pref-card').forEach(c => c.addEventListener('click', () => {
+    c.parentElement.querySelectorAll('.pref-card').forEach(p => p.classList.remove('selected'));
+    c.classList.add('selected');
+  }));
+</script>
+</body>
+</html>

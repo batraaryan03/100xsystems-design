@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation — Knowledge Base</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #fff; color: #0f172a; line-height: 1.6; }
+  .layout { display: flex; min-height: 100vh; }
+
+  /* Sidebar */
+  .sidebar { width: 280px; flex-shrink: 0; border-right: 1px solid #e2e8f0; padding: 32px 20px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }
+  .sidebar-logo { font-size: 18px; font-weight: 800; margin-bottom: 28px; display: flex; align-items: center; gap: 8px; }
+  .sidebar-logo span { background: #6366f1; color: #fff; width: 28px; height: 28px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; }
+  .sidebar-search { position: relative; margin-bottom: 24px; }
+  .sidebar-search input { width: 100%; padding: 10px 14px 10px 36px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 14px; outline: none; transition: border-color .2s; }
+  .sidebar-search input:focus { border-color: #6366f1; }
+  .sidebar-search .icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 14px; }
+
+  .nav-section { margin-bottom: 24px; }
+  .nav-section h4 { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 8px; padding: 0 10px; }
+  .nav-item { display: block; padding: 8px 10px; border-radius: 8px; font-size: 14px; color: #475569; text-decoration: none; transition: all .15s; cursor: pointer; }
+  .nav-item:hover { background: #f1f5f9; color: #0f172a; }
+  .nav-item.active { background: #eef2ff; color: #6366f1; font-weight: 600; }
+  .nav-item .badge { float: right; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 8px; background: #d1fae5; color: #059669; }
+
+  /* Content */
+  .content { flex: 1; padding: 48px 56px; max-width: 880px; }
+  .breadcrumbs { font-size: 13px; color: #94a3b8; margin-bottom: 20px; display: flex; gap: 6px; align-items: center; }
+  .breadcrumbs a { color: #64748b; text-decoration: none; }
+  .breadcrumbs a:hover { color: #6366f1; }
+  .content h1 { font-size: 32px; font-weight: 800; letter-spacing: -.5px; margin-bottom: 8px; }
+  .content .lead { font-size: 16px; color: #64748b; margin-bottom: 32px; max-width: 600px; }
+
+  .content h2 { font-size: 22px; font-weight: 700; margin: 32px 0 12px; padding-top: 8px; }
+  .content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+  .content p { font-size: 15px; color: #475569; margin-bottom: 16px; }
+  .content ul, .content ol { padding-left: 20px; margin-bottom: 16px; }
+  .content li { font-size: 15px; color: #475569; margin-bottom: 6px; }
+  .content code { background: #f1f5f9; padding: 2px 7px; border-radius: 5px; font-size: 13px; }
+  .content pre { background: #0f172a; color: #e2e8f0; padding: 20px 24px; border-radius: 12px; overflow-x: auto; margin-bottom: 20px; font-size: 13px; line-height: 1.7; }
+  .content pre code { background: none; padding: 0; color: inherit; }
+
+  .callout { padding: 16px 20px; border-radius: 12px; margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-start; }
+  .callout.info { background: #eef2ff; border: 1px solid #c7d2fe; }
+  .callout.warning { background: #fef3c7; border: 1px solid #fde68a; }
+  .callout.tip { background: #d1fae5; border: 1px solid #a7f3d0; }
+  .callout .emoji { font-size: 18px; flex-shrink: 0; }
+  .callout p { font-size: 14px; margin-bottom: 0; }
+
+  .toc-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; }
+  .toc-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #64748b; }
+  .toc-card a { display: block; padding: 4px 0; font-size: 14px; color: #6366f1; text-decoration: none; }
+  .toc-card a:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) { .sidebar { display: none; } .content { padding: 32px 24px; } }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span>L</span> Lumina Docs</div>
+    <div class="sidebar-search"><span class="icon">⌕</span><input type="text" placeholder="Search docs..." onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#e2e8f0'"></div>
+    <div class="nav-section">
+      <h4>Getting Started</h4>
+      <a class="nav-item active">Introduction</a>
+      <a class="nav-item">Quickstart</a>
+      <a class="nav-item">Installation</a>
+      <a class="nav-item">Project Structure</a>
+    </div>
+    <div class="nav-section">
+      <h4>Core Concepts</h4>
+      <a class="nav-item">Design Tokens</a>
+      <a class="nav-item">Components</a>
+      <a class="nav-item">Theming</a>
+      <a class="nav-item">Layouts</a>
+    </div>
+    <div class="nav-section">
+      <h4>Guides</h4>
+      <a class="nav-item">Creating a Design System</a>
+      <a class="nav-item">Migration Guide <span class="badge">New</span></a>
+      <a class="nav-item">Best Practices</a>
+      <a class="nav-item">Accessibility</a>
+    </div>
+    <div class="nav-section">
+      <h4>API Reference</h4>
+      <a class="nav-item">CLI Commands</a>
+      <a class="nav-item">Configuration</a>
+      <a class="nav-item">Components API</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumbs"><a href="#">Docs</a> <span>/</span> <span>Introduction</span></div>
+    <h1>Welcome to Lumina</h1>
+    <p class="lead">Lumina is a design collaboration platform that helps teams build, share, and maintain design systems at scale. This documentation covers everything from getting started to advanced API usage.</p>
+
+    <div class="toc-card">
+      <h3>On this page</h3>
+      <a href="#overview">Overview</a>
+      <a href="#quickstart">Quickstart</a>
+      <a href="#core-features">Core Features</a>
+      <a href="#next-steps">Next Steps</a>
+    </div>
+
+    <h2 id="overview">Overview</h2>
+    <p>Lumina bridges the gap between design and engineering. With real-time collaboration, version-controlled design systems, and automated code generation, teams can ship beautiful products faster than ever.</p>
+
+    <div class="callout info"><span class="emoji">💡</span><p><strong>New to Lumina?</strong> Check out the <a href="#" style="color:#6366f1;">Quickstart Guide</a> to get up and running in under 5 minutes.</p></div>
+
+    <h2 id="quickstart">Quickstart</h2>
+    <p>Install the Lumina CLI and initialize your first project:</p>
+    <pre><code>npm install -g lumina-cli
+lumina init my-project
+cd my-project
+lumina dev</code></pre>
+    <p>This creates a new project with the default design system template. Open <code>http://localhost:3000</code> to see your project in action.</p>
+
+    <h2 id="core-features">Core Features</h2>
+    <h3>Design Tokens</h3>
+    <p>Define your design primitives — colors, typography, spacing, and shadows — as structured tokens. Tokens can be exported to CSS, JSON, or Tailwind config.</p>
+    <pre><code>{
+  "color": {
+    "primary": { "500": "#6366f1" },
+    "neutral": { "100": "#f1f5f9", "900": "#0f172a" }
+  },
+  "spacing": { "sm": "8px", "md": "16px", "lg": "24px" }
+}</code></pre>
+
+    <h3>Component Library</h3>
+    <p>Build and document reusable components with interactive previews, code snippets, and version history. Each component can have multiple variants and states.</p>
+
+    <div class="callout tip"><span class="emoji">✨</span><p><strong>Pro tip:</strong> Use <code>lumina generate button</code> to scaffold a new component with all required files.</p></div>
+
+    <h3>Real-Time Collaboration</h3>
+    <p>Work together with your team in real-time. Multiple cursors, inline comments, and change requests make collaboration seamless.</p>
+
+    <h2 id="next-steps">Next Steps</h2>
+    <ul>
+      <li><strong>Follow the Quickstart Guide</strong> — Build your first component in 10 minutes</li>
+      <li><strong>Join our Community</strong> — Discord and GitHub for support and discussions</li>
+      <li><strong>Explore Examples</strong> — Check out the example projects and templates</li>
+      <li><strong>Read the API Reference</strong> — Detailed documentation for all CLI commands</li>
+    </ul>
+
+    <div class="callout warning"><span class="emoji">⚠️</span><p><strong>Note:</strong> Some advanced features require a Professional plan. See <a href="#" style="color:#6366f1;">Pricing</a> for details.</p></div>
+  </main>
+</div>
+</body>
+</html>

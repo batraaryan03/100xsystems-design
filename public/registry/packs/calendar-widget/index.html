@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar Widget</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; padding: 48px 24px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .sub { color: #64748b; margin-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  .demo { background: #fff; border-radius: 16px; border: 1px solid #e2e8f0; padding: 28px; }
+  .demo h2 { font-size: 16px; font-weight: 600; margin-bottom: 20px; color: #475569; }
+
+  /* Calendar nav */
+  .cal-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .cal-nav h3 { font-size: 18px; font-weight: 700; }
+  .cal-nav-btns { display: flex; gap: 4px; }
+  .cal-nav-btns button { width: 32px; height: 32px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all .15s; }
+  .cal-nav-btns button:hover { border-color: #6366f1; color: #6366f1; }
+  .cal-today { padding: 6px 14px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; font-size: 12px; font-weight: 500; cursor: pointer; transition: all .15s; }
+  .cal-today:hover { border-color: #6366f1; color: #6366f1; }
+
+  /* Calendar grid */
+  .cal-grid { width: 100%; border-collapse: collapse; }
+  .cal-grid th { font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: .5px; padding: 8px 4px; text-align: center; }
+  .cal-grid td { text-align: center; padding: 4px; }
+  .cal-day { width: 36px; height: 36px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; cursor: pointer; transition: all .15s; position: relative; }
+  .cal-day:hover { background: #f1f5f9; }
+  .cal-day.other { color: #cbd5e1; }
+  .cal-day.today { background: #6366f1; color: #fff; font-weight: 700; }
+  .cal-day.selected { background: #eef2ff; color: #6366f1; font-weight: 700; }
+  .cal-day.has-event::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; border-radius: 50%; background: #6366f1; }
+  .cal-day.today.has-event::after { background: #fff; }
+
+  /* Events */
+  .events { margin-top: 20px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
+  .events h4 { font-size: 13px; font-weight: 600; color: #64748b; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .5px; }
+  .event { display: flex; gap: 10px; padding: 10px 12px; border-radius: 10px; transition: background .1s; cursor: default; }
+  .event:hover { background: #f8fafc; }
+  .event-bar { width: 3px; border-radius: 2px; flex-shrink: 0; }
+  .event-info { flex: 1; }
+  .event-title { font-size: 14px; font-weight: 600; }
+  .event-time { font-size: 12px; color: #94a3b8; }
+  .event-tag { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 6px; }
+  .event-meta { display: flex; align-items: center; gap: 8px; margin-top: 2px; }
+
+  /* Date picker (mini) */
+  .picker { display: flex; gap: 8px; align-items: center; }
+  .picker input[type="date"] { padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 14px; outline: none; font-family: 'Inter', sans-serif; }
+  .picker input[type="date"]:focus { border-color: #6366f1; }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 16px; }
+  .stat-card { padding: 14px; background: #f8fafc; border-radius: 12px; text-align: center; }
+  .stat-card .num { font-size: 24px; font-weight: 800; }
+  .stat-card .label { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Calendar Widget</h1>
+  <p class="sub">Calendar grid with events, date picker, month navigation, and week overview.</p>
+  <div class="grid">
+    <!-- Calendar -->
+    <div class="demo">
+      <h2>📅 June 2026</h2>
+      <div class="cal-nav">
+        <div class="cal-nav-btns">
+          <button>←</button>
+          <button style="width:auto;padding:0 12px;font-weight:600;">June 2026</button>
+          <button>→</button>
+        </div>
+        <button class="cal-today">Today</button>
+      </div>
+      <table class="cal-grid">
+        <tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>
+        <tr>
+          <td><span class="cal-day other">26</span></td>
+          <td><span class="cal-day other">27</span></td>
+          <td><span class="cal-day other">28</span></td>
+          <td><span class="cal-day other">29</span></td>
+          <td><span class="cal-day other">30</span></td>
+          <td><span class="cal-day other">31</span></td>
+          <td><span class="cal-day">1</span></td>
+        </tr>
+        <tr>
+          <td><span class="cal-day">2</span></td>
+          <td><span class="cal-day">3</span></td>
+          <td><span class="cal-day">4</span></td>
+          <td><span class="cal-day">5</span></td>
+          <td><span class="cal-day">6</span></td>
+          <td><span class="cal-day">7</span></td>
+          <td><span class="cal-day">8</span></td>
+        </tr>
+        <tr>
+          <td><span class="cal-day">9</span></td>
+          <td><span class="cal-day">10</span></td>
+          <td><span class="cal-day">11</span></td>
+          <td><span class="cal-day">12</span></td>
+          <td><span class="cal-day">13</span></td>
+          <td><span class="cal-day">14</span></td>
+          <td><span class="cal-day">15</span></td>
+        </tr>
+        <tr>
+          <td><span class="cal-day">16</span></td>
+          <td><span class="cal-day">17</span></td>
+          <td><span class="cal-day">18</span></td>
+          <td><span class="cal-day has-event">19</span></td>
+          <td><span class="cal-day has-event today">20</span></td>
+          <td><span class="cal-day has-event">21</span></td>
+          <td><span class="cal-day">22</span></td>
+        </tr>
+        <tr>
+          <td><span class="cal-day has-event">23</span></td>
+          <td><span class="cal-day">24</span></td>
+          <td><span class="cal-day">25</span></td>
+          <td><span class="cal-day">26</span></td>
+          <td><span class="cal-day">27</span></td>
+          <td><span class="cal-day">28</span></td>
+          <td><span class="cal-day">29</span></td>
+        </tr>
+        <tr>
+          <td><span class="cal-day">30</span></td>
+          <td><span class="cal-day other">1</span></td>
+          <td><span class="cal-day other">2</span></td>
+          <td><span class="cal-day other">3</span></td>
+          <td><span class="cal-day other">4</span></td>
+          <td><span class="cal-day other">5</span></td>
+          <td><span class="cal-day other">6</span></td>
+        </tr>
+      </table>
+
+      <div class="events">
+        <h4>Upcoming Events</h4>
+        <div class="event">
+          <div class="event-bar" style="background:#6366f1;"></div>
+          <div class="event-info">
+            <div class="event-title">Design Review — Sprint 24</div>
+            <div class="event-meta"><span class="event-time">🕐 10:00 AM – 11:00 AM</span><span class="event-tag" style="background:#eef2ff;color:#6366f1;">Weekly</span></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-bar" style="background:#22c55e;"></div>
+          <div class="event-info">
+            <div class="event-title">Team Standup</div>
+            <div class="event-meta"><span class="event-time">🕐 9:30 AM – 9:45 AM</span><span class="event-tag" style="background:#d1fae5;color:#059669;">Daily</span></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-bar" style="background:#f59e0b;"></div>
+          <div class="event-info">
+            <div class="event-title">Sprint Planning — Sprint 25</div>
+            <div class="event-meta"><span class="event-time">🕐 2:00 PM – 3:30 PM</span><span class="event-tag" style="background:#fef3c7;color:#d97706;">Planning</span></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-bar" style="background:#ec4899;"></div>
+          <div class="event-info">
+            <div class="event-title">Design System Workshop</div>
+            <div class="event-meta"><span class="event-time">🕐 1:00 PM – 4:00 PM</span><span class="event-tag" style="background:#fce7f3;color:#db2777;">Workshop</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Date picker & stats -->
+    <div class="demo">
+      <h2>⚡ Quick Actions</h2>
+      <div class="picker" style="margin-bottom:16px;">
+        <input type="date" value="2026-06-20">
+        <span style="color:#94a3b8;font-size:13px;">→</span>
+        <input type="date" value="2026-06-27">
+        <button style="padding:10px 18px;background:#6366f1;color:#fff;border:none;border-radius:10px;font-weight:600;font-size:13px;cursor:pointer;">Apply</button>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num" style="color:#6366f1;">12</div><div class="label">Events this week</div></div>
+        <div class="stat-card"><div class="num" style="color:#22c55e;">4</div><div class="label">Completed</div></div>
+        <div class="stat-card"><div class="num" style="color:#f59e0b;">6</div><div class="label">Upcoming</div></div>
+        <div class="stat-card"><div class="num" style="color:#ec4899;">2</div><div class="label">Drafts</div></div>
+      </div>
+
+      <div style="margin-top:24px;">
+        <h4 style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;">This Week</h4>
+        <div style="display:grid;gap:8px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#f8fafc;border-radius:10px;">
+            <span style="font-size:12px;font-weight:600;color:#6366f1;min-width:36px;">Mon</span>
+            <span style="font-size:13px;">Standup, Design Review</span>
+            <span style="margin-left:auto;font-size:11px;color:#94a3b8;">4 events</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#f8fafc;border-radius:10px;">
+            <span style="font-size:12px;font-weight:600;color:#6366f1;min-width:36px;">Tue</span>
+            <span style="font-size:13px;">Workshop, 1:1 with Sarah</span>
+            <span style="margin-left:auto;font-size:11px;color:#94a3b8;">2 events</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#f8fafc;border-radius:10px;">
+            <span style="font-size:12px;font-weight:600;color:#6366f1;min-width:36px;">Wed</span>
+            <span style="font-size:13px;">Sprint Planning</span>
+            <span style="margin-left:auto;font-size:11px;color:#94a3b8;">1 event</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#eef2ff;border:1px solid #c7d2fe;border-radius:10px;">
+            <span style="font-size:12px;font-weight:600;color:#6366f1;min-width:36px;">Thu</span>
+            <span style="font-size:13px;font-weight:600;">Today — Standup, Code Review</span>
+            <span style="margin-left:auto;font-size:11px;color:#6366f1;">3 events</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#f8fafc;border-radius:10px;">
+            <span style="font-size:12px;font-weight:600;color:#6366f1;min-width:36px;">Fri</span>
+            <span style="font-size:13px;">Sprint retro, Demo</span>
+            <span style="margin-left:auto;font-size:11px;color:#94a3b8;">2 events</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

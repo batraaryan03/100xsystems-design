@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop · Browse</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --text: #1f1d1a;
+  --text-soft: #4a4640;
+  --text-mute: #928d84;
+  --accent: #c73b2b;
+  --accent-soft: #fbedea;
+  --border: #e6e2db;
+  --border-light: #f0ede8;
+  --shadow: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-hover: 0 12px 32px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --radius-sm: 8px;
+  --sans: 'Instrument Sans', system-ui, sans-serif;
+  --serif: 'Instrument Serif', serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+/* Top bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+}
+.topbar-nav {
+  display: flex;
+  gap: 28px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.topbar-nav a {
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.topbar-nav a:hover { color: var(--accent); }
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.topbar-actions .icon-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  color: var(--text-soft);
+}
+.topbar-actions .icon-btn:hover { border-color: var(--text-mute); }
+.topbar-actions .icon-btn .count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hero banner */
+.hero-banner {
+  background: linear-gradient(135deg, #1f1d1a 0%, #2d2924 100%);
+  color: #fff;
+  padding: 60px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(199,59,43,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-banner .inner {
+  max-width: 520px;
+  position: relative;
+}
+.hero-banner .tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.hero-banner h1 {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.hero-banner p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 20px;
+  max-width: 36ch;
+  line-height: 1.6;
+}
+.hero-banner .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+.hero-banner .btn:hover { background: #a83224; }
+
+/* Main content */
+.content {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 32px;
+  padding: 32px 48px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Filters sidebar */
+.filters {
+  padding-right: 8px;
+}
+.filters h3 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  margin-bottom: 16px;
+}
+.filter-group {
+  margin-bottom: 24px;
+}
+.filter-group h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-soft);
+  padding: 4px 0;
+  cursor: pointer;
+}
+.filter-group label input[type="checkbox"] {
+  width: 16px; height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border);
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.filter-group .count {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-mute);
+}
+.price-range {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.price-range input {
+  width: 80px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--surface);
+  outline: none;
+}
+.price-range input:focus { border-color: var(--accent); }
+.price-range span { color: var(--text-mute); font-size: 13px; }
+.filter-apply {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--text);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-top: 8px;
+}
+.filter-apply:hover { background: var(--accent); }
+
+/* Product grid */
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.products-header .results {
+  font-size: 13px;
+  color: var(--text-mute);
+}
+.products-header .results strong { color: var(--text); font-weight: 600; }
+.products-header select {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--surface);
+  cursor: pointer;
+  outline: none;
+}
+.products-header select:focus { border-color: var(--accent); }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.product-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.product-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+  border-color: var(--border);
+}
+.product-image {
+  aspect-ratio: 4/3;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-mute);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.product-image .badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.product-image .badge.new { background: var(--text); color: #fff; }
+.product-image .badge.sale { background: var(--accent); color: #fff; }
+.product-image .badge.eco { background: #d4e2d4; color: #2a4a2a; }
+.product-image .wish {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 16px;
+}
+.product-card:hover .wish { opacity: 1; }
+.product-info { padding: 16px 18px 18px; }
+.product-info .category {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  margin-bottom: 6px;
+}
+.product-info h3 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.product-info .rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--text-mute);
+}
+.product-info .rating .stars { color: #e8a838; letter-spacing: 2px; }
+.product-info .price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.product-info .price {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.product-info .price.original {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-mute);
+  text-decoration: line-through;
+}
+.product-info .price.sale { color: var(--accent); }
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 36px;
+}
+.pagination button {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.pagination button:hover { border-color: var(--text); color: var(--text); }
+.pagination button.active { background: var(--text); color: #fff; border-color: var(--text); }
+.pagination .nav-arrow { font-size: 16px; }
+
+@media (max-width: 1024px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .topbar { padding: 14px 24px; }
+  .hero-banner { padding: 40px 24px; }
+  .content { padding: 24px; grid-template-columns: 200px 1fr; }
+}
+@media (max-width: 768px) {
+  .topbar-nav { display: none; }
+  .content { grid-template-columns: 1fr; }
+  .filters { display: none; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .content { padding: 16px; }
+  .hero-banner { padding: 32px 16px; }
+  .hero-banner h1 { font-size: 32px; }
+}
+@media (max-width: 480px) {
+  .product-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="#" class="brand">atelier</a>
+  <div class="topbar-nav">
+    <a href="#">New Arrivals</a>
+    <a href="#">Clothing</a>
+    <a href="#">Accessories</a>
+    <a href="#">Objects</a>
+    <a href="#">Journal</a>
+  </div>
+  <div class="topbar-actions">
+    <button class="icon-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M2.5 2.5h3l2.5 13.5H19l2-10H6"/></svg>
+      <span class="count">3</span>
+    </button>
+    <button class="icon-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="hero-banner">
+  <div class="inner">
+    <div class="tag">Summer '26</div>
+    <h1>New collection now available</h1>
+    <p>Handpicked essentials for the warmer months. Free shipping on orders over $100.</p>
+    <a href="#" class="btn">
+      Shop the collection
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<div class="content">
+  <aside class="filters">
+    <h3>Filters</h3>
+    <div class="filter-group">
+      <h4>Category</h4>
+      <label><input type="checkbox" checked> Clothing <span class="count">28</span></label>
+      <label><input type="checkbox"> Accessories <span class="count">14</span></label>
+      <label><input type="checkbox"> Home & Objects <span class="count">9</span></label>
+      <label><input type="checkbox"> Books <span class="count">6</span></label>
+      <label><input type="checkbox"> Prints <span class="count">11</span></label>
+    </div>
+    <div class="filter-group">
+      <h4>Price</h4>
+      <div class="price-range">
+        <input type="number" placeholder="$0" value="0">
+        <span>—</span>
+        <input type="number" placeholder="$500" value="500">
+      </div>
+    </div>
+    <div class="filter-group">
+      <h4>Color</h4>
+      <label><input type="checkbox"> Black <span class="count">22</span></label>
+      <label><input type="checkbox"> White <span class="count">18</span></label>
+      <label><input type="checkbox"> Neutral <span class="count">14</span></label>
+      <label><input type="checkbox"> Red <span class="count">8</span></label>
+      <label><input type="checkbox"> Blue <span class="count">12</span></label>
+    </div>
+    <button class="filter-apply">Apply Filters</button>
+  </aside>
+
+  <div>
+    <div class="products-header">
+      <div class="results"><strong>24</strong> products</div>
+      <select>
+        <option>Featured</option>
+        <option>Newest</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+      </select>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-image" style="background:#f3efe8">
+          <span class="badge new">New</span>
+          <button class="wish">♡</button>
+          <span>Linen Shirt</span>
+        </div>
+        <div class="product-info">
+          <div class="category">Clothing</div>
+          <h3>Relaxed Linen Shirt</h3>
+          <div class="rating"><span class="stars">★★★★★</span> 42</div>
+          <div class="price-row">
+            <span class="price">$89</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background:#e8e4de">
+          <span class="badge sale">Sale</span>
+          <button class="wish">♡</button>
+          <span>Canvas Tote</span>
+        </div>
+        <div class="product-info">
+          <div class="category">Accessories</div>
+          <h3>Waxed Canvas Tote</h3>
+          <div class="rating"><span class="stars">★★★★★</span> 28</div>
+          <div class="price-row">
+            <span class="price sale">$45</span>
+            <span class="price original">$65</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background:#f0ece6">
+          <button class="wish">♡</button>
+          <span>Ceramic Mug</span>
+        </div>
+        <div class="product-info">
+          <div class="category">Objects</div>
+          <h3>Stoneware Ceramic Mug</h3>
+          <div class="rating"><span class="stars">★★★★☆</span> 16</div>
+          <div class="price-row">
+            <span class="price">$28</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background:#eae5dd">
+          <span class="badge eco">Eco</span>
+          <button class="wish">♡</button>
+          <span>Wool Scarf</span>
+        </div>
+        <div class="product-info">
+          <div class="category">Accessories</div>
+          <h3>Merino Wool Scarf</h3>
+          <div class="rating"><span class="stars">★★★★★</span> 9</div>
+          <div class="price-row">
+            <span class="price">$72</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background:#f5f1ea">
+          <button class="wish">♡</button>
+          <span>Canvas Jacket</span>
+        </div>
+        <div class="product-info">
+          <div class="category">Clothing</div>
+          <h3>Oversized Canvas Jacket</h3>
+          <div class="rating"><span class="stars">★★★★☆</span> 34</div>
+          <div class="price-row">
+            <span class="price">$185</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background:#ece7e0">
+          <button class="wish">♡</button>
+          <span>Leather Journal</span>
+        </div>
+        <div class="product-info">
+          <div class="category">Books</div>
+          <h3>Bound Leather Journal</h3>
+          <div class="rating"><span class="stars">★★★★★</span> 21</div>
+          <div class="price-row">
+            <span class="price">$36</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background:#f2eee8">
+          <button class="wish">♡</button>
+          <span>Cotton Tee</span>
+        </div>
+        <div class="product-info">
+          <div class="category">Clothing</div>
+          <h3>Organic Cotton Tee</h3>
+          <div class="rating"><span class="stars">★★★★★</span> 56</div>
+          <div class="price-row">
+            <span class="price">$34</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background:#e6dfd7">
+          <button class="wish">♡</button>
+          <span>Brass Lamp</span>
+        </div>
+        <div class="product-info">
+          <div class="category">Objects</div>
+          <h3>Brass Desk Lamp</h3>
+          <div class="rating"><span class="stars">★★★★☆</span> 13</div>
+          <div class="price-row">
+            <span class="price">$94</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background:#efeae3">
+          <span class="badge new">New</span>
+          <button class="wish">♡</button>
+          <span>Pleated Skirt</span>
+        </div>
+        <div class="product-info">
+          <div class="category">Clothing</div>
+          <h3>Pleated Midi Skirt</h3>
+          <div class="rating"><span class="stars">★★★★☆</span> 7</div>
+          <div class="price-row">
+            <span class="price">$68</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagination">
+      <button class="nav-arrow">‹</button>
+      <button class="active">1</button>
+      <button>2</button>
+      <button>3</button>
+      <span style="color:var(--text-mute);font-size:13px">…</span>
+      <button>8</button>
+      <button class="nav-arrow">›</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

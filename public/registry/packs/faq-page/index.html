@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ · Help Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Lexend:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f4f8;
+  --surface: #ffffff;
+  --text: #1a1820;
+  --text-soft: #5c5770;
+  --text-mute: #9892a8;
+  --accent: #6c5ce7;
+  --accent-soft: #efedfe;
+  --border: #e5e2ed;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --sans: 'Outfit', system-ui, sans-serif;
+  --body: 'Lexend', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--bg); color: var(--text); font-family: var(--body); -webkit-font-smoothing: antialiased; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+header { padding: 32px 0; display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: var(--sans); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; color: var(--text); }
+.brand span { color: var(--accent); }
+header nav { display: flex; gap: 20px; }
+header nav a { font-size: 14px; font-weight: 500; color: var(--text-soft); text-decoration: none; transition: color 0.15s ease; }
+header nav a:hover { color: var(--text); }
+header .pill { padding: 8px 20px; border-radius: 999px; border: 1px solid var(--border); font-size: 13px; font-weight: 500; color: var(--text-soft); text-decoration: none; }
+
+/* Hero */
+.help-hero { text-align: center; padding: 60px 0 48px; }
+.help-hero h1 { font-family: var(--sans); font-size: 40px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
+.help-hero p { color: var(--text-soft); font-size: 16px; margin-bottom: 28px; }
+.help-hero .search-box { max-width: 520px; margin: 0 auto; display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 12px 20px; }
+.help-hero .search-box input { border: none; background: none; outline: none; flex: 1; font-family: var(--body); font-size: 15px; color: var(--text); }
+.help-hero .search-box input::placeholder { color: var(--text-mute); }
+.help-hero .search-box .kbd { padding: 2px 8px; border-radius: 4px; background: var(--accent-soft); font-family: var(--mono); font-size: 11px; color: var(--accent); }
+
+/* Categories */
+.categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; }
+.cat-card { padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); text-decoration: none; color: inherit; transition: all 0.15s ease; }
+.cat-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.04); transform: translateY(-2px); }
+.cat-card .icon { font-size: 24px; margin-bottom: 12px; }
+.cat-card h3 { font-family: var(--sans); font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.cat-card p { font-size: 13px; color: var(--text-soft); }
+
+/* FAQ list */
+.faq-list { padding-bottom: 60px; }
+.faq-list h2 { font-family: var(--sans); font-size: 24px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.015em; }
+.faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 10px; overflow: hidden; }
+.faq-question { width: 100%; padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border: none; background: none; font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--text); cursor: pointer; text-align: left; transition: background 0.15s ease; }
+.faq-question:hover { background: var(--accent-soft); }
+.faq-question .arrow { flex-shrink: 0; color: var(--text-mute); transition: transform 0.2s ease; font-size: 14px; }
+.faq-question.open .arrow { transform: rotate(180deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-answer-inner { padding: 0 22px 18px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+
+/* Still need help */
+.cta-box { text-align: center; padding: 48px; border-radius: var(--radius); background: var(--accent-soft); border: 1px solid var(--border); margin-bottom: 60px; }
+.cta-box h3 { font-family: var(--sans); font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.cta-box p { color: var(--text-soft); font-size: 14px; margin-bottom: 20px; }
+.cta-box .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; background: var(--accent); color: #fff; text-decoration: none; font-family: var(--sans); font-size: 14px; font-weight: 600; transition: all 0.15s ease; }
+.cta-box .btn:hover { background: #5a4bd4; }
+
+footer { border-top: 1px solid var(--border); padding: 24px 0; display: flex; justify-content: space-between; font-size: 13px; color: var(--text-mute); }
+
+@media (max-width: 768px) {
+  .categories { grid-template-columns: 1fr; }
+  header nav { display: none; }
+  .container { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="#" class="brand">Help<span>.</span></a>
+    <nav><a href="#">Guides</a><a href="#">API Docs</a><a href="#">Status</a><a href="#">Community</a></nav>
+    <a href="#" class="pill">Submit a ticket</a>
+  </header>
+
+  <section class="help-hero">
+    <h1>How can we help?</h1>
+    <p>Search our knowledge base or browse categories below.</p>
+    <div class="search-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" placeholder="Search articles..." value="Search articles...">
+      <span class="kbd">⌘K</span>
+    </div>
+  </section>
+
+  <div class="categories">
+    <a class="cat-card" href="#"><div class="icon">⚙️</div><h3>Getting Started</h3><p>Set up your account, invite your team, and configure your workspace.</p></a>
+    <a class="cat-card" href="#"><div class="icon">🔒</div><h3>Account & Billing</h3><p>Manage your subscription, invoices, and team permissions.</p></a>
+    <a class="cat-card" href="#"><div class="icon">🔌</div><h3>Integrations</h3><p>Connect with your favorite tools via our API and partner integrations.</p></a>
+  </div>
+
+  <div class="faq-list">
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-question open" onclick="toggleFaq(this)">How do I reset my password? <span class="arrow">▼</span></button>
+      <div class="faq-answer" style="max-height:200px"><div class="faq-answer-inner">Go to your Account Settings, click "Security", and select "Change Password". You'll need your current password to set a new one. If you've forgotten your password, click "Forgot password" on the login page and follow the email instructions.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">Can I change my plan later? <span class="arrow">▼</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes! You can upgrade or downgrade your plan at any time from your Billing settings. Upgrades take effect immediately, and downgrades apply at the start of the next billing cycle. Any unused portion of your current plan is credited.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">What happens when my trial expires? <span class="arrow">▼</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">When your 14-day trial ends, your account will be paused. All your data is retained for 30 days. To continue, simply choose a plan from your Billing settings. If you need more time, just reach out to our support team.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">Do you offer refunds? <span class="arrow">▼</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes, we offer a 30-day money-back guarantee on all paid plans. If you're not satisfied, contact our support team within 30 days of your purchase for a full refund. No questions asked.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">How do I invite team members? <span class="arrow">▼</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">From your workspace settings, click "Team", then "Invite members". Enter their email addresses and choose their role. They'll receive an invitation email. Pro and Enterprise plans support unlimited team members with granular permission controls.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">Is my data secure? <span class="arrow">▼</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Absolutely. We're SOC 2 Type II certified and use AES-256 encryption at rest and TLS 1.3 in transit. Our infrastructure runs on AWS with regular security audits. You can also enable SSO and audit logging for additional security.</div></div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Still need help?</h3>
+    <p>Our support team is available 24/7. We typically respond within 2 hours.</p>
+    <a href="#" class="btn">Contact support →</a>
+  </div>
+
+  <footer><span>© 2026 Help Center</span><span>Status · Privacy · Terms</span></footer>
+</div>
+
+<script>
+function toggleFaq(btn) {
+  btn.classList.toggle('open');
+  const panel = btn.nextElementSibling;
+  if (btn.classList.contains('open')) {
+    panel.style.maxHeight = panel.scrollHeight + 'px';
+  } else {
+    panel.style.maxHeight = '0';
+  }
+}
+</script>
+</body>
+</html>

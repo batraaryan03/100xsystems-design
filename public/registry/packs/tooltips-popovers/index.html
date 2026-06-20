@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tooltips &amp; Popovers</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; padding: 48px 24px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .sub { color: #64748b; margin-bottom: 40px; }
+  .grid { display: grid; gap: 32px; }
+  .demo { background: #fff; border-radius: 16px; padding: 40px 32px; border: 1px solid #e2e8f0; }
+  .demo h2 { font-size: 16px; font-weight: 600; margin-bottom: 24px; color: #475569; }
+
+  .tooltip-row { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; padding: 32px 0; position: relative; }
+
+  /* Tooltip base */
+  .tip-wrap { position: relative; display: inline-flex; }
+  .tip-trigger { padding: 10px 20px; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 14px; cursor: default; }
+  .tip { position: absolute; background: #0f172a; color: #fff; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 500; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .15s, transform .15s; z-index: 10; }
+  .tip-wrap:hover .tip { opacity: 1; transform: translateY(0); }
+  .tip-top { bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(4px); }
+  .tip-top::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: #0f172a; }
+  .tip-bottom { top: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(-4px); }
+  .tip-bottom::after { content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-bottom-color: #0f172a; }
+  .tip-left { right: calc(100% + 10px); top: 50%; transform: translateY(-50%) translateX(4px); }
+  .tip-left::after { content: ''; position: absolute; left: 100%; top: 50%; transform: translateY(-50%); border: 5px solid transparent; border-left-color: #0f172a; }
+  .tip-right { left: calc(100% + 10px); top: 50%; transform: translateY(-50%) translateX(-4px); }
+  .tip-right::after { content: ''; position: absolute; right: 100%; top: 50%; transform: translateY(-50%); border: 5px solid transparent; border-right-color: #0f172a; }
+
+  /* Rich tooltip */
+  .tip-rich { white-space: normal; width: 220px; padding: 14px; }
+  .tip-rich h4 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .tip-rich p { font-size: 11px; color: #94a3b8; line-height: 1.5; }
+
+  /* Popover */
+  .popover-wrap { position: relative; display: inline-block; }
+  .popover-trigger { padding: 10px 20px; background: #6366f1; color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 500; cursor: pointer; }
+  .popover { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #fff; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 12px 40px rgba(0,0,0,.1); padding: 16px; width: 260px; z-index: 10; }
+  .popover.open { display: block; animation: popIn .2s ease; }
+  @keyframes popIn { from { opacity: 0; transform: translateX(-50%) translateY(6px) scale(.96); } to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); } }
+  .popover h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .popover p { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 12px; }
+  .popover-actions { display: flex; gap: 8px; }
+  .popover-actions button { padding: 7px 14px; border-radius: 8px; border: none; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .15s; }
+  .popover-actions .btn-primary { background: #6366f1; color: #fff; }
+  .popover-actions .btn-primary:hover { background: #5558e6; }
+  .popover-actions .btn-ghost { background: #f1f5f9; color: #475569; }
+  .popover-actions .btn-ghost:hover { background: #e2e8f0; }
+
+  .popover-avatar { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .popover-avatar .avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 14px; }
+  .popover-avatar .info h4 { font-size: 14px; margin-bottom: 1px; }
+  .popover-avatar .info p { font-size: 12px; margin-bottom: 0; }
+
+  .demo-row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .demo-row:not(:last-child) { margin-bottom: 20px; }
+  .demo-label { font-size: 12px; color: #94a3b8; font-weight: 500; min-width: 80px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Tooltips &amp; Popovers</h1>
+  <p class="sub">Tooltip positions, rich info tooltips, click popovers with actions, and profile popover cards.</p>
+  <div class="grid">
+    <!-- Tooltip positions -->
+    <div class="demo">
+      <h2>Tooltip Positions</h2>
+      <div class="tooltip-row">
+        <div class="tip-wrap"><span class="tip-trigger">Top</span><span class="tip tip-top">Tooltip on top</span></div>
+        <div class="tip-wrap"><span class="tip-trigger">Bottom</span><span class="tip tip-bottom">Tooltip on bottom</span></div>
+        <div class="tip-wrap"><span class="tip-trigger">Left</span><span class="tip tip-left">Tooltip on left</span></div>
+        <div class="tip-wrap"><span class="tip-trigger">Right</span><span class="tip tip-right">Tooltip on right</span></div>
+      </div>
+    </div>
+
+    <!-- Rich tooltips -->
+    <div class="demo">
+      <h2>Rich Tooltips</h2>
+      <div class="demo-row"><span class="demo-label">Hover icons:</span>
+        <div class="tip-wrap">
+          <span style="font-size:24px;cursor:default;">⚡</span>
+          <span class="tip tip-top tip-rich"><h4>Performance</h4><p>Sub-millisecond response times on edge infrastructure.</p></span>
+        </div>
+        <div class="tip-wrap">
+          <span style="font-size:24px;cursor:default;">🔒</span>
+          <span class="tip tip-top tip-rich"><h4>Security</h4><p>End-to-end encrypted with SOC 2 compliance certification.</p></span>
+        </div>
+        <div class="tip-wrap">
+          <span style="font-size:24px;cursor:default;">☁️</span>
+          <span class="tip tip-top tip-rich"><h4>Cloud Sync</h4><p>Real-time sync across all your devices and team members.</p></span>
+        </div>
+      </div>
+      <div class="demo-row"><span class="demo-label">Hover buttons:</span>
+        <div class="tip-wrap"><button class="tip-trigger" style="font-size:12px;padding:6px 14px;background:#eef2ff;border-color:#c7d2fe;color:#6366f1;">Save</button><span class="tip tip-top">Ctrl + S</span></div>
+        <div class="tip-wrap"><button class="tip-trigger" style="font-size:12px;padding:6px 14px;background:#d1fae5;border-color:#a7f3d0;color:#059669;">Publish</button><span class="tip tip-top">⌘ + Enter</span></div>
+        <div class="tip-wrap"><button class="tip-trigger" style="font-size:12px;padding:6px 14px;background:#fee2e2;border-color:#fecaca;color:#dc2626;">Delete</button><span class="tip tip-top">Requires confirmation</span></div>
+      </div>
+    </div>
+
+    <!-- Popover actions -->
+    <div class="demo">
+      <h2>Click Popovers</h2>
+      <div class="demo-row" style="gap:40px;">
+        <div class="popover-wrap">
+          <button class="popover-trigger" onclick="this.nextElementSibling.classList.toggle('open')">Notifications</button>
+          <div class="popover" style="width:240px;">
+            <h4>🔔 Notifications</h4>
+            <p style="font-size:13px;color:#94a3b8;margin-bottom:8px;">You have 3 unread notifications</p>
+            <div style="padding:8px 0;border-top:1px solid #f1f5f9;font-size:13px;color:#475569;">Sarah mentioned you in Design Review</div>
+            <div style="padding:8px 0;border-top:1px solid #f1f5f9;font-size:13px;color:#475569;">PR #892 approved by Marcus</div>
+            <div style="padding:8px 0;border-top:1px solid #f1f5f9;font-size:12px;color:#6366f1;cursor:pointer;text-align:center;">View all notifications</div>
+          </div>
+        </div>
+        <div class="popover-wrap">
+          <button class="popover-trigger" style="background:#fff;color:#0f172a;border:1px solid #e2e8f0;" onclick="this.nextElementSibling.classList.toggle('open')">👤 Profile</button>
+          <div class="popover" style="width:220px;">
+            <div class="popover-avatar"><div class="avatar" style="background:#6366f1;">A</div><div class="info"><h4>Alex Rivera</h4><p>alex@lumina.dev</p></div></div>
+            <div class="popover-actions">
+              <button class="btn-ghost" onclick="this.closest('.popover').classList.remove('open')">Settings</button>
+              <button class="btn-ghost" onclick="this.closest('.popover').classList.remove('open')">Sign Out</button>
+            </div>
+          </div>
+        </div>
+        <div class="popover-wrap">
+          <button class="popover-trigger" style="background:#fff;color:#0f172a;border:1px solid #e2e8f0;" onclick="this.nextElementSibling.classList.toggle('open')">⚙️ Settings</button>
+          <div class="popover" style="width:200px;padding:8px;">
+            <div style="padding:8px 10px;border-radius:6px;cursor:pointer;font-size:13px;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''">📁 Account</div>
+            <div style="padding:8px 10px;border-radius:6px;cursor:pointer;font-size:13px;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''">🔔 Notifications</div>
+            <div style="padding:8px 10px;border-radius:6px;cursor:pointer;font-size:13px;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''">🎨 Appearance</div>
+            <div style="padding:8px 10px;border-radius:6px;cursor:pointer;font-size:13px;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''">🔑 Security</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.popover.open').forEach(p => {
+      if (!p.parentElement.contains(e.target)) p.classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat Messages</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; padding: 48px 24px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .sub { color: #64748b; margin-bottom: 40px; }
+  .grid { display: grid; gap: 32px; }
+
+  .demo { background: #fff; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; }
+  .demo-header { padding: 20px 24px; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; }
+  .demo-header h2 { font-size: 16px; font-weight: 600; }
+  .demo-header .status { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #22c55e; font-weight: 500; }
+  .demo-header .status .dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; }
+
+  /* Chat messages area */
+  .chat-area { padding: 20px 24px; min-height: 320px; max-height: 400px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
+  .chat-date { text-align: center; font-size: 12px; color: #94a3b8; background: #f1f5f9; align-self: center; padding: 4px 12px; border-radius: 10px; }
+
+  /* Messages */
+  .msg { display: flex; gap: 10px; max-width: 85%; }
+  .msg.incoming { align-self: flex-start; }
+  .msg.outgoing { align-self: flex-end; flex-direction: row-reverse; }
+
+  .msg-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 12px; flex-shrink: 0; }
+  .msg-bubble { padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.6; max-width: 400px; }
+  .msg.incoming .msg-bubble { background: #f1f5f9; color: #1e293b; border-bottom-left-radius: 4px; }
+  .msg.outgoing .msg-bubble { background: #6366f1; color: #fff; border-bottom-right-radius: 4px; }
+  .msg-sender { font-size: 12px; font-weight: 600; margin-bottom: 2px; }
+  .msg.incoming .msg-sender { color: #6366f1; }
+  .msg-time { font-size: 11px; color: #94a3b8; margin-top: 4px; display: block; }
+  .msg.outgoing .msg-time { color: rgba(255,255,255,.6); text-align: right; }
+  .msg-bubble code { background: rgba(99,102,241,.12); padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+  .msg.outgoing .msg-bubble code { background: rgba(255,255,255,.15); color: #fff; }
+
+  /* Attachment in message */
+  .msg-attachment { display: flex; align-items: center; gap: 8px; margin-top: 6px; padding: 8px 12px; background: rgba(0,0,0,.05); border-radius: 8px; font-size: 12px; cursor: pointer; }
+  .msg.outgoing .msg-attachment { background: rgba(255,255,255,.1); }
+
+  /* Typing indicator */
+  .typing { display: flex; align-items: center; gap: 8px; padding: 8px 0 4px; align-self: flex-start; }
+  .typing-dots { display: flex; gap: 3px; }
+  .typing-dots span { width: 6px; height: 6px; background: #94a3b8; border-radius: 50%; animation: bounce 1.4s infinite both; }
+  .typing-dots span:nth-child(2) { animation-delay: .2s; }
+  .typing-dots span:nth-child(3) { animation-delay: .4s; }
+  @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
+  .typing span { font-size: 12px; color: #94a3b8; }
+
+  /* Input area */
+  .chat-input { display: flex; gap: 8px; padding: 16px 24px; border-top: 1px solid #e2e8f0; }
+  .chat-input input { flex: 1; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 14px; outline: none; transition: border-color .2s; }
+  .chat-input input:focus { border-color: #6366f1; }
+  .chat-input button { padding: 10px 18px; border-radius: 10px; border: none; background: #6366f1; color: #fff; font-weight: 600; font-size: 14px; cursor: pointer; transition: all .15s; white-space: nowrap; }
+  .chat-input button:hover { background: #5558e6; }
+  .chat-input .attach { width: 40px; border-radius: 10px; border: 1px solid #e2e8f0; background: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+  /* Thread / sidebar message list */
+  .thread { list-style: none; }
+  .thread-item { display: flex; gap: 12px; padding: 12px 20px; border-bottom: 1px solid #f1f5f9; cursor: pointer; transition: background .1s; }
+  .thread-item:hover { background: #f8fafc; }
+  .thread-item:last-child { border-bottom: none; }
+  .thread-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 14px; flex-shrink: 0; }
+  .thread-content { flex: 1; min-width: 0; }
+  .thread-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .thread-preview { font-size: 13px; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .thread-meta { text-align: right; flex-shrink: 0; }
+  .thread-time { font-size: 12px; color: #94a3b8; }
+  .thread-unread { width: 8px; height: 8px; border-radius: 50%; background: #6366f1; margin-left: auto; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Chat Messages</h1>
+  <p class="sub">Message bubbles, conversation threads, typing indicators, and attachment previews.</p>
+  <div class="grid">
+    <div class="demo">
+      <div class="demo-header">
+        <h2>💬 #design-systems</h2>
+        <span class="status"><span class="dot"></span> 12 online</span>
+      </div>
+      <div class="chat-area">
+        <span class="chat-date">Today</span>
+
+        <div class="msg incoming">
+          <div class="msg-avatar" style="background:#6366f1;">S</div>
+          <div><div class="msg-sender">Sarah Chen</div><div class="msg-bubble">Hey team, just pushed the new color token system to the <code>feature/tokens</code> branch. Can someone review?</div><span class="msg-time">10:23 AM</span></div>
+        </div>
+
+        <div class="msg outgoing">
+          <div class="msg-avatar" style="background:#e85d3a;">M</div>
+          <div><div class="msg-bubble">Nice! I'll take a look after standup. Did you include the dark mode overrides?</div><span class="msg-time">10:25 AM</span></div>
+        </div>
+
+        <div class="msg incoming">
+          <div class="msg-avatar" style="background:#6366f1;">S</div>
+          <div><div class="msg-bubble">Yes — all 240 tokens have light and dark variants. I also added a migration guide in the PR description.</div><span class="msg-time">10:27 AM</span></div>
+        </div>
+
+        <div class="msg outgoing">
+          <div class="msg-avatar" style="background:#e85d3a;">M</div>
+          <div><div class="msg-bubble">Perfect. The spacing scale update looks good too. Let's ship this with the next release.</div>
+          <div class="msg-attachment">📄 PR #892 · feature/tokens</div>
+          <span class="msg-time">10:29 AM</span></div>
+        </div>
+
+        <div class="typing">
+          <div class="typing-dots"><span></span><span></span><span></span></div>
+          <span>Alex is typing...</span>
+        </div>
+      </div>
+      <div class="chat-input">
+        <button class="attach">📎</button>
+        <input type="text" placeholder="Message #design-systems..." onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#e2e8f0'">
+        <button>Send</button>
+      </div>
+    </div>
+
+    <!-- Thread preview -->
+    <div class="demo">
+      <div class="demo-header">
+        <h2>📋 Direct Messages</h2>
+        <span style="font-size:13px;color:#94a3b8;">3 unread</span>
+      </div>
+      <ul class="thread">
+        <li class="thread-item">
+          <div class="thread-avatar" style="background:#6366f1;">S</div>
+          <div class="thread-content"><div class="thread-name">Sarah Chen</div><div class="thread-preview">Sounds good, I'll push the update by EOD</div></div>
+          <div class="thread-meta"><div class="thread-time">2m ago</div><div class="thread-unread"></div></div>
+        </li>
+        <li class="thread-item">
+          <div class="thread-avatar" style="background:#059669;">K</div>
+          <div class="thread-content"><div class="thread-name">Kai Yamamoto</div><div class="thread-preview">CI pipeline is green! Ready to merge 🚀</div></div>
+          <div class="thread-meta"><div class="thread-time">15m ago</div></div>
+        </li>
+        <li class="thread-item">
+          <div class="thread-avatar" style="background:#7c3aed;">J</div>
+          <div class="thread-content"><div class="thread-name">Jordan Park</div><div class="thread-preview">Did anyone review the Figma plugin PR?</div></div>
+          <div class="thread-meta"><div class="thread-time">1h ago</div><div class="thread-unread"></div></div>
+        </li>
+        <li class="thread-item">
+          <div class="thread-avatar" style="background:#d97706;">T</div>
+          <div class="thread-content"><div class="thread-name">Tom Walker</div><div class="thread-preview">Updated sprint board with new priorities</div></div>
+          <div class="thread-meta"><div class="thread-time">3h ago</div></div>
+        </li>
+        <li class="thread-item">
+          <div class="thread-avatar" style="background:#0891b2;">L</div>
+          <div class="thread-content"><div class="thread-name">Lena Okafor</div><div class="thread-preview">Recording the demo video now, will share the link</div></div>
+          <div class="thread-meta"><div class="thread-time">5h ago</div></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

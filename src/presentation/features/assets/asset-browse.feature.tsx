@@ -39,7 +39,7 @@ function AssetPackCard({ pack }: { pack: Pack }) {
 
   return (
     <a
-      href={`/skills/websites/${pack.slug}`}
+      href={`/skills/${pack.slug}`}
       style={{
         textDecoration: "none",
         color: "inherit",

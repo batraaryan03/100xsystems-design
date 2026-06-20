@@ -240,9 +240,13 @@ function PackDetailInner({ pack }: { pack: Pack }) {
     return () => { cancelled = true; };
   }, [pack]);
 
-  const previewUrl = pack.framework === "html"
-    ? `/registry/packs/${pack.slug}/index.html`
-    : null;
+  const previewUrl = (() => {
+    const htmlFile = pack.files.find(f => f.path.endsWith(".html"));
+    if (htmlFile) {
+      return `/registry/packs/${pack.slug}/${htmlFile.path}`;
+    }
+    return null;
+  })();
 
   return (
     <section className="tight">
@@ -261,7 +265,7 @@ function PackDetailInner({ pack }: { pack: Pack }) {
               transition: "color 0.18s ease",
             }}
           >
-            ← Back to websites
+            ← Back
           </Link>
           <div style={{ display: "flex", gap: "8px" }}>
             <CopyPageDropdown pack={pack} fileContents={fileContents} />

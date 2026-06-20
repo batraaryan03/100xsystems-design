@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradient Meshes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f7f4; --text: #1a1a1a; --text-soft: #5a5a5a;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--text-soft); margin-bottom: 36px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; }
+.gradient-card { border-radius: 16px; overflow: hidden; border: 1px solid #e5e5e0; background: #fff; }
+.gradient-preview { aspect-ratio: 16/10; }
+.gradient-info { padding: 16px 20px 20px; }
+.gradient-info h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.gradient-info .detail { font-size: 12px; color: var(--text-soft); font-family: var(--mono, monospace); }
+</style>
+</head>
+<body>
+<h1>Gradient Meshes</h1>
+<p class="sub">Beautiful SVG gradient backgrounds for hero sections, cards, and overlays.</p>
+<div class="grid">
+  <div class="gradient-card">
+    <div class="gradient-preview" style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%)"></div>
+    <div class="gradient-info"><h3>Twilight</h3><div class="detail">blue-purple · 135°</div></div>
+  </div>
+  <div class="gradient-card">
+    <div class="gradient-preview" style="background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"></div>
+    <div class="gradient-info"><h3>Bloom</h3><div class="detail">pink-coral · 135°</div></div>
+  </div>
+  <div class="gradient-card">
+    <div class="gradient-preview" style="background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"></div>
+    <div class="gradient-info"><h3>Lagoon</h3><div class="detail">blue-cyan · 135°</div></div>
+  </div>
+  <div class="gradient-card">
+    <div class="gradient-preview" style="background:linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"></div>
+    <div class="gradient-info"><h3>Mint</h3><div class="detail">green-teal · 135°</div></div>
+  </div>
+  <div class="gradient-card">
+    <div class="gradient-preview" style="background:linear-gradient(135deg, #fa709a 0%, #fee140 100%)"></div>
+    <div class="gradient-info"><h3>Sunset</h3><div class="detail">pink-yellow · 135°</div></div>
+  </div>
+  <div class="gradient-card">
+    <div class="gradient-preview" style="background:linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)"></div>
+    <div class="gradient-info"><h3>Lavender</h3><div class="detail">purple-pink · 135°</div></div>
+  </div>
+</div>
+</body>
+</html>

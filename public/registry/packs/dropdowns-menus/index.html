@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropdowns &amp; Menus</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; padding: 48px 24px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .sub { color: #64748b; margin-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .demo { background: #fff; border-radius: 16px; padding: 32px; border: 1px solid #e2e8f0; }
+  .demo h2 { font-size: 16px; font-weight: 600; margin-bottom: 20px; color: #475569; }
+
+  /* Dropdown */
+  .dropdown { position: relative; display: inline-block; }
+  .dropdown-trigger { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 14px; font-weight: 500; cursor: pointer; transition: border-color .2s; }
+  .dropdown-trigger:hover { border-color: #6366f1; }
+  .dropdown-menu { display: none; position: absolute; top: calc(100% + 6px); left: 0; background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 10px 40px rgba(0,0,0,.1); min-width: 200px; padding: 6px; z-index: 10; }
+  .dropdown-menu.open { display: block; }
+  .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; font-size: 14px; cursor: pointer; transition: background .15s; border: none; background: none; width: 100%; text-align: left; color: #334155; }
+  .dropdown-item:hover { background: #f1f5f9; }
+  .dropdown-item .shortcut { margin-left: auto; font-size: 12px; color: #94a3b8; }
+  .divider { height: 1px; background: #e2e8f0; margin: 4px 0; }
+
+  /* Mega menu */
+  .megamenu { position: relative; display: inline-block; }
+  .megamenu-trigger { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: #6366f1; color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 500; cursor: pointer; }
+  .megamenu-panel { display: none; position: absolute; top: calc(100% + 6px); left: 0; background: #fff; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 40px rgba(0,0,0,.1); padding: 20px; width: 480px; z-index: 10; }
+  .megamenu-panel.open { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .mm-section h3 { font-size: 12px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+  .mm-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; font-size: 13px; cursor: pointer; transition: background .15s; }
+  .mm-item:hover { background: #f1f5f9; }
+  .mm-item .icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+
+  /* Select */
+  .custom-select { position: relative; display: inline-block; width: 100%; }
+  .custom-select select { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 14px; background: #fff; appearance: none; cursor: pointer; outline: none; }
+  .custom-select::after { content: "⌄"; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 16px; color: #94a3b8; pointer-events: none; }
+
+  /* Context menu */
+  .context-zone { position: relative; width: 100%; height: 120px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #94a3b8; cursor: default; user-select: none; }
+  .context-menu { display: none; position: absolute; background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 10px 40px rgba(0,0,0,.1); min-width: 180px; padding: 6px; z-index: 10; }
+  .context-menu.open { display: block; }
+
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Dropdowns &amp; Menus</h1>
+  <p class="sub">Dropdown, context menu, mega menu, and custom select patterns.</p>
+  <div class="grid">
+    <!-- Basic Dropdown -->
+    <div class="demo">
+      <h2>Dropdown Menu</h2>
+      <div class="dropdown">
+        <button class="dropdown-trigger" onclick="this.nextElementSibling.classList.toggle('open')">Actions <span>⌄</span></button>
+        <div class="dropdown-menu">
+          <button class="dropdown-item">📝 Edit <span class="shortcut">⌘E</span></button>
+          <button class="dropdown-item">📋 Duplicate <span class="shortcut">⌘D</span></button>
+          <button class="dropdown-item">📌 Pin <span class="shortcut">⌘P</span></button>
+          <div class="divider"></div>
+          <button class="dropdown-item">🔗 Copy link</button>
+          <button class="dropdown-item" style="color:#ef4444;">🗑️ Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mega Menu -->
+    <div class="demo">
+      <h2>Mega Menu</h2>
+      <div class="megamenu">
+        <button class="megamenu-trigger" onclick="this.nextElementSibling.classList.toggle('open')">Products <span>⌄</span></button>
+        <div class="megamenu-panel">
+          <div class="mm-section">
+            <h3>Design</h3>
+            <div class="mm-item"><span class="icon" style="background:#eef2ff;">🎨</span> Design System</div>
+            <div class="mm-item"><span class="icon" style="background:#fef3c7;">🖌️</span> UI Kit</div>
+            <div class="mm-item"><span class="icon" style="background:#d1fae5;">📐</span> Templates</div>
+          </div>
+          <div class="mm-section">
+            <h3>Development</h3>
+            <div class="mm-item"><span class="icon" style="background:#dbeafe;">⚡</span> Framework</div>
+            <div class="mm-item"><span class="icon" style="background:#fce7f3;">🔧</span> CLI Tools</div>
+            <div class="mm-item"><span class="icon" style="background:#e0e7ff;">📦</span> Packages</div>
+          </div>
+          <div class="mm-section">
+            <h3>Collaboration</h3>
+            <div class="mm-item"><span class="icon" style="background:#fef3c7;">💬</span> Comments</div>
+            <div class="mm-item"><span class="icon" style="background:#dbeafe;">🔄</span> Version Control</div>
+          </div>
+          <div class="mm-section">
+            <h3>Enterprise</h3>
+            <div class="mm-item"><span class="icon" style="background:#fce7f3;">🛡️</span> Security</div>
+            <div class="mm-item"><span class="icon" style="background:#d1fae5;">📊</span> Analytics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Context Menu -->
+    <div class="demo">
+      <h2>Context Menu (Right-click)</h2>
+      <div class="context-zone" id="contextZone">Right-click anywhere in this area
+        <div class="context-menu" id="contextMenu">
+          <button class="dropdown-item">✂️ Cut</button>
+          <button class="dropdown-item">📋 Copy</button>
+          <button class="dropdown-item">📄 Paste</button>
+          <div class="divider"></div>
+          <button class="dropdown-item">🔍 Inspect</button>
+          <button class="dropdown-item">📝 Rename</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Select -->
+    <div class="demo">
+      <h2>Custom Select</h2>
+      <div class="custom-select">
+        <select>
+          <option>Select a plan</option>
+          <option>Starter — $29/mo</option>
+          <option>Professional — $79/mo</option>
+          <option>Enterprise — $249/mo</option>
+          <option>Custom — Contact us</option>
+        </select>
+      </div>
+      <div style="margin-top:16px;">
+        <div class="custom-select">
+          <select>
+            <option>Sort by: Relevance</option>
+            <option>Sort by: Newest</option>
+            <option>Sort by: Price: Low to High</option>
+            <option>Sort by: Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.dropdown-menu.open').forEach(m => { if (!m.parentElement.contains(e.target)) m.classList.remove('open'); });
+    document.querySelectorAll('.megamenu-panel.open').forEach(m => { if (!m.parentElement.contains(e.target)) m.classList.remove('open'); });
+  });
+  document.getElementById('contextZone').addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    const menu = document.getElementById('contextMenu');
+    menu.style.left = Math.min(e.offsetX, 180) + 'px';
+    menu.style.top = Math.min(e.offsetY, 80) + 'px';
+    menu.classList.toggle('open');
+  });
+  document.addEventListener('click', (e) => {
+    if (!document.getElementById('contextZone').contains(e.target)) {
+      document.getElementById('contextMenu').classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>

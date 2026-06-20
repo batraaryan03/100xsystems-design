@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 · Page Not Found</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f3ee;
+  --surface: #ffffff;
+  --text: #1a1713;
+  --text-soft: #5c554a;
+  --text-mute: #9c958a;
+  --accent: #c94b32;
+  --accent-soft: #f7e9e5;
+  --border: #e2dbd0;
+  --sans: 'Instrument Sans', system-ui, sans-serif;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --radius: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body { display: flex; align-items: center; justify-content: center; background: var(--bg); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; padding: 24px; }
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.02'/></svg>");
+  background-size: 200px 200px;
+}
+.page { text-align: center; max-width: 520px; position: relative; z-index: 1; }
+.code { font-family: var(--serif); font-size: clamp(140px, 25vw, 220px); font-style: italic; line-height: 0.85; color: var(--accent); margin-bottom: 8px; letter-spacing: -0.05em; }
+.code .zero { color: var(--border); }
+h1 { font-family: var(--serif); font-size: 36px; font-weight: 400; margin-bottom: 12px; }
+p { color: var(--text-soft); font-size: 16px; line-height: 1.6; margin-bottom: 32px; max-width: 36ch; margin-left: auto; margin-right: auto; }
+.actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 999px; font-family: var(--sans); font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.15s ease; }
+.btn-primary { background: var(--text); color: #fff; }
+.btn-primary:hover { background: var(--accent); }
+.btn-ghost { border: 1px solid var(--border); color: var(--text-soft); }
+.btn-ghost:hover { border-color: var(--text); color: var(--text); }
+.divider { display: flex; align-items: center; gap: 16px; margin: 32px 0; font-size: 12px; color: var(--text-mute); }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.links a { color: var(--text-mute); text-decoration: none; font-size: 13px; transition: color 0.15s ease; }
+.links a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="code">4<span class="zero">0</span>4</div>
+  <h1>Lost in the void</h1>
+  <p>The page you're looking for doesn't exist, was moved, or is taking an unexpected detour through the digital cosmos.</p>
+  <div class="actions">
+    <a href="#" class="btn btn-primary">← Back to home</a>
+    <a href="#" class="btn btn-ghost">Search site</a>
+  </div>
+  <div class="divider">or try</div>
+  <div class="links">
+    <a href="#">Documentation</a>
+    <a href="#">Blog</a>
+    <a href="#">Support</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+</body>
+</html>

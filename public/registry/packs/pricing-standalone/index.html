@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Plans</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0b0d17; color: #fff; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  .pricing { padding: 80px 0; }
+  .header { text-align: center; margin-bottom: 56px; }
+  .header h1 { font-size: clamp(40px, 5vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+  .header p { color: #888; font-size: 17px; max-width: 480px; margin: 0 auto; }
+
+  /* Toggle */
+  .toggle-wrap { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 48px; }
+  .toggle-wrap span { font-size: 15px; color: #666; font-weight: 500; }
+  .toggle-wrap span.active { color: #fff; }
+  .toggle { width: 48px; height: 26px; background: #222; border-radius: 13px; position: relative; cursor: pointer; transition: background .2s; }
+  .toggle.active { background: #6366f1; }
+  .toggle-knob { width: 20px; height: 20px; background: #fff; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: transform .2s; }
+  .toggle.active .toggle-knob { transform: translateX(22px); }
+  .save-badge { background: #6366f1; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: .5px; }
+
+  /* Cards */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: #131627; border-radius: 20px; padding: 32px; border: 1px solid #1e2140; position: relative; transition: border-color .2s, transform .2s; }
+  .card:hover { border-color: #6366f1; transform: translateY(-4px); }
+  .card.popular { border-color: #6366f1; background: linear-gradient(135deg, #131627 0%, #1a1d3e 100%); }
+  .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #6366f1; color: #fff; padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+  .card-name { font-size: 14px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .card-price { margin-bottom: 20px; }
+  .card-price .amount { font-size: 48px; font-weight: 800; letter-spacing: -2px; }
+  .card-price .period { color: #666; font-size: 15px; margin-left: 4px; }
+  .card-desc { font-size: 14px; color: #888; margin-bottom: 24px; line-height: 1.7; }
+  .card-cta { display: block; width: 100%; padding: 14px; border-radius: 10px; border: none; font-weight: 600; font-size: 15px; cursor: pointer; text-align: center; text-decoration: none; transition: all .2s; margin-bottom: 28px; }
+  .card-cta.primary { background: #6366f1; color: #fff; }
+  .card-cta.primary:hover { background: #5558e6; }
+  .card-cta.secondary { background: #1e2140; color: #fff; }
+  .card-cta.secondary:hover { background: #2a2d50; }
+  .features { list-style: none; }
+  .features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #aaa; padding: 6px 0; }
+  .features li::before { content: "✓"; color: #6366f1; font-weight: 700; flex-shrink: 0; }
+
+  /* Comparison */
+  .comparison { margin-top: 64px; background: #131627; border-radius: 20px; border: 1px solid #1e2140; overflow: hidden; }
+  .comparison h3 { padding: 24px 32px 0; font-size: 20px; font-weight: 700; }
+  .comp-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+  .comp-table th, .comp-table td { padding: 14px 32px; text-align: left; font-size: 14px; border-bottom: 1px solid #1e2140; }
+  .comp-table th { color: #888; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .5px; }
+  .comp-table td:first-child { color: #ccc; font-weight: 500; }
+  .comp-table td { color: #aaa; }
+  .comp-table .yes { color: #6366f1; font-weight: 700; }
+  .comp-table .no { color: #444; }
+  .comp-table tr:last-child td { border-bottom: none; }
+
+  @media (max-width: 900px) { .cards { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; } }
+</style>
+</head>
+<body>
+  <section class="pricing">
+    <div class="container">
+      <div class="header">
+        <h1>Simple, transparent pricing</h1>
+        <p>No surprises. No hidden fees. Scale your plan as you grow.</p>
+      </div>
+
+      <div class="toggle-wrap">
+        <span class="active" id="monthlyLabel">Monthly</span>
+        <div class="toggle" id="toggle">
+          <div class="toggle-knob"></div>
+        </div>
+        <span id="yearlyLabel">Yearly</span>
+        <span class="save-badge">Save 20%</span>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-name">Starter</div>
+          <div class="card-price"><span class="amount" data-monthly="29" data-yearly="23">29</span><span class="period">/mo</span></div>
+          <p class="card-desc">Everything you need to get started with a small project.</p>
+          <a href="#" class="card-cta secondary">Get Started</a>
+          <ul class="features">
+            <li>Up to 5 projects</li>
+            <li>10 GB storage</li>
+            <li>Basic analytics</li>
+            <li>Community support</li>
+            <li>1 team member</li>
+          </ul>
+        </div>
+
+        <div class="card popular">
+          <div class="popular-badge">Most Popular</div>
+          <div class="card-name">Professional</div>
+          <div class="card-price"><span class="amount" data-monthly="79" data-yearly="63">79</span><span class="period">/mo</span></div>
+          <p class="card-desc">For growing teams that need advanced features and collaboration.</p>
+          <a href="#" class="card-cta primary">Start Free Trial →</a>
+          <ul class="features">
+            <li>Unlimited projects</li>
+            <li>100 GB storage</li>
+            <li>Advanced analytics + reports</li>
+            <li>Priority email support</li>
+            <li>Up to 10 team members</li>
+            <li>Custom domains</li>
+            <li>API access</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-name">Enterprise</div>
+          <div class="card-price"><span class="amount" data-monthly="249" data-yearly="199">249</span><span class="period">/mo</span></div>
+          <p class="card-desc">For large organizations with advanced security and compliance needs.</p>
+          <a href="#" class="card-cta secondary">Contact Sales</a>
+          <ul class="features">
+            <li>Everything in Pro</li>
+            <li>1 TB storage</li>
+            <li>SSO &amp; SAML</li>
+            <li>Dedicated support</li>
+            <li>Unlimited team members</li>
+            <li>Custom integrations</li>
+            <li>SLA guarantee</li>
+            <li>Audit logs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="comparison">
+        <h3>Full feature comparison</h3>
+        <table class="comp-table">
+          <tr><th>Feature</th><th>Starter</th><th>Professional</th><th>Enterprise</th></tr>
+          <tr><td>Projects</td><td>5</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Storage</td><td>10 GB</td><td>100 GB</td><td>1 TB</td></tr>
+          <tr><td>Team members</td><td>1</td><td>10</td><td>Unlimited</td></tr>
+          <tr><td>Custom domains</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>API access</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>SSO / SAML</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+          <tr><td>Audit logs</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+          <tr><td>Support</td><td>Community</td><td>Priority email</td><td>Dedicated</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    const monthlyLabel = document.getElementById('monthlyLabel');
+    const yearlyLabel = document.getElementById('yearlyLabel');
+    const amounts = document.querySelectorAll('.amount');
+
+    toggle.addEventListener('click', () => {
+      const isYearly = toggle.classList.toggle('active');
+      monthlyLabel.classList.toggle('active', !isYearly);
+      yearlyLabel.classList.toggle('active', isYearly);
+      amounts.forEach(el => {
+        el.textContent = isYearly ? el.dataset.yearly : el.dataset.monthly;
+      });
+    });
+  </script>
+</body>
+</html>

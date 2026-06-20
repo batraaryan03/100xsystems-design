@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanban Board</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f1f5f9; color: #0f172a; padding: 32px 24px; min-height: 100vh; }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .board-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+  .board-header h1 { font-size: 24px; font-weight: 700; }
+  .board-header .meta { color: #64748b; font-size: 14px; }
+  .board-actions { display: flex; gap: 8px; }
+  .board-actions button { padding: 8px 16px; border-radius: 10px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .15s; }
+  .btn-primary { background: #6366f1; color: #fff; }
+  .btn-primary:hover { background: #5558e6; }
+  .btn-ghost { background: #fff; color: #475569; border: 1px solid #e2e8f0; }
+  .btn-ghost:hover { border-color: #cbd5e1; }
+
+  /* Board */
+  .board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: start; }
+  .column { background: #f8fafc; border-radius: 16px; padding: 16px; border: 1px solid #e2e8f0; }
+  .column-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .column-title { display: flex; align-items: center; gap: 8px; }
+  .column-title .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .column-title .dot.todo { background: #94a3b8; }
+  .column-title .dot.in-progress { background: #6366f1; }
+  .column-title .dot.review { background: #f59e0b; }
+  .column-title .dot.done { background: #22c55e; }
+  .column-title h3 { font-size: 14px; font-weight: 600; }
+  .column-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 2px 8px; border-radius: 8px; font-weight: 500; }
+  .column-add { width: 28px; height: 28px; border-radius: 6px; border: none; background: transparent; font-size: 16px; cursor: pointer; color: #94a3b8; display: flex; align-items: center; justify-content: center; transition: all .15s; }
+  .column-add:hover { background: #f1f5f9; color: #475569; }
+
+  /* Cards */
+  .cards { display: grid; gap: 10px; min-height: 60px; }
+  .card { background: #fff; border-radius: 12px; padding: 14px; border: 1px solid #e2e8f0; cursor: grab; transition: all .15s; }
+  .card:hover { border-color: #6366f1; box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+  .card:active { cursor: grabbing; }
+  .card-labels { display: flex; gap: 4px; margin-bottom: 8px; }
+  .card-label { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: .3px; }
+  .label-feature { background: #dbeafe; color: #2563eb; }
+  .label-bug { background: #fee2e2; color: #dc2626; }
+  .label-design { background: #fce7f3; color: #db2777; }
+  .label-dev { background: #d1fae5; color: #059669; }
+  .label-docs { background: #fef3c7; color: #d97706; }
+  .card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .card p { font-size: 12px; color: #94a3b8; line-height: 1.5; margin-bottom: 10px; }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; }
+  .card-priority { font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 6px; }
+  .pri-high { background: #fee2e2; color: #dc2626; }
+  .pri-medium { background: #fef3c7; color: #d97706; }
+  .pri-low { background: #d1fae5; color: #059669; }
+  .card-avatars { display: flex; }
+  .card-avatars .mini { width: 24px; height: 24px; border-radius: 50%; border: 2px solid #fff; margin-left: -6px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: #fff; }
+  .card-avatars .mini:first-child { margin-left: 0; }
+
+  @media (max-width: 1024px) { .board { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .board { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="board-header">
+    <div>
+      <h1>🏗️ Sprint 24</h1>
+      <span class="meta">Jun 16 – Jun 30 · 8 tasks remaining</span>
+    </div>
+    <div class="board-actions">
+      <button class="btn-ghost">Filter</button>
+      <button class="btn-primary">+ Add Task</button>
+    </div>
+  </div>
+
+  <div class="board">
+    <!-- Todo -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span class="dot todo"></span><h3>To Do</h3><span class="column-count">4</span></div>
+        <button class="column-add">+</button>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-labels"><span class="card-label label-feature">Feature</span></div>
+          <h4>Mobile responsive breakpoints</h4>
+          <p>Update all component breakpoints for tablet and mobile views.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-high">High</span>
+            <div class="card-avatars">
+              <div class="mini" style="background:#6366f1;">S</div>
+              <div class="mini" style="background:#e85d3a;">M</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-labels"><span class="card-label label-docs">Docs</span></div>
+          <h4>API reference page</h4>
+          <p>Generate OpenAPI documentation for the public REST endpoints.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-low">Low</span>
+            <div class="card-avatars"><div class="mini" style="background:#059669;">K</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-labels"><span class="card-label label-design">Design</span><span class="card-label label-feature">Feature</span></div>
+          <h4>Dark mode color tokens</h4>
+          <p>Define and document all color tokens for dark theme support.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-medium">Medium</span>
+            <div class="card-avatars"><div class="mini" style="background:#7c3aed;">J</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-labels"><span class="card-label label-dev">Dev</span></div>
+          <h4>Set up CI/CD pipeline</h4>
+          <p>Configure GitHub Actions for automated testing and deployment.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-high">High</span>
+            <div class="card-avatars"><div class="mini" style="background:#0891b2;">K</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- In Progress -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span class="dot in-progress"></span><h3>In Progress</h3><span class="column-count">3</span></div>
+        <button class="column-add">+</button>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-labels"><span class="card-label label-feature">Feature</span></div>
+          <h4>User avatar component</h4>
+          <p>Build reusable avatar with status indicator and dropdown menu.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-high">High</span>
+            <div class="card-avatars"><div class="mini" style="background:#6366f1;">A</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-labels"><span class="card-label label-bug">Bug</span></div>
+          <h4>Modal scroll lock issue</h4>
+          <p>Background scrolls when modal is open on iOS Safari. Need body overflow fix.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-high">High</span>
+            <div class="card-avatars">
+              <div class="mini" style="background:#e85d3a;">S</div>
+              <div class="mini" style="background:#059669;">M</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-labels"><span class="card-label label-dev">Dev</span></div>
+          <h4>API rate limiting</h4>
+          <p>Implement token bucket rate limiting with Redis backend.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-medium">Medium</span>
+            <div class="card-avatars"><div class="mini" style="background:#0891b2;">K</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span class="dot review"></span><h3>Review</h3><span class="column-count">2</span></div>
+        <button class="column-add">+</button>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-labels"><span class="card-label label-dev">Dev</span></div>
+          <h4>Search UX improvements</h4>
+          <p>Debounced search, keyboard navigation, and result highlighting.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-medium">Medium</span>
+            <div class="card-avatars">
+              <div class="mini" style="background:#6366f1;">A</div>
+              <div class="mini" style="background:#e85d3a;">M</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-labels"><span class="card-label label-design">Design</span></div>
+          <h4>Icon set consistency</h4>
+          <p>Audit all icons for consistent stroke width and sizing. Update 8 icons.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-low">Low</span>
+            <div class="card-avatars"><div class="mini" style="background:#7c3aed;">J</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Done -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span class="dot done"></span><h3>Done</h3><span class="column-count">5</span></div>
+        <button class="column-add">+</button>
+      </div>
+      <div class="cards">
+        <div class="card" style="opacity:.75;">
+          <div class="card-labels"><span class="card-label label-feature">Feature</span></div>
+          <h4>Toast notification system</h4>
+          <p>Stackable toasts with auto-dismiss, animations, and 4 variants.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-medium" style="background:#d1fae5;color:#059669;">Done</span>
+            <div class="card-avatars"><div class="mini" style="background:#6366f1;">A</div></div>
+          </div>
+        </div>
+        <div class="card" style="opacity:.75;">
+          <div class="card-labels"><span class="card-label label-dev">Dev</span></div>
+          <h4>Database migration v2</h4>
+          <p>Schema migration for projects table with indexes and constraints.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-high" style="background:#d1fae5;color:#059669;">Done</span>
+            <div class="card-avatars"><div class="mini" style="background:#0891b2;">K</div></div>
+          </div>
+        </div>
+        <div class="card" style="opacity:.75;">
+          <div class="card-labels"><span class="card-label label-docs">Docs</span></div>
+          <h4>Onboarding guide</h4>
+          <p>Step-by-step guide with screenshots for new users.</p>
+          <div class="card-footer">
+            <span class="card-priority pri-low" style="background:#d1fae5;color:#059669;">Done</span>
+            <div class="card-avatars"><div class="mini" style="background:#059669;">K</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

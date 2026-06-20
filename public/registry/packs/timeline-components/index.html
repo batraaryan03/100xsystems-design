@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timeline Components</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; padding: 48px 24px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .sub { color: #64748b; margin-bottom: 40px; }
+  .grid { display: grid; gap: 40px; }
+
+  .demo { background: #fff; border-radius: 16px; padding: 32px; border: 1px solid #e2e8f0; }
+  .demo h2 { font-size: 16px; font-weight: 600; margin-bottom: 24px; color: #475569; }
+
+  /* Vertical Timeline */
+  .v-timeline { position: relative; padding-left: 32px; }
+  .v-timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: #e2e8f0; }
+  .v-item { position: relative; padding-bottom: 28px; }
+  .v-item:last-child { padding-bottom: 0; }
+  .v-dot { position: absolute; left: -25px; top: 4px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid #fff; z-index: 1; }
+  .v-dot.blue { background: #6366f1; box-shadow: 0 0 0 2px #6366f1; }
+  .v-dot.green { background: #22c55e; box-shadow: 0 0 0 2px #22c55e; }
+  .v-dot.amber { background: #f59e0b; box-shadow: 0 0 0 2px #f59e0b; }
+  .v-dot.pink { background: #ec4899; box-shadow: 0 0 0 2px #ec4899; }
+  .v-dot.gray { background: #94a3b8; box-shadow: 0 0 0 2px #94a3b8; }
+  .v-date { font-size: 12px; color: #94a3b8; font-weight: 500; margin-bottom: 4px; }
+  .v-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .v-desc { font-size: 13px; color: #64748b; line-height: 1.6; }
+
+  /* Activity Feed */
+  .activity { list-style: none; }
+  .activity-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f1f5f9; align-items: flex-start; }
+  .activity-item:last-child { border-bottom: none; }
+  .a-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .a-content { flex: 1; min-width: 0; }
+  .a-text { font-size: 14px; color: #334155; line-height: 1.5; }
+  .a-text strong { font-weight: 600; }
+  .a-time { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+
+  /* Milestone Tracker */
+  .milestones { display: flex; justify-content: space-between; align-items: flex-start; position: relative; padding-top: 8px; }
+  .milestones::before { content: ''; position: absolute; top: 16px; left: 0; right: 0; height: 3px; background: #e2e8f0; border-radius: 2px; }
+  .milestones .progress-fill { position: absolute; top: 16px; left: 0; height: 3px; background: #6366f1; border-radius: 2px; transition: width .6s ease; }
+  .milestone { position: relative; z-index: 1; text-align: center; flex: 1; }
+  .m-dot { width: 32px; height: 32px; border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; border: 3px solid #e2e8f0; background: #fff; transition: all .3s; }
+  .milestone.done .m-dot { background: #6366f1; border-color: #6366f1; color: #fff; }
+  .milestone.current .m-dot { border-color: #6366f1; background: #fff; color: #6366f1; box-shadow: 0 0 0 4px rgba(99,102,241,.15); }
+  .m-label { font-size: 12px; font-weight: 500; color: #94a3b8; }
+  .milestone.done .m-label, .milestone.current .m-label { color: #334155; }
+
+  /* Horizontal Timeline */
+  .h-timeline { display: flex; gap: 0; overflow-x: auto; padding: 8px 0 4px; }
+  .h-item { display: flex; flex-direction: column; align-items: center; min-width: 160px; position: relative; }
+  .h-item::after { content: ''; position: absolute; top: 16px; left: 50%; width: 100%; height: 2px; background: #e2e8f0; z-index: 0; }
+  .h-item:last-child::after { display: none; }
+  .h-item .h-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1; background: #fff; border: 3px solid #e2e8f0; font-size: 13px; font-weight: 700; margin-bottom: 8px; color: #94a3b8; position: relative; }
+  .h-item.active .h-dot { border-color: #6366f1; color: #6366f1; }
+  .h-item.completed .h-dot { background: #6366f1; border-color: #6366f1; color: #fff; }
+  .h-item .h-label { font-size: 12px; font-weight: 500; color: #94a3b8; text-align: center; }
+  .h-item.active .h-label { color: #6366f1; font-weight: 600; }
+  .h-item.completed .h-label { color: #334155; }
+
+  @media (max-width: 768px) { .milestones { flex-direction: column; gap: 20px; } .milestones::before, .milestones .progress-fill { display: none; } .milestone { text-align: left; display: flex; align-items: center; gap: 12px; } .m-dot { margin: 0; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Timeline Components</h1>
+  <p class="sub">Vertical timeline, activity feed, milestone tracker, and horizontal timeline.</p>
+  <div class="grid">
+
+    <!-- Vertical Timeline -->
+    <div class="demo">
+      <h2>Project History</h2>
+      <div class="v-timeline">
+        <div class="v-item">
+          <div class="v-dot blue"></div>
+          <div class="v-date">Mar 15, 2026</div>
+          <div class="v-title">v3.8.0 Released</div>
+          <div class="v-desc">New design system components, performance improvements, and bug fixes. Updated component library with 12 new patterns.</div>
+        </div>
+        <div class="v-item">
+          <div class="v-dot green"></div>
+          <div class="v-date">Feb 28, 2026</div>
+          <div class="v-title">Team Expansion</div>
+          <div class="v-desc">Welcomed 4 new engineers and 2 designers. Team now spans 12 time zones across 5 countries.</div>
+        </div>
+        <div class="v-item">
+          <div class="v-dot amber"></div>
+          <div class="v-date">Jan 10, 2026</div>
+          <div class="v-title">$12M Series A</div>
+          <div class="v-desc">Closed Series A funding led by Accel Partners. Funds allocated to product development and go-to-market expansion.</div>
+        </div>
+        <div class="v-item">
+          <div class="v-dot pink"></div>
+          <div class="v-date">Nov 5, 2025</div>
+          <div class="v-title">Product Launch</div>
+          <div class="v-desc">Public beta launch with 2,000+ waitlist signups. Featured on Product Hunt as #1 Product of the Day.</div>
+        </div>
+        <div class="v-item">
+          <div class="v-dot gray"></div>
+          <div class="v-date">Aug 20, 2025</div>
+          <div class="v-title">Company Founded</div>
+          <div class="v-desc">Founded by Alex Rivera and Sam Chen with a mission to bridge the gap between design and engineering teams.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Feed -->
+    <div class="demo">
+      <h2>Recent Activity</h2>
+      <ul class="activity">
+        <li class="activity-item">
+          <div class="a-icon" style="background:#eef2ff;">📝</div>
+          <div class="a-content">
+            <div class="a-text"><strong>Sarah Chen</strong> updated the Design System component library</div>
+            <div class="a-time">12 minutes ago</div>
+          </div>
+        </li>
+        <li class="activity-item">
+          <div class="a-icon" style="background:#d1fae5;">✓</div>
+          <div class="a-content">
+            <div class="a-text"><strong>Marcus Johnson</strong> approved PR #892 — Refactor auth middleware</div>
+            <div class="a-time">2 hours ago</div>
+          </div>
+        </li>
+        <li class="activity-item">
+          <div class="a-icon" style="background:#fef3c7;">💬</div>
+          <div class="a-content">
+            <div class="a-text"><strong>Amara Patel</strong> commented on "Mobile responsive breakpoints"</div>
+            <div class="a-time">3 hours ago</div>
+          </div>
+        </li>
+        <li class="activity-item">
+          <div class="a-icon" style="background:#fce7f3;">🚀</div>
+          <div class="a-content">
+            <div class="a-text"><strong>DevOps Bot</strong> deployed v3.8.0 to production (100% rollout)</div>
+            <div class="a-time">5 hours ago</div>
+          </div>
+        </li>
+        <li class="activity-item">
+          <div class="a-icon" style="background:#e0e7ff;">🔗</div>
+          <div class="a-content">
+            <div class="a-text"><strong>Kai Yamamoto</strong> merged branch <code style="background:#f1f5f9;padding:1px 4px;border-radius:4px;font-size:12px;">feat/pipeline-optimization</code></div>
+            <div class="a-time">1 day ago</div>
+          </div>
+        </li>
+        <li class="activity-item">
+          <div class="a-icon" style="background:#f1f5f9;">📎</div>
+          <div class="a-content">
+            <div class="a-text"><strong>Lena Okafor</strong> uploaded 6 new illustration assets</div>
+            <div class="a-time">2 days ago</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Milestone Tracker -->
+    <div class="demo">
+      <h2>Project Milestones</h2>
+      <div class="milestones">
+        <div class="progress-fill" style="width: 60%;"></div>
+        <div class="milestone done">
+          <div class="m-dot">✓</div>
+          <div class="m-label">Research</div>
+        </div>
+        <div class="milestone done">
+          <div class="m-dot">✓</div>
+          <div class="m-label">Design</div>
+        </div>
+        <div class="milestone current">
+          <div class="m-dot">3</div>
+          <div class="m-label">Development</div>
+        </div>
+        <div class="milestone">
+          <div class="m-dot">4</div>
+          <div class="m-label">Testing</div>
+        </div>
+        <div class="milestone">
+          <div class="m-dot">5</div>
+          <div class="m-label">Launch</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Horizontal Timeline -->
+    <div class="demo">
+      <h2>Sprint Timeline</h2>
+      <div class="h-timeline">
+        <div class="h-item completed">
+          <div class="h-dot">✓</div>
+          <div class="h-label">Sprint 1<br><span style="font-size:11px;color:#94a3b8;">Planning</span></div>
+        </div>
+        <div class="h-item completed">
+          <div class="h-dot">✓</div>
+          <div class="h-label">Sprint 2<br><span style="font-size:11px;color:#94a3b8;">Core UI</span></div>
+        </div>
+        <div class="h-item active">
+          <div class="h-dot">3</div>
+          <div class="h-label">Sprint 3<br><span style="font-size:11px;color:#94a3b8;">API &amp; Auth</span></div>
+        </div>
+        <div class="h-item">
+          <div class="h-dot">4</div>
+          <div class="h-label">Sprint 4<br><span style="font-size:11px;color:#94a3b8;">Integrations</span></div>
+        </div>
+        <div class="h-item">
+          <div class="h-dot">5</div>
+          <div class="h-label">Sprint 5<br><span style="font-size:11px;color:#94a3b8;">Testing</span></div>
+        </div>
+        <div class="h-item">
+          <div class="h-dot">6</div>
+          <div class="h-label">Sprint 6<br><span style="font-size:11px;color:#94a3b8;">Ship</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

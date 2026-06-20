@@ -4,92 +4,6 @@
   "homepage": "https://github.com/batraaryan03/100xsystems-design",
   "items": [
     {
-      "name": "open-design-landing-html",
-      "type": "registry:block",
-      "title": "Open Design Landing",
-      "author": "Open Design",
-      "description": "Single-file editorial landing page. All CSS inlined. Drop one file, get a full page with warm paper aesthetic, coral accents, and editorial typography.",
-      "meta": {
-        "category": "landing",
-        "tags": [
-          "editorial",
-          "landing",
-          "single-file",
-          "atelier-zero",
-          "warm",
-          "coral"
-        ]
-      },
-      "files": [
-        {
-          "path": "public/registry/packs/open-design-landing-html/index.html",
-          "type": "registry:file",
-          "target": "~/index.html"
-        }
-      ]
-    },
-    {
-      "name": "open-design-landing-split",
-      "type": "registry:block",
-      "title": "Open Design Landing (Split)",
-      "author": "Open Design",
-      "description": "Editorial landing page with separated HTML and CSS files. Clean markup with external stylesheet for easy customization.",
-      "meta": {
-        "category": "landing",
-        "tags": [
-          "editorial",
-          "landing",
-          "split",
-          "atelier-zero",
-          "warm",
-          "coral",
-          "css"
-        ]
-      },
-      "files": [
-        {
-          "path": "public/registry/packs/open-design-landing-split/index.html",
-          "type": "registry:file",
-          "target": "~/index.html"
-        },
-        {
-          "path": "public/registry/packs/open-design-landing-split/styles.css",
-          "type": "registry:file",
-          "target": "~/styles.css"
-        }
-      ]
-    },
-    {
-      "name": "open-design-landing-react",
-      "type": "registry:block",
-      "title": "Open Design Landing (React)",
-      "author": "Open Design",
-      "description": "React component version of the Open Design landing page. Use in Next.js or any React project with the Atelier Zero design system.",
-      "meta": {
-        "category": "landing",
-        "tags": [
-          "editorial",
-          "landing",
-          "react",
-          "nextjs",
-          "atelier-zero",
-          "warm",
-          "coral"
-        ]
-      },
-      "files": [
-        {
-          "path": "public/registry/packs/open-design-landing-react/OpenDesignLanding.tsx",
-          "type": "registry:component",
-          "target": "~/components/OpenDesignLanding.tsx"
-        }
-      ],
-      "dependencies": [
-        "next",
-        "react"
-      ]
-    },
-    {
       "name": "modern-saas-landing",
       "type": "registry:block",
       "title": "Modern SaaS Landing",
@@ -627,6 +541,1074 @@
       "files": [
         {
           "path": "public/registry/packs/cta-banners/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "open-design-landing-html",
+      "type": "registry:block",
+      "title": "Open Design Landing",
+      "author": "Open Design",
+      "description": "Single-file editorial landing page. All CSS inlined. Drop one file, get a full page with warm paper aesthetic, coral accents, and editorial typography.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "editorial",
+          "landing",
+          "single-file",
+          "atelier-zero",
+          "warm",
+          "coral"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/open-design-landing-html/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-admin",
+      "type": "registry:block",
+      "title": "Dashboard — Admin Panel",
+      "author": "100X Systems",
+      "description": "Full admin dashboard with dark sidebar, stat cards, weekly revenue chart, recent activity feed, and orders table. Space Grotesk typography.",
+      "meta": {
+        "category": "dashboard",
+        "tags": [
+          "dashboard",
+          "admin",
+          "analytics",
+          "table",
+          "sidebar",
+          "html"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/dashboard-admin/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "e-commerce-browse",
+      "type": "registry:block",
+      "title": "E-Commerce — Product Browse",
+      "author": "100X Systems",
+      "description": "Clean e-commerce product listing page with sidebar filters, product card grid, hero banner, and pagination. Instrument Sans typography.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "ecommerce",
+          "shop",
+          "products",
+          "grid",
+          "filters",
+          "html"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/e-commerce-browse/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "blog-magazine",
+      "type": "registry:block",
+      "title": "Magazine — Blog Home",
+      "author": "100X Systems",
+      "description": "Editorial blog homepage with featured story card, article grid, topic pills, newsletter signup. Newsreader serif typography with paper texture.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "blog",
+          "magazine",
+          "editorial",
+          "articles",
+          "newsletter",
+          "html"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/blog-magazine/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "auth-pages",
+      "type": "registry:block",
+      "title": "Authentication — Sign In / Sign Up",
+      "author": "100X Systems",
+      "description": "Dark-themed login page with split layout, brand panel with quote, email + password form, social sign-in buttons, and tabbed auth switching.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "auth",
+          "login",
+          "signup",
+          "authentication",
+          "dark",
+          "html"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/auth-pages/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "modal-dialogs",
+      "type": "registry:block",
+      "title": "Modal & Dialog Patterns",
+      "author": "100X Systems",
+      "description": "3 dialog patterns — confirmation, form modal, and info overlay. Click-triggered with backdrop blur and smooth transitions.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "modal",
+          "dialog",
+          "overlay",
+          "popup",
+          "confirmation",
+          "form",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/modal-dialogs/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "accordion-tabs",
+      "type": "registry:block",
+      "title": "Accordion, Tabs & Stepper",
+      "author": "100X Systems",
+      "description": "Interactive UI patterns: pill and line tab variants, accordion FAQ with smooth expand/collapse, and a multi-step wizard with navigation.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "accordion",
+          "tabs",
+          "stepper",
+          "wizard",
+          "faq",
+          "interactive",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/accordion-tabs/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "tables-data",
+      "type": "registry:block",
+      "title": "Data Table Patterns",
+      "author": "100X Systems",
+      "description": "3 table variants — standard with search and pagination, compact inventory view, and striped transaction log. Sortable headers and status badges.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "table",
+          "data",
+          "grid",
+          "rows",
+          "sort",
+          "search",
+          "pagination",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/tables-data/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "geometric-patterns",
+      "type": "registry:block",
+      "title": "Geometric Patterns",
+      "author": "100X Systems",
+      "description": "6 repeating SVG geometric patterns — chevron, hexagon, dot grid, diagonal stripes, crosshatch, and triangles. For backgrounds and decorative use.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "patterns",
+          "geometric",
+          "svg",
+          "backgrounds",
+          "repeating",
+          "textures"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/geometric-patterns/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "blob-shapes",
+      "type": "registry:block",
+      "title": "Blob Shapes",
+      "author": "100X Systems",
+      "description": "6 organic SVG blob shapes in warm, blue, green, pink, amber, and neutral tones. Perfect for hero backgrounds, section dividers, and decorative accents.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "blob",
+          "organic",
+          "shapes",
+          "svg",
+          "backgrounds",
+          "decorative",
+          "abstract"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/blob-shapes/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "abstract-illustrations",
+      "type": "registry:block",
+      "title": "Abstract Illustrations",
+      "author": "100X Systems",
+      "description": "6 minimalist abstract SVG illustrations — floating orbs, geometric frames, fluid wave, signal bars, nested pentagon, and constellation dot pattern.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "illustrations",
+          "abstract",
+          "svg",
+          "minimal",
+          "geometric",
+          "decorative"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/abstract-illustrations/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "landing-app-showcase",
+      "type": "registry:block",
+      "title": "Lumina — App Showcase Landing",
+      "author": "100X Systems",
+      "description": "Dark-themed app landing page with hero, feature grid, testimonials, pricing, and app mockup. Inter + DM Serif Display typography.",
+      "meta": {
+        "category": "saas",
+        "tags": [
+          "saas",
+          "landing",
+          "app",
+          "showcase",
+          "dark",
+          "pricing",
+          "testimonials"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/landing-app-showcase/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "page-404-not-found",
+      "type": "registry:block",
+      "title": "404 — Page Not Found",
+      "author": "100X Systems",
+      "description": "Creative 404 error page with large serif typography, warm paper background, and contextual navigation links. Instrument Sans + Serif.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "404",
+          "error",
+          "page",
+          "not-found",
+          "html",
+          "utility"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/page-404-not-found/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "contact-page",
+      "type": "registry:block",
+      "title": "Contact — Get in Touch",
+      "author": "100X Systems",
+      "description": "Clean contact page with info cards, contact form with validation-ready fields, and social links. Playfair Display + Inter typography.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "contact",
+          "form",
+          "get-in-touch",
+          "html",
+          "page"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/contact-page/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "faq-page",
+      "type": "registry:block",
+      "title": "FAQ — Help Center",
+      "author": "100X Systems",
+      "description": "Help center page with search bar, category cards, expandable FAQ accordion with smooth animations, and support CTA. Outfit + Lexend typography.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "faq",
+          "help",
+          "support",
+          "accordion",
+          "search",
+          "html",
+          "page"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/faq-page/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "notifications-toasts",
+      "type": "registry:block",
+      "title": "Notifications & Toasts",
+      "author": "100X Systems",
+      "description": "4 toast notification types (success, error, info, warning) with slide-in animations and auto-dismiss, plus an inline banner variant.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "notifications",
+          "toasts",
+          "alerts",
+          "snackbar",
+          "banner",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/notifications-toasts/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "loading-spinners",
+      "type": "registry:block",
+      "title": "Loading Indicators",
+      "author": "100X Systems",
+      "description": "7 loading patterns: ring spinner, bouncing dots, pulse ring, bar loader, rotating dots, skeleton screen, and animated progress bar.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "loading",
+          "spinner",
+          "skeleton",
+          "progress",
+          "indicator",
+          "css",
+          "animation",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/loading-spinners/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "search-filters",
+      "type": "registry:block",
+      "title": "Search & Filter Components",
+      "author": "100X Systems",
+      "description": "Search bar with keyboard shortcut hint, filter chip variants, active filter tags, tag input with removable chips, and range slider.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "search",
+          "filters",
+          "chips",
+          "tags",
+          "input",
+          "range",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/search-filters/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "profile-cards",
+      "type": "registry:block",
+      "title": "Profile Cards",
+      "author": "100X Systems",
+      "description": "3 profile card variants: vertical with tags and actions, horizontal for side-by-side layouts, and minimal for compact grids.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "profile",
+          "team",
+          "cards",
+          "avatar",
+          "contacts",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/profile-cards/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "gradient-meshes",
+      "type": "registry:block",
+      "title": "Gradient Meshes",
+      "author": "100X Systems",
+      "description": "6 vibrant gradient backgrounds — twilight purple, pink bloom, cyan lagoon, green mint, coral sunset, and lavender. CSS gradients ready to use.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "gradients",
+          "backgrounds",
+          "meshes",
+          "colors",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/gradient-meshes/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "line-art-icons",
+      "type": "registry:block",
+      "title": "Line Art Icons",
+      "author": "100X Systems",
+      "description": "12 essential SVG line icons on a 24×24 grid with 1.5px stroke: clock, layers, heart, target, folder, search, download, edit, bookmark, package, history, users.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "icons",
+          "line-art",
+          "svg",
+          "minimal",
+          "ui",
+          "symbols"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/line-art-icons/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "team-culture",
+      "type": "registry:block",
+      "title": "Team & Culture Page",
+      "author": "100X Systems",
+      "description": "Warm team page with remote-first hero, company values with colored icons, 8-person team grid with avatars and bios, stat counters, and careers CTA. DM Serif Display + Inter typography.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "team",
+          "about",
+          "culture",
+          "people",
+          "company",
+          "html",
+          "page"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/team-culture/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "pricing-standalone",
+      "type": "registry:block",
+      "title": "Pricing — Standalone Page",
+      "author": "100X Systems",
+      "description": "Full pricing page with monthly/yearly toggle, 3 tier cards with Most Popular highlight, feature comparison table, and interactive price switching. Inter typeface on dark theme.",
+      "meta": {
+        "category": "saas",
+        "tags": [
+          "pricing",
+          "saas",
+          "plans",
+          "comparison",
+          "toggle",
+          "html",
+          "page"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/pricing-standalone/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-coming-soon",
+      "type": "registry:block",
+      "title": "Coming Soon — Waitlist",
+      "author": "100X Systems",
+      "description": "Pre-launch coming soon page with animated grid background, live countdown timer, email waitlist form with join button, avatar social proof showing 2,847 signups, and floating gradient orbs.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "coming-soon",
+          "waitlist",
+          "launch",
+          "countdown",
+          "email",
+          "html",
+          "page"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/waitlist-coming-soon/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "onboarding-walkthrough",
+      "type": "registry:block",
+      "title": "Onboarding Walkthrough",
+      "author": "100X Systems",
+      "description": "Multi-step onboarding wizard with 4-step progress indicator (numbered/steps), animated transitions, workspace setup form, use case preference selection (6 options), feature highlights, and back/skip/finish navigation.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "onboarding",
+          "walkthrough",
+          "wizard",
+          "setup",
+          "steps",
+          "html",
+          "page"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/onboarding-walkthrough/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "dropdowns-menus",
+      "type": "registry:block",
+      "title": "Dropdowns & Menus",
+      "author": "100X Systems",
+      "description": "4 menu patterns: click-triggered dropdown with shortcuts and dividers, two-column mega menu with sections, right-click context menu, and custom select dropdowns.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "dropdown",
+          "menu",
+          "mega-menu",
+          "context-menu",
+          "select",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/dropdowns-menus/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "carousels-sliders",
+      "type": "registry:block",
+      "title": "Carousels & Sliders",
+      "author": "100X Systems",
+      "description": "3 slider patterns: multi-card feature carousel with dot navigation and prev/next buttons, testimonial rotator with auto-play and author avatars, and tabbed content slider with 4 panels.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "carousel",
+          "slider",
+          "testimonials",
+          "tabs",
+          "navigation",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/carousels-sliders/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "avatars-badges",
+      "type": "registry:block",
+      "title": "Avatars & Badges",
+      "author": "100X Systems",
+      "description": "Avatar sizes (sm/default/lg/xl), status indicators (online/away/DND/offline), avatar groups with overflow count, badge variants (6 colors), badge sizes, dot badges, icon badges, and number counter badges.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "avatars",
+          "badges",
+          "status",
+          "group",
+          "counter",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/avatars-badges/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "timeline-components",
+      "type": "registry:block",
+      "title": "Timeline Components",
+      "author": "100X Systems",
+      "description": "4 timeline patterns: vertical project history with colored dots and dates, activity feed with icons and timestamps, milestone tracker with progress fill, and horizontal sprint timeline.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "timeline",
+          "activity",
+          "feed",
+          "milestone",
+          "history",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/timeline-components/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "wave-dividers",
+      "type": "registry:block",
+      "title": "Wave Dividers",
+      "author": "100X Systems",
+      "description": "6 SVG section dividers: smooth wave, sharp angle/chevron, organic curve/blob, layered hills (3 overlapping), arrow/chevron split, and rounded split. Each shown in context between colored sections with usage guide.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "dividers",
+          "waves",
+          "svg",
+          "sections",
+          "backgrounds",
+          "transitions"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/wave-dividers/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "tech-icons",
+      "type": "registry:block",
+      "title": "Tech Icons",
+      "author": "100X Systems",
+      "description": "16 SVG tech stack icons on 24×24 grid: React, Next.js, TypeScript, Tailwind, Vue, Svelte, Node.js, Python, Docker, Git, GitHub, PostgreSQL, MongoDB, AWS, Redis, Figma, VS Code. Organized by category (Frontend, Backend, Database, Design) with usage guide.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "icons",
+          "tech",
+          "svg",
+          "react",
+          "docker",
+          "github",
+          "development"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/tech-icons/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "terms-privacy",
+      "type": "registry:block",
+      "title": "Terms of Service & Privacy",
+      "author": "100X Systems",
+      "description": "Legal pages with tabbed Terms of Service and Privacy Policy panels. Clean editorial layout with DM Serif Display headings, sections covering acceptance, accounts, intellectual property, data collection, cookies, and user rights.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "legal",
+          "terms",
+          "privacy",
+          "policy",
+          "page"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/terms-privacy/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "changelog-page",
+      "type": "registry:block",
+      "title": "Changelog — Release Notes",
+      "author": "100X Systems",
+      "description": "Release notes page with version timeline (major/minor/patch), color-coded dots, filter pills by release type, and emoji-labelled change entries with code references. JetBrains Mono for version numbers.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "changelog",
+          "release",
+          "notes",
+          "version",
+          "page"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/changelog-page/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "status-page",
+      "type": "registry:block",
+      "title": "System Status Page",
+      "author": "100X Systems",
+      "description": "Service status dashboard with all-good/issues/down badge, 6 monitored services with status indicators, recent incident log with resolved/monitoring labels, and 90-day uptime history bar chart.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "status",
+          "uptime",
+          "incidents",
+          "monitoring",
+          "page"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/status-page/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "docs-template",
+      "type": "registry:block",
+      "title": "Documentation Template",
+      "author": "100X Systems",
+      "description": "Full documentation site with sticky sidebar navigation, search input, 4 grouped sections (Getting Started, Core Concepts, Guides, API Reference), breadcrumbs, table of contents, code blocks, and info/warning/tip callouts.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "docs",
+          "documentation",
+          "knowledge-base",
+          "guide",
+          "template",
+          "page"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/docs-template/index.html",
+          "type": "registry:file",
+          "target": "~/index.html"
+        }
+      ]
+    },
+    {
+      "name": "tooltips-popovers",
+      "type": "registry:block",
+      "title": "Tooltips & Popovers",
+      "author": "100X Systems",
+      "description": "Tooltips in 4 positions (top/bottom/left/right) with arrow indicators, rich tooltips with title and description on hover, keyboard shortcut tooltips on colored buttons, click-to-open notification popover with message list, profile popover card, and settings context popover.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "tooltip",
+          "popover",
+          "hover",
+          "context",
+          "dropdown",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/tooltips-popovers/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "kanban-board",
+      "type": "registry:block",
+      "title": "Kanban Board",
+      "author": "100X Systems",
+      "description": "4-column kanban board (To Do, In Progress, Review, Done) with color-coded column headers, task cards with feature/bug/design/dev/docs labels, high/medium/low priority badges, avatar assignees, and sprint header with task count.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "kanban",
+          "board",
+          "sprint",
+          "tasks",
+          "project",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/kanban-board/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "chat-messages",
+      "type": "registry:block",
+      "title": "Chat Messages",
+      "author": "100X Systems",
+      "description": "Real-time chat UI with incoming/outgoing message bubbles, avatar senders, code snippets in messages, file attachment preview, typing indicator with animated dots, chat input with send and attach buttons, and direct message thread sidebar with unread indicators.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "chat",
+          "messages",
+          "conversation",
+          "dm",
+          "realtime",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/chat-messages/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "calendar-widget",
+      "type": "registry:block",
+      "title": "Calendar Widget",
+      "author": "100X Systems",
+      "description": "Interactive calendar with month navigation (prev/next buttons, today button), 6-week grid with event dots and today highlighting, upcoming events list with color-coded bars and tags, weekly overview with event counts, and date range picker with stats cards.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "calendar",
+          "date-picker",
+          "events",
+          "schedule",
+          "widget",
+          "html",
+          "css",
+          "ui"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/calendar-widget/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "charts-data-viz",
+      "type": "registry:block",
+      "title": "Charts & Data Visualization",
+      "author": "100X Systems",
+      "description": "Zero-dependency HTML/CSS/SVG charts: grouped bar chart with dual series, SVG line chart with gradient area fill and data dots, conic-gradient donut chart with legend, progress bars with colored fills, and stat cards with change indicators.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "charts",
+          "graphs",
+          "data",
+          "visualization",
+          "bar",
+          "line",
+          "donut",
+          "html",
+          "css"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/charts-data-viz/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        }
+      ]
+    },
+    {
+      "name": "social-icons",
+      "type": "registry:block",
+      "title": "Social Media Icons",
+      "author": "100X Systems",
+      "description": "14 SVG brand icons for social media platforms on 24×24 grid: X/Twitter, GitHub, LinkedIn, Discord, Slack, YouTube, Instagram (gradient), Telegram, WhatsApp, TikTok, Reddit, Stack Overflow, Dev.to, Product Hunt, Dribbble. Brand colors, organized by category.",
+      "meta": {
+        "category": "landing",
+        "tags": [
+          "icons",
+          "social",
+          "svg",
+          "brand",
+          "twitter",
+          "github",
+          "linkedin",
+          "discord"
+        ]
+      },
+      "files": [
+        {
+          "path": "public/registry/packs/social-icons/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }

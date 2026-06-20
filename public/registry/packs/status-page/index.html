@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status — System Health</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.6; padding: 48px 24px; }
+  .container { max-width: 720px; margin: 0 auto; }
+  .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 12px; }
+  .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -.5px; }
+  .status-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 100px; font-size: 14px; font-weight: 600; }
+  .status-badge.all-good { background: #d1fae5; color: #059669; }
+  .status-badge.all-good .dot { width: 10px; height: 10px; border-radius: 50%; background: #22c55e; }
+  .status-badge.issues { background: #fef3c7; color: #d97706; }
+  .status-badge.issues .dot { width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; }
+  .status-badge.down { background: #fee2e2; color: #dc2626; }
+  .status-badge.down .dot { width: 10px; height: 10px; border-radius: 50%; background: #ef4444; }
+
+  .uptime { font-size: 13px; color: #64748b; margin-bottom: 32px; background: #fff; border-radius: 12px; padding: 16px 20px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 8px; }
+
+  .services { display: grid; gap: 8px; margin-bottom: 40px; }
+  .service { background: #fff; border-radius: 12px; padding: 18px 20px; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; transition: border-color .2s; }
+  .service:hover { border-color: #cbd5e1; }
+  .service-left { display: flex; align-items: center; gap: 14px; }
+  .service-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .service-info h3 { font-size: 15px; font-weight: 600; }
+  .service-info p { font-size: 13px; color: #94a3b8; }
+  .service-status { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; }
+  .service-status .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .service-status .dot.green { background: #22c55e; }
+  .service-status .dot.yellow { background: #f59e0b; }
+  .service-status .dot.red { background: #ef4444; }
+
+  /* Incidents */
+  .incidents { margin-bottom: 32px; }
+  .incidents h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+  .incident { background: #fff; border-radius: 12px; padding: 18px 20px; border: 1px solid #e2e8f0; margin-bottom: 10px; }
+  .incident-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .incident-status { font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 10px; text-transform: uppercase; letter-spacing: .5px; }
+  .incident-status.resolved { background: #d1fae5; color: #059669; }
+  .incident-status.monitoring { background: #dbeafe; color: #2563eb; }
+  .incident-status.investigating { background: #fef3c7; color: #d97706; }
+  .incident h3 { font-size: 14px; font-weight: 600; flex: 1; }
+  .incident .date { font-size: 12px; color: #94a3b8; }
+  .incident p { font-size: 13px; color: #64748b; }
+
+  /* History */
+  .history h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+  .history-bar { display: flex; gap: 3px; margin-bottom: 8px; }
+  .history-bar .bar { flex: 1; height: 28px; border-radius: 4px; }
+  .bar.green { background: #22c55e; }
+  .bar.yellow { background: #f59e0b; }
+  .bar.red { background: #ef4444; }
+  .history-labels { display: flex; justify-content: space-between; font-size: 12px; color: #94a3b8; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🔍 System Status</h1>
+    <span class="status-badge all-good"><span class="dot"></span> All Systems Normal</span>
+  </div>
+
+  <div class="uptime">✅ 99.97% uptime over the last 90 days</div>
+
+  <div class="services">
+    <div class="service">
+      <div class="service-left">
+        <div class="service-icon" style="background:#eef2ff;">🌐</div>
+        <div class="service-info"><h3>Web Application</h3><p>Dashboard, editor, and landing pages</p></div>
+      </div>
+      <div class="service-status"><span class="dot green"></span> Operational</div>
+    </div>
+    <div class="service">
+      <div class="service-left">
+        <div class="service-icon" style="background:#d1fae5;">⚡</div>
+        <div class="service-info"><h3>API</h3><p>REST and GraphQL endpoints</p></div>
+      </div>
+      <div class="service-status"><span class="dot green"></span> Operational</div>
+    </div>
+    <div class="service">
+      <div class="service-left">
+        <div class="service-icon" style="background:#fef3c7;">🗄️</div>
+        <div class="service-info"><h3>Database</h3><p>PostgreSQL primary and replicas</p></div>
+      </div>
+      <div class="service-status"><span class="dot green"></span> Operational</div>
+    </div>
+    <div class="service">
+      <div class="service-left">
+        <div class="service-icon" style="background:#fce7f3;">📦</div>
+        <div class="service-info"><h3>Storage &amp; CDN</h3><p>Asset hosting and content delivery</p></div>
+      </div>
+      <div class="service-status"><span class="dot green"></span> Operational</div>
+    </div>
+    <div class="service">
+      <div class="service-left">
+        <div class="service-icon" style="background:#e0e7ff;">📧</div>
+        <div class="service-info"><h3>Email Service</h3><p>Transactional and notification emails</p></div>
+      </div>
+      <div class="service-status"><span class="dot green"></span> Operational</div>
+    </div>
+    <div class="service">
+      <div class="service-left">
+        <div class="service-icon" style="background:#d1fae5;">🔌</div>
+        <div class="service-info"><h3>Webhooks &amp; Integrations</h3><p>GitHub, Slack, Figma integrations</p></div>
+      </div>
+      <div class="service-status"><span class="dot green"></span> Operational</div>
+    </div>
+  </div>
+
+  <div class="incidents">
+    <h2>Recent Incidents</h2>
+    <div class="incident">
+      <div class="incident-header">
+        <span class="incident-status resolved">Resolved</span>
+        <h3>Elevated API Error Rates</h3>
+        <span class="date">Jun 12, 2026</span>
+      </div>
+      <p>Brief increase in 5xx errors due to a database connection pool exhaustion. Resolved by scaling up replicas. Duration: 14 minutes.</p>
+    </div>
+    <div class="incident">
+      <div class="incident-header">
+        <span class="incident-status resolved">Resolved</span>
+        <h3>CDN Cache Invalidation Delay</h3>
+        <span class="date">May 30, 2026</span>
+      </div>
+      <p>Asset updates were delayed by up to 6 minutes due to a CDN configuration issue. All assets served correctly after propagation. Duration: 23 minutes.</p>
+    </div>
+    <div class="incident">
+      <div class="incident-header">
+        <span class="incident-status resolved">Resolved</span>
+        <h3>Email Delivery Delays</h3>
+        <span class="date">May 18, 2026</span>
+      </div>
+      <p>Transactional emails were queued with ~8 minute delay due to upstream SMTP provider throttling. Provider confirmed resolution. Duration: 35 minutes.</p>
+    </div>
+  </div>
+
+  <div class="history">
+    <h2>90-Day Uptime History</h2>
+    <div class="history-bar">
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar yellow"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+      <div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div><div class="bar green"></div>
+    </div>
+    <div class="history-labels"><span>90 days ago</span><span>Today</span></div>
+  </div>
+</div>
+</body>
+</html>

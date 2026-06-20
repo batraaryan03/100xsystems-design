@@ -10,7 +10,7 @@ import type { Pack } from "@/application/packs/packs.types";
 
 function AssetCard({ pack }: { pack: Pack }) {
   return (
-    <Link href={`/skills/websites/${pack.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+    <Link href={`/skills/${pack.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
       <div style={{ background: "var(--bone)", borderRadius: "12px", overflow: "hidden", boxShadow: "var(--shadow)", transition: "transform 0.2s ease" }}>
         {pack.thumbnail ? (
           <div style={{ aspectRatio: "16/9", position: "relative", overflow: "hidden" }}>

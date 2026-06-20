@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charts &amp; Data Viz</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; padding: 48px 24px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .sub { color: #64748b; margin-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .card { background: #fff; border-radius: 16px; border: 1px solid #e2e8f0; padding: 28px; }
+  .card h2 { font-size: 15px; font-weight: 600; margin-bottom: 20px; color: #475569; }
+
+  /* Bar Chart */
+  .bar-chart { display: flex; align-items: flex-end; gap: 12px; height: 160px; padding: 0 8px; }
+  .bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+  .bar-wrapper { width: 100%; display: flex; justify-content: center; gap: 3px; }
+  .bar { width: 16px; border-radius: 4px 4px 0 0; transition: height .6s ease; min-height: 4px; }
+  .bar.primary { background: #6366f1; }
+  .bar.secondary { background: #a5b4fc; }
+  .bar-label { font-size: 11px; color: #94a3b8; font-weight: 500; }
+  .bar-value { font-size: 10px; color: #64748b; font-weight: 600; }
+
+  /* Line Chart (SVG) */
+  .line-chart-wrap { position: relative; width: 100%; height: 180px; }
+  .line-chart-wrap svg { width: 100%; height: 100%; }
+  .line-chart-wrap .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+  .line-chart-wrap .data-line { fill: none; stroke: #6366f1; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .line-chart-wrap .data-area { fill: url(#areaGrad); opacity: .12; }
+  .line-chart-wrap .dot { fill: #fff; stroke: #6366f1; stroke-width: 2; }
+  .line-labels { display: flex; justify-content: space-between; margin-top: 4px; font-size: 11px; color: #94a3b8; padding: 0 4px; }
+
+  /* Pie / Donut */
+  .pie-wrap { display: flex; align-items: center; gap: 24px; justify-content: center; }
+  .pie { width: 140px; height: 140px; border-radius: 50%; position: relative; }
+  .donut { width: 140px; height: 140px; border-radius: 50%; position: relative; }
+  .donut-center { position: absolute; top: 30px; left: 30px; width: 80px; height: 80px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+  .donut-center .num { font-size: 24px; font-weight: 800; }
+  .donut-center .label { font-size: 10px; color: #94a3b8; }
+  .legend { display: grid; gap: 6px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #475569; }
+  .legend-item .swatch { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+  .legend-item .val { margin-left: auto; font-weight: 600; color: #0f172a; }
+
+  /* Progress bars */
+  .progress-group { display: grid; gap: 16px; }
+  .progress-item .label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
+  .progress-item .label .name { font-weight: 500; }
+  .progress-item .label .pct { color: #64748b; }
+  .progress-track { height: 8px; background: #f1f5f9; border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 4px; transition: width .6s ease; }
+  .progress-fill.blue { background: #6366f1; }
+  .progress-fill.green { background: #22c55e; }
+  .progress-fill.amber { background: #f59e0b; }
+  .progress-fill.pink { background: #ec4899; }
+  .progress-fill.cyan { background: #06b6d4; }
+
+  /* Stat card */
+  .stat-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stat-box { padding: 16px; border-radius: 12px; background: #f8fafc; }
+  .stat-box .num { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+  .stat-box .desc { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+  .stat-box .change { font-size: 11px; font-weight: 600; margin-top: 4px; }
+  .stat-box .change.up { color: #059669; }
+  .stat-box .change.down { color: #dc2626; }
+
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Charts &amp; Data Visualization</h1>
+  <p class="sub">CSS/SVG bar chart, line chart, donut chart, and progress bars — zero dependencies.</p>
+  <div class="grid">
+    <!-- Bar Chart -->
+    <div class="card">
+      <h2>📊 Monthly Revenue</h2>
+      <div class="bar-chart">
+        <div class="bar-group"><div class="bar-wrapper"><div class="bar secondary" style="height:40%;"></div><div class="bar primary" style="height:60%;"></div></div><span class="bar-label">Jan</span><span class="bar-value">$12k</span></div>
+        <div class="bar-group"><div class="bar-wrapper"><div class="bar secondary" style="height:55%;"></div><div class="bar primary" style="height:74%;"></div></div><span class="bar-label">Feb</span><span class="bar-value">$18k</span></div>
+        <div class="bar-group"><div class="bar-wrapper"><div class="bar secondary" style="height:48%;"></div><div class="bar primary" style="height:82%;"></div></div><span class="bar-label">Mar</span><span class="bar-value">$24k</span></div>
+        <div class="bar-group"><div class="bar-wrapper"><div class="bar secondary" style="height:62%;"></div><div class="bar primary" style="height:90%;"></div></div><span class="bar-label">Apr</span><span class="bar-value">$31k</span></div>
+        <div class="bar-group"><div class="bar-wrapper"><div class="bar secondary" style="height:70%;"></div><div class="bar primary" style="height:86%;"></div></div><span class="bar-label">May</span><span class="bar-value">$28k</span></div>
+        <div class="bar-group"><div class="bar-wrapper"><div class="bar secondary" style="height:78%;"></div><div class="bar primary" style="height:100%;"></div></div><span class="bar-label">Jun</span><span class="bar-value">$42k</span></div>
+      </div>
+    </div>
+
+    <!-- Line Chart -->
+    <div class="card">
+      <h2>📈 Active Users</h2>
+      <div class="line-chart-wrap">
+        <svg viewBox="0 0 300 160" preserveAspectRatio="none">
+          <defs><linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6366f1" stop-opacity=".3"/><stop offset="100%" stop-color="#6366f1" stop-opacity="0"/></linearGradient></defs>
+          <line x1="0" y1="40" x2="300" y2="40" class="grid-line"/>
+          <line x1="0" y1="80" x2="300" y2="80" class="grid-line"/>
+          <line x1="0" y1="120" x2="300" y2="120" class="grid-line"/>
+          <path d="M0,130 C30,125 60,100 90,110 C120,120 150,60 180,50 C210,40 240,20 270,30 C285,35 295,25 300,20" class="data-line"/>
+          <path d="M0,130 C30,125 60,100 90,110 C120,120 150,60 180,50 C210,40 240,20 270,30 C285,35 295,25 300,20 L300,160 L0,160 Z" class="data-area"/>
+          <circle cx="90" cy="110" r="3.5" class="dot"/>
+          <circle cx="180" cy="50" r="3.5" class="dot"/>
+          <circle cx="300" cy="20" r="4" class="dot"/>
+        </svg>
+      </div>
+      <div class="line-labels"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+    </div>
+
+    <!-- Donut Chart -->
+    <div class="card">
+      <h2>🍩 Traffic Sources</h2>
+      <div class="pie-wrap">
+        <div class="donut" style="background: conic-gradient(#6366f1 0% 45%, #22c55e 45% 70%, #f59e0b 70% 85%, #ec4899 85% 100%);">
+          <div class="donut-center"><span class="num">124K</span><span class="label">total</span></div>
+        </div>
+        <div class="legend">
+          <div class="legend-item"><span class="swatch" style="background:#6366f1;"></span>Organic Search <span class="val">45%</span></div>
+          <div class="legend-item"><span class="swatch" style="background:#22c55e;"></span>Direct <span class="val">25%</span></div>
+          <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span>Social <span class="val">15%</span></div>
+          <div class="legend-item"><span class="swatch" style="background:#ec4899;"></span>Referral <span class="val">15%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress bars -->
+    <div class="card">
+      <h2>📋 Project Completion</h2>
+      <div class="progress-group">
+        <div class="progress-item">
+          <div class="label"><span class="name">Design System</span><span class="pct">92%</span></div>
+          <div class="progress-track"><div class="progress-fill blue" style="width:92%;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="label"><span class="name">API Integration</span><span class="pct">78%</span></div>
+          <div class="progress-track"><div class="progress-fill green" style="width:78%;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="label"><span class="name">Testing &amp; QA</span><span class="pct">54%</span></div>
+          <div class="progress-track"><div class="progress-fill amber" style="width:54%;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="label"><span class="name">Documentation</span><span class="pct">35%</span></div>
+          <div class="progress-track"><div class="progress-fill pink" style="width:35%;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="label"><span class="name">Performance Audit</span><span class="pct">20%</span></div>
+          <div class="progress-track"><div class="progress-fill cyan" style="width:20%;"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid #e2e8f0;">
+        <div class="stat-row">
+          <div class="stat-box"><div class="num" style="color:#6366f1;">8</div><div class="desc">Completed projects</div><div class="change up">↑ 2 this month</div></div>
+          <div class="stat-box"><div class="num" style="color:#f59e0b;">3</div><div class="desc">In progress</div><div class="change down">↓ 1 from last month</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

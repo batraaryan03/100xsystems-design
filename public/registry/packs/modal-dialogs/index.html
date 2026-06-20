@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modal & Dialog Patterns</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f4f0;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-soft: #5a5a5a;
+  --accent: #4f6ef7;
+  --accent-soft: #eef1ff;
+  --border: #e5e5e0;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 48px; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+.sub { color: var(--text-soft); margin-bottom: 36px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 960px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; cursor: pointer; transition: all 0.2s ease; }
+.card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+.card .icon { font-size: 28px; margin-bottom: 12px; }
+.card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.card p { font-size: 13px; color: var(--text-soft); line-height: 1.5; }
+
+/* Overlay */
+.overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); z-index: 100; align-items: center; justify-content: center; padding: 24px; }
+.overlay.open { display: flex; }
+.dialog { background: #fff; border-radius: 16px; max-width: 480px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 24px 64px rgba(0,0,0,0.12); }
+.dialog-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px 0; }
+.dialog-header h2 { font-size: 18px; font-weight: 700; }
+.dialog-header .close { width: 32px; height: 32px; border-radius: 50%; border: none; background: var(--bg); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-soft); transition: all 0.15s ease; }
+.dialog-header .close:hover { background: #e5e5e0; }
+.dialog-body { padding: 16px 24px 24px; font-size: 14px; line-height: 1.6; color: var(--text-soft); }
+.dialog-footer { display: flex; gap: 10px; justify-content: flex-end; padding: 0 24px 20px; }
+.dialog-footer .btn { padding: 10px 20px; border-radius: 8px; border: 1px solid var(--border); font-family: var(--sans); font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s ease; background: #fff; color: var(--text); }
+.dialog-footer .btn:hover { background: var(--bg); }
+.dialog-footer .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.dialog-footer .btn-primary:hover { opacity: 0.9; }
+.dialog-footer .btn-danger { background: #ef4444; color: #fff; border-color: #ef4444; }
+.dialog-footer .btn-danger:hover { opacity: 0.9; }
+.dialog-body .input-group { margin-bottom: 16px; }
+.dialog-body .input-group label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+.dialog-body .input-group input, .dialog-body .input-group textarea { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-family: var(--sans); font-size: 14px; outline: none; }
+.dialog-body .input-group input:focus, .dialog-body .input-group textarea:focus { border-color: var(--accent); }
+.dialog-body .input-group textarea { min-height: 80px; resize: vertical; }
+</style>
+</head>
+<body>
+<h1>Modal & Dialog Patterns</h1>
+<p class="sub">Click any card to open the dialog. 3 distinct patterns for different use cases.</p>
+<div class="grid">
+  <div class="card" onclick="openDialog('confirm')">
+    <div class="icon">⚠️</div>
+    <h3>Confirmation Dialog</h3>
+    <p>Standard confirm/cancel dialog with danger action. For destructive operations.</p>
+  </div>
+  <div class="card" onclick="openDialog('form')">
+    <div class="icon">📝</div>
+    <h3>Form Dialog</h3>
+    <p>Input form inside a modal. For quick data entry without navigation.</p>
+  </div>
+  <div class="card" onclick="openDialog('info')">
+    <div class="icon">ℹ️</div>
+    <h3>Info Modal</h3>
+    <p>Informational overlay with rich content. For details or updates.</p>
+  </div>
+</div>
+
+<!-- Confirmation Dialog -->
+<div class="overlay" id="dialog-confirm">
+  <div class="dialog" style="max-width:400px">
+    <div class="dialog-header">
+      <h2>Delete project?</h2>
+      <button class="close" onclick="closeDialog('confirm')">×</button>
+    </div>
+    <div class="dialog-body">
+      This will permanently delete "Annual Report 2026" and all associated files. This action cannot be undone.
+    </div>
+    <div class="dialog-footer">
+      <button class="btn" onclick="closeDialog('confirm')">Cancel</button>
+      <button class="btn btn-danger" onclick="closeDialog('confirm')">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- Form Dialog -->
+<div class="overlay" id="dialog-form">
+  <div class="dialog">
+    <div class="dialog-header">
+      <h2>Create Task</h2>
+      <button class="close" onclick="closeDialog('form')">×</button>
+    </div>
+    <div class="dialog-body">
+      <div class="input-group">
+        <label>Task name</label>
+        <input type="text" placeholder="e.g. Design review" value="Design system audit">
+      </div>
+      <div class="input-group">
+        <label>Description</label>
+        <textarea placeholder="Describe the task...">Review all component variants and ensure consistency across the library.</textarea>
+      </div>
+      <div class="input-group">
+        <label>Due date</label>
+        <input type="text" placeholder="MM/DD/YYYY" value="06/30/2026">
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="btn" onclick="closeDialog('form')">Cancel</button>
+      <button class="btn btn-primary" onclick="closeDialog('form')">Create Task</button>
+    </div>
+  </div>
+</div>
+
+<!-- Info Modal -->
+<div class="overlay" id="dialog-info">
+  <div class="dialog">
+    <div class="dialog-header">
+      <h2>What's New in v2.4</h2>
+      <button class="close" onclick="closeDialog('info')">×</button>
+    </div>
+    <div class="dialog-body">
+      <p><strong>✨ New features</strong></p>
+      <p style="margin-bottom:12px">• Real-time collaboration mode<br>• Dark mode support for all components<br>• Export to Figma and Sketch</p>
+      <p><strong>🔧 Improvements</strong></p>
+      <p style="margin-bottom:12px">• 40% faster load times<br>• Reduced memory usage<br>• Better mobile responsiveness</p>
+      <p><strong>🐛 Bug fixes</strong></p>
+      <p>• Fixed alignment in grid layouts<br>• Resolved overflow in sidebar nav</p>
+    </div>
+    <div class="dialog-footer">
+      <button class="btn btn-primary" onclick="closeDialog('info')">Got it</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openDialog(id) { document.getElementById('dialog-' + id).classList.add('open'); }
+function closeDialog(id) { document.getElementById('dialog-' + id).classList.remove('open'); }
+document.querySelectorAll('.overlay').forEach(el => { el.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('open'); }); });
+</script>
+</body>
+</html>
