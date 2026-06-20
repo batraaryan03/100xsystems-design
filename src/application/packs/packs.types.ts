@@ -34,6 +34,17 @@ export type PackAuthor = {
   github?: string;
 };
 
+/**
+ * Given a pack, returns the correct skill category route prefix.
+ * Used to build links like /skills/websites/[slug] or /skills/illustrations/[slug].
+ */
+export function getPackSkillRoute(pack: Pack): string {
+  if (pack.assetType === "illustration") return "illustrations";
+  if (pack.assetType === "image") return "images";
+  if (pack.assetType === "video") return "videos";
+  return "websites";
+}
+
 export type Pack = {
   id: string;
   slug: string;

@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { usePacks } from "@/application/packs/packs.hooks";
 
 export function Topbar() {
   return (
@@ -26,6 +28,21 @@ export function Topbar() {
 }
 
 export function Navbar() {
+  const pathname = usePathname();
+  const { packs } = usePacks();
+
+  const websiteCount = packs.filter(p => !p.assetType || p.assetType === "component").length;
+  const illustrationCount = packs.filter(p => p.assetType === "illustration").length;
+  const imageCount = packs.filter(p => p.assetType === "image").length;
+  const videoCount = packs.filter(p => p.assetType === "video").length;
+
+  const isActive = (path: string) => pathname.startsWith(path);
+
+  const linkStyle = (path: string): React.CSSProperties => ({
+    color: isActive(path) ? "var(--coral)" : "var(--ink)",
+    fontWeight: isActive(path) ? 600 : 400,
+  });
+
   return (
     <header className="nav">
       <div className="container">
@@ -36,12 +53,13 @@ export function Navbar() {
           </Link>
 
           <nav className="nav-links">
-            <Link href="/skills/websites">Websites</Link>
-            <Link href="/skills/illustrations">Illustrations</Link>
-            <Link href="/skills/images">Images</Link>
-            <Link href="/skills/videos">Videos</Link>
-            <Link href="/collections">Collections</Link>
-            <Link href="/docs">Docs</Link>
+            <Link href="/skills/websites" style={linkStyle("/skills/websites")}>Websites <sup className="nav-count">{websiteCount}</sup></Link>
+            <Link href="/skills/illustrations" style={linkStyle("/skills/illustrations")}>Illustrations <sup className="nav-count">{illustrationCount}</sup></Link>
+            <Link href="/skills/images" style={linkStyle("/skills/images")}>Images <sup className="nav-count">{imageCount}</sup></Link>
+            <Link href="/skills/videos" style={linkStyle("/skills/videos")}>Videos <sup className="nav-count">{videoCount}</sup></Link>
+            <Link href="/collections" style={linkStyle("/collections")}>Collections</Link>
+            <span className="nav-divider" />
+            <Link href="/docs" style={linkStyle("/docs")}>Docs</Link>
           </nav>
 
           <div className="nav-side">
@@ -119,6 +137,13 @@ export function PageHeader({
 }
 
 export function Footer() {
+  const { packs } = usePacks();
+
+  const websiteCount = packs.filter(p => !p.assetType || p.assetType === "component").length;
+  const illustrationCount = packs.filter(p => p.assetType === "illustration").length;
+  const imageCount = packs.filter(p => p.assetType === "image").length;
+  const videoCount = packs.filter(p => p.assetType === "video").length;
+
   return (
     <footer>
       <div className="container">
@@ -142,10 +167,10 @@ export function Footer() {
           <div className="foot-col">
             <h5>Skills</h5>
             <ul>
-              <li><Link href="/skills/websites">Websites</Link></li>
-              <li><Link href="/skills/illustrations">Illustrations</Link></li>
-              <li><Link href="/skills/images">Images</Link></li>
-              <li><Link href="/skills/videos">Videos</Link></li>
+              <li><Link href="/skills/websites">Websites <sup className="nav-count">{websiteCount}</sup></Link></li>
+              <li><Link href="/skills/illustrations">Illustrations <sup className="nav-count">{illustrationCount}</sup></Link></li>
+              <li><Link href="/skills/images">Images <sup className="nav-count">{imageCount}</sup></Link></li>
+              <li><Link href="/skills/videos">Videos <sup className="nav-count">{videoCount}</sup></Link></li>
               <li><Link href="/collections">Collections</Link></li>
             </ul>
           </div>

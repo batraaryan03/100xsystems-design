@@ -5,29 +5,129 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePacks } from "@/application/packs/packs.hooks";
 import { SectionRule, PageHeader } from "@/presentation/_components/components.layout";
-import { CoralDot, Badge } from "@/presentation/_components/components.atomic";
+import { CoralDot } from "@/presentation/_components/components.atomic";
 import type { Pack } from "@/application/packs/packs.types";
 
-function AssetCard({ pack }: { pack: Pack }) {
+function CategoryCard({
+  title,
+  count,
+  icon,
+  href,
+  color,
+  packs,
+}: {
+  title: string;
+  count: number;
+  icon: string;
+  href: string;
+  color: string;
+  packs: Pack[];
+}) {
   return (
-    <Link href={`/skills/${pack.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-      <div style={{ background: "var(--bone)", borderRadius: "12px", overflow: "hidden", boxShadow: "var(--shadow)", transition: "transform 0.2s ease" }}>
-        {pack.thumbnail ? (
-          <div style={{ aspectRatio: "16/9", position: "relative", overflow: "hidden" }}>
-            <Image src={pack.thumbnail} alt={pack.title} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: "cover" }} />
+    <Link
+      href={href}
+      style={{
+        textDecoration: "none",
+        color: "inherit",
+        display: "block",
+        background: "var(--bone)",
+        borderRadius: "20px",
+        padding: "32px 28px 28px",
+        boxShadow: "var(--shadow), inset 0 0 0 1px rgba(21,20,15,0.06)",
+        transition: "transform 0.24s ease, box-shadow 0.24s ease",
+        position: "relative",
+        overflow: "hidden",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "translateY(-4px)";
+        e.currentTarget.style.boxShadow = "0 40px 80px -32px rgba(21,20,15,0.25), inset 0 0 0 1px rgba(21,20,15,0.06)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "";
+        e.currentTarget.style.boxShadow = "";
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px" }}>
+        <span style={{ fontSize: "36px", lineHeight: 1 }}>{icon}</span>
+        <span
+          style={{
+            fontFamily: "var(--sans)",
+            fontSize: "24px",
+            fontWeight: 700,
+            color: color,
+            lineHeight: 1,
+          }}
+        >
+          {count}
+        </span>
+      </div>
+      <h3
+        style={{
+          fontFamily: "var(--sans)",
+          fontSize: "20px",
+          fontWeight: 700,
+          letterSpacing: "-0.014em",
+          marginBottom: "8px",
+        }}
+      >
+        {title}
+      </h3>
+      <p
+        style={{
+          fontFamily: "var(--body)",
+          fontSize: "13px",
+          color: "var(--ink-mute)",
+          lineHeight: 1.5,
+          marginBottom: "18px",
+        }}
+      >
+        Browse all {count} {title.toLowerCase()} packs
+      </p>
+      <div style={{ display: "flex", gap: "8px", overflow: "hidden" }}>
+        {packs.slice(0, 3).map((pack) => (
+          <div
+            key={pack.id}
+            style={{
+              width: "64px",
+              height: "64px",
+              borderRadius: "10px",
+              overflow: "hidden",
+              flexShrink: 0,
+              background: "var(--paper-dark)",
+              position: "relative",
+            }}
+          >
+            {pack.thumbnail && (
+              <Image
+                src={pack.thumbnail}
+                alt={pack.title}
+                fill
+                sizes="64px"
+                style={{ objectFit: "cover" }}
+              />
+            )}
           </div>
-        ) : (
-          <div style={{ aspectRatio: "16/9", background: "var(--paper-dark)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "36px", color: "var(--ink-faint)", opacity: 0.3 }}>{pack.title.charAt(0)}</span>
+        ))}
+        {packs.length > 3 && (
+          <div
+            style={{
+              width: "64px",
+              height: "64px",
+              borderRadius: "10px",
+              background: "var(--line-soft)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontFamily: "var(--sans)",
+              fontSize: "13px",
+              fontWeight: 600,
+              color: "var(--ink-faint)",
+              flexShrink: 0,
+            }}
+          >
+            +{packs.length - 3}
           </div>
         )}
-        <div style={{ padding: "16px 18px 20px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px" }}>
-            <Badge variant="coral">{pack.assetType || pack.framework}</Badge>
-          </div>
-          <h3 style={{ fontFamily: "var(--sans)", fontSize: "15px", fontWeight: 700, letterSpacing: "-0.01em", marginBottom: "6px" }}>{pack.title}</h3>
-          <p style={{ fontFamily: "var(--body)", fontSize: "12px", color: "var(--ink-mute)", lineHeight: 1.4, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{pack.description}</p>
-        </div>
       </div>
     </Link>
   );
@@ -35,11 +135,10 @@ function AssetCard({ pack }: { pack: Pack }) {
 
 export function HomeFeature() {
   const { packs, frameworks } = usePacks();
-  const componentPacks = useMemo(() => packs.filter((p) => p.framework !== "asset").slice(0, 3), [packs]);
+  const websitePacks = useMemo(() => packs.filter((p) => !p.assetType || p.assetType === "component"), [packs]);
   const illustrationPacks = useMemo(() => packs.filter((p) => p.assetType === "illustration"), [packs]);
   const imagePacks = useMemo(() => packs.filter((p) => p.assetType === "image"), [packs]);
   const videoPacks = useMemo(() => packs.filter((p) => p.assetType === "video"), [packs]);
-  const totalAssets = illustrationPacks.length + imagePacks.length + videoPacks.length;
 
   return (
     <div>
@@ -58,7 +157,7 @@ export function HomeFeature() {
           </p>
           <div style={{ display: "flex", gap: "14px", marginBottom: "38px" }}>
             <Link href="/skills/websites" className="btn btn-primary">
-              Browse Websites
+              Start Browsing
               <span className="arrow">
                 <svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11" /></svg>
               </span>
@@ -72,14 +171,14 @@ export function HomeFeature() {
               <span className="stat-ring coral">{packs.length}</span>
               <span style={{ fontFamily: "var(--sans)", fontSize: "11px", color: "var(--ink-soft)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
                 <b style={{ display: "block", fontWeight: 700, color: "var(--ink)", fontSize: "12px" }}>{packs.length}</b>
-                Skills
+                Total Packs
               </span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "9px" }}>
               <span className="stat-ring">{frameworks.length}</span>
               <span style={{ fontFamily: "var(--sans)", fontSize: "11px", color: "var(--ink-soft)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
                 <b style={{ display: "block", fontWeight: 700, color: "var(--ink)", fontSize: "12px" }}>{frameworks.length}</b>
-                Frameworks
+                Formats
               </span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "9px" }}>
@@ -95,86 +194,49 @@ export function HomeFeature() {
 
       <section className="tight">
         <div className="container">
-          <SectionRule roman="I." meta="Browse the collection" page="001 / 004" />
+          <SectionRule roman="I." meta="Browse by category" page="001 / 004" />
           <PageHeader
-            label="Every skill is a droppable folder"
+            label="Four skill types"
             labelIndex="Nº 01"
-            title={<>Browse our curated <em>websites</em><CoralDot /></>}
-            lead="Each design is a complete website — HTML, CSS, or React — ready to install."
+            title={<>Choose your <em>craft</em><CoralDot /></>}
+            lead="Complete websites, SVG illustrations, background textures, and motion assets. Each skill installs directly into your project."
           />
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px", marginBottom: "32px" }}>
-            {componentPacks.map((pack) => (
-              <AssetCard key={pack.id} pack={pack} />
-            ))}
-          </div>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Link href="/skills/websites" className="btn btn-primary" style={{ fontSize: "14px", padding: "12px 24px" }}>
-              View All Websites
-              <span className="arrow">
-                <svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11" /></svg>
-              </span>
-            </Link>
+          <div className="category-grid">
+            <CategoryCard
+              title="Websites"
+              count={websitePacks.length}
+              icon="▣"
+              href="/skills/websites"
+              color="var(--coral)"
+              packs={websitePacks.slice(0, 6)}
+            />
+            <CategoryCard
+              title="Illustrations"
+              count={illustrationPacks.length}
+              icon="✦"
+              href="/skills/illustrations"
+              color="var(--mustard)"
+              packs={illustrationPacks.slice(0, 6)}
+            />
+            <CategoryCard
+              title="Images"
+              count={imagePacks.length}
+              icon="◎"
+              href="/skills/images"
+              color="var(--olive)"
+              packs={imagePacks.slice(0, 6)}
+            />
+            <CategoryCard
+              title="Videos"
+              count={videoPacks.length}
+              icon="▶"
+              href="/skills/videos"
+              color="var(--ink-mute)"
+              packs={videoPacks.slice(0, 6)}
+            />
           </div>
         </div>
       </section>
-
-      {totalAssets > 0 && (
-        <section className="tight">
-          <div className="container">
-            <SectionRule roman="II." meta="Design Assets" page="002 / 004" />
-            <PageHeader
-              label="More than websites"
-              labelIndex="Nº 02"
-              title={<>Illustrations, textures, <em>&</em> video loops<CoralDot /></>}
-              lead="Curated design assets with proper attribution. Install bundles of related assets in one command."
-            />
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "32px", marginBottom: "48px" }}>
-              {illustrationPacks.length > 0 && (
-                <div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-                    <span style={{ fontSize: "24px" }}>✦</span>
-                    <h3 style={{ fontFamily: "var(--sans)", fontSize: "16px", fontWeight: 700 }}>Illustrations</h3>
-                  </div>
-                  {illustrationPacks.map((pack) => (
-                    <AssetCard key={pack.id} pack={pack} />
-                  ))}
-                  <Link href="/skills/illustrations" style={{ display: "inline-block", marginTop: "12px", fontFamily: "var(--sans)", fontSize: "13px", color: "var(--coral)", textDecoration: "none" }}>
-                    View all illustrations →
-                  </Link>
-                </div>
-              )}
-              {imagePacks.length > 0 && (
-                <div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-                    <span style={{ fontSize: "24px" }}>◎</span>
-                    <h3 style={{ fontFamily: "var(--sans)", fontSize: "16px", fontWeight: 700 }}>Images & Textures</h3>
-                  </div>
-                  {imagePacks.map((pack) => (
-                    <AssetCard key={pack.id} pack={pack} />
-                  ))}
-                  <Link href="/skills/images" style={{ display: "inline-block", marginTop: "12px", fontFamily: "var(--sans)", fontSize: "13px", color: "var(--coral)", textDecoration: "none" }}>
-                    View all images →
-                  </Link>
-                </div>
-              )}
-              {videoPacks.length > 0 && (
-                <div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-                    <span style={{ fontSize: "24px" }}>▶</span>
-                    <h3 style={{ fontFamily: "var(--sans)", fontSize: "16px", fontWeight: 700 }}>Video Loops</h3>
-                  </div>
-                  {videoPacks.map((pack) => (
-                    <AssetCard key={pack.id} pack={pack} />
-                  ))}
-                  <Link href="/skills/videos" style={{ display: "inline-block", marginTop: "12px", fontFamily: "var(--sans)", fontSize: "13px", color: "var(--coral)", textDecoration: "none" }}>
-                    View all videos →
-                  </Link>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
 
       <section className="tight">
         <div className="container">

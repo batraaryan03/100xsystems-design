@@ -5,85 +5,172 @@
       "slug": "modern-saas-landing",
       "title": "Modern SaaS Landing",
       "description": "Clean, professional SaaS landing page with hero, features grid, pricing cards, and CTA. Built with Inter font and indigo accent color.",
-      "tags": ["saas", "landing", "pricing", "modern", "clean"],
+      "tags": [
+        "saas",
+        "landing",
+        "pricing",
+        "modern",
+        "clean"
+      ],
       "framework": "html",
       "category": "saas",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/modern-saas-landing",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-15",
-      "thumbnail": "/registry/packs/modern-saas-landing/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/modern-saas-landing/thumbnail.png"
     },
     {
       "id": "portfolio-minimal",
       "slug": "portfolio-minimal",
       "title": "Portfolio — Minimal",
       "description": "Dark, elegant portfolio page with project grid, about section, skills, timeline, and contact links. Space Grotesk typography.",
-      "tags": ["portfolio", "minimal", "dark", "developer", "creative"],
+      "tags": [
+        "portfolio",
+        "minimal",
+        "dark",
+        "developer",
+        "creative"
+      ],
       "framework": "html",
       "category": "portfolio",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/portfolio-minimal",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-15",
-      "thumbnail": "/registry/packs/portfolio-minimal/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/portfolio-minimal/thumbnail.png"
     },
     {
       "id": "agency-studio",
       "slug": "agency-studio",
       "title": "Studio — Creative Agency",
       "description": "Bold, editorial creative agency page with services list, work showcase, client logos, and marquee animation. Playfair Display serif headings.",
-      "tags": ["agency", "creative", "editorial", "bold", "studio"],
+      "tags": [
+        "agency",
+        "creative",
+        "editorial",
+        "bold",
+        "studio"
+      ],
       "framework": "html",
       "category": "agency",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/agency-studio",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-15",
-      "thumbnail": "/registry/packs/agency-studio/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/agency-studio/thumbnail.png"
     },
     {
       "id": "open-doodles-style",
       "slug": "open-doodles-style",
       "title": "Open Doodles Style",
       "description": "Hand-drawn character illustrations in the Open Doodles style. Happy, thinking, waving, and dancing characters for playful UI designs.",
-      "tags": ["illustrations", "characters", "hand-drawn", "doodles", "playful", "svg"],
+      "tags": [
+        "illustrations",
+        "characters",
+        "hand-drawn",
+        "doodles",
+        "playful",
+        "svg"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "illustration",
       "screenshots": [],
       "files": [
-        { "path": "character-happy.svg", "type": "asset" },
-        { "path": "character-thinking.svg", "type": "asset" },
-        { "path": "character-waving.svg", "type": "asset" },
-        { "path": "character-dancing.svg", "type": "asset" }
+        {
+          "path": "index.html",
+          "type": "asset"
+        },
+        {
+          "path": "character-happy.svg",
+          "type": "asset"
+        },
+        {
+          "path": "character-thinking.svg",
+          "type": "asset"
+        },
+        {
+          "path": "character-waving.svg",
+          "type": "asset"
+        },
+        {
+          "path": "character-dancing.svg",
+          "type": "asset"
+        }
       ],
       "assets": [
-        { "name": "Happy Character", "path": "character-happy.svg", "format": "svg" },
-        { "name": "Thinking Character", "path": "character-thinking.svg", "format": "svg" },
-        { "name": "Waving Character", "path": "character-waving.svg", "format": "svg" },
-        { "name": "Dancing Character", "path": "character-dancing.svg", "format": "svg" }
+        {
+          "name": "Happy Character",
+          "path": "character-happy.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Thinking Character",
+          "path": "character-thinking.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Waving Character",
+          "path": "character-waving.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Dancing Character",
+          "path": "character-dancing.svg",
+          "format": "svg"
+        }
       ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/open-doodles-style",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
-      "attribution": [{ "source": "Open Doodles", "url": "https://www.opendoodles.com/", "license": "CC0", "author": "Pablo Stanley" }],
+      "author": {
+        "name": "100X Systems"
+      },
+      "attribution": [
+        {
+          "source": "Open Doodles",
+          "url": "https://www.opendoodles.com/",
+          "license": "CC0",
+          "author": "Pablo Stanley"
+        }
+      ],
       "featured": true,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/open-doodles-style/thumbnail.png",
+      "thumbnail": "/registry/packs/illustrations/open-doodles-style/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -91,30 +178,71 @@
       "slug": "minimal-textures",
       "title": "Minimal Textures",
       "description": "Subtle background textures for modern UI. Paper grain, mesh gradients, dark noise, and dot patterns.",
-      "tags": ["textures", "backgrounds", "gradients", "patterns", "svg", "minimal"],
+      "tags": [
+        "textures",
+        "backgrounds",
+        "gradients",
+        "patterns",
+        "svg",
+        "minimal"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "image",
       "screenshots": [],
       "files": [
-        { "path": "paper-grain.svg", "type": "asset" },
-        { "path": "mesh-gradient.svg", "type": "asset" },
-        { "path": "dark-grain.svg", "type": "asset" },
-        { "path": "dot-pattern.svg", "type": "asset" }
+        {
+          "path": "index.html",
+          "type": "asset"
+        },
+        {
+          "path": "paper-grain.svg",
+          "type": "asset"
+        },
+        {
+          "path": "mesh-gradient.svg",
+          "type": "asset"
+        },
+        {
+          "path": "dark-grain.svg",
+          "type": "asset"
+        },
+        {
+          "path": "dot-pattern.svg",
+          "type": "asset"
+        }
       ],
       "assets": [
-        { "name": "Paper Grain", "path": "paper-grain.svg", "format": "svg" },
-        { "name": "Mesh Gradient", "path": "mesh-gradient.svg", "format": "svg" },
-        { "name": "Dark Grain", "path": "dark-grain.svg", "format": "svg" },
-        { "name": "Dot Pattern", "path": "dot-pattern.svg", "format": "svg" }
+        {
+          "name": "Paper Grain",
+          "path": "paper-grain.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Mesh Gradient",
+          "path": "mesh-gradient.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Dark Grain",
+          "path": "dark-grain.svg",
+          "format": "svg"
+        },
+        {
+          "name": "Dot Pattern",
+          "path": "dot-pattern.svg",
+          "format": "svg"
+        }
       ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/minimal-textures",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/minimal-textures/thumbnail.png",
+      "thumbnail": "/registry/packs/images/minimal-textures/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -122,20 +250,44 @@
       "slug": "abstract-video-loops",
       "title": "Abstract Video Loops",
       "description": "Short, reusable video clips for design projects. Gradient flows, particle drifts, and wave animations.",
-      "tags": ["video", "loops", "abstract", "backgrounds", "animation", "motion"],
+      "tags": [
+        "video",
+        "loops",
+        "abstract",
+        "backgrounds",
+        "animation",
+        "motion"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "video",
       "screenshots": [],
-      "files": [{ "path": "README.md", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        },
+        {
+          "path": "README.md",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/abstract-video-loops",
       "license": "Pexels License",
-      "author": { "name": "100X Systems" },
-      "attribution": [{ "source": "Pexels", "url": "https://www.pexels.com/", "license": "Pexels License" }],
+      "author": {
+        "name": "100X Systems"
+      },
+      "attribution": [
+        {
+          "source": "Pexels",
+          "url": "https://www.pexels.com/",
+          "license": "Pexels License"
+        }
+      ],
       "featured": false,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/abstract-video-loops/thumbnail.png",
+      "thumbnail": "/registry/packs/videos/abstract-video-loops/thumbnail.png",
       "itemCount": 3
     },
     {
@@ -143,30 +295,83 @@
       "slug": "open-peeps-style",
       "title": "Open Peeps Style",
       "description": "Diverse character illustrations in the Open Peeps mix-and-match style. 8 characters with varied skin tones, poses, and outfits for inclusive UI design.",
-      "tags": ["illustrations", "characters", "diverse", "inclusive", "people", "svg"],
+      "tags": [
+        "illustrations",
+        "characters",
+        "diverse",
+        "inclusive",
+        "people",
+        "svg"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "illustration",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "assets": [
-        { "name": "Standing", "path": "index.html", "format": "svg" },
-        { "name": "Celebrating", "path": "index.html", "format": "svg" },
-        { "name": "Sitting", "path": "index.html", "format": "svg" },
-        { "name": "Working", "path": "index.html", "format": "svg" },
-        { "name": "Peace", "path": "index.html", "format": "svg" },
-        { "name": "Pointing", "path": "index.html", "format": "svg" },
-        { "name": "Relaxed", "path": "index.html", "format": "svg" },
-        { "name": "Excited", "path": "index.html", "format": "svg" }
+        {
+          "name": "Standing",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Celebrating",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Sitting",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Working",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Peace",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Pointing",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Relaxed",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Excited",
+          "path": "index.html",
+          "format": "svg"
+        }
       ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/open-peeps-style",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
-      "attribution": [{ "source": "Open Peeps", "url": "https://www.openpeeps.com/", "license": "CC0", "author": "Pablo Stanley" }],
+      "author": {
+        "name": "100X Systems"
+      },
+      "attribution": [
+        {
+          "source": "Open Peeps",
+          "url": "https://www.openpeeps.com/",
+          "license": "CC0",
+          "author": "Pablo Stanley"
+        }
+      ],
       "featured": true,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/open-peeps-style/thumbnail.png",
+      "thumbnail": "/registry/packs/illustrations/open-peeps-style/thumbnail.png",
       "itemCount": 1
     },
     {
@@ -174,28 +379,74 @@
       "slug": "undraw-tech",
       "title": "unDraw Tech",
       "description": "Minimal tech illustrations for SaaS and developer products. Dashboard, code, team, upload, migration, and success states.",
-      "tags": ["illustrations", "tech", "saas", "minimal", "developer", "ui", "svg"],
+      "tags": [
+        "illustrations",
+        "tech",
+        "saas",
+        "minimal",
+        "developer",
+        "ui",
+        "svg"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "illustration",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "assets": [
-        { "name": "Dashboard", "path": "index.html", "format": "svg" },
-        { "name": "Success", "path": "index.html", "format": "svg" },
-        { "name": "Migration", "path": "index.html", "format": "svg" },
-        { "name": "Code", "path": "index.html", "format": "svg" },
-        { "name": "Team", "path": "index.html", "format": "svg" },
-        { "name": "Upload", "path": "index.html", "format": "svg" }
+        {
+          "name": "Dashboard",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Success",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Migration",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Code",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Team",
+          "path": "index.html",
+          "format": "svg"
+        },
+        {
+          "name": "Upload",
+          "path": "index.html",
+          "format": "svg"
+        }
       ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/undraw-tech",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
-      "attribution": [{ "source": "unDraw", "url": "https://undraw.co/", "license": "CC0", "author": "Alexandra Misesova" }],
+      "author": {
+        "name": "100X Systems"
+      },
+      "attribution": [
+        {
+          "source": "unDraw",
+          "url": "https://undraw.co/",
+          "license": "CC0",
+          "author": "Alexandra Misesova"
+        }
+      ],
       "featured": false,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/undraw-tech/thumbnail.png",
+      "thumbnail": "/registry/packs/illustrations/undraw-tech/thumbnail.png",
       "itemCount": 1
     },
     {
@@ -203,19 +454,34 @@
       "slug": "micro-interactions",
       "title": "Micro Interactions",
       "description": "Pure CSS animations for loading states, feedback, and delight. 13 self-contained keyframe animations with no JavaScript.",
-      "tags": ["animations", "micro-interactions", "css", "loading", "feedback", "ui", "motion"],
+      "tags": [
+        "animations",
+        "micro-interactions",
+        "css",
+        "loading",
+        "feedback",
+        "ui",
+        "motion"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "video",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/micro-interactions",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/micro-interactions/thumbnail.png",
+      "thumbnail": "/registry/packs/videos/micro-interactions/thumbnail.png",
       "itemCount": 1
     },
     {
@@ -223,19 +489,32 @@
       "slug": "typography-pairings",
       "title": "Typography Pairings",
       "description": "6 curated serif + sans-serif font combinations for modern UI. Each pairing includes Google Fonts links and usage examples.",
-      "tags": ["typography", "fonts", "google-fonts", "pairings", "design-system"],
+      "tags": [
+        "typography",
+        "fonts",
+        "google-fonts",
+        "pairings",
+        "design-system"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/typography-pairings",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/typography-pairings/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/typography-pairings/thumbnail.png",
       "itemCount": 6
     },
     {
@@ -243,19 +522,32 @@
       "slug": "color-palettes",
       "title": "Color Palettes",
       "description": "6 curated 5-color systems with CSS custom properties. Atelier Zero, Midnight SaaS, Terracotta Studio, Soft Mint, Neon Dark, Sunbleached.",
-      "tags": ["colors", "palette", "design-system", "css-variables", "theme"],
+      "tags": [
+        "colors",
+        "palette",
+        "design-system",
+        "css-variables",
+        "theme"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/color-palettes",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/color-palettes/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/color-palettes/thumbnail.png",
       "itemCount": 6
     },
     {
@@ -263,19 +555,35 @@
       "slug": "ui-components",
       "title": "UI Components",
       "description": "Self-contained HTML/CSS buttons, cards, forms, and modals. Drop-in components with modern styling and interactive states.",
-      "tags": ["components", "buttons", "cards", "forms", "modals", "html", "css", "ui"],
+      "tags": [
+        "components",
+        "buttons",
+        "cards",
+        "forms",
+        "modals",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/ui-components",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/ui-components/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/ui-components/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -283,19 +591,35 @@
       "slug": "nav-components",
       "title": "Navigation Components",
       "description": "Essential navigation patterns — navbar, sidebar, breadcrumbs, and tab bar. Responsive with hover and active states.",
-      "tags": ["navigation", "navbar", "sidebar", "breadcrumbs", "tabs", "html", "css", "ui"],
+      "tags": [
+        "navigation",
+        "navbar",
+        "sidebar",
+        "breadcrumbs",
+        "tabs",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/nav-components",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/nav-components/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/nav-components/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -303,19 +627,33 @@
       "slug": "footer-components",
       "title": "Footer Components",
       "description": "Essential footer patterns — simple, multi-column, and editorial. Responsive with social links and legal sections.",
-      "tags": ["footer", "layout", "html", "css", "ui", "responsive"],
+      "tags": [
+        "footer",
+        "layout",
+        "html",
+        "css",
+        "ui",
+        "responsive"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/footer-components",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/footer-components/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/footer-components/thumbnail.png",
       "itemCount": 3
     },
     {
@@ -323,19 +661,35 @@
       "slug": "form-components",
       "title": "Form Components",
       "description": "Input fields, textareas, selects, checkboxes, and validation states. Clean, accessible form patterns.",
-      "tags": ["forms", "inputs", "selects", "checkboxes", "validation", "html", "css", "ui"],
+      "tags": [
+        "forms",
+        "inputs",
+        "selects",
+        "checkboxes",
+        "validation",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/form-components",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/form-components/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/form-components/thumbnail.png",
       "itemCount": 5
     },
     {
@@ -343,19 +697,35 @@
       "slug": "hero-sections",
       "title": "Hero Sections",
       "description": "4 hero patterns for landing pages — centered, split, gradient, and dark grid. Responsive with CTAs.",
-      "tags": ["hero", "landing", "header", "gradient", "responsive", "html", "css", "ui"],
+      "tags": [
+        "hero",
+        "landing",
+        "header",
+        "gradient",
+        "responsive",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/hero-sections",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/hero-sections/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/hero-sections/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -363,19 +733,35 @@
       "slug": "pricing-tables",
       "title": "Pricing Tables",
       "description": "3 pricing patterns — tiered cards, feature comparison table, and horizontal layout. Responsive with highlighted plans.",
-      "tags": ["pricing", "tables", "cards", "comparison", "saas", "html", "css", "ui"],
+      "tags": [
+        "pricing",
+        "tables",
+        "cards",
+        "comparison",
+        "saas",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/pricing-tables",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/pricing-tables/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/pricing-tables/thumbnail.png",
       "itemCount": 3
     },
     {
@@ -383,19 +769,35 @@
       "slug": "social-proof",
       "title": "Social Proof",
       "description": "Testimonials, logo bars, stats counters, and review cards. Build trust with social proof patterns.",
-      "tags": ["testimonials", "reviews", "stats", "logo-bar", "social-proof", "html", "css", "ui"],
+      "tags": [
+        "testimonials",
+        "reviews",
+        "stats",
+        "logo-bar",
+        "social-proof",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/social-proof",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/social-proof/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/social-proof/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -403,19 +805,35 @@
       "slug": "layout-grids",
       "title": "Layout Grids",
       "description": "4 responsive grid patterns — masonry, dashboard, split view, and card grid. Flexible layouts for any project.",
-      "tags": ["grid", "layout", "masonry", "dashboard", "split-view", "html", "css", "ui"],
+      "tags": [
+        "grid",
+        "layout",
+        "masonry",
+        "dashboard",
+        "split-view",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/layout-grids",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/layout-grids/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/layout-grids/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -423,19 +841,35 @@
       "slug": "cta-banners",
       "title": "CTA Banners",
       "description": "3 call-to-action patterns — gradient, minimal, and newsletter signup. Responsive with dual buttons.",
-      "tags": ["cta", "banner", "newsletter", "signup", "gradient", "html", "css", "ui"],
+      "tags": [
+        "cta",
+        "banner",
+        "newsletter",
+        "signup",
+        "gradient",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/cta-banners",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-16",
-      "thumbnail": "/registry/packs/cta-banners/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/cta-banners/thumbnail.png",
       "itemCount": 3
     },
     {
@@ -443,109 +877,196 @@
       "slug": "open-design-landing-html",
       "title": "Open Design Landing",
       "description": "Single-file editorial landing page. All CSS inlined. Drop one file, get a full page with warm paper aesthetic, coral accents, and editorial typography.",
-      "tags": ["editorial", "landing", "single-file", "atelier-zero", "warm", "coral"],
+      "tags": [
+        "editorial",
+        "landing",
+        "single-file",
+        "atelier-zero",
+        "warm",
+        "coral"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/open-design-landing-html",
       "license": "Apache-2.0",
-      "author": { "name": "Open Design" },
+      "author": {
+        "name": "Open Design"
+      },
       "featured": true,
       "createdAt": "2026-01-15",
-      "thumbnail": "/registry/packs/open-design-landing-html/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/open-design-landing-html/thumbnail.png"
     },
     {
       "id": "dashboard-admin",
       "slug": "dashboard-admin",
       "title": "Dashboard — Admin Panel",
       "description": "Full admin dashboard with dark sidebar, stat cards, weekly revenue chart, recent activity feed, and orders table. Space Grotesk typography.",
-      "tags": ["dashboard", "admin", "analytics", "table", "sidebar", "html"],
+      "tags": [
+        "dashboard",
+        "admin",
+        "analytics",
+        "table",
+        "sidebar",
+        "html"
+      ],
       "framework": "html",
       "category": "dashboard",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/dashboard-admin",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/dashboard-admin/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/dashboard-admin/thumbnail.png"
     },
     {
       "id": "e-commerce-browse",
       "slug": "e-commerce-browse",
       "title": "E-Commerce — Product Browse",
       "description": "Clean e-commerce product listing page with sidebar filters, product card grid, hero banner, and pagination. Instrument Sans typography.",
-      "tags": ["ecommerce", "shop", "products", "grid", "filters", "html"],
+      "tags": [
+        "ecommerce",
+        "shop",
+        "products",
+        "grid",
+        "filters",
+        "html"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/e-commerce-browse",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/e-commerce-browse/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/e-commerce-browse/thumbnail.png"
     },
     {
       "id": "blog-magazine",
       "slug": "blog-magazine",
       "title": "Magazine — Blog Home",
       "description": "Editorial blog homepage with featured story card, article grid, topic pills, newsletter signup. Newsreader serif typography with paper texture.",
-      "tags": ["blog", "magazine", "editorial", "articles", "newsletter", "html"],
+      "tags": [
+        "blog",
+        "magazine",
+        "editorial",
+        "articles",
+        "newsletter",
+        "html"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/blog-magazine",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/blog-magazine/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/blog-magazine/thumbnail.png"
     },
     {
       "id": "auth-pages",
       "slug": "auth-pages",
       "title": "Authentication — Sign In / Sign Up",
       "description": "Dark-themed login page with split layout, brand panel with quote, email + password form, social sign-in buttons, and tabbed auth switching.",
-      "tags": ["auth", "login", "signup", "authentication", "dark", "html"],
+      "tags": [
+        "auth",
+        "login",
+        "signup",
+        "authentication",
+        "dark",
+        "html"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/auth-pages",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/auth-pages/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/auth-pages/thumbnail.png"
     },
     {
       "id": "modal-dialogs",
       "slug": "modal-dialogs",
       "title": "Modal & Dialog Patterns",
       "description": "3 dialog patterns — confirmation, form modal, and info overlay. Click-triggered with backdrop blur and smooth transitions.",
-      "tags": ["modal", "dialog", "overlay", "popup", "confirmation", "form", "html", "css", "ui"],
+      "tags": [
+        "modal",
+        "dialog",
+        "overlay",
+        "popup",
+        "confirmation",
+        "form",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/modal-dialogs",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/modal-dialogs/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/modal-dialogs/thumbnail.png",
       "itemCount": 3
     },
     {
@@ -553,19 +1074,36 @@
       "slug": "accordion-tabs",
       "title": "Accordion, Tabs & Stepper",
       "description": "Interactive UI patterns: pill and line tab variants, accordion FAQ with smooth expand/collapse, and a multi-step wizard with navigation.",
-      "tags": ["accordion", "tabs", "stepper", "wizard", "faq", "interactive", "html", "css", "ui"],
+      "tags": [
+        "accordion",
+        "tabs",
+        "stepper",
+        "wizard",
+        "faq",
+        "interactive",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/accordion-tabs",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/accordion-tabs/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/accordion-tabs/thumbnail.png",
       "itemCount": 3
     },
     {
@@ -573,19 +1111,37 @@
       "slug": "tables-data",
       "title": "Data Table Patterns",
       "description": "3 table variants — standard with search and pagination, compact inventory view, and striped transaction log. Sortable headers and status badges.",
-      "tags": ["table", "data", "grid", "rows", "sort", "search", "pagination", "html", "css", "ui"],
+      "tags": [
+        "table",
+        "data",
+        "grid",
+        "rows",
+        "sort",
+        "search",
+        "pagination",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/tables-data",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/tables-data/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/tables-data/thumbnail.png",
       "itemCount": 3
     },
     {
@@ -593,19 +1149,33 @@
       "slug": "geometric-patterns",
       "title": "Geometric Patterns",
       "description": "6 repeating SVG geometric patterns — chevron, hexagon, dot grid, diagonal stripes, crosshatch, and triangles. For backgrounds and decorative use.",
-      "tags": ["patterns", "geometric", "svg", "backgrounds", "repeating", "textures"],
+      "tags": [
+        "patterns",
+        "geometric",
+        "svg",
+        "backgrounds",
+        "repeating",
+        "textures"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "image",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/geometric-patterns",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/geometric-patterns/thumbnail.png",
+      "thumbnail": "/registry/packs/images/geometric-patterns/thumbnail.png",
       "itemCount": 6
     },
     {
@@ -613,19 +1183,34 @@
       "slug": "blob-shapes",
       "title": "Blob Shapes",
       "description": "6 organic SVG blob shapes in warm, blue, green, pink, amber, and neutral tones. Perfect for hero backgrounds, section dividers, and decorative accents.",
-      "tags": ["blob", "organic", "shapes", "svg", "backgrounds", "decorative", "abstract"],
+      "tags": [
+        "blob",
+        "organic",
+        "shapes",
+        "svg",
+        "backgrounds",
+        "decorative",
+        "abstract"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "image",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/blob-shapes",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/blob-shapes/thumbnail.png",
+      "thumbnail": "/registry/packs/images/blob-shapes/thumbnail.png",
       "itemCount": 6
     },
     {
@@ -633,19 +1218,33 @@
       "slug": "abstract-illustrations",
       "title": "Abstract Illustrations",
       "description": "6 minimalist abstract SVG illustrations — floating orbs, geometric frames, fluid wave, signal bars, nested pentagon, and constellation dot pattern.",
-      "tags": ["illustrations", "abstract", "svg", "minimal", "geometric", "decorative"],
+      "tags": [
+        "illustrations",
+        "abstract",
+        "svg",
+        "minimal",
+        "geometric",
+        "decorative"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "illustration",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/abstract-illustrations",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/abstract-illustrations/thumbnail.png",
+      "thumbnail": "/registry/packs/illustrations/abstract-illustrations/thumbnail.png",
       "itemCount": 6
     },
     {
@@ -653,91 +1252,164 @@
       "slug": "landing-app-showcase",
       "title": "Lumina — App Showcase Landing",
       "description": "Dark-themed app landing page with hero, feature grid, testimonials, pricing, and app mockup. Inter + DM Serif Display typography.",
-      "tags": ["saas", "landing", "app", "showcase", "dark", "pricing", "testimonials"],
+      "tags": [
+        "saas",
+        "landing",
+        "app",
+        "showcase",
+        "dark",
+        "pricing",
+        "testimonials"
+      ],
       "framework": "html",
       "category": "saas",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/landing-app-showcase",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/landing-app-showcase/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/landing-app-showcase/thumbnail.png"
     },
     {
       "id": "page-404-not-found",
       "slug": "page-404-not-found",
       "title": "404 — Page Not Found",
       "description": "Creative 404 error page with large serif typography, warm paper background, and contextual navigation links. Instrument Sans + Serif.",
-      "tags": ["404", "error", "page", "not-found", "html", "utility"],
+      "tags": [
+        "404",
+        "error",
+        "page",
+        "not-found",
+        "html",
+        "utility"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/page-404-not-found",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/page-404-not-found/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/page-404-not-found/thumbnail.png"
     },
     {
       "id": "contact-page",
       "slug": "contact-page",
       "title": "Contact — Get in Touch",
       "description": "Clean contact page with info cards, contact form with validation-ready fields, and social links. Playfair Display + Inter typography.",
-      "tags": ["contact", "form", "get-in-touch", "html", "page"],
+      "tags": [
+        "contact",
+        "form",
+        "get-in-touch",
+        "html",
+        "page"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/contact-page",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/contact-page/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/contact-page/thumbnail.png"
     },
     {
       "id": "faq-page",
       "slug": "faq-page",
       "title": "FAQ — Help Center",
       "description": "Help center page with search bar, category cards, expandable FAQ accordion with smooth animations, and support CTA. Outfit + Lexend typography.",
-      "tags": ["faq", "help", "support", "accordion", "search", "html", "page"],
+      "tags": [
+        "faq",
+        "help",
+        "support",
+        "accordion",
+        "search",
+        "html",
+        "page"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/faq-page",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/faq-page/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/faq-page/thumbnail.png"
     },
     {
       "id": "notifications-toasts",
       "slug": "notifications-toasts",
       "title": "Notifications & Toasts",
       "description": "4 toast notification types (success, error, info, warning) with slide-in animations and auto-dismiss, plus an inline banner variant.",
-      "tags": ["notifications", "toasts", "alerts", "snackbar", "banner", "html", "css", "ui"],
+      "tags": [
+        "notifications",
+        "toasts",
+        "alerts",
+        "snackbar",
+        "banner",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/notifications-toasts",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/notifications-toasts/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/notifications-toasts/thumbnail.png",
       "itemCount": 5
     },
     {
@@ -745,19 +1417,35 @@
       "slug": "loading-spinners",
       "title": "Loading Indicators",
       "description": "7 loading patterns: ring spinner, bouncing dots, pulse ring, bar loader, rotating dots, skeleton screen, and animated progress bar.",
-      "tags": ["loading", "spinner", "skeleton", "progress", "indicator", "css", "animation", "ui"],
+      "tags": [
+        "loading",
+        "spinner",
+        "skeleton",
+        "progress",
+        "indicator",
+        "css",
+        "animation",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/loading-spinners",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/loading-spinners/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/loading-spinners/thumbnail.png",
       "itemCount": 7
     },
     {
@@ -765,19 +1453,36 @@
       "slug": "search-filters",
       "title": "Search & Filter Components",
       "description": "Search bar with keyboard shortcut hint, filter chip variants, active filter tags, tag input with removable chips, and range slider.",
-      "tags": ["search", "filters", "chips", "tags", "input", "range", "html", "css", "ui"],
+      "tags": [
+        "search",
+        "filters",
+        "chips",
+        "tags",
+        "input",
+        "range",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/search-filters",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/search-filters/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/search-filters/thumbnail.png",
       "itemCount": 6
     },
     {
@@ -785,19 +1490,35 @@
       "slug": "profile-cards",
       "title": "Profile Cards",
       "description": "3 profile card variants: vertical with tags and actions, horizontal for side-by-side layouts, and minimal for compact grids.",
-      "tags": ["profile", "team", "cards", "avatar", "contacts", "html", "css", "ui"],
+      "tags": [
+        "profile",
+        "team",
+        "cards",
+        "avatar",
+        "contacts",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/profile-cards",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/profile-cards/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/profile-cards/thumbnail.png",
       "itemCount": 3
     },
     {
@@ -805,19 +1526,32 @@
       "slug": "gradient-meshes",
       "title": "Gradient Meshes",
       "description": "6 vibrant gradient backgrounds — twilight purple, pink bloom, cyan lagoon, green mint, coral sunset, and lavender. CSS gradients ready to use.",
-      "tags": ["gradients", "backgrounds", "meshes", "colors", "ui"],
+      "tags": [
+        "gradients",
+        "backgrounds",
+        "meshes",
+        "colors",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "image",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/gradient-meshes",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/gradient-meshes/thumbnail.png",
+      "thumbnail": "/registry/packs/images/gradient-meshes/thumbnail.png",
       "itemCount": 6
     },
     {
@@ -825,19 +1559,33 @@
       "slug": "line-art-icons",
       "title": "Line Art Icons",
       "description": "12 essential SVG line icons on a 24×24 grid with 1.5px stroke: clock, layers, heart, target, folder, search, download, edit, bookmark, package, history, users.",
-      "tags": ["icons", "line-art", "svg", "minimal", "ui", "symbols"],
+      "tags": [
+        "icons",
+        "line-art",
+        "svg",
+        "minimal",
+        "ui",
+        "symbols"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "illustration",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/line-art-icons",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/line-art-icons/thumbnail.png",
+      "thumbnail": "/registry/packs/illustrations/line-art-icons/thumbnail.png",
       "itemCount": 12
     },
     {
@@ -845,91 +1593,167 @@
       "slug": "team-culture",
       "title": "Team & Culture Page",
       "description": "Warm team page with remote-first hero, company values with colored icons, 8-person team grid with avatars and bios, stat counters, and careers CTA. DM Serif Display + Inter typography.",
-      "tags": ["team", "about", "culture", "people", "company", "html", "page"],
+      "tags": [
+        "team",
+        "about",
+        "culture",
+        "people",
+        "company",
+        "html",
+        "page"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/team-culture",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/team-culture/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/team-culture/thumbnail.png"
     },
     {
       "id": "pricing-standalone",
       "slug": "pricing-standalone",
       "title": "Pricing — Standalone Page",
       "description": "Full pricing page with monthly/yearly toggle, 3 tier cards with Most Popular highlight, feature comparison table, and interactive price switching. Inter typeface on dark theme.",
-      "tags": ["pricing", "saas", "plans", "comparison", "toggle", "html", "page"],
+      "tags": [
+        "pricing",
+        "saas",
+        "plans",
+        "comparison",
+        "toggle",
+        "html",
+        "page"
+      ],
       "framework": "html",
       "category": "saas",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/pricing-standalone",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/pricing-standalone/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/pricing-standalone/thumbnail.png"
     },
     {
       "id": "waitlist-coming-soon",
       "slug": "waitlist-coming-soon",
       "title": "Coming Soon — Waitlist",
       "description": "Pre-launch coming soon page with animated grid background, live countdown timer, email waitlist form with join button, avatar social proof showing 2,847 signups, and floating gradient orbs.",
-      "tags": ["coming-soon", "waitlist", "launch", "countdown", "email", "html", "page"],
+      "tags": [
+        "coming-soon",
+        "waitlist",
+        "launch",
+        "countdown",
+        "email",
+        "html",
+        "page"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/waitlist-coming-soon",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/waitlist-coming-soon/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/waitlist-coming-soon/thumbnail.png"
     },
     {
       "id": "onboarding-walkthrough",
       "slug": "onboarding-walkthrough",
       "title": "Onboarding Walkthrough",
       "description": "Multi-step onboarding wizard with 4-step progress indicator (numbered/steps), animated transitions, workspace setup form, use case preference selection (6 options), feature highlights, and back/skip/finish navigation.",
-      "tags": ["onboarding", "walkthrough", "wizard", "setup", "steps", "html", "page"],
+      "tags": [
+        "onboarding",
+        "walkthrough",
+        "wizard",
+        "setup",
+        "steps",
+        "html",
+        "page"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/onboarding-walkthrough",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/onboarding-walkthrough/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/onboarding-walkthrough/thumbnail.png"
     },
     {
       "id": "dropdowns-menus",
       "slug": "dropdowns-menus",
       "title": "Dropdowns & Menus",
       "description": "4 menu patterns: click-triggered dropdown with shortcuts and dividers, two-column mega menu with sections, right-click context menu, and custom select dropdowns.",
-      "tags": ["dropdown", "menu", "mega-menu", "context-menu", "select", "html", "css", "ui"],
+      "tags": [
+        "dropdown",
+        "menu",
+        "mega-menu",
+        "context-menu",
+        "select",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/dropdowns-menus",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/dropdowns-menus/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/dropdowns-menus/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -937,19 +1761,35 @@
       "slug": "carousels-sliders",
       "title": "Carousels & Sliders",
       "description": "3 slider patterns: multi-card feature carousel with dot navigation and prev/next buttons, testimonial rotator with auto-play and author avatars, and tabbed content slider with 4 panels.",
-      "tags": ["carousel", "slider", "testimonials", "tabs", "navigation", "html", "css", "ui"],
+      "tags": [
+        "carousel",
+        "slider",
+        "testimonials",
+        "tabs",
+        "navigation",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/carousels-sliders",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/carousels-sliders/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/carousels-sliders/thumbnail.png",
       "itemCount": 3
     },
     {
@@ -957,19 +1797,35 @@
       "slug": "avatars-badges",
       "title": "Avatars & Badges",
       "description": "Avatar sizes (sm/default/lg/xl), status indicators (online/away/DND/offline), avatar groups with overflow count, badge variants (6 colors), badge sizes, dot badges, icon badges, and number counter badges.",
-      "tags": ["avatars", "badges", "status", "group", "counter", "html", "css", "ui"],
+      "tags": [
+        "avatars",
+        "badges",
+        "status",
+        "group",
+        "counter",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/avatars-badges",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/avatars-badges/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/avatars-badges/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -977,19 +1833,35 @@
       "slug": "timeline-components",
       "title": "Timeline Components",
       "description": "4 timeline patterns: vertical project history with colored dots and dates, activity feed with icons and timestamps, milestone tracker with progress fill, and horizontal sprint timeline.",
-      "tags": ["timeline", "activity", "feed", "milestone", "history", "html", "css", "ui"],
+      "tags": [
+        "timeline",
+        "activity",
+        "feed",
+        "milestone",
+        "history",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/timeline-components",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/timeline-components/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/timeline-components/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -997,19 +1869,33 @@
       "slug": "wave-dividers",
       "title": "Wave Dividers",
       "description": "6 SVG section dividers: smooth wave, sharp angle/chevron, organic curve/blob, layered hills (3 overlapping), arrow/chevron split, and rounded split. Each shown in context between colored sections with usage guide.",
-      "tags": ["dividers", "waves", "svg", "sections", "backgrounds", "transitions"],
+      "tags": [
+        "dividers",
+        "waves",
+        "svg",
+        "sections",
+        "backgrounds",
+        "transitions"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "image",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/wave-dividers",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/wave-dividers/thumbnail.png",
+      "thumbnail": "/registry/packs/images/wave-dividers/thumbnail.png",
       "itemCount": 6
     },
     {
@@ -1017,19 +1903,34 @@
       "slug": "tech-icons",
       "title": "Tech Icons",
       "description": "16 SVG tech stack icons on 24×24 grid: React, Next.js, TypeScript, Tailwind, Vue, Svelte, Node.js, Python, Docker, Git, GitHub, PostgreSQL, MongoDB, AWS, Redis, Figma, VS Code. Organized by category (Frontend, Backend, Database, Design) with usage guide.",
-      "tags": ["icons", "tech", "svg", "react", "docker", "github", "development"],
+      "tags": [
+        "icons",
+        "tech",
+        "svg",
+        "react",
+        "docker",
+        "github",
+        "development"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "illustration",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/tech-icons",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/tech-icons/thumbnail.png",
+      "thumbnail": "/registry/packs/illustrations/tech-icons/thumbnail.png",
       "itemCount": 16
     },
     {
@@ -1037,91 +1938,160 @@
       "slug": "terms-privacy",
       "title": "Terms of Service & Privacy",
       "description": "Legal pages with tabbed Terms of Service and Privacy Policy panels. Clean editorial layout with DM Serif Display headings, sections covering acceptance, accounts, intellectual property, data collection, cookies, and user rights.",
-      "tags": ["legal", "terms", "privacy", "policy", "page"],
+      "tags": [
+        "legal",
+        "terms",
+        "privacy",
+        "policy",
+        "page"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/terms-privacy",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/terms-privacy/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/terms-privacy/thumbnail.png"
     },
     {
       "id": "changelog-page",
       "slug": "changelog-page",
       "title": "Changelog — Release Notes",
       "description": "Release notes page with version timeline (major/minor/patch), color-coded dots, filter pills by release type, and emoji-labelled change entries with code references. JetBrains Mono for version numbers.",
-      "tags": ["changelog", "release", "notes", "version", "page"],
+      "tags": [
+        "changelog",
+        "release",
+        "notes",
+        "version",
+        "page"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/changelog-page",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/changelog-page/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/changelog-page/thumbnail.png"
     },
     {
       "id": "status-page",
       "slug": "status-page",
       "title": "System Status Page",
       "description": "Service status dashboard with all-good/issues/down badge, 6 monitored services with status indicators, recent incident log with resolved/monitoring labels, and 90-day uptime history bar chart.",
-      "tags": ["status", "uptime", "incidents", "monitoring", "page"],
+      "tags": [
+        "status",
+        "uptime",
+        "incidents",
+        "monitoring",
+        "page"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/status-page",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/status-page/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/status-page/thumbnail.png"
     },
     {
       "id": "docs-template",
       "slug": "docs-template",
       "title": "Documentation Template",
       "description": "Full documentation site with sticky sidebar navigation, search input, 4 grouped sections (Getting Started, Core Concepts, Guides, API Reference), breadcrumbs, table of contents, code blocks, and info/warning/tip callouts.",
-      "tags": ["docs", "documentation", "knowledge-base", "guide", "template", "page"],
+      "tags": [
+        "docs",
+        "documentation",
+        "knowledge-base",
+        "guide",
+        "template",
+        "page"
+      ],
       "framework": "html",
       "category": "landing",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "component" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "component"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/docs-template",
       "license": "MIT",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/docs-template/thumbnail.png"
+      "thumbnail": "/registry/packs/websites/docs-template/thumbnail.png"
     },
     {
       "id": "tooltips-popovers",
       "slug": "tooltips-popovers",
       "title": "Tooltips & Popovers",
       "description": "Tooltips in 4 positions (top/bottom/left/right) with arrow indicators, rich tooltips with title and description on hover, keyboard shortcut tooltips on colored buttons, click-to-open notification popover with message list, profile popover card, and settings context popover.",
-      "tags": ["tooltip", "popover", "hover", "context", "dropdown", "html", "css", "ui"],
+      "tags": [
+        "tooltip",
+        "popover",
+        "hover",
+        "context",
+        "dropdown",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/tooltips-popovers",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/tooltips-popovers/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/tooltips-popovers/thumbnail.png",
       "itemCount": 3
     },
     {
@@ -1129,19 +2099,35 @@
       "slug": "kanban-board",
       "title": "Kanban Board",
       "description": "4-column kanban board (To Do, In Progress, Review, Done) with color-coded column headers, task cards with feature/bug/design/dev/docs labels, high/medium/low priority badges, avatar assignees, and sprint header with task count.",
-      "tags": ["kanban", "board", "sprint", "tasks", "project", "html", "css", "ui"],
+      "tags": [
+        "kanban",
+        "board",
+        "sprint",
+        "tasks",
+        "project",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/kanban-board",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/kanban-board/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/kanban-board/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -1149,19 +2135,35 @@
       "slug": "chat-messages",
       "title": "Chat Messages",
       "description": "Real-time chat UI with incoming/outgoing message bubbles, avatar senders, code snippets in messages, file attachment preview, typing indicator with animated dots, chat input with send and attach buttons, and direct message thread sidebar with unread indicators.",
-      "tags": ["chat", "messages", "conversation", "dm", "realtime", "html", "css", "ui"],
+      "tags": [
+        "chat",
+        "messages",
+        "conversation",
+        "dm",
+        "realtime",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/chat-messages",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": false,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/chat-messages/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/chat-messages/thumbnail.png",
       "itemCount": 2
     },
     {
@@ -1169,19 +2171,35 @@
       "slug": "calendar-widget",
       "title": "Calendar Widget",
       "description": "Interactive calendar with month navigation (prev/next buttons, today button), 6-week grid with event dots and today highlighting, upcoming events list with color-coded bars and tags, weekly overview with event counts, and date range picker with stats cards.",
-      "tags": ["calendar", "date-picker", "events", "schedule", "widget", "html", "css", "ui"],
+      "tags": [
+        "calendar",
+        "date-picker",
+        "events",
+        "schedule",
+        "widget",
+        "html",
+        "css",
+        "ui"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/calendar-widget",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/calendar-widget/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/calendar-widget/thumbnail.png",
       "itemCount": 2
     },
     {
@@ -1189,19 +2207,36 @@
       "slug": "charts-data-viz",
       "title": "Charts & Data Visualization",
       "description": "Zero-dependency HTML/CSS/SVG charts: grouped bar chart with dual series, SVG line chart with gradient area fill and data dots, conic-gradient donut chart with legend, progress bars with colored fills, and stat cards with change indicators.",
-      "tags": ["charts", "graphs", "data", "visualization", "bar", "line", "donut", "html", "css"],
+      "tags": [
+        "charts",
+        "graphs",
+        "data",
+        "visualization",
+        "bar",
+        "line",
+        "donut",
+        "html",
+        "css"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "component",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/charts-data-viz",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/charts-data-viz/thumbnail.png",
+      "thumbnail": "/registry/packs/websites/charts-data-viz/thumbnail.png",
       "itemCount": 4
     },
     {
@@ -1209,19 +2244,35 @@
       "slug": "social-icons",
       "title": "Social Media Icons",
       "description": "14 SVG brand icons for social media platforms on 24×24 grid: X/Twitter, GitHub, LinkedIn, Discord, Slack, YouTube, Instagram (gradient), Telegram, WhatsApp, TikTok, Reddit, Stack Overflow, Dev.to, Product Hunt, Dribbble. Brand colors, organized by category.",
-      "tags": ["icons", "social", "svg", "brand", "twitter", "github", "linkedin", "discord"],
+      "tags": [
+        "icons",
+        "social",
+        "svg",
+        "brand",
+        "twitter",
+        "github",
+        "linkedin",
+        "discord"
+      ],
       "framework": "asset",
       "category": "landing",
       "assetType": "illustration",
       "screenshots": [],
-      "files": [{ "path": "index.html", "type": "asset" }],
+      "files": [
+        {
+          "path": "index.html",
+          "type": "asset"
+        }
+      ],
       "dependencies": [],
       "installCommand": "npx shadcn@latest add batraaryan03/100xsystems-design/social-icons",
       "license": "CC0-1.0",
-      "author": { "name": "100X Systems" },
+      "author": {
+        "name": "100X Systems"
+      },
       "featured": true,
       "createdAt": "2026-06-20",
-      "thumbnail": "/registry/packs/social-icons/thumbnail.png",
+      "thumbnail": "/registry/packs/illustrations/social-icons/thumbnail.png",
       "itemCount": 14
     }
   ],
@@ -1232,25 +2283,69 @@
       "title": "All Packs",
       "description": "Every pack in the registry.",
       "packSlugs": [
-        "open-design-landing-html", "open-design-landing-split", "open-design-landing-react",
-        "modern-saas-landing", "portfolio-minimal", "agency-studio",
-        "open-doodles-style", "minimal-textures", "abstract-video-loops",
-        "open-peeps-style", "undraw-tech", "micro-interactions",
-        "typography-pairings", "color-palettes", "ui-components",
-        "nav-components", "footer-components", "form-components",
-        "hero-sections", "pricing-tables", "social-proof", "layout-grids", "cta-banners",
-        "dashboard-admin", "e-commerce-browse", "blog-magazine", "auth-pages",
-        "modal-dialogs", "accordion-tabs", "tables-data",
-        "geometric-patterns", "blob-shapes", "abstract-illustrations",
-        "landing-app-showcase", "page-404-not-found", "contact-page", "faq-page",
-        "notifications-toasts", "loading-spinners", "search-filters", "profile-cards",
-        "gradient-meshes", "line-art-icons",
-        "team-culture", "pricing-standalone", "waitlist-coming-soon", "onboarding-walkthrough",
-        "dropdowns-menus", "carousels-sliders", "avatars-badges", "timeline-components",
-        "wave-dividers", "tech-icons",
-        "terms-privacy", "changelog-page", "status-page", "docs-template",
-        "tooltips-popovers", "kanban-board", "chat-messages", "calendar-widget",
-        "charts-data-viz", "social-icons"
+        "open-design-landing-html",
+        "open-design-landing-split",
+        "open-design-landing-react",
+        "modern-saas-landing",
+        "portfolio-minimal",
+        "agency-studio",
+        "open-doodles-style",
+        "minimal-textures",
+        "abstract-video-loops",
+        "open-peeps-style",
+        "undraw-tech",
+        "micro-interactions",
+        "typography-pairings",
+        "color-palettes",
+        "ui-components",
+        "nav-components",
+        "footer-components",
+        "form-components",
+        "hero-sections",
+        "pricing-tables",
+        "social-proof",
+        "layout-grids",
+        "cta-banners",
+        "dashboard-admin",
+        "e-commerce-browse",
+        "blog-magazine",
+        "auth-pages",
+        "modal-dialogs",
+        "accordion-tabs",
+        "tables-data",
+        "geometric-patterns",
+        "blob-shapes",
+        "abstract-illustrations",
+        "landing-app-showcase",
+        "page-404-not-found",
+        "contact-page",
+        "faq-page",
+        "notifications-toasts",
+        "loading-spinners",
+        "search-filters",
+        "profile-cards",
+        "gradient-meshes",
+        "line-art-icons",
+        "team-culture",
+        "pricing-standalone",
+        "waitlist-coming-soon",
+        "onboarding-walkthrough",
+        "dropdowns-menus",
+        "carousels-sliders",
+        "avatars-badges",
+        "timeline-components",
+        "wave-dividers",
+        "tech-icons",
+        "terms-privacy",
+        "changelog-page",
+        "status-page",
+        "docs-template",
+        "tooltips-popovers",
+        "kanban-board",
+        "chat-messages",
+        "calendar-widget",
+        "charts-data-viz",
+        "social-icons"
       ]
     },
     {
@@ -1258,71 +2353,115 @@
       "slug": "editorial-landing",
       "title": "Editorial Landing Pages",
       "description": "Warm, paper-aesthetic editorial landing pages with coral accents.",
-      "packSlugs": ["open-design-landing-html", "open-design-landing-split", "open-design-landing-react"]
+      "packSlugs": [
+        "open-design-landing-html",
+        "open-design-landing-split",
+        "open-design-landing-react"
+      ]
     },
     {
       "id": "saas",
       "slug": "saas",
       "title": "SaaS",
       "description": "Clean, conversion-focused landing pages for software products.",
-      "packSlugs": ["modern-saas-landing", "dashboard-admin", "landing-app-showcase", "pricing-standalone"]
+      "packSlugs": [
+        "modern-saas-landing",
+        "dashboard-admin",
+        "landing-app-showcase",
+        "pricing-standalone"
+      ]
     },
     {
       "id": "portfolio",
       "slug": "portfolio",
       "title": "Portfolio",
       "description": "Elegant portfolio pages for developers and creatives.",
-      "packSlugs": ["portfolio-minimal"]
+      "packSlugs": [
+        "portfolio-minimal"
+      ]
     },
     {
       "id": "agency",
       "slug": "agency",
       "title": "Agency",
       "description": "Bold, editorial pages for creative agencies and studios.",
-      "packSlugs": ["agency-studio", "team-culture"]
+      "packSlugs": [
+        "agency-studio",
+        "team-culture"
+      ]
     },
     {
       "id": "e-commerce",
       "slug": "e-commerce",
       "title": "E-Commerce",
       "description": "Product listing pages and shop interfaces.",
-      "packSlugs": ["e-commerce-browse"]
+      "packSlugs": [
+        "e-commerce-browse"
+      ]
     },
     {
       "id": "auth",
       "slug": "auth",
       "title": "Authentication",
       "description": "Login, signup, and authentication page templates.",
-      "packSlugs": ["auth-pages"]
+      "packSlugs": [
+        "auth-pages"
+      ]
     },
     {
       "id": "utility-pages",
       "slug": "utility-pages",
       "title": "Utility Pages",
       "description": "Essential utility page templates — 404, FAQ, and contact forms.",
-      "packSlugs": ["page-404-not-found", "faq-page", "contact-page", "waitlist-coming-soon", "onboarding-walkthrough",
-        "terms-privacy", "changelog-page", "status-page", "docs-template"]
+      "packSlugs": [
+        "page-404-not-found",
+        "faq-page",
+        "contact-page",
+        "waitlist-coming-soon",
+        "onboarding-walkthrough",
+        "terms-privacy",
+        "changelog-page",
+        "status-page",
+        "docs-template"
+      ]
     },
     {
       "id": "illustrations",
       "slug": "illustrations",
       "title": "Illustrations",
       "description": "Free SVG illustration packs with cohesive design styles.",
-      "packSlugs": ["open-doodles-style", "open-peeps-style", "undraw-tech", "abstract-illustrations", "line-art-icons", "tech-icons", "social-icons"]
+      "packSlugs": [
+        "open-doodles-style",
+        "open-peeps-style",
+        "undraw-tech",
+        "abstract-illustrations",
+        "line-art-icons",
+        "tech-icons",
+        "social-icons"
+      ]
     },
     {
       "id": "textures-and-images",
       "slug": "textures-and-images",
       "title": "Textures & Images",
       "description": "Background textures, gradients, and image assets for modern UI.",
-      "packSlugs": ["minimal-textures", "geometric-patterns", "blob-shapes", "gradient-meshes", "wave-dividers"]
+      "packSlugs": [
+        "minimal-textures",
+        "geometric-patterns",
+        "blob-shapes",
+        "gradient-meshes",
+        "wave-dividers"
+      ]
     },
     {
       "id": "video-loops",
       "slug": "video-loops",
       "title": "Video Loops & Animations",
       "description": "Short, reusable video clips and CSS animations for hero sections, loading states, and backgrounds.",
-      "packSlugs": ["abstract-video-loops", "micro-interactions"]
+      "packSlugs": [
+        "abstract-video-loops",
+        "micro-interactions"
+      ]
     },
     {
       "id": "design-system",
@@ -1330,13 +2469,29 @@
       "title": "Design System",
       "description": "Typography, textures, and foundational assets for building consistent UI.",
       "packSlugs": [
-        "typography-pairings", "minimal-textures", "micro-interactions",
-        "color-palettes", "ui-components", "nav-components",
-        "footer-components", "form-components",
-        "modal-dialogs", "accordion-tabs", "tables-data",
-        "notifications-toasts", "loading-spinners", "search-filters", "profile-cards",
-        "dropdowns-menus", "carousels-sliders", "avatars-badges", "timeline-components",
-        "tooltips-popovers", "kanban-board", "chat-messages", "calendar-widget",
+        "typography-pairings",
+        "minimal-textures",
+        "micro-interactions",
+        "color-palettes",
+        "ui-components",
+        "nav-components",
+        "footer-components",
+        "form-components",
+        "modal-dialogs",
+        "accordion-tabs",
+        "tables-data",
+        "notifications-toasts",
+        "loading-spinners",
+        "search-filters",
+        "profile-cards",
+        "dropdowns-menus",
+        "carousels-sliders",
+        "avatars-badges",
+        "timeline-components",
+        "tooltips-popovers",
+        "kanban-board",
+        "chat-messages",
+        "calendar-widget",
         "charts-data-viz"
       ]
     }

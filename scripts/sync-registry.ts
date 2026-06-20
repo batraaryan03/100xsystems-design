@@ -33,6 +33,17 @@ interface DataJsonPack {
   author?: { name: string };
 }
 
+/**
+ * Determine the skill category for a pack based on its properties.
+ * Must match the logic in packs.types.ts getPackSkillRoute().
+ */
+function getSkillCategory(pack: DataJsonPack): string {
+  if (pack.assetType === "illustration") return "illustrations";
+  if (pack.assetType === "image") return "images";
+  if (pack.assetType === "video") return "videos";
+  return "websites";
+}
+
 interface DataJson {
   packs: DataJsonPack[];
   collections: unknown[];
@@ -83,7 +94,7 @@ function getTarget(framework: string, filePath: string): string {
 /** Convert a data.json pack to a shadcn registry item */
 function packToRegistryItem(pack: DataJsonPack): RegistryItem {
   const files: RegistryFile[] = pack.files.map((f) => ({
-    path: `public/registry/packs/${pack.slug}/${f.path}`,
+    path: `public/registry/packs/${getSkillCategory(pack)}/${pack.slug}/${f.path}`,
     type: mapFileType(f.path),
     target: getTarget(pack.framework, f.path),
   }));

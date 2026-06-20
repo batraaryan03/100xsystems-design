@@ -63,9 +63,11 @@ export function Pill({
 export function Badge({
   children,
   variant = "default",
+  style,
 }: {
   children: React.ReactNode;
   variant?: "default" | "coral" | "olive";
+  style?: React.CSSProperties;
 }) {
   const colors: Record<string, React.CSSProperties> = {
     default: { color: "var(--ink-mute)", background: "var(--bone)" },
@@ -86,6 +88,7 @@ export function Badge({
         fontWeight: 500,
         letterSpacing: "0.04em",
         ...colors[variant],
+        ...style,
       }}
     >
       {children}

@@ -21,7 +21,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/modern-saas-landing/index.html",
+          "path": "public/registry/packs/websites/modern-saas-landing/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -45,7 +45,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/portfolio-minimal/index.html",
+          "path": "public/registry/packs/websites/portfolio-minimal/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -69,7 +69,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/agency-studio/index.html",
+          "path": "public/registry/packs/websites/agency-studio/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -94,22 +94,27 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/open-doodles-style/character-happy.svg",
+          "path": "public/registry/packs/illustrations/open-doodles-style/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        },
+        {
+          "path": "public/registry/packs/illustrations/open-doodles-style/character-happy.svg",
           "type": "registry:file",
           "target": "~/assets/character-happy.svg"
         },
         {
-          "path": "public/registry/packs/open-doodles-style/character-thinking.svg",
+          "path": "public/registry/packs/illustrations/open-doodles-style/character-thinking.svg",
           "type": "registry:file",
           "target": "~/assets/character-thinking.svg"
         },
         {
-          "path": "public/registry/packs/open-doodles-style/character-waving.svg",
+          "path": "public/registry/packs/illustrations/open-doodles-style/character-waving.svg",
           "type": "registry:file",
           "target": "~/assets/character-waving.svg"
         },
         {
-          "path": "public/registry/packs/open-doodles-style/character-dancing.svg",
+          "path": "public/registry/packs/illustrations/open-doodles-style/character-dancing.svg",
           "type": "registry:file",
           "target": "~/assets/character-dancing.svg"
         }
@@ -134,22 +139,27 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/minimal-textures/paper-grain.svg",
+          "path": "public/registry/packs/images/minimal-textures/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        },
+        {
+          "path": "public/registry/packs/images/minimal-textures/paper-grain.svg",
           "type": "registry:file",
           "target": "~/assets/paper-grain.svg"
         },
         {
-          "path": "public/registry/packs/minimal-textures/mesh-gradient.svg",
+          "path": "public/registry/packs/images/minimal-textures/mesh-gradient.svg",
           "type": "registry:file",
           "target": "~/assets/mesh-gradient.svg"
         },
         {
-          "path": "public/registry/packs/minimal-textures/dark-grain.svg",
+          "path": "public/registry/packs/images/minimal-textures/dark-grain.svg",
           "type": "registry:file",
           "target": "~/assets/dark-grain.svg"
         },
         {
-          "path": "public/registry/packs/minimal-textures/dot-pattern.svg",
+          "path": "public/registry/packs/images/minimal-textures/dot-pattern.svg",
           "type": "registry:file",
           "target": "~/assets/dot-pattern.svg"
         }
@@ -174,7 +184,12 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/abstract-video-loops/README.md",
+          "path": "public/registry/packs/videos/abstract-video-loops/index.html",
+          "type": "registry:file",
+          "target": "~/assets/index.html"
+        },
+        {
+          "path": "public/registry/packs/videos/abstract-video-loops/README.md",
           "type": "registry:file",
           "target": "~/assets/README.md"
         }
@@ -199,7 +214,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/open-peeps-style/index.html",
+          "path": "public/registry/packs/illustrations/open-peeps-style/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -225,7 +240,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/undraw-tech/index.html",
+          "path": "public/registry/packs/illustrations/undraw-tech/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -251,7 +266,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/micro-interactions/index.html",
+          "path": "public/registry/packs/videos/micro-interactions/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -275,7 +290,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/typography-pairings/index.html",
+          "path": "public/registry/packs/websites/typography-pairings/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -299,7 +314,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/color-palettes/index.html",
+          "path": "public/registry/packs/websites/color-palettes/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -326,7 +341,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/ui-components/index.html",
+          "path": "public/registry/packs/websites/ui-components/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -353,7 +368,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/nav-components/index.html",
+          "path": "public/registry/packs/websites/nav-components/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -378,7 +393,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/footer-components/index.html",
+          "path": "public/registry/packs/websites/footer-components/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -405,7 +420,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/form-components/index.html",
+          "path": "public/registry/packs/websites/form-components/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -432,7 +447,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/hero-sections/index.html",
+          "path": "public/registry/packs/websites/hero-sections/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -459,7 +474,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/pricing-tables/index.html",
+          "path": "public/registry/packs/websites/pricing-tables/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -486,7 +501,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/social-proof/index.html",
+          "path": "public/registry/packs/websites/social-proof/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -513,7 +528,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/layout-grids/index.html",
+          "path": "public/registry/packs/websites/layout-grids/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -540,7 +555,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/cta-banners/index.html",
+          "path": "public/registry/packs/websites/cta-banners/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -565,7 +580,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/open-design-landing-html/index.html",
+          "path": "public/registry/packs/websites/open-design-landing-html/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -590,7 +605,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/dashboard-admin/index.html",
+          "path": "public/registry/packs/websites/dashboard-admin/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -615,7 +630,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/e-commerce-browse/index.html",
+          "path": "public/registry/packs/websites/e-commerce-browse/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -640,7 +655,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/blog-magazine/index.html",
+          "path": "public/registry/packs/websites/blog-magazine/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -665,7 +680,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/auth-pages/index.html",
+          "path": "public/registry/packs/websites/auth-pages/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -693,7 +708,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/modal-dialogs/index.html",
+          "path": "public/registry/packs/websites/modal-dialogs/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -721,7 +736,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/accordion-tabs/index.html",
+          "path": "public/registry/packs/websites/accordion-tabs/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -750,7 +765,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/tables-data/index.html",
+          "path": "public/registry/packs/websites/tables-data/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -775,7 +790,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/geometric-patterns/index.html",
+          "path": "public/registry/packs/images/geometric-patterns/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -801,7 +816,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/blob-shapes/index.html",
+          "path": "public/registry/packs/images/blob-shapes/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -826,7 +841,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/abstract-illustrations/index.html",
+          "path": "public/registry/packs/illustrations/abstract-illustrations/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -852,7 +867,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/landing-app-showcase/index.html",
+          "path": "public/registry/packs/websites/landing-app-showcase/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -877,7 +892,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/page-404-not-found/index.html",
+          "path": "public/registry/packs/websites/page-404-not-found/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -901,7 +916,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/contact-page/index.html",
+          "path": "public/registry/packs/websites/contact-page/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -927,7 +942,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/faq-page/index.html",
+          "path": "public/registry/packs/websites/faq-page/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -954,7 +969,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/notifications-toasts/index.html",
+          "path": "public/registry/packs/websites/notifications-toasts/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -981,7 +996,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/loading-spinners/index.html",
+          "path": "public/registry/packs/websites/loading-spinners/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1009,7 +1024,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/search-filters/index.html",
+          "path": "public/registry/packs/websites/search-filters/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1036,7 +1051,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/profile-cards/index.html",
+          "path": "public/registry/packs/websites/profile-cards/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1060,7 +1075,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/gradient-meshes/index.html",
+          "path": "public/registry/packs/images/gradient-meshes/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1085,7 +1100,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/line-art-icons/index.html",
+          "path": "public/registry/packs/illustrations/line-art-icons/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1111,7 +1126,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/team-culture/index.html",
+          "path": "public/registry/packs/websites/team-culture/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -1137,7 +1152,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/pricing-standalone/index.html",
+          "path": "public/registry/packs/websites/pricing-standalone/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -1163,7 +1178,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/waitlist-coming-soon/index.html",
+          "path": "public/registry/packs/websites/waitlist-coming-soon/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -1189,7 +1204,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/onboarding-walkthrough/index.html",
+          "path": "public/registry/packs/websites/onboarding-walkthrough/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -1216,7 +1231,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/dropdowns-menus/index.html",
+          "path": "public/registry/packs/websites/dropdowns-menus/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1243,7 +1258,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/carousels-sliders/index.html",
+          "path": "public/registry/packs/websites/carousels-sliders/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1270,7 +1285,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/avatars-badges/index.html",
+          "path": "public/registry/packs/websites/avatars-badges/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1297,7 +1312,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/timeline-components/index.html",
+          "path": "public/registry/packs/websites/timeline-components/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1322,7 +1337,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/wave-dividers/index.html",
+          "path": "public/registry/packs/images/wave-dividers/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1348,7 +1363,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/tech-icons/index.html",
+          "path": "public/registry/packs/illustrations/tech-icons/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1372,7 +1387,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/terms-privacy/index.html",
+          "path": "public/registry/packs/websites/terms-privacy/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -1396,7 +1411,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/changelog-page/index.html",
+          "path": "public/registry/packs/websites/changelog-page/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -1420,7 +1435,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/status-page/index.html",
+          "path": "public/registry/packs/websites/status-page/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -1445,7 +1460,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/docs-template/index.html",
+          "path": "public/registry/packs/websites/docs-template/index.html",
           "type": "registry:file",
           "target": "~/index.html"
         }
@@ -1472,7 +1487,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/tooltips-popovers/index.html",
+          "path": "public/registry/packs/websites/tooltips-popovers/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1499,7 +1514,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/kanban-board/index.html",
+          "path": "public/registry/packs/websites/kanban-board/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1526,7 +1541,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/chat-messages/index.html",
+          "path": "public/registry/packs/websites/chat-messages/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1553,7 +1568,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/calendar-widget/index.html",
+          "path": "public/registry/packs/websites/calendar-widget/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1581,7 +1596,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/charts-data-viz/index.html",
+          "path": "public/registry/packs/websites/charts-data-viz/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }
@@ -1608,7 +1623,7 @@
       },
       "files": [
         {
-          "path": "public/registry/packs/social-icons/index.html",
+          "path": "public/registry/packs/illustrations/social-icons/index.html",
           "type": "registry:file",
           "target": "~/assets/index.html"
         }

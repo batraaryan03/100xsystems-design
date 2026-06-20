@@ -5,6 +5,7 @@ import { usePacks } from "@/application/packs/packs.hooks";
 import { Badge, CoralDot } from "@/presentation/_components/components.atomic";
 import { SectionRule, PageHeader } from "@/presentation/_components/components.layout";
 import type { Pack, PackAssetType } from "@/application/packs/packs.types";
+import { getPackSkillRoute } from "@/application/packs/packs.types";
 import Image from "next/image";
 
 const ASSET_TYPE_META: Record<PackAssetType, { title: string; description: string; icon: string; roman: string }> = {
@@ -39,7 +40,7 @@ function AssetPackCard({ pack }: { pack: Pack }) {
 
   return (
     <a
-      href={`/skills/${pack.slug}`}
+      href={`/skills/${getPackSkillRoute(pack)}/${pack.slug}`}
       style={{
         textDecoration: "none",
         color: "inherit",

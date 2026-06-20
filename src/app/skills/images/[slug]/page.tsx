@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { WebsiteDetailFeature } from "@/presentation/features/websites/website-detail.feature";
 
-export default async function SkillDetailPage({
+export default async function ImageDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;

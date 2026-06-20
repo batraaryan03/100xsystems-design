@@ -7,6 +7,7 @@ import { Badge, CodeBlock, CoralDot } from "@/presentation/_components/component
 import { SectionRule } from "@/presentation/_components/components.layout";
 import { notFound } from "next/navigation";
 import type { Pack } from "@/application/packs/packs.types";
+import { getPackSkillRoute } from "@/application/packs/packs.types";
 
 function CopyPageDropdown({ pack, fileContents }: { pack: Pack; fileContents: Record<string, string> }) {
   const [open, setOpen] = useState(false);
@@ -221,6 +222,7 @@ function FileTabs({ pack, fileContents }: { pack: Pack; fileContents: Record<str
 
 function PackDetailInner({ pack }: { pack: Pack }) {
   const [fileContents, setFileContents] = useState<Record<string, string>>({});
+  const skillCategory = getPackSkillRoute(pack);
 
   useEffect(() => {
     let cancelled = false;
@@ -228,7 +230,7 @@ function PackDetailInner({ pack }: { pack: Pack }) {
       const contents: Record<string, string> = {};
       for (const file of pack.files) {
         try {
-          const res = await fetch(`/registry/packs/${pack.slug}/${file.path}`);
+          const res = await fetch(`/registry/packs/${skillCategory}/${pack.slug}/${file.path}`);
           if (res.ok) {
             contents[file.path] = await res.text();
           }
@@ -238,12 +240,12 @@ function PackDetailInner({ pack }: { pack: Pack }) {
     }
     load();
     return () => { cancelled = true; };
-  }, [pack]);
+  }, [pack, skillCategory]);
 
   const previewUrl = (() => {
     const htmlFile = pack.files.find(f => f.path.endsWith(".html"));
     if (htmlFile) {
-      return `/registry/packs/${pack.slug}/${htmlFile.path}`;
+      return `/registry/packs/${skillCategory}/${pack.slug}/${htmlFile.path}`;
     }
     return null;
   })();
@@ -253,7 +255,7 @@ function PackDetailInner({ pack }: { pack: Pack }) {
       <div className="container" style={{ maxWidth: "900px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }}>
           <Link
-            href="/skills/websites"
+            href={`/skills/${skillCategory}`}
             style={{
               display: "inline-flex",
               alignItems: "center",
